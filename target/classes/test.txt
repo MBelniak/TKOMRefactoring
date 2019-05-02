@@ -1,0 +1,21 @@
+import Scanner.Lexem;
+
+
+public class SomeClass extends BaseClass implements Interface
+{
+    private int number;
+    protected OtherClass instance;
+
+    SomeClass()
+    {
+        super();
+        instance.getSomething().instance = 20;
+        number = 23;
+    }
+
+    public void something(int a, SomeClass b)     //Komentarz
+    {
+        a = b.getNumber();
+    }
+
+}

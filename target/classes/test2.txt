@@ -1,0 +1,24 @@
+//dozwolone nazwy
+$
+_
+$34
+_34
+$_ident
+$ident
+_ident
+//niedozwolona nazwa
+23ident
+//niedozwolone znaki
+!@#%^&*~`?'"\|
+
+//cały identyfikator
+jjjsk22334k
+//Komentarz
+/* Blok komentarza
+
+
+ident
+sample text
+*/
+
+function_call(parameter1, parameter2);
