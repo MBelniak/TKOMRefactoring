@@ -30,4 +30,6 @@ main
 static
 String
 234njkg
-!
+~
+*
+default

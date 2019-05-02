@@ -19,6 +19,11 @@ class OneLexemTestCase {
         int lexValue = 0;
         Lexem lexem;
         while ((lexem = scanner.getNextLexem()) != null) {
+            if(lexem.getLexemType() == Lexem.LexemType.EOF)
+            {
+                lexValue++;
+                continue;
+            }
             assertEquals(lexValue, lexem.getLexemType().getValue());
             lexValue++;
         }

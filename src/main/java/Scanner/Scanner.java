@@ -25,7 +25,8 @@ public class Scanner {
             new AbstractMap.SimpleEntry<>("main", Lexem.LexemType.MAIN),
             new AbstractMap.SimpleEntry<>("int", Lexem.LexemType.INT),
             new AbstractMap.SimpleEntry<>("static", Lexem.LexemType.STATIC),
-            new AbstractMap.SimpleEntry<>("return", Lexem.LexemType.RETURN)
+            new AbstractMap.SimpleEntry<>("return", Lexem.LexemType.RETURN),
+            new AbstractMap.SimpleEntry<>("default", Lexem.LexemType.DEFAULT)
     );
 
     private static final int MAX_IDENT_LENGTH = 1000;

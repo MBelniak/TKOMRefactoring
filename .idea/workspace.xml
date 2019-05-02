@@ -2,23 +2,26 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="569db950-2a4c-4d14-bd10-c4385d25069d" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/Exceptions/ClassKeywordExpectedException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Exceptions/ClassOrInterfaceDefinitionExpectedException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Exceptions/ExtendsKeywordExpectedException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Exceptions/IdentOrAsterixExpectedException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Exceptions/IdentifierExpectedException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Exceptions/IncorrectDefinitionException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Exceptions/InterfaceKeywordExpectedException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Exceptions/LeftCurlyBracketExpectedException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Exceptions/NoPublicClassInFileException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Exceptions/RightCurlyBracketExpectedException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Exceptions/SemicolonExpectedException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Exceptions/UnexpectedIdentifierException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Exceptions/ParsingException.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Exceptions/ClassKeywordExpectedException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Exceptions/ClassOrInterfaceDefinitionExpectedException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Exceptions/ClassOrMethodDeclarationExpectedException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Exceptions/ExtendsKeywordExpectedException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Exceptions/IdentOrAsterixExpectedException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Exceptions/IdentifierExpectedException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Exceptions/IncorrectDefinitionException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Exceptions/InterfaceKeywordExpectedException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Exceptions/LeftCurlyBracketExpectedException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Exceptions/NoPublicClassInFileException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Exceptions/RightCurlyBracketExpectedException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Exceptions/SemicolonExpectedException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Exceptions/UnexpectedIdentifierException.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Parser/Parser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Parser/Parser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Parser/Production.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Scanner/Lexem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Scanner/Lexem.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Scanner/Scanner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Scanner/Scanner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/OneLexem/OneLexemTestCase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/OneLexem/OneLexemTestCase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/OneLexem/Test1.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/OneLexem/Test1.txt" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -35,7 +38,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/Scanner/Lexem.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="136">
-              <caret line="8" column="98" selection-start-line="8" selection-start-column="98" selection-end-line="8" selection-end-column="98" />
+              <caret line="8" column="112" selection-start-line="8" selection-start-column="112" selection-end-line="8" selection-end-column="112" />
             </state>
           </provider>
         </entry>
@@ -43,85 +46,55 @@
       <file leaf-file-name="Parser.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/Parser/Parser.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="248" column="55" selection-start-line="248" selection-start-column="55" selection-end-line="248" selection-end-column="55" />
+            <state relative-caret-position="272">
+              <caret line="546" column="8" lean-forward="true" selection-start-line="546" selection-start-column="8" selection-end-line="546" selection-end-column="8" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#7936#7937#0" expanded="true" />
-                <element signature="e#7989#7990#0" expanded="true" />
+                <element signature="e#23449#23450#0" expanded="true" />
+                <element signature="e#23502#23503#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="IdentOrAsterixExpectedException.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Exceptions/IdentOrAsterixExpectedException.java">
+      <file leaf-file-name="ParsingException.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/Exceptions/ParsingException.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="2" column="62" selection-start-line="2" selection-start-column="62" selection-end-line="2" selection-end-column="62" />
+            <state relative-caret-position="119">
+              <caret line="7" column="72" selection-start-line="7" selection-start-column="72" selection-end-line="7" selection-end-column="72" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ClassOrInterfaceDefinitionExpectedException.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Exceptions/ClassOrInterfaceDefinitionExpectedException.java">
+      <file leaf-file-name="Scanner.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/Scanner/Scanner.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="2" column="74" selection-start-line="2" selection-start-column="74" selection-end-line="2" selection-end-column="74" />
+            <state relative-caret-position="221">
+              <caret line="13" column="58" lean-forward="true" selection-start-line="13" selection-start-column="58" selection-end-line="13" selection-end-column="58" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LeftCurlyBracketExpectedException.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Exceptions/LeftCurlyBracketExpectedException.java">
+      <file leaf-file-name="OneLexemTestCase.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/OneLexem/OneLexemTestCase.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="2" column="64" selection-start-line="2" selection-start-column="64" selection-end-line="2" selection-end-column="64" />
+            <state relative-caret-position="408">
+              <caret line="24" column="25" selection-start-line="24" selection-start-column="25" selection-end-line="24" selection-end-column="25" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="RightCurlyBracketExpectedException.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Exceptions/RightCurlyBracketExpectedException.java">
+      <file leaf-file-name="Test1.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/OneLexem/Test1.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="2" column="65" selection-start-line="2" selection-start-column="65" selection-end-line="2" selection-end-column="65" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ClassKeywordExpectedException.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Exceptions/ClassKeywordExpectedException.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="2" column="60" selection-start-line="2" selection-start-column="60" selection-end-line="2" selection-end-column="60" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="InterfaceKeywordExpectedException.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Exceptions/InterfaceKeywordExpectedException.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="2" column="64" selection-start-line="2" selection-start-column="64" selection-end-line="2" selection-end-column="64" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ExtendsKeywordExpectedException.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Exceptions/ExtendsKeywordExpectedException.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="2" column="62" selection-start-line="2" selection-start-column="62" selection-end-line="2" selection-end-column="62" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="IncorrectDefinitionException.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Exceptions/IncorrectDefinitionException.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="2" column="59" selection-start-line="2" selection-start-column="59" selection-end-line="2" selection-end-column="59" />
+            <state relative-caret-position="578">
+              <caret line="34" column="7" selection-start-line="34" selection-start-column="7" selection-end-line="34" selection-end-column="7" />
             </state>
           </provider>
         </entry>
@@ -156,8 +129,6 @@
         <option value="$PROJECT_DIR$/src/test/java/ColumnsAndLines/ColumnsAndLinesTestCase.java" />
         <option value="$PROJECT_DIR$/src/main/java/Scanner/LexemFactory.java" />
         <option value="$PROJECT_DIR$/src/main/resources/test.txt" />
-        <option value="$PROJECT_DIR$/src/test/java/OneLexem/OneLexemTestCase.java" />
-        <option value="$PROJECT_DIR$/src/test/java/OneLexem/Test1.txt" />
         <option value="$PROJECT_DIR$/src/main/resources/test2.txt" />
         <option value="$PROJECT_DIR$/src/main/java/FilesManagement/FileSource.java" />
         <option value="$PROJECT_DIR$/src/main/resources/test4.txt" />
@@ -175,8 +146,6 @@
         <option value="$PROJECT_DIR$/src/main/java/Exceptions/UnexpectedIdentifierException.java" />
         <option value="$PROJECT_DIR$/src/main/java/Exceptions/SemicolonExpectedException.java" />
         <option value="$PROJECT_DIR$/src/main/java/Exceptions/IdentifierExpectedException.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Scanner/Lexem.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Scanner/Scanner.java" />
         <option value="$PROJECT_DIR$/src/main/java/Exceptions/IdentOrAsterxExpectedException.java" />
         <option value="$PROJECT_DIR$/src/main/java/Exceptions/IdentOrAsterixExpectedException.java" />
         <option value="$PROJECT_DIR$/src/main/java/Exceptions/ClassOrInterfaceDefinitionExpectedException.java" />
@@ -186,6 +155,13 @@
         <option value="$PROJECT_DIR$/src/main/java/Exceptions/InterfaceKeywordExpectedException.java" />
         <option value="$PROJECT_DIR$/src/main/java/Exceptions/ExtendsKeywordExpectedException.java" />
         <option value="$PROJECT_DIR$/src/main/java/Exceptions/IncorrectDefinitionException.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Exceptions/ClassOrMethodDeclarationExpectedException.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Exceptions/SemicolonOrBlockExpectedException.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Exceptions/ParsingException.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Scanner/Lexem.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Scanner/Scanner.java" />
+        <option value="$PROJECT_DIR$/src/test/java/OneLexem/OneLexemTestCase.java" />
+        <option value="$PROJECT_DIR$/src/test/java/OneLexem/Test1.txt" />
         <option value="$PROJECT_DIR$/src/main/java/Parser/Parser.java" />
       </list>
     </option>
@@ -339,7 +315,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Unnamed">
+  <component name="RunManager" selected="JUnit.OneLexemTestCase">
     <configuration name="Unnamed" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="TKOMRefactoring" />
@@ -437,7 +413,7 @@
       <workItem from="1553863824351" duration="35000" />
       <workItem from="1554492965743" duration="25363000" />
       <workItem from="1555089153875" duration="28000" />
-      <workItem from="1555938544104" duration="23145000" />
+      <workItem from="1555938544104" duration="27370000" />
     </task>
     <servers />
   </component>
@@ -474,7 +450,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="90266000" />
+    <option name="totallyTimeSpent" value="94491000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="762" y="0" width="781" height="870" extended-state="0" />
@@ -494,7 +470,7 @@
       <window_info anchor="bottom" id="Terminal" order="9" weight="0.32911393" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="3" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.30651873" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.29126215" />
       <window_info anchor="right" id="Database" order="5" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -552,37 +528,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/FilesManagement/FileSource.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="24" column="22" selection-start-line="24" selection-start-column="22" selection-end-line="24" selection-end-column="22" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#508#509#0" expanded="true" />
-            <element signature="e#548#549#0" expanded="true" />
-            <element signature="e#596#597#0" expanded="true" />
-            <element signature="e#636#637#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" selection-start-line="13" selection-end-line="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="30" column="10" selection-start-line="30" selection-start-column="10" selection-end-line="30" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Scanner/Scanner.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1190">
@@ -694,23 +639,6 @@
     <entry file="file://$PROJECT_DIR$/src/test/java/FullTexts/FullTextsTestCase.java" />
     <entry file="file://$PROJECT_DIR$/src/test/java/OneLexem/Test2.txt" />
     <entry file="file://$PROJECT_DIR$/src/test/java/OneLexem/Test3.txt" />
-    <entry file="file://$PROJECT_DIR$/src/test/java/OneLexem/OneLexemTestCase.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="40" lean-forward="true" selection-start-line="15" selection-start-column="40" selection-end-line="15" selection-end-column="40" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/OneLexem/Test1.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="23" column="1" selection-start-line="23" selection-start-column="1" selection-end-line="23" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/FilesManagement/PackageStructure.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/Parser/NonTerminalSymbol.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -855,16 +783,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Scanner/Scanner.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="492">
-          <caret line="238" column="70" selection-start-line="238" selection-start-column="70" selection-end-line="238" selection-end-column="70" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
@@ -872,13 +790,6 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Scanner/Lexem.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="98" selection-start-line="8" selection-start-column="98" selection-end-line="8" selection-end-column="98" />
         </state>
       </provider>
     </entry>
@@ -938,14 +849,69 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Parser/Parser.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/Exceptions/ClassOrMethodDeclarationExpectedException.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="248" column="55" selection-start-line="248" selection-start-column="55" selection-end-line="248" selection-end-column="55" />
+        <state relative-caret-position="34">
+          <caret line="2" column="72" selection-start-line="2" selection-start-column="72" selection-end-line="2" selection-end-column="72" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Exceptions/SemicolonOrBlockExpectedException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="64" selection-start-line="2" selection-start-column="64" selection-end-line="2" selection-end-column="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Exceptions/ParsingException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="72" selection-start-line="7" selection-start-column="72" selection-end-line="7" selection-end-column="72" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Scanner/Scanner.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" column="58" lean-forward="true" selection-start-line="13" selection-start-column="58" selection-end-line="13" selection-end-column="58" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#7936#7937#0" expanded="true" />
-            <element signature="e#7989#7990#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Scanner/Lexem.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="112" selection-start-line="8" selection-start-column="112" selection-end-line="8" selection-end-column="112" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/OneLexem/Test1.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="578">
+          <caret line="34" column="7" selection-start-line="34" selection-start-column="7" selection-end-line="34" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/OneLexem/OneLexemTestCase.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="24" column="25" selection-start-line="24" selection-start-column="25" selection-end-line="24" selection-end-column="25" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Parser/Parser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="546" column="8" lean-forward="true" selection-start-line="546" selection-start-column="8" selection-end-line="546" selection-end-column="8" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#23449#23450#0" expanded="true" />
+            <element signature="e#23502#23503#0" expanded="true" />
           </folding>
         </state>
       </provider>
