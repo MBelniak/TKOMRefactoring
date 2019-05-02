@@ -2,26 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="569db950-2a4c-4d14-bd10-c4385d25069d" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/Exceptions/ParsingException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Exceptions/ClassKeywordExpectedException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Exceptions/ClassOrInterfaceDefinitionExpectedException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Exceptions/ClassOrMethodDeclarationExpectedException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Exceptions/ExtendsKeywordExpectedException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Exceptions/IdentOrAsterixExpectedException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Exceptions/IdentifierExpectedException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Exceptions/IncorrectDefinitionException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Exceptions/InterfaceKeywordExpectedException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Exceptions/LeftCurlyBracketExpectedException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Exceptions/NoPublicClassInFileException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Exceptions/RightCurlyBracketExpectedException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Exceptions/SemicolonExpectedException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Exceptions/UnexpectedIdentifierException.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Parser/Parser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Parser/Parser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Scanner/Lexem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Scanner/Lexem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Scanner/Scanner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Scanner/Scanner.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/OneLexem/OneLexemTestCase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/OneLexem/OneLexemTestCase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/OneLexem/Test1.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/OneLexem/Test1.txt" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -46,12 +27,12 @@
       <file leaf-file-name="Parser.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/Parser/Parser.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="546" column="8" lean-forward="true" selection-start-line="546" selection-start-column="8" selection-end-line="546" selection-end-column="8" />
+            <state relative-caret-position="211">
+              <caret line="964" column="10" selection-start-line="964" selection-start-column="10" selection-end-line="964" selection-end-column="10" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#23449#23450#0" expanded="true" />
-                <element signature="e#23502#23503#0" expanded="true" />
+                <element signature="e#36592#36593#0" expanded="true" />
+                <element signature="e#36645#36646#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -413,7 +394,7 @@
       <workItem from="1553863824351" duration="35000" />
       <workItem from="1554492965743" duration="25363000" />
       <workItem from="1555089153875" duration="28000" />
-      <workItem from="1555938544104" duration="27370000" />
+      <workItem from="1555938544104" duration="30704000" />
     </task>
     <servers />
   </component>
@@ -450,7 +431,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="94491000" />
+    <option name="totallyTimeSpent" value="97825000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="762" y="0" width="781" height="870" extended-state="0" />
@@ -472,6 +453,7 @@
       <window_info id="Designer" order="3" />
       <window_info content_ui="combo" id="Project" order="0" weight="0.29126215" />
       <window_info anchor="right" id="Database" order="5" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32911393" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="4" />
@@ -480,7 +462,6 @@
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39803094" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
-      <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -906,12 +887,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Parser/Parser.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="546" column="8" lean-forward="true" selection-start-line="546" selection-start-column="8" selection-end-line="546" selection-end-column="8" />
+        <state relative-caret-position="211">
+          <caret line="964" column="10" selection-start-line="964" selection-start-column="10" selection-end-line="964" selection-end-column="10" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#23449#23450#0" expanded="true" />
-            <element signature="e#23502#23503#0" expanded="true" />
+            <element signature="e#36592#36593#0" expanded="true" />
+            <element signature="e#36645#36646#0" expanded="true" />
           </folding>
         </state>
       </provider>
