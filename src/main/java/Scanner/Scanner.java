@@ -79,7 +79,7 @@ public class Scanner {
                 currentChar = source.nextChar();    //skipping white spaces
             }
             if(currentChar < 0)
-                return null;
+                return lexemFactory.getLexem(Lexem.LexemType.EOF);
             if (currentChar == '/') {
                 if ((currentChar = source.nextChar()) == '/')              //LINE comment
                 {
@@ -87,7 +87,7 @@ public class Scanner {
                     {
                         currentChar = source.nextChar();
                         if(currentChar < 0)
-                            return null;
+                            return lexemFactory.getLexem(Lexem.LexemType.EOF);
                     }
                     while (currentChar != '\n');
                 }
@@ -96,7 +96,7 @@ public class Scanner {
                     while(true)
                     {
                         if((currentChar = source.nextChar()) < 0)
-                            return null;
+                            return lexemFactory.getLexem(Lexem.LexemType.EOF);
                         if(currentChar=='*')
                         {
                             if((currentChar = source.nextChar())=='/')
@@ -232,6 +232,11 @@ public class Scanner {
             {
                 currentChar = source.nextChar();
                 return lexemFactory.getLexem(Lexem.LexemType.ASSIGNMENT);
+            }
+            case '*':
+            {
+                currentChar = source.nextChar();
+                return lexemFactory.getLexem(Lexem.LexemType.ASTERIX);
             }
         }
         String c = String.valueOf((char)currentChar);

@@ -1,20 +1,19 @@
 package Parser;
 
+import Exceptions.*;
 import FilesManagement.FileSource;
 import Scanner.Lexem;
 import Scanner.Scanner;
-import javafx.util.Pair;
 
-import java.util.Map;
-import java.util.Set;
+import java.net.IDN;
+import java.util.Stack;
+
+import static Scanner.Lexem.LexemType.*;
 
 public class Parser {
     private Scanner scanner;
     private Lexem currentToken;
-    private Lexem previousToken;
     private FileSource fileSource;
-    private Set<Production> productionSet;
-    private Map<Pair<Lexem.LexemType, NonTerminalSymbol>, Integer> productionTable;
 
     public Parser(Scanner scanner) {
 
@@ -22,82 +21,270 @@ public class Parser {
         //TODO
     }
 
-    public void parseFile()
-    {
-        parseParameterList();
+    public void parseFile() throws NoPublicClassInFileException, UnexpectedIdentifierException {
+        parsePackageDeclarationOptional();
+        parseImportDeclarationOptional();
+        parseClassOrInterfaceDefinitionOptional();
+        if (currentToken.getLexemType() == PUBLIC) {
+            advance();
+        }
+        else
+        {
+            if(currentToken.getLexemType() == EOF)
+                throw new NoPublicClassInFileException();
+            else
+                throw new UnexpectedIdentifierException();
+        }
+        parseClassOrInterfaceDefinition();
+        parseClassOrInterfaceDefinitionOptional();
+    }
+    private void parsePackageDeclarationOptional() throws SemicolonExpectedException {
+        if(currentToken.getLexemType() == PACKAGE)
+        {
+            advance();
+        }
+        else
+        {
+            return;
+        }
+        parsePackagePath();
+        if(currentToken.getLexemType() == SEMICOLON)
+            advance();
+        else
+            throw new SemicolonExpectedException();
+    }
+    private void parseImportDeclarationOptional() throws SemicolonExpectedException {
+        if(currentToken.getLexemType() == IMPORT)
+            advance();
+        else return;
+
+        parsePackagePath();
+
+        if(currentToken.getLexemType() == SEMICOLON)
+            advance();
+        else throw new SemicolonExpectedException();
 
     }
-    private void parsePackageDeclarationOptional()
-    {
-        //TODO
+    private void parsePackagePath() throws IdentifierExpectedException, SemicolonExpectedException, IdentOrAsterixExpectedException {
+        if(currentToken.getLexemType()==IDENTIFIER)
+            advance();
+        else
+            throw new IdentifierExpectedException();
+        if(currentToken.getLexemType() == DOT)
+        {
+            advance();
+            if(currentToken.getLexemType() == IDENTIFIER)
+                parseIdentifierOptional();
+            else if(currentToken.getLexemType() == ASTERIX)
+                advance();
+            else
+                throw new IdentOrAsterixExpectedException();
+        }
+
+        if(currentToken.getLexemType()==SEMICOLON)
+            advance();
+        else
+            throw new SemicolonExpectedException();
     }
-    private void parseImportDeclarationOptional()
-    {
-        //TODO
+    private void parseIdentifierOptional() throws IdentifierExpectedException {
+        if(currentToken.getLexemType() == IDENTIFIER)
+            advance();
+        else
+            throw new IdentifierExpectedException();
+
+        if(currentToken.getLexemType() == DOT)
+            advance();
+        else
+            return;
+
+        parseIdentifierOptional();
     }
-    private void parsePackagePath()
-    {
-        //TODO
+    private void parseClassOrInterfaceDefinition() throws ClassOrInterfaceDefinitionExpectedException {
+        if(currentToken.getLexemType() == ABSTRACT) {
+            advance();
+            parseClassDefinition();
+        }
+        else
+        {
+            if(currentToken.getLexemType() == CLASS)
+                parseClassDefinition();
+            else if(currentToken.getLexemType() == PUBLIC || currentToken.getLexemType() == INTERFACE)
+                parseInterfaceDefinition();
+            else
+                throw new ClassOrInterfaceDefinitionExpectedException();
+        }
+
     }
-    private void parseDotIdentifierOptional()
-    {
-        //TODO
+    private void parseClassOrInterfaceDefinitionOptional() throws ClassOrInterfaceDefinitionExpectedException {
+        Scanner.Lexem.LexemType currentLexem = currentToken.getLexemType();
+        if(currentLexem == ABSTRACT || currentLexem == CLASS || currentLexem == INTERFACE) {
+            parseClassOrInterfaceDefinition();
+        }
+        else
+            return;
+        parseClassOrInterfaceDefinitionOptional();
     }
-    private void parseDotAsterixOptional()
-    {
-        //TODO
+    private void parseClassDefinition() throws LeftCurlyBracketExpectedException, RightCurlyBracketExpectedException {
+        parseClassHeader();
+        if(currentToken.getLexemType() == LEFT_CURLY_BRACKET)
+            advance();
+        else
+            throw new LeftCurlyBracketExpectedException();
+        parseClassBody();
+        if(currentToken.getLexemType() == RIGHT_CURLY_BRACKET)
+            advance();
+        else
+            throw new RightCurlyBracketExpectedException();
     }
-    private void parseClassOrInterfaceDefinition()
-    {
-        //TODO
+    private void parseInterfaceDefinition() throws LeftCurlyBracketExpectedException, RightCurlyBracketExpectedException {
+        parseInterfaceHeader();
+        if(currentToken.getLexemType() == LEFT_CURLY_BRACKET)
+            advance();
+        else
+            throw new LeftCurlyBracketExpectedException();
+        parseInterfaceBody();
+        if(currentToken.getLexemType() == RIGHT_CURLY_BRACKET)
+            advance();
+        else
+            throw new RightCurlyBracketExpectedException();
     }
-    private void parseClassOrInterfaceDefinitionOptional()
-    {
-        //TODO
+    private void parseClassHeader() throws ClassKeywordExpectedException, IdentifierExpectedException {
+        if(currentToken.getLexemType() == CLASS)
+            advance();
+        else
+            throw new ClassKeywordExpectedException();
+        if(currentToken.getLexemType() == IDENTIFIER)
+            advance();
+        else
+            throw new IdentifierExpectedException();
+        parseExtends();
+        parseImplements();
     }
-    private void parseClassDefinition()
-    {
-        //TODO
+    private void parseInterfaceHeader() throws InterfaceKeywordExpectedException, IdentifierExpectedException, ExtendsKeywordExpectedException {
+        parsePublicOptional();
+        if(currentToken.getLexemType() == INTERFACE)
+            advance();
+        else
+            throw new InterfaceKeywordExpectedException();
+        if(currentToken.getLexemType() == IDENTIFIER)
+            advance();
+        else
+            throw new IdentifierExpectedException();
+
+        parseExtendsInterfaceOptional();
     }
-    private void parseInterfaceDefinition()
-    {
-        //TODO
+    private void parseExtendsInterfaceOptional() throws ExtendsKeywordExpectedException, IdentifierExpectedException {
+        if(currentToken.getLexemType() == EXTENDS)
+            advance();
+        else
+            return;
+
+        if(currentToken.getLexemType() == IDENTIFIER)
+            advance();
+        else
+            throw new IdentifierExpectedException();
+
+        parseNextExtensionsOptional();
     }
-    private void parseClassHeader()
-    {
-        //TODO
+
+    private void parseNextExtensionsOptional() throws IdentifierExpectedException {
+        if(currentToken.getLexemType() == COMMA)
+            advance();
+        else
+            return;
+
+        if(currentToken.getLexemType() == IDENTIFIER)
+            advance();
+        else
+            throw new IdentifierExpectedException();
+
+        parseNextExtensionsOptional();
     }
-    private void parseInterfaceHeader()
-    {
-        //TODO
+
+    private void parseExtends() throws IdentifierExpectedException {
+        if(currentToken.getLexemType() == EXTENDS)
+            advance();
+        else
+            return;
+
+        if(currentToken.getLexemType() == IDENTIFIER)
+            advance();
+        else
+            throw new IdentifierExpectedException();
     }
-    private void parseExtendsInterfaceOptional()
-    {
-        //TODO
+    private void parseImplements() throws IdentifierExpectedException {
+        if(currentToken.getLexemType() == IMPLEMENTS)
+            advance();
+        else
+            return;
+
+        if(currentToken.getLexemType() == IDENTIFIER)
+            advance();
+        else
+            throw new IdentifierExpectedException();
+        parseNextIdentifier();
     }
-    private void parseNextExtensionsOptional()
-    {
-        //TODO
+    private void parseNextIdentifier() throws IdentifierExpectedException {
+        if(currentToken.getLexemType() == COMMA)
+            advance();
+        else
+            return;
+
+        if(currentToken.getLexemType() == IDENTIFIER)
+            advance();
+        else
+            throw new IdentifierExpectedException();
     }
-    private void parseAbstractOptional()
-    {
-        //TODO
-    }
-    private void parseExtends()
-    {
-        //TODO
-    }
-    private void parseImplements()
-    {
-        //TODO
-    }
-    private void parseNextIdentifier()
-    {
-        //TODO
-    }
-    private void parseClassBody()
-    {
-        //TODO
+    private void parseClassBody() throws IncorrectDefinitionException, ClassOrMethodDeclarationExpectedException {
+        if(currentToken.getLexemType() == PUBLIC)
+        {
+            advance();
+            if(currentToken.getLexemType() == ABSTRACT)
+            {
+                advance();
+                if(currentToken.getLexemType() == CLASS)
+                {
+
+                }
+                else if(currentToken.getLexemType() == IDENTIFIER
+                        || currentToken.getLexemType() == INT
+                        || currentToken.getLexemType() == VOID)
+                {
+
+                }
+                else
+                    throw new ClassOrMethodDeclarationExpectedException();
+            }
+            else if(currentToken.getLexemType() == INT
+                    || currentToken.getLexemType() == IDENTIFIER
+                    || currentToken.getLexemType() == CLASS)
+            {
+
+            }
+            else if(currentToken.getLexemType() == STATIC)
+            {
+
+            }
+            else
+                throw new IncorrectDefinitionException();
+        }
+        else if(currentToken.getLexemType() == PROTECTED)
+        {
+
+        }
+        else if(currentToken.getLexemType() == PRIVATE)
+        {
+
+        }
+        else if(currentToken.getLexemType() == ABSTRACT
+                || currentToken.getLexemType() == INT
+                || currentToken.getLexemType() == IDENTIFIER
+                || currentToken.getLexemType() == CLASS)
+        {
+
+        }
+        else
+            return;
     }
     private void parseDefinition()
     {
@@ -217,7 +404,6 @@ public class Parser {
     }
 
     private void parseParameterList() {
-        previousToken = currentToken;
         currentToken = scanner.getNextLexem();
         if (currentToken.getLexemType() != Lexem.LexemType.IDENTIFIER
                 && currentToken.getLexemType() != Lexem.LexemType.INT) {
@@ -225,7 +411,6 @@ public class Parser {
             return;
         }
         System.out.println("Got identifier or int");
-        previousToken = currentToken;
         currentToken = scanner.getNextLexem();
         if (currentToken.getLexemType() != Lexem.LexemType.IDENTIFIER)
         {
@@ -237,7 +422,6 @@ public class Parser {
     }
 
     private void parseNextIdentifierOptional() {
-        previousToken = currentToken;
         currentToken = scanner.getNextLexem();
         if(currentToken.getLexemType()!=Lexem.LexemType.COMMA)
             return;
@@ -251,5 +435,10 @@ public class Parser {
     private void parseProtectedOptional()
     {
         //TODO
+    }
+
+    private void advance()
+    {
+        currentToken = scanner.getNextLexem();
     }
 }
