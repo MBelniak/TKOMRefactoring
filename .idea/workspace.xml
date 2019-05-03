@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="569db950-2a4c-4d14-bd10-c4385d25069d" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/Parser/AbstractSyntaxTree.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Parser/AbstractSyntaxTree.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Parser/Parser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Parser/Parser.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/test.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/test.txt" afterDir="false" />
     </list>
@@ -20,8 +19,8 @@
       <file leaf-file-name="Lexem.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Scanner/Lexem.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="478">
-              <caret line="61" selection-start-line="61" selection-end-line="61" />
+            <state relative-caret-position="257">
+              <caret line="57" selection-start-line="57" selection-end-line="57" />
               <folding>
                 <element signature="e#1121#1122#0" expanded="true" />
                 <element signature="e#1153#1154#0" expanded="true" />
@@ -69,8 +68,8 @@
       <file leaf-file-name="test.txt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/test.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="17" column="25" lean-forward="true" selection-start-line="17" selection-start-column="25" selection-end-line="17" selection-end-column="25" />
+            <state relative-caret-position="51">
+              <caret line="3" column="25" lean-forward="true" selection-start-line="3" selection-start-column="25" selection-end-line="3" selection-end-column="25" />
             </state>
           </provider>
         </entry>
@@ -137,12 +136,12 @@
       <file leaf-file-name="Parser.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/Parser/Parser.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="167">
-              <caret line="989" selection-start-line="989" selection-end-line="989" />
+            <state relative-caret-position="166">
+              <caret line="1178" column="34" lean-forward="true" selection-start-line="1178" selection-start-column="34" selection-end-line="1178" selection-end-column="34" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#47422#47423#0" expanded="true" />
-                <element signature="e#47475#47476#0" expanded="true" />
+                <element signature="e#48179#48180#0" expanded="true" />
+                <element signature="e#48232#48233#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -159,7 +158,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>'}' expected</find>
       <find>Primiti</find>
       <find>Return</find>
       <find>Defini</find>
@@ -189,6 +187,7 @@
       <find>MethodSta</find>
       <find>ASSIGNMEN</find>
       <find>MethodSt</find>
+      <find>CallPar</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -237,11 +236,11 @@
         <option value="$PROJECT_DIR$/src/test/java/OneLexem/Test1.txt" />
         <option value="$PROJECT_DIR$/src/main/java/Exceptions/ParsingException.java" />
         <option value="$PROJECT_DIR$/src/main/java/Main.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Scanner/Lexem.java" />
         <option value="$PROJECT_DIR$/src/main/java/Scanner/Scanner.java" />
         <option value="$PROJECT_DIR$/src/main/java/Parser/AbstractSyntaxTree.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/test.txt" />
         <option value="$PROJECT_DIR$/src/main/java/Parser/Parser.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/test.txt" />
+        <option value="$PROJECT_DIR$/src/main/java/Scanner/Lexem.java" />
       </list>
     </option>
   </component>
@@ -261,9 +260,9 @@
   <component name="NodePackageJsonFileManager">
     <packageJsonPaths />
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds">
     <option name="x" value="-8" />
-    <option name="width" value="1115" />
+    <option name="width" value="977" />
     <option name="height" value="1088" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -495,7 +494,7 @@
       <workItem from="1553863824351" duration="35000" />
       <workItem from="1554492965743" duration="25363000" />
       <workItem from="1555089153875" duration="28000" />
-      <workItem from="1555938544104" duration="70746000" />
+      <workItem from="1555938544104" duration="72319000" />
     </task>
     <servers />
   </component>
@@ -532,10 +531,10 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="137867000" />
+    <option name="totallyTimeSpent" value="139440000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="878" extended-state="6" />
+    <frame x="-6" y="0" width="781" height="870" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
@@ -548,11 +547,11 @@
       <window_info anchor="right" id="Maven Projects" order="4" />
       <window_info anchor="bottom" id="Database Changes" order="11" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.44228095" />
-      <window_info anchor="bottom" id="Terminal" order="9" weight="0.6495132" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.4416315" />
+      <window_info anchor="bottom" id="Terminal" order="9" weight="0.18565401" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="3" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.05771812" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.11927878" />
       <window_info anchor="right" id="Database" order="5" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32911393" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -560,7 +559,7 @@
       <window_info id="UI Designer" order="4" />
       <window_info anchor="right" id="Theme Preview" order="7" />
       <window_info id="Favorites" order="5" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.44089013" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.44089013" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -1003,17 +1002,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/test.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="17" column="25" lean-forward="true" selection-start-line="17" selection-start-column="25" selection-end-line="17" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Scanner/Lexem.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="478">
-          <caret line="61" selection-start-line="61" selection-end-line="61" />
+        <state relative-caret-position="257">
+          <caret line="57" selection-start-line="57" selection-end-line="57" />
           <folding>
             <element signature="e#1121#1122#0" expanded="true" />
             <element signature="e#1153#1154#0" expanded="true" />
@@ -1021,14 +1013,21 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/test.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="25" lean-forward="true" selection-start-line="3" selection-start-column="25" selection-end-line="3" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Parser/Parser.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="167">
-          <caret line="989" selection-start-line="989" selection-end-line="989" />
+        <state relative-caret-position="166">
+          <caret line="1178" column="34" lean-forward="true" selection-start-line="1178" selection-start-column="34" selection-end-line="1178" selection-end-column="34" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#47422#47423#0" expanded="true" />
-            <element signature="e#47475#47476#0" expanded="true" />
+            <element signature="e#48179#48180#0" expanded="true" />
+            <element signature="e#48232#48233#0" expanded="true" />
           </folding>
         </state>
       </provider>
