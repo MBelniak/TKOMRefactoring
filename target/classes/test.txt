@@ -1,3 +1,4 @@
+package lala.*;
 import Scanner.Lexem;
 
 
@@ -6,6 +7,10 @@ public class SomeClass extends BaseClass implements Interface
     private int number;
     protected OtherClass instance;
 
+    private void doSth(int a, int s, asa s)
+    {
+        return;
+    }
     SomeClass()
     {
         super();
@@ -17,5 +22,29 @@ public class SomeClass extends BaseClass implements Interface
     {
         a = b.getNumber();
     }
+}
 
+class OtherClass implements DupaInterfejs
+{
+    private int a;
+    int a = 5;
+    OtherClass()
+    {
+        a = B.C.D().F.D;
+        G.H.I(J.K(L));
+        nj jjj;
+        int a = 2;
+    }
+}
+
+interface ddd extends A, B{
+    default int method(int a, C f)
+    {
+        lalala lalal = b.c();
+        lalal lalala = b.c();
+    }
+    private int a()
+    {
+        return 2;
+    }
 }

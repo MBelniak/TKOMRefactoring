@@ -4,13 +4,14 @@ import Exceptions.ParsingException;
 import Scanner.Lexem;
 import Scanner.Scanner;
 
-import javax.swing.*;
 
 import static Scanner.Lexem.LexemType.*;
+import static Parser.AbstractSyntaxTree.ElementType.*;
 
 public class Parser {
     private Scanner scanner;
     private Lexem currentToken;
+    private AbstractSyntaxTree AST;
 
     public Parser(Scanner scanner) {
 
@@ -19,52 +20,77 @@ public class Parser {
     }
 
     public void parseFile() throws ParsingException{
+        AST.clear();
+        advance();
+        AST.startFile(currentToken);
         parsePackageDeclarationOptional();
         parseImportDeclarationOptional();
         parseClassOrInterfaceDefinitionOptional();
         if (currentToken.getLexemType() == PUBLIC) {
+            AST.startElement(PublicClassDefinition, currentToken);
             advance();
         }
         else
         {
             if(currentToken.getLexemType() == EOF)
-                throw new ParsingException("No public class in file.", 0, 0);
+                return;
             else
                 throw new ParsingException("Unexpected identifier.", currentToken.getLine(), currentToken.getColumn());
         }
         parseClassOrInterfaceDefinition();
+        AST.endElement(PublicClassDefinition);
         parseClassOrInterfaceDefinitionOptional();
+        if(currentToken.getLexemType() == PUBLIC)
+            throw new ParsingException("There can be only one public class or interface in the file.", currentToken.getLine(), currentToken.getColumn());
+        else if(currentToken.getLexemType() == EOF)
+        {
+            return;
+        }
+        else
+            throw new ParsingException("Unexpected identifier.", currentToken.getLine(), currentToken.getColumn());
     }
     private void parsePackageDeclarationOptional() throws ParsingException {
         if(currentToken.getLexemType() == PACKAGE)
         {
+            AST.startElement(PackageDeclaration, currentToken);
             advance();
         }
         else
-        {
             return;
-        }
+
         parsePackagePath();
         if(currentToken.getLexemType() == SEMICOLON)
+        {
+            AST.endElement(PackageDeclaration);
             advance();
+        }
         else
             throw new ParsingException("Semicolon expected", currentToken.getLine(), currentToken.getColumn());
     }
     private void parseImportDeclarationOptional() throws ParsingException {
         if(currentToken.getLexemType() == IMPORT)
+        {
+            AST.startElement(ImportDeclaration, currentToken);
             advance();
+        }
         else return;
 
         parsePackagePath();
 
         if(currentToken.getLexemType() == SEMICOLON)
+        {
+            AST.endElement(ImportDeclaration);
             advance();
+        }
         else throw new ParsingException("Semicolon expected", currentToken.getLine(), currentToken.getColumn());
 
     }
     private void parsePackagePath() throws ParsingException {
         if(currentToken.getLexemType()==IDENTIFIER)
+        {
+            AST.addIdentifierToList(currentToken);
             advance();
+        }
         else
             throw new ParsingException("Identifier expected", currentToken.getLine(), currentToken.getColumn());
         if(currentToken.getLexemType() == DOT)
@@ -77,15 +103,12 @@ public class Parser {
             else
                 throw new ParsingException("Identifier or '*' expected", currentToken.getLine(), currentToken.getColumn());
         }
-
-        if(currentToken.getLexemType()==SEMICOLON)
-            advance();
-        else
-            throw new ParsingException("Semicolon expected", currentToken.getLine(), currentToken.getColumn());
     }
     private void parseIdentifierOptional() throws ParsingException {
-        if(currentToken.getLexemType() == IDENTIFIER)
+        if(currentToken.getLexemType() == IDENTIFIER) {
+            AST.addIdentifierToList(currentToken);
             advance();
+        }
         else
             throw new ParsingException("Identifier expected.", currentToken.getLine(), currentToken.getColumn());
 
@@ -98,23 +121,32 @@ public class Parser {
     }
     private void parseClassOrInterfaceDefinition() throws ParsingException {
         if(currentToken.getLexemType() == ABSTRACT) {
+            AST.startElement(AbstractClassDefinition, currentToken);
             advance();
             parseClassDefinition();
+            AST.endElement(AbstractClassDefinition);
         }
         else
         {
-            if(currentToken.getLexemType() == CLASS)
+            if(currentToken.getLexemType() == CLASS) {
+                AST.startElement(ClassDefinition, currentToken);
                 parseClassDefinition();
-            else if(currentToken.getLexemType() == PUBLIC || currentToken.getLexemType() == INTERFACE)
+                AST.endElement(ClassDefinition);
+            }
+            else if(currentToken.getLexemType() == INTERFACE) {
+                AST.startInterfaceDefinition(currentToken);
                 parseInterfaceDefinition();
+                AST.endInterfaceDefinition();
+            }
             else
                 throw new ParsingException("Class or interface definition expected", currentToken.getLine(), currentToken.getColumn());
         }
 
     }
     private void parseClassOrInterfaceDefinitionOptional() throws ParsingException {
-        Scanner.Lexem.LexemType currentLexem = currentToken.getLexemType();
-        if(currentLexem == ABSTRACT || currentLexem == CLASS || currentLexem == INTERFACE) {
+        if(currentToken.getLexemType() == ABSTRACT
+                || currentToken.getLexemType() == CLASS
+                || currentToken.getLexemType()== INTERFACE) {
             parseClassOrInterfaceDefinition();
         }
         else
@@ -127,7 +159,9 @@ public class Parser {
             advance();
         else
             throw new ParsingException("'{' expected", currentToken.getLine(), currentToken.getColumn());
+        AST.startClassBody(currentToken);
         parseClassBody();
+        AST.endClassBody();
         if(currentToken.getLexemType() == RIGHT_CURLY_BRACKET)
             advance();
         else
@@ -139,49 +173,65 @@ public class Parser {
             advance();
         else
             throw new ParsingException("'{' expected.", currentToken.getLine(), currentToken.getColumn());
+        AST.startInterfaceBody(currentToken);
         parseInterfaceBody();
+        AST.endInterfaceBody();
         if(currentToken.getLexemType() == RIGHT_CURLY_BRACKET)
             advance();
         else
             throw new ParsingException("'}' expected.", currentToken.getLine(), currentToken.getColumn());
     }
     private void parseClassHeader() throws ParsingException {
-        if(currentToken.getLexemType() == CLASS)
+        if(currentToken.getLexemType() == CLASS) {
+            AST.startClassHeader(currentToken);
             advance();
+        }
         else
             throw new ParsingException("'class' keyword expected.", currentToken.getLine(), currentToken.getColumn());
-        if(currentToken.getLexemType() == IDENTIFIER)
+        if(currentToken.getLexemType() == IDENTIFIER) {
+            AST.addIdentifierToList(currentToken);
             advance();
+        }
         else
             throw new ParsingException("Identifier expected.", currentToken.getLine(), currentToken.getColumn());
         parseExtends();
         parseImplements();
+        AST.endClassHeader();
     }
     private void parseInterfaceHeader() throws ParsingException {
-        parsePublicOptional();
-        if(currentToken.getLexemType() == INTERFACE)
+        if (currentToken.getLexemType() == INTERFACE) {
+            AST.startInterfaceHeader(currentToken);
             advance();
-        else
+        } else
             throw new ParsingException("'interface' keyword expected", currentToken.getLine(), currentToken.getColumn());
-        if(currentToken.getLexemType() == IDENTIFIER)
+        if (currentToken.getLexemType() == IDENTIFIER)
+        {
+            AST.addIdentifierToList(currentToken);
             advance();
+        }
         else
             throw new ParsingException("Identifier expected.", currentToken.getLine(), currentToken.getColumn());
 
         parseExtendsInterfaceOptional();
+        AST.endInterfaceHeader();
     }
     private void parseExtendsInterfaceOptional() throws ParsingException {
-        if(currentToken.getLexemType() == EXTENDS)
+        if(currentToken.getLexemType() == EXTENDS) {
+            AST.startExtendsList(currentToken);
             advance();
+        }
         else
             return;
 
-        if(currentToken.getLexemType() == IDENTIFIER)
+        if(currentToken.getLexemType() == IDENTIFIER) {
+            AST.addIdentifierToList(currentToken);
             advance();
+        }
         else
             throw new ParsingException("Identifier expected.", currentToken.getLine(), currentToken.getColumn());
 
         parseNextExtensionsOptional();
+        AST.endExtendsList();
     }
 
     private void parseNextExtensionsOptional() throws ParsingException {
@@ -190,8 +240,10 @@ public class Parser {
         else
             return;
 
-        if(currentToken.getLexemType() == IDENTIFIER)
+        if(currentToken.getLexemType() == IDENTIFIER) {
+            AST.addIdentifierToList(currentToken);
             advance();
+        }
         else
             throw new ParsingException("Identifier expected.", currentToken.getLine(), currentToken.getColumn());
 
@@ -199,27 +251,40 @@ public class Parser {
     }
 
     private void parseExtends() throws ParsingException {
-        if(currentToken.getLexemType() == EXTENDS)
+        if(currentToken.getLexemType() == EXTENDS) {
+            AST.startExtendsList(currentToken);
             advance();
+        }
         else
             return;
 
         if(currentToken.getLexemType() == IDENTIFIER)
+        {
+            AST.addIdentifierToList(currentToken);
             advance();
+        }
         else
             throw new ParsingException("Identifier expected.", currentToken.getLine(), currentToken.getColumn());
+        AST.endExtendsList();
     }
     private void parseImplements() throws ParsingException {
         if(currentToken.getLexemType() == IMPLEMENTS)
+        {
+            AST.startImplementsList(currentToken);
             advance();
+        }
         else
             return;
 
         if(currentToken.getLexemType() == IDENTIFIER)
+        {
+            AST.addIdentifierToList(currentToken);
             advance();
+        }
         else
             throw new ParsingException("Identifier expected.", currentToken.getLine(), currentToken.getColumn());
         parseNextIdentifier();
+        AST.endImplementsList();
     }
     private void parseNextIdentifier() throws ParsingException {
         if(currentToken.getLexemType() == COMMA)
@@ -228,26 +293,35 @@ public class Parser {
             return;
 
         if(currentToken.getLexemType() == IDENTIFIER)
+        {
+            AST.addIdentifierToList(currentToken);
             advance();
+        }
         else
             throw new ParsingException("Identifier expected.", currentToken.getLine(), currentToken.getColumn());
     }
     private void parseClassBody() throws ParsingException {
         if(currentToken.getLexemType() == PUBLIC)
         {
+            AST.startStatement(currentToken);
             advance();
             if(currentToken.getLexemType() == ABSTRACT)
             {
+                AST.addIdentifierToList(currentToken);
                 advance();
                 if(currentToken.getLexemType() == CLASS)
                 {
+                    AST.startAbstractClassDefinition(currentToken);
                     parseClassDefinition();
+                    AST.endAbstractClassDefinition();
                 }
                 else if(currentToken.getLexemType() == IDENTIFIER
                         || currentToken.getLexemType() == INT
                         || currentToken.getLexemType() == VOID)
                 {
+                    AST.startAbstractMethodDeclaration(currentToken);
                     parseAbstractMethodDeclaration();
+                    AST.endAbstractMethodDeclaration();
                     if(currentToken.getLexemType() == SEMICOLON)
                         advance();
                     else
@@ -258,17 +332,20 @@ public class Parser {
             }
             else if(currentToken.getLexemType() == INT
                     || currentToken.getLexemType() == IDENTIFIER
+                    || currentToken.getLexemType() == VOID
                     || currentToken.getLexemType() == CLASS)
             {
                 parseDefinition();
             }
             else if(currentToken.getLexemType() == STATIC)
             {
+                AST.startMainMethod(currentToken);
                 parseMainMethod();
+                AST.endMainMethod();
             }
             else
                 throw new ParsingException("Incorrect definition.", currentToken.getLine(), currentToken.getColumn());
-
+            AST.endStatement();
             parseClassBody();
         }
         else if(currentToken.getLexemType() == PROTECTED
@@ -277,6 +354,8 @@ public class Parser {
                 || currentToken.getLexemType() == IDENTIFIER
                 || currentToken.getLexemType() == CLASS)
         {
+            if(currentToken.getLexemType()==PROTECTED)
+                advance();
             if(currentToken.getLexemType() == ABSTRACT)
             {
                 if(currentToken.getLexemType() == CLASS)
@@ -312,25 +391,42 @@ public class Parser {
     private void parseDefinition() throws ParsingException {
         if(currentToken.getLexemType() == INT)
         {
+            AST.addIdentifierToList(currentToken);
             advance();
-            if(currentToken.getLexemType() == IDENTIFIER)
+            if(currentToken.getLexemType() == IDENTIFIER) {
+                AST.addIdentifierToList(currentToken);
                 advance();
+            }
             else
                 throw new ParsingException("Identifier expected.", currentToken.getLine(), currentToken.getColumn());
             parseMethodOrPrimitiveFieldInitialization();
         }
         else if(currentToken.getLexemType() == IDENTIFIER)
         {
+            AST.addIdentifierToList(currentToken);
             advance();
             parseObjectFieldOrConstructorDefinitionOrMethod();
-            if(currentToken.getLexemType() == SEMICOLON)
-                advance();
-            else
-                throw new ParsingException("Semicolon expected.", currentToken.getLine(), currentToken.getColumn());
         }
         else if(currentToken.getLexemType() == CLASS)
         {
             parseClassDefinition();
+        }
+        else if(currentToken.getLexemType() == VOID)
+        {
+            advance();
+            if(currentToken.getLexemType() == IDENTIFIER)
+            {
+                advance();
+                parseMethodDeclaration();
+                if(currentToken.getLexemType() == SEMICOLON)
+                {
+                    advance();
+                }
+                else
+                    parseMethodBlock();
+            }
+            else
+                throw new ParsingException("Identifier expected.", currentToken.getLine(), currentToken.getColumn());
         }
         else
             throw new ParsingException("Incorrect definition.", currentToken.getLine(), currentToken.getColumn());
@@ -339,12 +435,14 @@ public class Parser {
     private void parseMethodOrPrimitiveFieldInitialization() throws ParsingException {
         if(currentToken.getLexemType() == LEFT_BRACKET)
         {
+            AST.startMethodDefinition(currentToken);
             parseMethodDeclaration();
             if(currentToken.getLexemType() == SEMICOLON)
                 advance();
             else if(currentToken.getLexemType() == LEFT_CURLY_BRACKET)
             {
                 parseMethodBlock();
+                AST.endMethodDefinition();
             }
             else
                 throw new ParsingException("Semicolon or block expected", currentToken.getLine(), currentToken.getColumn());
@@ -352,7 +450,9 @@ public class Parser {
         else if(currentToken.getLexemType() == ASSIGNMENT
                 || currentToken.getLexemType() == SEMICOLON)
         {
+            AST.startPrimitiveFieldDeclaration(currentToken);
             parsePrimitiveFieldInitialization();
+            AST.endPrimitiveFieldDeclaration();
         }
         else
             throw new ParsingException("Incorrect definition.", currentToken.getLine(), currentToken.getColumn());
@@ -360,21 +460,30 @@ public class Parser {
     private void parseObjectFieldOrConstructorDefinitionOrMethod() throws ParsingException {
         if(currentToken.getLexemType() == LEFT_BRACKET)
         {
+            AST.startConstructorDefinition(currentToken);
             parseConstructorDefinition();
+            AST.endConstructorDefinition();
         }
         else if(currentToken.getLexemType() == IDENTIFIER)
         {
+            AST.addIdentifierToList(currentToken);
             advance();
             if(currentToken.getLexemType() == ASSIGNMENT)
             {
+                AST.startObjectInitialization(currentToken);
                 parseObjectFieldInitialization();
+                AST.endObjectInitialization();
             }
             else if(currentToken.getLexemType() == LEFT_BRACKET)
             {
                 parseMethodDeclaration();
             }
+            else if(currentToken.getLexemType() == SEMICOLON)
+            {
+                advance();
+            }
             else
-                throw new ParsingException("Initialization or method declaration expected.", currentToken.getLine(), currentToken.getColumn());
+                throw new ParsingException("Incorrect statemene.", currentToken.getLine(), currentToken.getColumn());
         }
         else
             throw new ParsingException("Incorrect definition.", currentToken.getLine(), currentToken.getColumn());
@@ -553,8 +662,23 @@ public class Parser {
         }
         else if(currentToken.getLexemType() == ASSIGNMENT)
         {
+            AST.startPrimitiveFieldInitialization(currentToken);
             advance();
-            parseAssignment();
+            if(currentToken.getLexemType() == NUMBER)
+            {
+                AST.addIdentifierToList(currentToken);
+                advance();
+            }
+            else
+                parseFetchedObjectOptional();
+
+            if(currentToken.getLexemType() == SEMICOLON)
+            {
+                AST.endPrimitiveFieldInitialization();
+                advance();
+            }
+            else
+                throw new ParsingException("Semicolon expected.", currentToken.getLine(), currentToken.getColumn());
         }
         else
             throw new ParsingException("Semicolon or '=' expected.", currentToken.getLine(), currentToken.getColumn());
@@ -589,10 +713,12 @@ public class Parser {
     private void parseMethodBlock() throws ParsingException {
         if(currentToken.getLexemType() == LEFT_CURLY_BRACKET)
         {
+            AST.startMethodBody(currentToken);
             advance();
             parseMethodBody();
             if(currentToken.getLexemType() == RIGHT_CURLY_BRACKET)
             {
+                AST.endMethodBody();
                 advance();
             }
             else
@@ -604,10 +730,12 @@ public class Parser {
     private void parseMethodDeclaration() throws ParsingException {
         if(currentToken.getLexemType() == LEFT_BRACKET)
         {
+            AST.startMethodParameterList(currentToken);
             advance();
             parseParameterList();
             if(currentToken.getLexemType() == RIGHT_BRACKET)
             {
+                AST.endMethodParameterList();
                 advance();
             }
             else
@@ -708,7 +836,7 @@ public class Parser {
                         advance();
                     }
                     else
-                        throw new ParsingException("semicolon expected.", currentToken.getLine(), currentToken.getColumn());
+                        throw new ParsingException("Semicolon expected.", currentToken.getLine(), currentToken.getColumn());
                 }
                 else
                     throw new ParsingException("Semicolon or '=' expected.", currentToken.getLine(), currentToken.getColumn());
@@ -722,22 +850,37 @@ public class Parser {
                 }
                 else if(currentToken.getLexemType() == DOT)
                 {
-                    advance();
-                    parseFetchedObject();
-                    parseIdentifierMethodOrAssignment();
+                    parseFetchedOptional();
+                    if(currentToken.getLexemType() == ASSIGNMENT)
+                    {
+                        advance();
+                        parseAssignmentRight();
+                        if(currentToken.getLexemType() == SEMICOLON)
+                        {
+                            advance();
+                        }
+                        else
+                            throw new ParsingException("semicolon expected.", currentToken.getLine(), currentToken.getColumn());
+                    }
                 }
                 else
                     throw new ParsingException("Semicolon or '.' expected.", currentToken.getLine(), currentToken.getColumn());
             }
-            else if(currentToken.getLexemType() == DOT)
-            {
-                advance();
-                parseFetchedObjectOptional();
-                parseIdentifierMethodOrAssignment();
-            }
             else
-                throw new ParsingException("Illegal statement.", currentToken.getLine(), currentToken.getColumn());
-
+            {
+                parseFetchedOptional();
+                if(currentToken.getLexemType() == ASSIGNMENT)
+                {
+                    advance();
+                    parseAssignmentRight();
+                }
+                if(currentToken.getLexemType() == SEMICOLON)
+                {
+                    advance();
+                }
+                else
+                    throw new ParsingException("Semicolon expected.", currentToken.getLine(), currentToken.getColumn());
+            }
             parseMethodStatementsOptional();
         }
         else if(currentToken.getLexemType() == INT)
@@ -760,29 +903,6 @@ public class Parser {
         }
         else
             return;
-    }
-    private void parseIdentifierMethodOrAssignment() throws ParsingException {
-        if(currentToken.getLexemType() == IDENTIFIER)
-        {
-            advance();
-            if(currentToken.getLexemType() == ASSIGNMENT)
-            {
-                advance();
-                parseAssignmentRight();
-            }
-            else
-            {
-                parseMethodCall();
-            }
-            if(currentToken.getLexemType() == SEMICOLON)
-            {
-                advance();
-            }
-            else
-                throw new ParsingException("Semicolon expected.", currentToken.getLine(), currentToken.getColumn());
-        }
-        else
-            throw new ParsingException("Identifier expected.", currentToken.getLine(), currentToken.getColumn());
     }
     private void parseReturnStatement() throws ParsingException {
         if(currentToken.getLexemType() == RETURN)
@@ -837,24 +957,24 @@ public class Parser {
             advance();
             parseNextParametersOptional();
         }
-        else
+        else if(currentToken.getLexemType() == THIS
+                || currentToken.getLexemType() == IDENTIFIER)
         {
             parseFetchedCallOrIdentifier();
         }
+        else
+            return;
     }
 
-    private void parseFetchedCallOrIdentifier() throws ParsingException {
+    private void parseFetchedCallOrIdentifier() throws ParsingException
+    {
         parseFetchedObject();
-        if(currentToken.getLexemType() == IDENTIFIER)
+        if(currentToken.getLexemType() == LEFT_BRACKET)
         {
-            advance();
-            if(currentToken.getLexemType() == LEFT_BRACKET)
-            {
-                parseMethodCall();
-            }
+            parseMethodCall();
         }
         else
-            throw new ParsingException("Identifier expected.", currentToken.getLine(), currentToken.getColumn());
+            return;
     }
 
     private void parseNextParametersOptional() throws ParsingException {
@@ -866,60 +986,50 @@ public class Parser {
         else
             return;
     }
-    private void parseFetchedObject()
-    {
-        parseThisOptional();
-        parseFetched();
-    }
-    private void parseThisOptional()
-    {
-        if(currentToken.getLexemType() == THIS)
-        {
-            advance();
-        }
-        else
-            return;
-    }
     private void parseFetched() throws ParsingException {
-        if(currentToken.getLexemType() == IDENTIFIER)
-        {
+        if(currentToken.getLexemType() == DOT) {
             advance();
-            if(currentToken.getLexemType() == LEFT_BRACKET)
-            {
-                parseMethodCall();
-            }
-            parseDotFetchedOptional();
+            if (currentToken.getLexemType() == IDENTIFIER) {
+                Lexem temporary = currentToken;
+                advance();
+                if (currentToken.getLexemType() == LEFT_BRACKET) {
+                    AST.startMethodCall(currentToken);
+                    parseMethodCall();
+                    AST.endMethodCall();
+                }
+                else
+                {
+                    AST.addIdentifierToList(temporary);
+                }
+                parseFetchedOptional();
+            } else
+                throw new ParsingException("Identifier expected.", currentToken.getLine(), currentToken.getColumn());
         }
         else
-            throw new ParsingException("Identifier expected.", currentToken.getLine(), currentToken.getColumn());
+            throw new ParsingException("'.' Expected.", currentToken.getLine(), currentToken.getColumn());
     }
-    private void parseDotFetchedOptional() throws ParsingException {
+    private void parseFetchedOptional() throws ParsingException {
         if(currentToken.getLexemType() == DOT)
         {
-            advance();
             parseFetched();
         }
         else
             return;
     }
-    private void parseAssignment() throws ParsingException {
-        parseFetchedObjectOptional();
-        if(currentToken.getLexemType() == IDENTIFIER)
+
+    private void parseFetchedObject() throws ParsingException {
+        if(currentToken.getLexemType() == THIS
+                || currentToken.getLexemType() == IDENTIFIER)
         {
+            AST.addIdentifierToList(currentToken);
             advance();
-            if(currentToken.getLexemType() == ASSIGNMENT)
-            {
-                advance();
-                parseAssignmentRight();
-            }
-            else
-                throw new ParsingException("'=' expected.", currentToken.getLine(), currentToken.getColumn());
+            parseFetchedOptional();
         }
         else
-            throw new ParsingException("Identifier expected.", currentToken.getLine(), currentToken.getColumn());
+            throw new ParsingException("'This' or identifier expected.", currentToken.getLine(), currentToken.getColumn());
     }
-    private void parseFetchedObjectOptional()
-    {
+
+    private void parseFetchedObjectOptional() throws ParsingException {
         if(currentToken.getLexemType() == THIS
                 || currentToken.getLexemType() == IDENTIFIER)
         {
@@ -928,6 +1038,7 @@ public class Parser {
         else
             return;
     }
+
     private void parseAssignmentRight() throws ParsingException {
         if(currentToken.getLexemType() == NUMBER)
         {
@@ -937,14 +1048,6 @@ public class Parser {
                 || currentToken.getLexemType() == IDENTIFIER)
         {
             parseFetchedObjectOptional();
-            if(currentToken.getLexemType() == IDENTIFIER)
-            {
-                advance();
-                if(currentToken.getLexemType() == LEFT_BRACKET)
-                    parseMethodCall();
-            }
-            else
-                throw new ParsingException("Identifier expected.", currentToken.getLine(), currentToken.getColumn());
         }
         else if(currentToken.getLexemType() == NEW)
         {
@@ -965,9 +1068,11 @@ public class Parser {
         if(currentToken.getLexemType() == IDENTIFIER
                 || currentToken.getLexemType() == INT)
         {
+            AST.addIdentifierToList(currentToken);
             advance();
             if (currentToken.getLexemType() == IDENTIFIER)
             {
+                AST.addIdentifierToList(currentToken);
                 advance();
                 parseNextIdentifierOptional();
             }
@@ -975,7 +1080,7 @@ public class Parser {
                 throw new ParsingException("Identifier expected.", currentToken.getLine(), currentToken.getColumn());
         }
         else
-            throw new ParsingException("Type expected", currentToken.getLine(), currentToken.getColumn());
+            return;
     }
 
     private void parseNextIdentifierOptional() throws ParsingException {

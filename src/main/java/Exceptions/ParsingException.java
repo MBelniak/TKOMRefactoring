@@ -10,4 +10,16 @@ public class ParsingException extends Exception {
         this.line = line;
         this.column = column;
     }
+
+    public String getErrorMessage() {
+        return errorMessage;
+    }
+
+    public int getLine() {
+        return line;
+    }
+
+    public int getColumn() {
+        return column;
+    }
 }
