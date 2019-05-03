@@ -1,4 +1,4 @@
-package lala.*;
+package lala.hhh;
 import Scanner.Lexem;
 
 
@@ -6,7 +6,14 @@ public class SomeClass extends BaseClass implements Interface
 {
     private int number;
     protected OtherClass instance;
+    private other method;
 
+    private void sdd()
+    {
+        return;
+    }
+
+    abstract void method(int a, int b, fudp as);
     private void doSth(int a, int s, asa s)
     {
         return;
@@ -14,7 +21,7 @@ public class SomeClass extends BaseClass implements Interface
     SomeClass()
     {
         super();
-        instance.getSomething().instance = 20;
+        instance.getSomething().instance = new SSSS();
         number = 23;
     }
 
@@ -47,4 +54,8 @@ interface ddd extends A, B{
     {
         return 2;
     }
+    int dupa();
+    int dupa();
+    int dupa();
+    int dupa();
 }

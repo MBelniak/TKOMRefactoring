@@ -59,3 +59,4 @@ public class Lexem
         return result + ", value='" + value + '\'' + '}';
     }
 }
+
