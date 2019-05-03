@@ -1,61 +1,21 @@
-package lala.hhh;
-import Scanner.Lexem;
+package TestSuite.test;
+import junit;
 
-
-public class SomeClass extends BaseClass implements Interface
-{
-    private int number;
-    protected OtherClass instance;
-    private other method;
-
-    private void sdd()
-    {
-        return;
-    }
-
-    abstract void method(int a, int b, fudp as);
-    private void doSth(int a, int s, asa s)
-    {
-        return;
-    }
-    SomeClass()
-    {
-        super();
-        instance.getSomething().instance = new SSSS();
-        number = 23;
-    }
-
-    public void something(int a, SomeClass b)     //Komentarz
-    {
-        a = b.getNumber();
-    }
-}
-
-class OtherClass implements DupaInterfejs
+class Class1 extends Base
 {
     private int a;
-    int a = 5;
-    OtherClass()
-    {
-        a = B.C.D().F.D;
-        G.H.I(J.K(L));
-        nj jjj;
-        int a = 2;
-    }
-}
+    private int b;
+    private Class2 field;
 
-interface ddd extends A, B{
-    default int method(int a, C f)
+    abstract void method1();
+    protected abstract void method2();
+    public abstract void method3();
+
+    public void method4()
     {
-        lalala lalal = b.c();
-        lalal lalala = b.c();
+        int a;
+        Class2 b;
+        a = b.getField();
+        this.b = b.field.method4();
     }
-    private int a()
-    {
-        return 2;
-    }
-    int dupa();
-    int dupa();
-    int dupa();
-    int dupa();
 }

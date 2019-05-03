@@ -4,7 +4,6 @@
     <list default="true" id="569db950-2a4c-4d14-bd10-c4385d25069d" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/src/main/java/Parser/AbstractSyntaxTree.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Parser/AbstractSyntaxTree.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Parser/Parser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Parser/Parser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Scanner/Lexem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Scanner/Lexem.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/test.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/test.txt" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -70,8 +69,8 @@
       <file leaf-file-name="test.txt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/test.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="23" column="53" selection-start-line="23" selection-start-column="53" selection-end-line="23" selection-end-column="53" />
+            <state relative-caret-position="238">
+              <caret line="17" column="25" lean-forward="true" selection-start-line="17" selection-start-column="25" selection-end-line="17" selection-end-column="25" />
             </state>
           </provider>
         </entry>
@@ -116,12 +115,18 @@
       <file leaf-file-name="AbstractSyntaxTree.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Parser/AbstractSyntaxTree.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="39" selection-start-line="39" selection-end-line="39" />
+            <state relative-caret-position="174">
+              <caret line="147" selection-start-line="147" selection-end-line="147" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1901#1902#0" expanded="true" />
-                <element signature="e#1967#1968#0" expanded="true" />
+                <element signature="e#1060#1061#0" expanded="true" />
+                <element signature="e#1110#1111#0" expanded="true" />
+                <element signature="e#1110#1111#0" expanded="true" />
+                <element signature="e#1144#1145#0" expanded="true" />
+                <element signature="e#1212#1213#0" expanded="true" />
+                <element signature="e#1259#1260#0" expanded="true" />
+                <element signature="e#3235#3236#0" expanded="true" />
+                <element signature="e#3301#3302#0" expanded="true" />
                 <element signature="e#1992#1993#0" expanded="true" />
                 <element signature="e#2032#2033#0" expanded="true" />
               </folding>
@@ -132,10 +137,12 @@
       <file leaf-file-name="Parser.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/Parser/Parser.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="844" column="41" selection-start-line="844" selection-start-column="41" selection-end-line="844" selection-end-column="41" />
+            <state relative-caret-position="167">
+              <caret line="989" selection-start-line="989" selection-end-line="989" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#47422#47423#0" expanded="true" />
+                <element signature="e#47475#47476#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -152,34 +159,36 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>*</find>
-      <find>CallPara</find>
-      <find>MethodBlo</find>
-      <find>MethodBod</find>
-      <find>FetchedObjectO</find>
-      <find>DotF</find>
-      <find>assignmentRi</find>
-      <find>Object</find>
-      <find>Incorrec</find>
-      <find>Incorrect def</find>
-      <find>AssignmentR</find>
-      <find>MethodSt</find>
-      <find>AssignmentRig</find>
-      <find>DEFA</find>
-      <find>Assignment</find>
-      <find>Object initialization expected.</find>
       <find>'}' expected</find>
       <find>Primiti</find>
       <find>Return</find>
-      <find>parseRet</find>
       <find>Defini</find>
-      <find>parseDefini</find>
       <find>parseInterfaceBod</find>
       <find>parseCons</find>
       <find>parseClassBody</find>
       <find>parseObjectFieldO</find>
       <find>Abstra</find>
       <find>ConstructorD</find>
+      <find>parseSup</find>
+      <find>parseMethodCal</find>
+      <find>parseDefi</find>
+      <find>MethodStatements</find>
+      <find>PrimitiveFieldDe</find>
+      <find>InterfaceBody</find>
+      <find>parseRet</find>
+      <find>NUMBER</find>
+      <find>AbstractClassDefinition</find>
+      <find>parseDefini</find>
+      <find>Statement</find>
+      <find>MethodCall</find>
+      <find>AssignmentRi</find>
+      <find>MethodState</find>
+      <find>Stateme</find>
+      <find>Assignment</find>
+      <find>MethodO</find>
+      <find>MethodSta</find>
+      <find>ASSIGNMEN</find>
+      <find>MethodSt</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -254,7 +263,7 @@
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-8" />
-    <option name="width" value="1274" />
+    <option name="width" value="1115" />
     <option name="height" value="1088" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -486,7 +495,7 @@
       <workItem from="1553863824351" duration="35000" />
       <workItem from="1554492965743" duration="25363000" />
       <workItem from="1555089153875" duration="28000" />
-      <workItem from="1555938544104" duration="57851000" />
+      <workItem from="1555938544104" duration="70746000" />
     </task>
     <servers />
   </component>
@@ -523,7 +532,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="124972000" />
+    <option name="totallyTimeSpent" value="137867000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="878" extended-state="6" />
@@ -539,11 +548,11 @@
       <window_info anchor="right" id="Maven Projects" order="4" />
       <window_info anchor="bottom" id="Database Changes" order="11" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.52155775" />
-      <window_info anchor="bottom" id="Terminal" order="9" weight="0.32127956" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.44228095" />
+      <window_info anchor="bottom" id="Terminal" order="9" weight="0.6495132" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="3" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18053691" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.05771812" />
       <window_info anchor="right" id="Database" order="5" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32911393" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -551,7 +560,7 @@
       <window_info id="UI Designer" order="4" />
       <window_info anchor="right" id="Theme Preview" order="7" />
       <window_info id="Favorites" order="5" side_tool="true" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.44089013" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.44089013" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -600,12 +609,18 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/Parser/Parser.java</url>
-          <line>587</line>
+          <line>596</line>
           <properties />
           <option name="timeStamp" value="47" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/Parser/Parser.java</url>
+          <line>899</line>
+          <properties />
+          <option name="timeStamp" value="50" />
+        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="50" />
+      <option name="time" value="51" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
@@ -958,6 +973,43 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Scanner/Scanner.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="71" column="5" selection-start-line="71" selection-start-column="5" selection-end-line="71" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Parser/AbstractSyntaxTree.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="174">
+          <caret line="147" selection-start-line="147" selection-end-line="147" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1060#1061#0" expanded="true" />
+            <element signature="e#1110#1111#0" expanded="true" />
+            <element signature="e#1110#1111#0" expanded="true" />
+            <element signature="e#1144#1145#0" expanded="true" />
+            <element signature="e#1212#1213#0" expanded="true" />
+            <element signature="e#1259#1260#0" expanded="true" />
+            <element signature="e#3235#3236#0" expanded="true" />
+            <element signature="e#3301#3302#0" expanded="true" />
+            <element signature="e#1992#1993#0" expanded="true" />
+            <element signature="e#2032#2033#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/test.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="17" column="25" lean-forward="true" selection-start-line="17" selection-start-column="25" selection-end-line="17" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Scanner/Lexem.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="478">
@@ -969,43 +1021,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Parser/AbstractSyntaxTree.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="39" selection-start-line="39" selection-end-line="39" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1901#1902#0" expanded="true" />
-            <element signature="e#1967#1968#0" expanded="true" />
-            <element signature="e#1992#1993#0" expanded="true" />
-            <element signature="e#2032#2033#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Scanner/Scanner.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="71" column="5" selection-start-line="71" selection-start-column="5" selection-end-line="71" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/test.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="23" column="53" selection-start-line="23" selection-start-column="53" selection-end-line="23" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Parser/Parser.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="844" column="41" selection-start-line="844" selection-start-column="41" selection-end-line="844" selection-end-column="41" />
+        <state relative-caret-position="167">
+          <caret line="989" selection-start-line="989" selection-end-line="989" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#47422#47423#0" expanded="true" />
+            <element signature="e#47475#47476#0" expanded="true" />
           </folding>
         </state>
       </provider>
