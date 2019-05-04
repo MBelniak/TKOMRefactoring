@@ -15,8 +15,23 @@ class Class1 extends Base
     {
         int a;
         Class2 b;
-        a = b.getField();
-        a.c().g;
+        a = new Class();
+        a.c().g = 2;
         this.b = b.field.method4();
+        return a.b.c();
+    }
+}
+
+interface Interface1 extends BaseInterface
+{
+    default int methodI()
+    {
+        return 2;
+    }
+
+    private void methodP(int a, int b)
+    {
+        a = b.m(a.f.f());
+        return a;
     }
 }

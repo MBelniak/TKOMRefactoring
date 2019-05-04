@@ -24,13 +24,14 @@ class AbstractSyntaxTree {
         this.lexemBuffer = new ArrayList<>();
     }
 
-    public List<Lexem> getLexemBuffer() {
-        return lexemBuffer;
-    }
-
     void clear() {
         ASTRoot = null;
         currentOpenedElement = null;
+    }
+
+    void startFile(Lexem currentToken) {
+        ASTRoot = new ASTNode(Code, currentToken.getLine(), currentToken.getColumn());
+        currentOpenedElement = ASTRoot;
     }
 
     void storeInBuffer(Lexem currentToken)
@@ -44,11 +45,6 @@ class AbstractSyntaxTree {
         lexemBuffer.clear();
     }
 
-    void startFile(Lexem currentToken) {
-        ASTRoot = new ASTNode(Code, currentToken.getLine(), currentToken.getColumn());
-        currentOpenedElement = ASTRoot;
-    }
-
     void addIdentifierToList(Lexem currentToken) {
         if(currentToken.getValue() == null)
             currentOpenedElement.putAsChild(new ASTNode(Identifier, currentToken.getLine(), currentToken.getColumn(), currentToken.getLexemType().toString()));
@@ -59,21 +55,6 @@ class AbstractSyntaxTree {
     void addNumberToList(Lexem currentToken)
     {
         currentOpenedElement.putAsChild(new ASTNode(Number, currentToken.getLine(), currentToken.getColumn(), currentToken.getValue()));
-    }
-    private void organizeStatements()
-    {
-            //AbstractClassDefinition or AbstractMethodDeclaration or MethodDefinition
-            // or PrimitiveFieldInitialization or ConstructorDefinition or ObjectFieldDeclaration or MainMethod
-            // or ClassDefinition
-//        List<ASTNode> concernedNodes = new ArrayList<>();
-//        ASTRoot.findConcernedNodes(concernedNodes);
-//        concernedNodes.forEach(node ->
-//        {
-//            for(int i = 0; i<node.children.size(); i++)
-//            {
-//                if(node.children.get(i).nodeType == AbstractClassDefinition)
-//            }
-//        });
     }
 
     void startElement(ElementType elementType, Lexem currentToken) {
