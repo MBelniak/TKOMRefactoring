@@ -1,0 +1,24 @@
+<Code>
+	<PublicClassOrInterfaceDefinition>
+		<AbstractClassDefinition>
+			<ClassHeader>
+				<Identifier name="A">
+				<Identifier/>
+			<ClassHeader/>
+			<ClassBody>
+			<ClassBody/>
+		<AbstractClassDefinition/>
+	<PublicClassOrInterfaceDefinition/>
+	<AbstractClassDefinition>
+		<ClassHeader>
+			<Identifier name="B">
+			<Identifier/>
+			<ExtendList>
+				<Identifier name="A">
+				<Identifier/>
+			<ExtendList/>
+		<ClassHeader/>
+		<ClassBody>
+		<ClassBody/>
+	<AbstractClassDefinition/>
+<Code/>

@@ -2,9 +2,53 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="569db950-2a4c-4d14-bd10-c4385d25069d" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/outputs/ASTOutput.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/ParserTestSuite/ClassesAndInterfacesTests/testFiles/shouldParseAbstractClassHeader.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/ParserTestSuite/ClassesAndInterfacesTests/testFiles/shouldParseClassHeaderWithExtendsAndImplements.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/ParserTestSuite/ClassesAndInterfacesTests/testFiles/shouldParseInnerClasses.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/ParserTestSuite/ClassesAndInterfacesTests/testFiles/shouldParseInterfaceWithExtends.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/ParserTestSuite/ClassesAndInterfacesTests/testFiles/shouldParseSimpleClassHeader.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/ParserTestSuite/ClassesAndInterfacesTests/testFiles/shouldParseSimpleInterfaceHeader.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/ParserTestSuite/ClassesAndInterfacesTests/validation/shouldParseAbstractClassHeaderValidation.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/ParserTestSuite/ClassesAndInterfacesTests/validation/shouldParseClassHeaderWithExtendsAndImplementsValidation.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/ParserTestSuite/ClassesAndInterfacesTests/validation/shouldParseInnerClassesValidation.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/ParserTestSuite/ClassesAndInterfacesTests/validation/shouldParseInterfaceWithExtendsValidation.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/ParserTestSuite/ClassesAndInterfacesTests/validation/shouldParseSimpleClassHeaderValidation.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/ParserTestSuite/ClassesAndInterfacesTests/validation/shouldParseSimpleInterfaceHeaderValidation.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/ParserTestSuite/PackagesTests/testFiles/shouldParsePackageAndImportDeclarations.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/ParserTestSuite/PackagesTests/validation/shouldParsePackageAndImportDeclarationsValidation.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/ParserTestSuite/ParserTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/FilesManagement/FileSource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/FilesManagement/FileSource.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Parser/AbstractSyntaxTree.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Parser/AbstractSyntaxTree.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Parser/NonTerminalSymbol.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Parser/Parser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Parser/Parser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Parser/Symbol.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Parser/TerminalSymbol.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Scanner/Lexem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Lexems/Lexem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Scanner/LexemFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Lexems/LexemFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Scanner/Scanner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Scanner/Scanner.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/test.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/test.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/test3.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/test3.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/OneLexem/OneLexemTestCase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/OneLexem/OneLexemTestCase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/FilesManagement/FileSource.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/FilesManagement/FileSource.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Parser/AbstractSyntaxTree$ASTNode.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Parser/AbstractSyntaxTree$ASTNode.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Parser/AbstractSyntaxTree$ElementType.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Parser/AbstractSyntaxTree$ElementType.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Parser/AbstractSyntaxTree.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Parser/AbstractSyntaxTree.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Parser/NonTerminalSymbol.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Parser/Parser.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Parser/Parser.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Parser/Symbol.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Parser/TerminalSymbol.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Scanner/Lexem$LexemType.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Scanner/Lexem.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Scanner/LexemFactory.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Scanner/Scanner.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Scanner/Scanner.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/test.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/test.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/test3.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/test3.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/OneLexem/OneLexemTestCase.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/OneLexem/OneLexemTestCase.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -21,37 +65,26 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="Lexem.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Scanner/Lexem.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/Lexems/Lexem.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="257">
-              <caret line="57" selection-start-line="57" selection-end-line="57" />
-              <folding>
-                <element signature="e#1121#1122#0" expanded="true" />
-                <element signature="e#1153#1154#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Main.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="15" selection-start-line="15" selection-end-line="15" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="-56">
+              <caret line="25" column="4" selection-start-line="25" selection-start-column="4" selection-end-line="25" selection-end-column="4" />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="LexemFactory.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Scanner/LexemFactory.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/Lexems/LexemFactory.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="17" column="5" lean-forward="true" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="5" />
+            <state relative-caret-position="340">
+              <caret line="21" column="11" selection-start-line="21" selection-start-column="11" selection-end-line="21" selection-end-column="11" />
               <folding>
-                <element signature="e#418#419#0" expanded="true" />
+                <element signature="e#179#180#0" expanded="true" />
+                <element signature="e#223#224#0" expanded="true" />
+                <element signature="e#276#277#0" expanded="true" />
+                <element signature="e#327#328#0" expanded="true" />
+                <element signature="e#393#394#0" expanded="true" />
+                <element signature="e#445#446#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -60,8 +93,8 @@
       <file leaf-file-name="Scanner.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Scanner/Scanner.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="111" column="17" selection-start-line="111" selection-start-column="17" selection-end-line="111" selection-end-column="17" />
+            <state relative-caret-position="646">
+              <caret line="38" selection-start-line="38" selection-end-line="38" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -69,14 +102,27 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ParsingException.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/Main.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="221">
+              <caret line="13" column="54" selection-start-line="13" selection-start-column="54" selection-end-line="13" selection-end-column="54" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ParsingException.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/Exceptions/ParsingException.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="18" selection-start-line="18" selection-end-line="18" />
+            <state relative-caret-position="187">
+              <caret line="11" column="5" selection-start-line="11" selection-start-column="5" selection-end-line="11" selection-end-column="5" />
               <folding>
                 <element signature="e#365#366#0" expanded="true" />
                 <element signature="e#400#401#0" expanded="true" />
+                <element signature="e#428#429#0" expanded="true" />
                 <element signature="e#455#456#0" expanded="true" />
                 <element signature="e#485#486#0" expanded="true" />
                 <element signature="e#514#515#0" expanded="true" />
@@ -85,23 +131,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="OneLexemTestCase.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/OneLexem/OneLexemTestCase.java">
+      <file leaf-file-name="AbstractSyntaxTree.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/Parser/AbstractSyntaxTree.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="24" column="25" selection-start-line="24" selection-start-column="25" selection-end-line="24" selection-end-column="25" />
+            <state relative-caret-position="153">
+              <caret line="9" column="7" selection-start-line="9" selection-start-column="7" selection-end-line="9" selection-end-column="7" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="test2.txt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/test2.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="7" column="6" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
             </state>
           </provider>
         </entry>
@@ -109,8 +146,8 @@
       <file leaf-file-name="Parser.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Parser/Parser.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="1208" column="42" selection-start-line="1208" selection-start-column="42" selection-end-line="1208" selection-end-column="42" />
+            <state relative-caret-position="369">
+              <caret line="1315" column="5" lean-forward="true" selection-start-line="1315" selection-start-column="5" selection-end-line="1315" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -118,31 +155,28 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AbstractSyntaxTree.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Parser/AbstractSyntaxTree.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="61" selection-start-line="61" selection-end-line="61" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#1060#1061#0" expanded="true" />
-                <element signature="e#1110#1111#0" expanded="true" />
-                <element signature="e#1212#1213#0" expanded="true" />
-                <element signature="e#1259#1260#0" expanded="true" />
-                <element signature="e#3235#3236#0" expanded="true" />
-                <element signature="e#3301#3302#0" expanded="true" />
-                <element signature="e#1992#1993#0" expanded="true" />
-                <element signature="e#2032#2033#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="test.txt" pinned="false" current-in-tab="true">
+      <file leaf-file-name="test.txt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/test.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="459">
-              <caret line="27" column="5" lean-forward="true" selection-start-line="27" selection-start-column="5" selection-end-line="27" selection-end-column="5" />
+            <state relative-caret-position="51">
+              <caret line="3" selection-start-line="3" selection-end-line="3" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="test4.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/test4.txt">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file leaf-file-name="FileSource.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/FilesManagement/FileSource.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1105">
+              <caret line="65" column="36" selection-start-line="65" selection-start-column="36" selection-end-line="65" selection-end-column="36" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -158,8 +192,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>parseDefini</find>
-      <find>Statement</find>
       <find>MethodCall</find>
       <find>AssignmentRi</find>
       <find>MethodState</find>
@@ -188,6 +220,8 @@
       <find>parseAssi</find>
       <find>parseRetu</find>
       <find>parseCal</find>
+      <find>ClassDefi</find>
+      <find>PublicClassD</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -196,30 +230,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/Lexems/Lexems.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Lexems/Lexem.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Lexems/LexemType.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Scanner/LexemType.java" />
-        <option value="$PROJECT_DIR$/src/test/java/ScannerTestCase.java" />
-        <option value="$PROJECT_DIR$/src/test/java/OneLexem/ScannerTestCase.java" />
-        <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/src/test/java/ColumnsAndLines/ColumnsAndLinesTestCase.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Scanner/LexemFactory.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/test2.txt" />
-        <option value="$PROJECT_DIR$/src/main/java/FilesManagement/FileSource.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/test4.txt" />
-        <option value="$PROJECT_DIR$/src/main/java/Parser/Stack.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Parser/TerminalSymbol.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Parser/NonTerminalSymbol.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Parser/Production.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Parser/StackImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Parser/ProductionTable.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Parser/ProductionSet.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/test3.txt" />
-        <option value="$PROJECT_DIR$/src/main/java/Parser/Symbol.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Exceptions/NoPublicClassInFileException.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Exceptions/UnexpectedIdentifierException.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Exceptions/SemicolonExpectedException.java" />
         <option value="$PROJECT_DIR$/src/main/java/Exceptions/IdentifierExpectedException.java" />
         <option value="$PROJECT_DIR$/src/main/java/Exceptions/IdentOrAsterxExpectedException.java" />
         <option value="$PROJECT_DIR$/src/main/java/Exceptions/IdentOrAsterixExpectedException.java" />
@@ -232,15 +242,45 @@
         <option value="$PROJECT_DIR$/src/main/java/Exceptions/IncorrectDefinitionException.java" />
         <option value="$PROJECT_DIR$/src/main/java/Exceptions/ClassOrMethodDeclarationExpectedException.java" />
         <option value="$PROJECT_DIR$/src/main/java/Exceptions/SemicolonOrBlockExpectedException.java" />
-        <option value="$PROJECT_DIR$/src/test/java/OneLexem/OneLexemTestCase.java" />
         <option value="$PROJECT_DIR$/src/test/java/OneLexem/Test1.txt" />
-        <option value="$PROJECT_DIR$/src/main/java/Exceptions/ParsingException.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Main.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Scanner/Lexem.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Parser/AbstractSyntaxTree.java" />
         <option value="$PROJECT_DIR$/src/main/resources/test.txt" />
+        <option value="$PROJECT_DIR$/src/test/java/ParserTestSuite/ClassesAndInterfacesTests/validation/shouldParseSimpleClassHeader.txt" />
+        <option value="$PROJECT_DIR$/src/main/resources/test3.txt" />
+        <option value="$PROJECT_DIR$/src/main/resources/downloads/ASTOutput.txt" />
+        <option value="$PROJECT_DIR$/src/test/java/ParserTestSuite/ClassesAndInterfacesTests/testFiles/shouldParseClassHeaderWithExtend.txt" />
+        <option value="$PROJECT_DIR$/src/test/java/ParserTestSuite/ClassesAndInterfacesTests/validation/shouldParseClassHeaderWithExtendValidation.txt" />
+        <option value="$PROJECT_DIR$/src/test/java/ParserTestSuite/ClassesAndInterfacesTests/testFiles/shouldParseClassWithImplements.txt" />
+        <option value="$PROJECT_DIR$/src/test/java/ParserTestSuite/ClassesAndInterfacesTests/validation/shouldParseClassHeaderWithImplementsValidation.txt" />
+        <option value="$PROJECT_DIR$/src/test/java/ParserTestSuite/ClassesAndInterfacesTests/testFiles/shouldParseAbstractClassHeader.txt" />
+        <option value="$PROJECT_DIR$/src/test/java/ParserTestSuite/ClassesAndInterfacesTests/testFiles/shouldParseClassHeaderWithExtendsAndImplements.txt" />
+        <option value="$PROJECT_DIR$/src/test/java/ParserTestSuite/ClassesAndInterfacesTests/validation/shouldParseClassHeaderWithExtendsAndImplementsValidation.txt" />
+        <option value="$PROJECT_DIR$/src/test/java/ParserTestSuite/ClassesAndInterfacesTests/testFiles/shouldParseSimpleClassHeader.txt" />
+        <option value="$PROJECT_DIR$/src/test/java/ParserTestSuite/ClassesAndInterfacesTests/testFiles/shouldParseInnerClasses.txt" />
+        <option value="$PROJECT_DIR$/src/test/java/ParserTestSuite/ClassesAndInterfacesTests/validation/shouldParseInnerClassesValidation.txt" />
+        <option value="$PROJECT_DIR$/src/test/java/ParserTestSuite/ClassesAndInterfacesTests/ClassesTests.java" />
+        <option value="$PROJECT_DIR$/src/test/java/ParserTestSuite/ClassesAndInterfacesTests/testFiles/shouldParseSimpleInterfaceHeader.txt" />
+        <option value="$PROJECT_DIR$/src/test/java/ParserTestSuite/ClassesAndInterfacesTests/validation/shouldParseSimpleInterfaceHeaderValidation.txt" />
+        <option value="$PROJECT_DIR$/src/test/java/ParserTestSuite/ClassesAndInterfacesTests/validation/shouldParseSimpleClassHeaderValidation.txt" />
+        <option value="$PROJECT_DIR$/src/test/java/ParserTestSuite/ClassesAndInterfacesTests/validation/shouldParseAbstractClassHeaderValidation.txt" />
+        <option value="$PROJECT_DIR$/src/main/java/Scanner/Lexem.java" />
+        <option value="$PROJECT_DIR$/src/test/java/ParserTestSuite/ClassesAndInterfacesTests/testFiles/shouldParseInterfaceWithExtendsAndImplements.txt" />
+        <option value="$PROJECT_DIR$/src/test/java/ParserTestSuite/ClassesAndInterfacesTests/testFiles/shouldParseInterfaceWithExtends.txt" />
+        <option value="$PROJECT_DIR$/src/test/java/ParserTestSuite/ClassesAndInterfacesTests/validation/shouldParseInterfaceWithExtendsValidation.txt" />
         <option value="$PROJECT_DIR$/src/main/java/Scanner/Scanner.java" />
+        <option value="$PROJECT_DIR$/src/test/java/ParserTestSuite/ClassesAndInterfacesTests/ClassesAndInterfacesTests.java" />
+        <option value="$PROJECT_DIR$/src/test/java/ParserTestSuite/PackagesTests/PackagesTests.java" />
+        <option value="$PROJECT_DIR$/src/test/java/ParserTestSuite/PackagesTests/testFiles/shouldParsePackageAndImportDeclarations.txt" />
         <option value="$PROJECT_DIR$/src/main/java/Parser/Parser.java" />
+        <option value="$PROJECT_DIR$/src/test/java/ParserTestSuite/PackagesTests/validation/shouldParsePackageAndImportDeclarationsValidation.txt" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/test/java/ParserTestSuite/ParserTests.java" />
+        <option value="$PROJECT_DIR$/src/test/java/OneLexem/OneLexemTestCase.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Main.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Parser/AbstractSyntaxTree.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Lexems/LexemFactory.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Lexems/Lexem.java" />
+        <option value="$PROJECT_DIR$/src/main/java/FilesManagement/FileSource.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Exceptions/ParsingException.java" />
       </list>
     </option>
   </component>
@@ -261,9 +301,9 @@
     <packageJsonPaths />
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-8" />
-    <option name="width" value="977" />
-    <option name="height" value="1088" />
+    <option name="x" value="-9" />
+    <option name="width" value="978" />
+    <option name="height" value="1089" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -271,8 +311,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="AndroidView" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -312,7 +350,7 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="FilesManagement" type="462c0819:PsiDirectoryNode" />
+              <item name="Lexems" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="TKOMRefactoring" type="b2602c69:ProjectViewProjectNode" />
@@ -327,8 +365,7 @@
               <item name="TKOMRefactoring" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="Scanner" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="TKOMRefactoring" type="b2602c69:ProjectViewProjectNode" />
@@ -336,6 +373,7 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="outputs" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="TKOMRefactoring" type="b2602c69:ProjectViewProjectNode" />
@@ -362,13 +400,15 @@
           <select />
         </subPane>
       </pane>
+      <pane id="AndroidView" />
+      <pane id="Scope" />
       <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../tin-onedrive" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="Modules" />
@@ -377,11 +417,11 @@
     <property name="settings.editor.selected.configurable" value="configurable.group.tools" />
   </component>
   <component name="RecentsManager">
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="Parser" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\rubik\IdeaProjects\TKOMRefactoring\src\test\java\OneLexem" />
+    </key>
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="Parser" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -396,7 +436,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Unnamed">
+  <component name="RunManager" selected="JUnit.Tests">
     <configuration name="Unnamed" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="TKOMRefactoring" />
@@ -422,6 +462,29 @@
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <patterns />
+    </configuration>
+    <configuration name="Tests" type="JUnit" factoryName="JUnit" temporary="true">
+      <module name="TKOMRefactoring" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ParserTestSuite.ClassesAndInterfacesTests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="ParserTestSuite" />
+      <option name="MAIN_CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="file://%MODULE_WORKING_DIR%" />
       <option name="PASS_PARENT_ENVS" value="true" />
       <option name="TEST_SEARCH_SCOPE">
         <value defaultName="singleModule" />
@@ -469,9 +532,11 @@
     <list>
       <item itemvalue="Application.Unnamed" />
       <item itemvalue="JUnit.OneLexemTestCase" />
+      <item itemvalue="JUnit.Tests" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.Tests" />
         <item itemvalue="JUnit.OneLexemTestCase" />
       </list>
     </recent_temporary>
@@ -494,44 +559,45 @@
       <workItem from="1553863824351" duration="35000" />
       <workItem from="1554492965743" duration="25363000" />
       <workItem from="1555089153875" duration="28000" />
-      <workItem from="1555938544104" duration="82086000" />
+      <workItem from="1555938544104" duration="82137000" />
+      <workItem from="1557127248557" duration="12831000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="OneLexemTestCase - 2019.04.06 at 20h 02m 44s.xml">
-      <configuration name="OneLexemTestCase" configurationId="JUnit" />
+    <history-entry file="Tests - 2019.05.06 at 22h 49m 58s.xml">
+      <configuration name="Tests" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="OneLexemTestCase - 2019.04.06 at 20h 03m 12s.xml">
-      <configuration name="OneLexemTestCase" configurationId="JUnit" />
+    <history-entry file="Tests - 2019.05.06 at 22h 55m 40s.xml">
+      <configuration name="Tests" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="OneLexemTestCase - 2019.04.06 at 20h 04m 24s.xml">
-      <configuration name="OneLexemTestCase" configurationId="JUnit" />
+    <history-entry file="Tests - 2019.05.06 at 22h 56m 09s.xml">
+      <configuration name="Tests" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="OneLexemTestCase - 2019.04.06 at 20h 04m 45s.xml">
-      <configuration name="OneLexemTestCase" configurationId="JUnit" />
+    <history-entry file="Tests - 2019.05.06 at 22h 58m 29s.xml">
+      <configuration name="Tests" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="OneLexemTestCase - 2019.04.06 at 20h 04m 59s.xml">
-      <configuration name="OneLexemTestCase" configurationId="JUnit" />
+    <history-entry file="Tests - 2019.05.06 at 22h 59m 06s.xml">
+      <configuration name="Tests" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="OneLexemTestCase - 2019.04.07 at 12h 05m 12s.xml">
-      <configuration name="OneLexemTestCase" configurationId="JUnit" />
+    <history-entry file="Tests - 2019.05.06 at 22h 59m 19s.xml">
+      <configuration name="Tests" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="OneLexemTestCase - 2019.04.08 at 13h 45m 37s.xml">
-      <configuration name="OneLexemTestCase" configurationId="JUnit" />
+    <history-entry file="Tests - 2019.05.06 at 23h 00m 11s.xml">
+      <configuration name="Tests" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="OneLexemTestCase - 2019.04.08 at 13h 47m 03s.xml">
-      <configuration name="OneLexemTestCase" configurationId="JUnit" />
+    <history-entry file="Tests - 2019.05.06 at 23h 00m 54s.xml">
+      <configuration name="Tests" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="OneLexemTestCase - 2019.04.08 at 13h 53m 57s.xml">
-      <configuration name="OneLexemTestCase" configurationId="JUnit" />
+    <history-entry file="Tests - 2019.05.06 at 23h 02m 36s.xml">
+      <configuration name="Tests" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="OneLexemTestCase - 2019.04.09 at 19h 12m 09s.xml">
-      <configuration name="OneLexemTestCase" configurationId="JUnit" />
+    <history-entry file="Tests - 2019.05.06 at 23h 04m 16s.xml">
+      <configuration name="Tests" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="149207000" />
+    <option name="totallyTimeSpent" value="162089000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="878" extended-state="6" />
@@ -547,53 +613,53 @@
       <window_info anchor="right" id="Maven Projects" order="4" />
       <window_info anchor="bottom" id="Database Changes" order="11" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.4325452" />
-      <window_info anchor="right" id="Coverage" side_tool="true" weight="0.3295302" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.1961057" />
       <window_info anchor="bottom" id="Terminal" order="9" weight="0.18497914" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="3" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.05771812" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.34161073" />
       <window_info anchor="right" id="Database" order="5" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32911393" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32823366" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="4" />
       <window_info anchor="right" id="Theme Preview" order="7" />
       <window_info id="Favorites" order="5" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.2753825" />
+      <window_info anchor="right" id="Coverage" order="9" side_tool="true" weight="0.3295302" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="0" />
     </layout>
     <layout-to-restore>
       <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Capture Analysis" order="6" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.33895922" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="right" id="Theme Preview" order="7" />
+      <window_info anchor="bottom" id="Messages" order="10" weight="0.32823366" />
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.30790567" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="right" id="Theme Preview" order="7" />
-      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="Database Changes" order="11" show_stripe_button="false" />
+      <window_info anchor="bottom" id="TODO" order="6" />
       <window_info id="Image Layers" order="6" />
       <window_info id="Designer" order="3" />
       <window_info id="UI Designer" order="4" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39803094" />
-      <window_info anchor="right" id="Database" order="5" />
       <window_info anchor="right" id="Palette&#9;" order="8" />
       <window_info anchor="bottom" id="Terminal" order="9" weight="0.32962447" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info id="Capture Tool" order="2" />
-      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
-      <window_info anchor="bottom" id="Messages" order="10" weight="0.32823366" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="right" id="Database" order="5" />
       <window_info anchor="right" id="Maven Projects" order="4" />
       <window_info id="Favorites" order="5" side_tool="true" />
     </layout-to-restore>
@@ -609,342 +675,234 @@
       <breakpoints>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/Parser/Parser.java</url>
-          <line>599</line>
+          <line>608</line>
           <properties />
           <option name="timeStamp" value="47" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Parser/Parser.java</url>
-          <line>24</line>
-          <properties />
-          <option name="timeStamp" value="55" />
         </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="58" />
+      <option name="time" value="59" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/Scanner/Lexem.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="15" selection-start-column="15" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/test.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="5" selection-start-line="2" selection-start-column="5" selection-end-line="2" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/FilesManagement/FileSource.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="799">
-          <caret line="54" column="5" selection-start-line="54" selection-start-column="5" selection-end-line="54" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#508#509#0" expanded="true" />
-            <element signature="e#548#549#0" expanded="true" />
-            <element signature="e#596#597#0" expanded="true" />
-            <element signature="e#636#637#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" selection-start-line="7" selection-end-line="7" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="30" column="10" selection-start-line="30" selection-start-column="10" selection-end-line="30" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Scanner/Scanner.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1241">
-          <caret line="73" column="40" lean-forward="true" selection-start-line="73" selection-start-column="40" selection-end-line="73" selection-end-column="40" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Scanner/Lexem.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="15" lean-forward="true" selection-start-column="15" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/FilesManagement/FileSource.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="799">
-          <caret line="54" column="5" selection-start-line="54" selection-start-column="5" selection-end-line="54" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#508#509#0" expanded="true" />
-            <element signature="e#548#549#0" expanded="true" />
-            <element signature="e#596#597#0" expanded="true" />
-            <element signature="e#636#637#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" selection-start-line="7" selection-end-line="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/test.txt">
+    <entry file="file://$PROJECT_DIR$/src/main/java/Exceptions/ClassKeywordExpectedException.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/Exceptions/InterfaceKeywordExpectedException.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/Exceptions/ExtendsKeywordExpectedException.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/Exceptions/IncorrectDefinitionException.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/Exceptions/ClassOrMethodDeclarationExpectedException.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/Exceptions/SemicolonOrBlockExpectedException.java" />
+    <entry file="file://$PROJECT_DIR$/src/test/java/ParserTestSuite/ClassesAndInterfacesTests.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
-          <caret line="2" selection-start-line="2" selection-end-line="2" />
+          <caret line="2" column="38" selection-start-line="2" selection-start-column="38" selection-end-line="2" selection-end-column="38" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="348">
-          <caret line="31" column="26" selection-start-line="31" selection-start-column="26" selection-end-line="31" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/ColumnsAndLines/ColumnsAndLinesTestCase.java" />
-    <entry file="file://$PROJECT_DIR$/src/test/java/FullTexts/FullTextsTestCase.java" />
-    <entry file="file://$PROJECT_DIR$/src/test/java/OneLexem/Test2.txt" />
-    <entry file="file://$PROJECT_DIR$/src/test/java/OneLexem/Test3.txt" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/FilesManagement/PackageStructure.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/Parser/NonTerminalSymbol.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/ParserTestSuite/FetchingTests.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
-          <caret line="3" column="30" selection-start-line="3" selection-start-column="30" selection-end-line="3" selection-end-column="30" />
+          <caret line="3" column="1" lean-forward="true" selection-start-line="3" selection-start-column="1" selection-end-line="3" selection-end-column="1" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Parser/Production.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/ParserTestSuite/ClassesAndInterfacesTests/validation/shouldParseSimpleClassHeader">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/ParserTestSuite/ClassesAndInterfacesTests/validation/shouldParseClassHeaderWithExtendValidation.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="33" selection-start-line="7" selection-start-column="33" selection-end-line="7" selection-end-column="33" />
-          <folding>
-            <element signature="e#194#195#0" expanded="true" />
-            <element signature="e#227#228#0" expanded="true" />
-            <element signature="e#272#273#0" expanded="true" />
-            <element signature="e#307#308#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="221">
+          <caret line="13" column="7" selection-start-line="13" selection-start-column="7" selection-end-line="13" selection-end-column="7" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Parser/ProductionSet.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/ParserTestSuite/ClassesAndInterfacesTests/testFiles/shouldParseClassHeaderWithExtend.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="43" selection-start-line="5" selection-start-column="43" selection-end-line="5" selection-end-column="43" />
+        <state relative-caret-position="51">
+          <caret line="3" column="1" lean-forward="true" selection-start-line="3" selection-start-column="1" selection-end-line="3" selection-end-column="1" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Parser/ProductionTable.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="83" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="83" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/FilesManagement/FileSource.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="18" column="11" selection-start-line="18" selection-start-column="11" selection-end-line="18" selection-end-column="11" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#508#509#0" expanded="true" />
-            <element signature="e#548#549#0" expanded="true" />
-            <element signature="e#596#597#0" expanded="true" />
-            <element signature="e#636#637#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Parser/StackImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="22" column="102" selection-start-line="22" selection-start-column="102" selection-end-line="22" selection-end-column="102" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#316#317#0" expanded="true" />
-            <element signature="e#359#360#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/test4.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="34" lean-forward="true" selection-start-line="15" selection-start-column="34" selection-end-line="15" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Parser/Symbol.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/ParserTestSuite/ClassesAndInterfacesTests/InterfacesTests.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
-          <caret line="2" column="25" selection-start-line="2" selection-start-column="25" selection-end-line="2" selection-end-column="25" />
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Parser/TerminalSymbol.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/ParserTestSuite/ClassesAndInterfacesTests/testFiles/shouldParseClassHeaderWithImplements.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="41" selection-start-line="7" selection-start-column="41" selection-end-line="7" selection-end-column="41" />
-          <folding>
-            <element signature="e#152#153#0" expanded="true" />
-            <element signature="e#186#187#0" expanded="true" />
-          </folding>
+        <state>
+          <caret column="32" selection-start-column="32" selection-end-column="32" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Exceptions/NoPublicClassInFileException.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/ParserTestSuite/ClassesAndInterfacesTests/validation/shouldParseClassHeaderWithImplementsValidation.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="59" selection-start-line="2" selection-start-column="59" selection-end-line="2" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Exceptions/UnexpectedIdentifierException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="61" selection-start-line="2" selection-start-column="61" selection-end-line="2" selection-end-column="61" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Exceptions/SemicolonExpectedException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="57" selection-start-line="2" selection-start-column="57" selection-end-line="2" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Exceptions/IdentifierExpectedException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="58" selection-start-line="2" selection-start-column="58" selection-end-line="2" selection-end-column="58" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Exceptions/IdentOrAsterixExpectedException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="62" selection-start-line="2" selection-start-column="62" selection-end-line="2" selection-end-column="62" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Exceptions/ClassOrInterfaceDefinitionExpectedException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="74" selection-start-line="2" selection-start-column="74" selection-end-line="2" selection-end-column="74" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Exceptions/LeftCurlyBracketExpectedException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="64" selection-start-line="2" selection-start-column="64" selection-end-line="2" selection-end-column="64" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Exceptions/RightCurlyBracketExpectedException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="65" selection-start-line="2" selection-start-column="65" selection-end-line="2" selection-end-column="65" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Exceptions/ClassKeywordExpectedException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="60" selection-start-line="2" selection-start-column="60" selection-end-line="2" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Exceptions/InterfaceKeywordExpectedException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="64" selection-start-line="2" selection-start-column="64" selection-end-line="2" selection-end-column="64" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Exceptions/ExtendsKeywordExpectedException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="62" selection-start-line="2" selection-start-column="62" selection-end-line="2" selection-end-column="62" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Exceptions/IncorrectDefinitionException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="59" selection-start-line="2" selection-start-column="59" selection-end-line="2" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Exceptions/ClassOrMethodDeclarationExpectedException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="72" selection-start-line="2" selection-start-column="72" selection-end-line="2" selection-end-column="72" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Exceptions/SemicolonOrBlockExpectedException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="64" selection-start-line="2" selection-start-column="64" selection-end-line="2" selection-end-column="64" />
+        <state relative-caret-position="289">
+          <caret line="17" column="7" selection-start-line="17" selection-start-column="7" selection-end-line="17" selection-end-column="7" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/OneLexem/Test1.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="578">
+        <state relative-caret-position="236">
           <caret line="34" column="7" selection-start-line="34" selection-start-column="7" selection-end-line="34" selection-end-column="7" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/test3.txt">
-      <provider selected="true" editor-type-id="text-editor" />
+    <entry file="file://$PROJECT_DIR$/src/test/java/ParserTestSuite/ClassesAndInterfacesTests/testFiles/shouldParseClassHeaderWithExtendsAndImplements.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="1" lean-forward="true" selection-start-line="12" selection-start-column="1" selection-end-line="12" selection-end-column="1" />
+        </state>
+      </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Exceptions/ParsingException.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/ParserTestSuite/ClassesAndInterfacesTests/testFiles/shouldParseInnerClasses.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="20" lean-forward="true" selection-start-line="11" selection-start-column="20" selection-end-line="11" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/ParserTestSuite/ClassesAndInterfacesTests/validation/shouldParseSimpleInterfaceHeaderValidation.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="19" column="7" selection-start-line="19" selection-start-column="7" selection-end-line="19" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/outputs/ASTOutput.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="25" lean-forward="true" selection-start-line="14" selection-start-column="25" selection-end-line="14" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/ParserTestSuite/ClassesAndInterfacesTests/testFiles/shouldParseAbstractClassHeader.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="1" lean-forward="true" selection-start-line="8" selection-start-column="1" selection-end-line="8" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/ParserTestSuite/ClassesAndInterfacesTests/testFiles/shouldParseSimpleInterfaceHeader.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" selection-start-line="7" selection-end-line="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/ParserTestSuite/ClassesAndInterfacesTests/testFiles/shouldParseSimpleClassHeader.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/ParserTestSuite/ClassesAndInterfacesTests/validation/shouldParseSimpleClassHeaderValidation.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
-          <caret line="18" selection-start-line="18" selection-end-line="18" />
+          <caret line="18" column="5" lean-forward="true" selection-start-line="18" selection-start-column="5" selection-end-line="18" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/ParserTestSuite/ClassesAndInterfacesTests/validation/shouldParseInnerClassesValidation.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="383">
+          <caret line="67" column="7" selection-start-line="67" selection-start-column="7" selection-end-line="67" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/ParserTestSuite/ClassesAndInterfacesTests/validation/shouldParseClassHeaderWithExtendsAndImplementsValidation.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-110">
+          <caret line="18" column="37" lean-forward="true" selection-start-line="18" selection-start-column="37" selection-end-line="18" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/ParserTestSuite/ClassesAndInterfacesTests/validation/Validation.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/ParserTestSuite/PackagesTests/PackagesTests.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-81">
+          <caret line="25" column="17" selection-start-line="25" selection-start-column="17" selection-end-line="25" selection-end-column="17" />
           <folding>
-            <element signature="e#365#366#0" expanded="true" />
-            <element signature="e#400#401#0" expanded="true" />
-            <element signature="e#455#456#0" expanded="true" />
-            <element signature="e#485#486#0" expanded="true" />
-            <element signature="e#514#515#0" expanded="true" />
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Scanner/LexemFactory.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/ParserTestSuite/ClassesAndInterfacesTests/ClassesAndInterfacesTests.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="17" column="5" lean-forward="true" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="5" />
+        <state relative-caret-position="558">
+          <caret line="58" column="5" lean-forward="true" selection-start-line="17" selection-start-column="3" selection-end-line="58" selection-end-column="5" />
           <folding>
-            <element signature="e#418#419#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/ParserTestSuite/ClassesAndInterfacesTests/validation/shouldParseAbstractClassHeaderValidation.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="5" selection-start-line="10" selection-start-column="5" selection-end-line="10" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/ParserTestSuite/ClassesAndInterfacesTests/testFiles/shouldParseInterfaceWithExtends.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="15" selection-start-line="5" selection-start-column="15" selection-end-line="5" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/ParserTestSuite/ClassesAndInterfacesTests/validation/shouldParseInterfaceWithExtendsValidation.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="321">
+          <caret line="33" column="7" selection-start-line="33" selection-start-column="7" selection-end-line="33" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/ParserTestSuite/PackagesTests/testFiles/shouldParsePackageAndImportDeclarations.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/ParserTestSuite/PackagesTests/validation/shouldParsePackageAndImportDeclarationsValidation.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="663">
+          <caret line="39" column="7" selection-start-line="39" selection-start-column="7" selection-end-line="39" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="245">
+          <caret line="29" selection-start-line="29" selection-end-line="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/ParserTestSuite/ParserTests.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1530">
+          <caret line="90" column="37" lean-forward="true" selection-start-line="90" selection-start-column="37" selection-end-line="90" selection-end-column="37" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/OneLexem/OneLexemTestCase.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="273">
+          <caret line="17" column="11" selection-start-line="17" selection-start-column="11" selection-end-line="17" selection-end-column="11" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -956,41 +914,68 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/test3.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="1" selection-start-line="3" selection-start-column="1" selection-end-line="3" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/test.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" selection-start-line="3" selection-end-line="3" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="15" selection-start-line="15" selection-end-line="15" />
+        <state relative-caret-position="221">
+          <caret line="13" column="54" selection-start-line="13" selection-start-column="54" selection-end-line="13" selection-end-column="54" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/OneLexem/OneLexemTestCase.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/Parser/NonTerminalSymbol.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="24" column="25" selection-start-line="24" selection-start-column="25" selection-end-line="24" selection-end-column="25" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="34">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Scanner/Lexem.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/Parser/TerminalSymbol.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="257">
-          <caret line="57" selection-start-line="57" selection-end-line="57" />
-          <folding>
-            <element signature="e#1121#1122#0" expanded="true" />
-            <element signature="e#1153#1154#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="68">
+          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Parser/Symbol.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/test4.txt">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Scanner/Scanner.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="111" column="17" selection-start-line="111" selection-start-column="17" selection-end-line="111" selection-end-column="17" />
+        <state relative-caret-position="646">
+          <caret line="38" selection-start-line="38" selection-end-line="38" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Parser/Parser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="369">
+          <caret line="1315" column="5" lean-forward="true" selection-start-line="1315" selection-start-column="5" selection-end-line="1315" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -999,36 +984,58 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Parser/AbstractSyntaxTree.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="61" selection-start-line="61" selection-end-line="61" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1060#1061#0" expanded="true" />
-            <element signature="e#1110#1111#0" expanded="true" />
-            <element signature="e#1212#1213#0" expanded="true" />
-            <element signature="e#1259#1260#0" expanded="true" />
-            <element signature="e#3235#3236#0" expanded="true" />
-            <element signature="e#3301#3302#0" expanded="true" />
-            <element signature="e#1992#1993#0" expanded="true" />
-            <element signature="e#2032#2033#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Parser/Parser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="1208" column="42" selection-start-line="1208" selection-start-column="42" selection-end-line="1208" selection-end-column="42" />
+        <state relative-caret-position="153">
+          <caret line="9" column="7" selection-start-line="9" selection-start-column="7" selection-end-line="9" selection-end-column="7" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/test.txt">
+    <entry file="file://$PROJECT_DIR$/src/main/java/FilesManagement/FileSource.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="27" column="5" lean-forward="true" selection-start-line="27" selection-start-column="5" selection-end-line="27" selection-end-column="5" />
+        <state relative-caret-position="1105">
+          <caret line="65" column="36" selection-start-line="65" selection-start-column="36" selection-end-line="65" selection-end-column="36" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Lexems/Lexem.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-56">
+          <caret line="25" column="4" selection-start-line="25" selection-start-column="4" selection-end-line="25" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Lexems/LexemFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="21" column="11" selection-start-line="21" selection-start-column="11" selection-end-line="21" selection-end-column="11" />
+          <folding>
+            <element signature="e#179#180#0" expanded="true" />
+            <element signature="e#223#224#0" expanded="true" />
+            <element signature="e#276#277#0" expanded="true" />
+            <element signature="e#327#328#0" expanded="true" />
+            <element signature="e#393#394#0" expanded="true" />
+            <element signature="e#445#446#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Exceptions/ParsingException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="5" selection-start-line="11" selection-start-column="5" selection-end-line="11" selection-end-column="5" />
+          <folding>
+            <element signature="e#365#366#0" expanded="true" />
+            <element signature="e#400#401#0" expanded="true" />
+            <element signature="e#428#429#0" expanded="true" />
+            <element signature="e#455#456#0" expanded="true" />
+            <element signature="e#485#486#0" expanded="true" />
+            <element signature="e#514#515#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

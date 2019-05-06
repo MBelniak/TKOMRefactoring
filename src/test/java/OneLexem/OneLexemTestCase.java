@@ -1,29 +1,28 @@
 package OneLexem;
 
-import FilesManagement.FileSource;
-import Scanner.*;
-import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import Lexems.Lexem;
+import Scanner.Scanner;
+import org.junit.Test;
 
 
-class OneLexemTestCase {
+import java.io.File;
+import java.io.FileNotFoundException;
 
+import static Lexems.Lexem.LexemType.EOF;
+import static org.junit.Assert.assertEquals;
+
+
+public class OneLexemTestCase {
 
     @Test
-    void shouldRecognizeEveryLexem() {
-        FileSource testFileSource = new FileSource("src/test/java/OneLexem/Test1.txt");
+    public void shouldRecognizeEveryLexem() throws FileNotFoundException {
+        File testFileSource = new File("src/test/java/OneLexem/Test1.txt");
         Scanner scanner = new Scanner();
-        assertEquals(0, scanner.bindFileSource(testFileSource));
+        assertEquals(0, scanner.bindFile(testFileSource));
 
         int lexValue = 0;
         Lexem lexem;
-        while ((lexem = scanner.getNextLexem()) != null) {
-            if(lexem.getLexemType() == Lexem.LexemType.EOF)
-            {
-                lexValue++;
-                continue;
-            }
+        while ((lexem = scanner.getNextLexem()).getLexemType() != EOF) {
             assertEquals(lexValue, lexem.getLexemType().getValue());
             lexValue++;
         }

@@ -9,30 +9,18 @@ public class FileSource {
     private static final int MAX_LINE_LENGTH = 10000;
     private static final int MAX_LINES = 50000;
     private static final int END_OF_FILE = -2;
-    private String filename;
     private BufferedReader fileInput;
     private int lineNumber;
     private int columnNumber;
     private String bufferedLine;
-    private String errorMessage;
 
-    public FileSource(String filename) {
-        this.filename = filename;
+    public FileSource(File fileSource) throws FileNotFoundException {
+        openFile(fileSource);
     }
 
-    public void setFilename(String filename) {
-        this.filename = filename;
-    }
-
-    public int openFile()  {
+    private int openFile(File fileSource) throws FileNotFoundException {
         InputStream bounded;
-        try {
-            bounded = new BoundedInputStream(new FileInputStream(new File(filename)), MAX_LINE_LENGTH);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-            errorMessage = "File not found.";
-            return -1;
-        }
+        bounded = new BoundedInputStream(new FileInputStream(fileSource), MAX_LINE_LENGTH);
         fileInput = new BufferedReader(new InputStreamReader(bounded));
         lineNumber = 0;
         columnNumber = 0;
@@ -41,7 +29,6 @@ public class FileSource {
 
     private int nextLine() {
         if(lineNumber>=MAX_LINES-1) {
-            errorMessage = "Nothing more to read.";
             return -1;
         }
         return readNextLine();
@@ -73,12 +60,10 @@ public class FileSource {
             try {
                 if ((bufferedLine = fileInput.readLine()) == null) //no more lines
                 {
-                    errorMessage = "End of file.";
                     return -1;
                 }
             } catch (IOException e) {
                 e.printStackTrace();
-                errorMessage = "Input exception";
                 return -1;
             }
             lineNumber++;
@@ -93,9 +78,5 @@ public class FileSource {
 
     public int getColumnNumber() {
         return columnNumber;
-    }
-
-    public String getErrorMessage() {
-        return errorMessage;
     }
 }

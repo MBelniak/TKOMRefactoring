@@ -1,0 +1,34 @@
+<Code>
+	<PublicClassOrInterfaceDefinition>
+		<InterfaceDefinition>
+			<InterfaceHeader>
+				<Identifier name="A">
+				<Identifier/>
+				<ExtendList>
+					<Identifier name="C">
+					<Identifier/>
+				<ExtendList/>
+			<InterfaceHeader/>
+			<InterfaceBody>
+			<InterfaceBody/>
+		<InterfaceDefinition/>
+	<PublicClassOrInterfaceDefinition/>
+	<InterfaceDefinition>
+		<InterfaceHeader>
+			<Identifier name="A">
+			<Identifier/>
+			<ExtendList>
+				<Identifier name="B">
+				<Identifier/>
+				<Identifier name="C">
+				<Identifier/>
+				<Identifier name="D">
+				<Identifier/>
+				<Identifier name="E">
+				<Identifier/>
+			<ExtendList/>
+		<InterfaceHeader/>
+		<InterfaceBody>
+		<InterfaceBody/>
+	<InterfaceDefinition/>
+<Code/>

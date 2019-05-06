@@ -1,0 +1,20 @@
+class A{
+    private class B
+    {
+        private class C
+        {
+            public abstract class F
+            {
+
+            }
+        }
+    }
+    abstract class D
+    {
+        protected class H
+        {
+
+        }
+    }
+
+}

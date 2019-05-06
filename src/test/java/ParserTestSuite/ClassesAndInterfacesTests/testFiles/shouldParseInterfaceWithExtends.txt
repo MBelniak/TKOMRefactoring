@@ -1,0 +1,9 @@
+public interface A extends C
+{
+
+}
+
+interface A extends B, C, D, E
+{
+
+}

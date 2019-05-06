@@ -1,0 +1,20 @@
+<Code>
+	<PublicClassOrInterfaceDefinition>
+		<InterfaceDefinition>
+			<InterfaceHeader>
+				<Identifier name="A">
+				<Identifier/>
+			<InterfaceHeader/>
+			<InterfaceBody>
+			<InterfaceBody/>
+		<InterfaceDefinition/>
+	<PublicClassOrInterfaceDefinition/>
+	<InterfaceDefinition>
+		<InterfaceHeader>
+			<Identifier name="C">
+			<Identifier/>
+		<InterfaceHeader/>
+		<InterfaceBody>
+		<InterfaceBody/>
+	<InterfaceDefinition/>
+<Code/>

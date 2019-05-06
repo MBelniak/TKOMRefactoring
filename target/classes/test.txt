@@ -1,7 +1,8 @@
 package TestSuite.test;
 import junit;
 
-class Class1 extends Base
+
+class Class1 extends Base implements Interface1, Interface2
 {
     private int a;
     private int b;

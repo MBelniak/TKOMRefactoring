@@ -1,0 +1,20 @@
+<Code>
+	<ClassDefinition>
+		<ClassHeader>
+			<Identifier name="ClassName">
+			<Identifier/>
+		<ClassHeader/>
+		<ClassBody>
+		<ClassBody/>
+	<ClassDefinition/>
+	<PublicClassOrInterfaceDefinition>
+		<ClassDefinition>
+			<ClassHeader>
+				<Identifier name="ClassName">
+				<Identifier/>
+			<ClassHeader/>
+			<ClassBody>
+			<ClassBody/>
+		<ClassDefinition/>
+	<PublicClassOrInterfaceDefinition/>
+<Code/>

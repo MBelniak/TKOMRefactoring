@@ -1,11 +1,13 @@
 package Parser;
 
 import Exceptions.ParsingException;
-import Scanner.Lexem;
+import Lexems.Lexem;
 import Scanner.Scanner;
 
-import static Scanner.Lexem.LexemType.*;
 import static Parser.AbstractSyntaxTree.ElementType.*;
+import static Lexems.Lexem.LexemType.*;
+
+
 
 public class Parser {
     private Scanner scanner;
@@ -26,14 +28,14 @@ public class Parser {
         parseImportDeclarationOptional();
         parseClassOrInterfaceDefinitionOptional();
         if (currentToken.getLexemType() == PUBLIC) {
-            AST.startElement(PublicClassDefinition, currentToken);
+            AST.startElement(PublicClassOrInterfaceDefinition, currentToken);
             advance();
         }
         else
         {
             if(currentToken.getLexemType() == EOF)
             {
-                System.out.println(AST.toString());
+                AST.writeOutputToFile();
                 return;
             }
             else
@@ -46,7 +48,7 @@ public class Parser {
             throw new ParsingException("There can be only one public class or interface in the file.", currentToken.getLine(), currentToken.getColumn());
         else if(currentToken.getLexemType() == EOF)
         {
-            System.out.println(AST.toString());
+            AST.writeOutputToFile();
             return;
         }
         else
@@ -86,6 +88,7 @@ public class Parser {
             advance();
         }
         else throw new ParsingException("Semicolon expected", currentToken.getLine(), currentToken.getColumn());
+        parseImportDeclarationOptional();
 
     }
     private void parsePackagePath() throws ParsingException {
@@ -101,8 +104,10 @@ public class Parser {
             advance();
             if(currentToken.getLexemType() == IDENTIFIER)
                 parsePackagePath();
-            else if(currentToken.getLexemType() == ASTERIX)
+            else if(currentToken.getLexemType() == ASTERIX) {
+                AST.addIdentifierToList(currentToken);
                 advance();
+            }
             else
                 throw new ParsingException("Identifier or '*' expected", currentToken.getLine(), currentToken.getColumn());
         }
@@ -303,6 +308,10 @@ public class Parser {
         }
         else
             throw new ParsingException("Identifier expected.", currentToken.getLine(), currentToken.getColumn());
+        if(currentToken.getLexemType() == COMMA)
+            parseNextIdentifier();
+        else
+            return;
     }
     private void parseClassBody() throws ParsingException {
         if(currentToken.getLexemType() == PUBLIC)
@@ -1301,4 +1310,10 @@ public class Parser {
     {
         currentToken = scanner.getNextLexem();
     }
+
+    public AbstractSyntaxTree getAST() {
+        return AST;
+    }
 }
+
+

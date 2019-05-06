@@ -1,0 +1,68 @@
+<Code>
+	<ClassDefinition>
+		<ClassHeader>
+			<Identifier name="A">
+			<Identifier/>
+		<ClassHeader/>
+		<ClassBody>
+			<Statement>
+				<ClassDefinition>
+					<ClassHeader>
+						<Identifier name="PRIVATE">
+						<Identifier/>
+						<Identifier name="B">
+						<Identifier/>
+					<ClassHeader/>
+					<ClassBody>
+						<Statement>
+							<ClassDefinition>
+								<ClassHeader>
+									<Identifier name="PRIVATE">
+									<Identifier/>
+									<Identifier name="C">
+									<Identifier/>
+								<ClassHeader/>
+								<ClassBody>
+									<Statement>
+										<AbstractClassDefinition>
+											<Identifier name="PUBLIC">
+											<Identifier/>
+											<ClassHeader>
+												<Identifier name="F">
+												<Identifier/>
+											<ClassHeader/>
+											<ClassBody>
+											<ClassBody/>
+										<AbstractClassDefinition/>
+									<Statement/>
+								<ClassBody/>
+							<ClassDefinition/>
+						<Statement/>
+					<ClassBody/>
+				<ClassDefinition/>
+			<Statement/>
+			<Statement>
+				<AbstractClassDefinition>
+					<ClassHeader>
+						<Identifier name="D">
+						<Identifier/>
+					<ClassHeader/>
+					<ClassBody>
+						<Statement>
+							<ClassDefinition>
+								<ClassHeader>
+									<Identifier name="PROTECTED">
+									<Identifier/>
+									<Identifier name="H">
+									<Identifier/>
+								<ClassHeader/>
+								<ClassBody>
+								<ClassBody/>
+							<ClassDefinition/>
+						<Statement/>
+					<ClassBody/>
+				<AbstractClassDefinition/>
+			<Statement/>
+		<ClassBody/>
+	<ClassDefinition/>
+<Code/>

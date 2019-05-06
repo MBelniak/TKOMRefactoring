@@ -1,7 +1,9 @@
 import Exceptions.ParsingException;
-import FilesManagement.FileSource;
 import Parser.Parser;
-import Scanner.*;
+import Scanner.Scanner;
+
+import java.io.File;
+import java.io.FileNotFoundException;
 
 
 public class Main {
@@ -9,11 +11,17 @@ public class Main {
     public static void main(String[] args)
     {
         Scanner scanner = new Scanner();
-        FileSource fileSource = new FileSource("src/main/resources/test.txt");
-        scanner.bindFileSource(fileSource);
+        File fileSource = new File("src/main/resources/test.txt");
+        try {
+            scanner.bindFile(fileSource);
+        } catch (FileNotFoundException e) {
+            System.out.println("File not found.");
+            return;
+        }
         Parser parser = new Parser(scanner);
         try {
             parser.parseFile();
+            System.out.println(parser.getAST().toString());
             System.out.println("Parsing successful");
         } catch (ParsingException e) {
             System.out.println(e.getErrorMessage() + " Line: " + e.getLine() + " Column: " + e.getColumn());

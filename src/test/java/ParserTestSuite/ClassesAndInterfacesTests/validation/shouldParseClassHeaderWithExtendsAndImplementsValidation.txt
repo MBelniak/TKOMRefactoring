@@ -1,0 +1,48 @@
+<Code>
+	<ClassDefinition>
+		<ClassHeader>
+			<Identifier name="A">
+			<Identifier/>
+			<ExtendList>
+				<Identifier name="B">
+				<Identifier/>
+			<ExtendList/>
+		<ClassHeader/>
+		<ClassBody>
+		<ClassBody/>
+	<ClassDefinition/>
+	<ClassDefinition>
+		<ClassHeader>
+			<Identifier name="A">
+			<Identifier/>
+			<ImplementsList>
+				<Identifier name="B">
+				<Identifier/>
+			<ImplementsList/>
+		<ClassHeader/>
+		<ClassBody>
+		<ClassBody/>
+	<ClassDefinition/>
+	<ClassDefinition>
+		<ClassHeader>
+			<Identifier name="A">
+			<Identifier/>
+			<ExtendList>
+				<Identifier name="B">
+				<Identifier/>
+			<ExtendList/>
+			<ImplementsList>
+				<Identifier name="A">
+				<Identifier/>
+				<Identifier name="B">
+				<Identifier/>
+				<Identifier name="C">
+				<Identifier/>
+				<Identifier name="D">
+				<Identifier/>
+			<ImplementsList/>
+		<ClassHeader/>
+		<ClassBody>
+		<ClassBody/>
+	<ClassDefinition/>
+<Code/>

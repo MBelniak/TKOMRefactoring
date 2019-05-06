@@ -1,14 +1,16 @@
 package Parser;
 
-import Scanner.Lexem;
+import Lexems.Lexem;
 
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
 import static Parser.AbstractSyntaxTree.ElementType.*;
-class AbstractSyntaxTree {
+public class AbstractSyntaxTree {
+
     public enum ElementType{
-        PublicClassDefinition, PackageDeclaration, ImportDeclaration, AbstractClassDefinition, ClassDefinition, InterfaceDefinition,
+        PublicClassOrInterfaceDefinition, PackageDeclaration, ImportDeclaration, AbstractClassDefinition, ClassDefinition, InterfaceDefinition,
         ClassBody, InterfaceBody, ClassHeader, InterfaceHeader, ExtendList, ImplementsList, Statement, AbstractMethodDeclaration,
         MainMethod, MethodDefinition, PrimitiveFieldDeclaration, ConstructorDefinition, PrimitiveFieldInitialization,
         MethodBody, MethodParameterList, MethodCall, Assignment, NewCall, MethodDeclaration, ReturnStatement, MethodStatement,
@@ -72,6 +74,21 @@ class AbstractSyntaxTree {
         return ASTRoot.toString();
     }
 
+    void writeOutputToFile()
+    {
+        File output = new File("src/main/resources/outputs/ASTOutput.txt");
+        FileOutputStream fstream;
+        try {
+            fstream = new FileOutputStream(output);
+        } catch (FileNotFoundException e) {
+            System.out.println("File not found.");
+            return;
+        }
+        PrintWriter pw = new PrintWriter(fstream);
+        pw.print(this.toString());
+        pw.close();
+    }
+
     private class ASTNode{
         ASTNode parent;
         ArrayList<ASTNode> children;
@@ -123,7 +140,9 @@ class AbstractSyntaxTree {
             for(int i = 0; i < level; i++)
                 result.append("\t");
 
-            result.append("<").append(nodeType.toString()).append("/>\n");
+            result.append("<").append(nodeType.toString()).append("/>");
+            if(level!=0)
+                result.append("\n");
             return result.toString();
         }
 

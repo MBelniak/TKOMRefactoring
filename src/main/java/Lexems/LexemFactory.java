@@ -1,24 +1,25 @@
-package Scanner;
+package Lexems;
 
 import FilesManagement.FileSource;
+import Lexems.Lexem;
 
 
-class LexemFactory {
+public class LexemFactory {
     private FileSource fileSource;
 
-    LexemFactory(FileSource fileSource) {
+    public LexemFactory(FileSource fileSource) {
         this.fileSource = fileSource;
     }
 
-    Lexem getLexem(Lexem.LexemType lexemType)
+    public Lexem getLexem(Lexem.LexemType lexemType)
     {
         return getLexem(lexemType, 1, null);
     }
-    Lexem getLexem(Lexem.LexemType lexemType, String value)
+    public Lexem getLexem(Lexem.LexemType lexemType, String value)
     {
         return getLexem(lexemType, 1, value);
     }
-    Lexem getLexem(Lexem.LexemType lexemType, int lexemLength, String value)
+    public Lexem getLexem(Lexem.LexemType lexemType, int lexemLength, String value)
     {
         if(lexemLength > fileSource.getColumnNumber())
             return new Lexem(lexemType, fileSource.getLineNumber(), 0, value);

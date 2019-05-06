@@ -1,7 +1,11 @@
 package Scanner;
 
 import FilesManagement.FileSource;
+import Lexems.Lexem;
+import Lexems.LexemFactory;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.AbstractMap;
 import java.util.Map;
 
@@ -54,16 +58,10 @@ public class Scanner {
         return Ch >= '0' && Ch <= '9';
     }
 
-    public int bindFileSource(FileSource source)
-    {
-        this.source = source;
-        if(this.source.openFile()!=0)
-        {
-            System.out.println(source.getErrorMessage());
-            return -1;
-        }
-        lexemFactory = new LexemFactory(source);
-        currentChar = source.nextChar();
+    public int bindFile(File source) throws FileNotFoundException {
+        this.source = new FileSource(source);
+        lexemFactory = new LexemFactory(this.source);
+        currentChar = this.source.nextChar();
         return 0;
     }
 
