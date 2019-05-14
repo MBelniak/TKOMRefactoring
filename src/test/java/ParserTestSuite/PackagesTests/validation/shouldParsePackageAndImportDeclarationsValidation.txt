@@ -26,15 +26,15 @@
 	<ImportDeclaration>
 		<Identifier name="J">
 		<Identifier/>
-		<Identifier name="ASTERIX">
-		<Identifier/>
+		<Asterix>
+		<Asterix/>
 	<ImportDeclaration/>
 	<ImportDeclaration>
 		<Identifier name="A">
 		<Identifier/>
 		<Identifier name="B">
 		<Identifier/>
-		<Identifier name="ASTERIX">
-		<Identifier/>
+		<Asterix>
+		<Asterix/>
 	<ImportDeclaration/>
 <Code/>

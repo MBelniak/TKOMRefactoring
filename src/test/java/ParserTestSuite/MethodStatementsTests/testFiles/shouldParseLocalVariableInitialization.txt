@@ -1,0 +1,15 @@
+class A
+{
+    private int a()
+    {
+        int b = 2;
+        A a = a.b.c();
+        A b = dl;
+        B c = g();
+        in a = h.j();
+        int k;
+        L l;
+        k = 4;
+        l = m.n;
+    }
+}

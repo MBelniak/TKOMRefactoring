@@ -1,0 +1,20 @@
+class A
+{
+    private int a;
+    private B b;
+    public C c;
+    protected int number;
+    G g;
+    public Class method()
+    {
+
+    }
+    private void doSth()
+    {
+
+    }
+    int a()
+    {
+        return 2;
+    }
+}

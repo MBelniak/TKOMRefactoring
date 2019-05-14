@@ -9,19 +9,21 @@ import java.util.List;
 import static Parser.AbstractSyntaxTree.ElementType.*;
 public class AbstractSyntaxTree {
 
+
+
     public enum ElementType{
         PublicClassOrInterfaceDefinition, PackageDeclaration, ImportDeclaration, AbstractClassDefinition, ClassDefinition, InterfaceDefinition,
         ClassBody, InterfaceBody, ClassHeader, InterfaceHeader, ExtendList, ImplementsList, Statement, AbstractMethodDeclaration,
         MainMethod, MethodDefinition, PrimitiveFieldDeclaration, ConstructorDefinition, PrimitiveFieldInitialization,
         MethodBody, MethodParameterList, MethodCall, Assignment, NewCall, MethodDeclaration, ReturnStatement, MethodStatement,
         LocalVariableDeclaration, LocalVariableInitialization, FetchedObject, Code, ObjectFieldDeclaration, SuperCall, CallParameters,
-        Identifier, ObjectFieldInitialization, Number
+        Identifier, ObjectFieldInitialization, Asterix, Number
     }
-
     private ASTNode ASTRoot;
+
     private ASTNode currentOpenedElement;
     private List<Lexem> lexemBuffer;
-
+    private ASTNode currentlyAnalyzed;
      AbstractSyntaxTree() {
         this.lexemBuffer = new ArrayList<>();
     }
@@ -43,10 +45,19 @@ public class AbstractSyntaxTree {
 
     void flushBuffer()
     {
-        lexemBuffer.forEach(this::addIdentifierToList);
-        lexemBuffer.clear();
+        if(!lexemBuffer.isEmpty())
+        {
+            currentOpenedElement.startsAtLine = lexemBuffer.get(0).getLine();
+            currentOpenedElement.startsAtColumn = lexemBuffer.get(0).getColumn();
+            lexemBuffer.forEach(this::addIdentifierToList);
+            lexemBuffer.clear();
+        }
     }
 
+    void clearBuffer()
+    {
+        lexemBuffer.clear();
+    }
     void addIdentifierToList(Lexem currentToken) {
         if(currentToken.getValue() == null)
             currentOpenedElement.putAsChild(new ASTNode(Identifier, currentToken.getLine(), currentToken.getColumn(), currentToken.getLexemType().toString()));
@@ -65,9 +76,63 @@ public class AbstractSyntaxTree {
         currentOpenedElement = child;
     }
 
-    void endElement() {
+    void endElement()
+    {
         currentOpenedElement = currentOpenedElement.parent;
     }
+
+    void endElement(int endsAtLine, int endsAtColumn)
+    {
+        currentOpenedElement.endsAtLine = endsAtLine;
+        currentOpenedElement.endsAtColumn = endsAtColumn;
+        currentOpenedElement = currentOpenedElement.parent;
+    }
+
+    public boolean isRenameable(int lineClicked, int columnClicked) {
+         ElementType element = findElementAt(lineClicked, columnClicked, ASTRoot);
+         return element == Identifier;
+    }
+
+    private ElementType findElementAt(int lineClicked, int columnClicked, ASTNode node) {
+        if(node.children.isEmpty())
+        {
+            if (node.startsAtLine == lineClicked
+                    && node.startsAtColumn <= columnClicked)
+            {
+
+                if(node.nodeType == Identifier)
+                {
+                    if(node.identifier.length() + node.startsAtColumn >= columnClicked) //Clicked at this Identifier
+                    {
+                        currentlyAnalyzed = node;
+                        return Identifier;
+                    }
+                }
+//                else if(node.nodeType.toString())
+//                {
+//
+//                }
+            }
+
+        }
+        else
+        {
+
+        }
+        return null;
+    }
+
+//    public boolean isPullable(int lineClicked, int columnClicked) {
+//         //TODO
+//    }
+//
+//    public boolean isPushable(int lineClicked, int columnClicked) {
+//         //TODO
+//    }
+//
+//    public boolean isDelegable(int lineClicked, int columnClicked) {
+//         //TODO
+//    }
 
     @Override
     public String toString() {
@@ -95,6 +160,8 @@ public class AbstractSyntaxTree {
         final ElementType nodeType;
         int startsAtLine;
         int startsAtColumn;
+        int endsAtLine;
+        int endsAtColumn;
         String identifier;
         int level;
 
@@ -103,6 +170,8 @@ public class AbstractSyntaxTree {
             this.nodeType = nodeType;
             this.startsAtLine = startLine;
             this.startsAtColumn = startColumn;
+            endsAtLine = 0;
+            endsAtColumn = 0;
         }
 
         ASTNode(ElementType nodeType, int startsAtLine, int startsAtColumn, String identifier) {
@@ -131,6 +200,11 @@ public class AbstractSyntaxTree {
             result.append("<");
             result.append(nodeType.toString());
 
+//            result.append(" startingLine=\"");
+//            result.append(startsAtLine);
+//            result.append("\" startingColumn=\"");
+//            result.append(startsAtColumn);
+//            result.append("\"");
             if(identifier!=null)
                 result.append(" name=\"").append(identifier).append("\"");
 
@@ -140,7 +214,16 @@ public class AbstractSyntaxTree {
             for(int i = 0; i < level; i++)
                 result.append("\t");
 
-            result.append("<").append(nodeType.toString()).append("/>");
+            result.append("<").append(nodeType.toString());
+//            if(endsAtColumn!=0) {
+//                result.append(" endingLine=\"");
+//                result.append(endsAtLine);
+//                result.append("\" endingColumn=\"");
+//                result.append(endsAtColumn);
+//                result.append("\"");
+//            }
+
+            result.append("/>");
             if(level!=0)
                 result.append("\n");
             return result.toString();

@@ -1,0 +1,360 @@
+<Code>
+	<PublicClassOrInterfaceDefinition>
+		<ClassDefinition>
+			<ClassHeader>
+				<Identifier name="A">
+				<Identifier/>
+			<ClassHeader/>
+			<ClassBody>
+				<Statement>
+					<MethodDefinition>
+						<Identifier name="PRIVATE">
+						<Identifier/>
+						<Identifier name="VOID">
+						<Identifier/>
+						<Identifier name="a">
+						<Identifier/>
+						<MethodParameterList>
+						<MethodParameterList/>
+						<MethodBody>
+						<MethodBody/>
+					<MethodDefinition/>
+				<Statement/>
+				<Statement>
+					<MethodDefinition>
+						<Identifier name="PROTECTED">
+						<Identifier/>
+						<Identifier name="VOID">
+						<Identifier/>
+						<Identifier name="b">
+						<Identifier/>
+						<MethodParameterList>
+						<MethodParameterList/>
+						<MethodBody>
+						<MethodBody/>
+					<MethodDefinition/>
+				<Statement/>
+				<Statement>
+					<MethodDefinition>
+						<Identifier name="VOID">
+						<Identifier/>
+						<Identifier name="b">
+						<Identifier/>
+						<MethodParameterList>
+						<MethodParameterList/>
+						<MethodBody>
+						<MethodBody/>
+					<MethodDefinition/>
+				<Statement/>
+				<Statement>
+					<MethodDefinition>
+						<Identifier name="PUBLIC">
+						<Identifier/>
+						<Identifier name="VOID">
+						<Identifier/>
+						<Identifier name="b">
+						<Identifier/>
+						<MethodParameterList>
+						<MethodParameterList/>
+						<MethodBody>
+						<MethodBody/>
+					<MethodDefinition/>
+				<Statement/>
+				<Statement>
+					<MethodDefinition>
+						<Identifier name="PRIVATE">
+						<Identifier/>
+						<Identifier name="INT">
+						<Identifier/>
+						<Identifier name="b">
+						<Identifier/>
+						<MethodParameterList>
+						<MethodParameterList/>
+						<MethodBody>
+						<MethodBody/>
+					<MethodDefinition/>
+				<Statement/>
+				<Statement>
+					<MethodDefinition>
+						<Identifier name="PROTECTED">
+						<Identifier/>
+						<Identifier name="INT">
+						<Identifier/>
+						<Identifier name="b">
+						<Identifier/>
+						<MethodParameterList>
+						<MethodParameterList/>
+						<MethodBody>
+						<MethodBody/>
+					<MethodDefinition/>
+				<Statement/>
+				<Statement>
+					<MethodDefinition>
+						<Identifier name="INT">
+						<Identifier/>
+						<Identifier name="b">
+						<Identifier/>
+						<MethodParameterList>
+						<MethodParameterList/>
+						<MethodBody>
+						<MethodBody/>
+					<MethodDefinition/>
+				<Statement/>
+				<Statement>
+					<MethodDefinition>
+						<Identifier name="PUBLIC">
+						<Identifier/>
+						<Identifier name="INT">
+						<Identifier/>
+						<Identifier name="b">
+						<Identifier/>
+						<MethodParameterList>
+						<MethodParameterList/>
+						<MethodBody>
+						<MethodBody/>
+					<MethodDefinition/>
+				<Statement/>
+				<Statement>
+					<MethodDefinition>
+						<Identifier name="PRIVATE">
+						<Identifier/>
+						<Identifier name="A">
+						<Identifier/>
+						<Identifier name="a">
+						<Identifier/>
+						<MethodParameterList>
+						<MethodParameterList/>
+						<MethodBody>
+						<MethodBody/>
+					<MethodDefinition/>
+				<Statement/>
+				<Statement>
+					<MethodDefinition>
+						<Identifier name="PROTECTED">
+						<Identifier/>
+						<Identifier name="A">
+						<Identifier/>
+						<Identifier name="a">
+						<Identifier/>
+						<MethodParameterList>
+						<MethodParameterList/>
+						<MethodBody>
+						<MethodBody/>
+					<MethodDefinition/>
+				<Statement/>
+				<Statement>
+					<MethodDefinition>
+						<Identifier name="A">
+						<Identifier/>
+						<Identifier name="a">
+						<Identifier/>
+						<MethodParameterList>
+						<MethodParameterList/>
+						<MethodBody>
+						<MethodBody/>
+					<MethodDefinition/>
+				<Statement/>
+				<Statement>
+					<MethodDefinition>
+						<Identifier name="PUBLIC">
+						<Identifier/>
+						<Identifier name="A">
+						<Identifier/>
+						<Identifier name="a">
+						<Identifier/>
+						<MethodParameterList>
+						<MethodParameterList/>
+						<MethodBody>
+						<MethodBody/>
+					<MethodDefinition/>
+				<Statement/>
+				<Statement>
+					<AbstractMethodDeclaration>
+						<Identifier name="VOID">
+						<Identifier/>
+						<Identifier name="a">
+						<Identifier/>
+						<MethodParameterList>
+						<MethodParameterList/>
+					<AbstractMethodDeclaration/>
+				<Statement/>
+				<Statement>
+					<AbstractMethodDeclaration>
+						<Identifier name="PROTECTED">
+						<Identifier/>
+						<Identifier name="VOID">
+						<Identifier/>
+						<Identifier name="a">
+						<Identifier/>
+						<MethodParameterList>
+						<MethodParameterList/>
+					<AbstractMethodDeclaration/>
+				<Statement/>
+				<Statement>
+					<AbstractMethodDeclaration>
+						<Identifier name="VOID">
+						<Identifier/>
+						<Identifier name="a">
+						<Identifier/>
+						<MethodParameterList>
+						<MethodParameterList/>
+					<AbstractMethodDeclaration/>
+				<Statement/>
+				<Statement>
+					<AbstractMethodDeclaration>
+						<Identifier name="PUBLIC">
+						<Identifier/>
+						<Identifier name="VOID">
+						<Identifier/>
+						<Identifier name="a">
+						<Identifier/>
+						<MethodParameterList>
+						<MethodParameterList/>
+					<AbstractMethodDeclaration/>
+				<Statement/>
+				<Statement>
+					<AbstractMethodDeclaration>
+						<Identifier name="INT">
+						<Identifier/>
+						<Identifier name="a">
+						<Identifier/>
+						<MethodParameterList>
+						<MethodParameterList/>
+					<AbstractMethodDeclaration/>
+				<Statement/>
+				<Statement>
+					<AbstractMethodDeclaration>
+						<Identifier name="PROTECTED">
+						<Identifier/>
+						<Identifier name="INT">
+						<Identifier/>
+						<Identifier name="a">
+						<Identifier/>
+						<MethodParameterList>
+						<MethodParameterList/>
+					<AbstractMethodDeclaration/>
+				<Statement/>
+				<Statement>
+					<AbstractMethodDeclaration>
+						<Identifier name="INT">
+						<Identifier/>
+						<Identifier name="a">
+						<Identifier/>
+						<MethodParameterList>
+						<MethodParameterList/>
+					<AbstractMethodDeclaration/>
+				<Statement/>
+				<Statement>
+					<AbstractMethodDeclaration>
+						<Identifier name="PUBLIC">
+						<Identifier/>
+						<Identifier name="INT">
+						<Identifier/>
+						<Identifier name="a">
+						<Identifier/>
+						<MethodParameterList>
+						<MethodParameterList/>
+					<AbstractMethodDeclaration/>
+				<Statement/>
+				<Statement>
+					<AbstractMethodDeclaration>
+						<Identifier name="A">
+						<Identifier/>
+						<Identifier name="a">
+						<Identifier/>
+						<MethodParameterList>
+						<MethodParameterList/>
+					<AbstractMethodDeclaration/>
+				<Statement/>
+				<Statement>
+					<AbstractMethodDeclaration>
+						<Identifier name="PROTECTED">
+						<Identifier/>
+						<Identifier name="A">
+						<Identifier/>
+						<Identifier name="a">
+						<Identifier/>
+						<MethodParameterList>
+						<MethodParameterList/>
+					<AbstractMethodDeclaration/>
+				<Statement/>
+				<Statement>
+					<AbstractMethodDeclaration>
+						<Identifier name="A">
+						<Identifier/>
+						<Identifier name="a">
+						<Identifier/>
+						<MethodParameterList>
+						<MethodParameterList/>
+					<AbstractMethodDeclaration/>
+				<Statement/>
+				<Statement>
+					<AbstractMethodDeclaration>
+						<Identifier name="PUBLIC">
+						<Identifier/>
+						<Identifier name="A">
+						<Identifier/>
+						<Identifier name="a">
+						<Identifier/>
+						<MethodParameterList>
+						<MethodParameterList/>
+					<AbstractMethodDeclaration/>
+				<Statement/>
+				<Statement>
+					<AbstractMethodDeclaration>
+						<Identifier name="PUBLIC">
+						<Identifier/>
+						<Identifier name="A">
+						<Identifier/>
+						<Identifier name="a">
+						<Identifier/>
+						<MethodParameterList>
+							<Identifier name="INT">
+							<Identifier/>
+							<Identifier name="a">
+							<Identifier/>
+							<Identifier name="B">
+							<Identifier/>
+							<Identifier name="b">
+							<Identifier/>
+							<Identifier name="INT">
+							<Identifier/>
+							<Identifier name="c">
+							<Identifier/>
+						<MethodParameterList/>
+					<AbstractMethodDeclaration/>
+				<Statement/>
+				<Statement>
+					<MethodDefinition>
+						<Identifier name="PUBLIC">
+						<Identifier/>
+						<Identifier name="INT">
+						<Identifier/>
+						<Identifier name="a">
+						<Identifier/>
+						<MethodParameterList>
+							<Identifier name="INT">
+							<Identifier/>
+							<Identifier name="a">
+							<Identifier/>
+							<Identifier name="INT">
+							<Identifier/>
+							<Identifier name="b">
+							<Identifier/>
+							<Identifier name="B">
+							<Identifier/>
+							<Identifier name="c">
+							<Identifier/>
+							<Identifier name="C">
+							<Identifier/>
+							<Identifier name="f">
+							<Identifier/>
+						<MethodParameterList/>
+						<MethodBody>
+						<MethodBody/>
+					<MethodDefinition/>
+				<Statement/>
+			<ClassBody/>
+		<ClassDefinition/>
+	<PublicClassOrInterfaceDefinition/>
+<Code/>

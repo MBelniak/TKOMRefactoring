@@ -1,0 +1,90 @@
+<Code>
+	<ClassDefinition>
+		<ClassHeader>
+			<Identifier name="A">
+			<Identifier/>
+		<ClassHeader/>
+		<ClassBody>
+			<Statement>
+				<MethodDefinition>
+					<Identifier name="PRIVATE">
+					<Identifier/>
+					<Identifier name="INT">
+					<Identifier/>
+					<Identifier name="b">
+					<Identifier/>
+					<MethodParameterList>
+					<MethodParameterList/>
+					<MethodBody>
+						<MethodStatement>
+							<LocalVariableDeclaration>
+								<Identifier name="OtherClass">
+								<Identifier/>
+								<Identifier name="b">
+								<Identifier/>
+							<LocalVariableDeclaration/>
+						<MethodStatement/>
+						<MethodStatement>
+							<PrimitiveFieldDeclaration>
+								<Identifier name="a">
+								<Identifier/>
+							<PrimitiveFieldDeclaration/>
+						<MethodStatement/>
+					<MethodBody/>
+				<MethodDefinition/>
+			<Statement/>
+			<Statement>
+				<MethodDefinition>
+					<Identifier name="PUBLIC">
+					<Identifier/>
+					<Identifier name="VOID">
+					<Identifier/>
+					<Identifier name="c">
+					<Identifier/>
+					<MethodParameterList>
+					<MethodParameterList/>
+					<MethodBody>
+						<MethodStatement>
+							<LocalVariableDeclaration>
+								<Identifier name="Other">
+								<Identifier/>
+								<Identifier name="c">
+								<Identifier/>
+							<LocalVariableDeclaration/>
+						<MethodStatement/>
+						<MethodStatement>
+							<PrimitiveFieldDeclaration>
+								<Identifier name="g">
+								<Identifier/>
+							<PrimitiveFieldDeclaration/>
+						<MethodStatement/>
+					<MethodBody/>
+				<MethodDefinition/>
+			<Statement/>
+			<Statement>
+				<ConstructorDefinition>
+					<Identifier name="A">
+					<Identifier/>
+					<MethodParameterList>
+					<MethodParameterList/>
+					<MethodBody>
+						<MethodStatement>
+							<PrimitiveFieldDeclaration>
+								<Identifier name="f">
+								<Identifier/>
+							<PrimitiveFieldDeclaration/>
+						<MethodStatement/>
+						<MethodStatement>
+							<LocalVariableDeclaration>
+								<Identifier name="OtherClass">
+								<Identifier/>
+								<Identifier name="g">
+								<Identifier/>
+							<LocalVariableDeclaration/>
+						<MethodStatement/>
+					<MethodBody/>
+				<ConstructorDefinition/>
+			<Statement/>
+		<ClassBody/>
+	<ClassDefinition/>
+<Code/>

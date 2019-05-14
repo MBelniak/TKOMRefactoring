@@ -1,0 +1,102 @@
+<Code>
+	<ClassDefinition>
+		<ClassHeader>
+			<Identifier name="A">
+			<Identifier/>
+		<ClassHeader/>
+		<ClassBody>
+			<Statement>
+				<PrimitiveFieldDeclaration>
+					<Identifier name="PRIVATE">
+					<Identifier/>
+					<Identifier name="INT">
+					<Identifier/>
+					<Identifier name="a">
+					<Identifier/>
+				<PrimitiveFieldDeclaration/>
+			<Statement/>
+			<Statement>
+				<ObjectFieldDeclaration>
+					<Identifier name="PRIVATE">
+					<Identifier/>
+					<Identifier name="B">
+					<Identifier/>
+					<Identifier name="b">
+					<Identifier/>
+				<ObjectFieldDeclaration/>
+			<Statement/>
+			<Statement>
+				<ObjectFieldDeclaration>
+					<Identifier name="PUBLIC">
+					<Identifier/>
+					<Identifier name="C">
+					<Identifier/>
+					<Identifier name="c">
+					<Identifier/>
+				<ObjectFieldDeclaration/>
+			<Statement/>
+			<Statement>
+				<PrimitiveFieldDeclaration>
+					<Identifier name="PROTECTED">
+					<Identifier/>
+					<Identifier name="INT">
+					<Identifier/>
+					<Identifier name="number">
+					<Identifier/>
+				<PrimitiveFieldDeclaration/>
+			<Statement/>
+			<Statement>
+				<ObjectFieldDeclaration>
+					<Identifier name="G">
+					<Identifier/>
+					<Identifier name="g">
+					<Identifier/>
+				<ObjectFieldDeclaration/>
+			<Statement/>
+			<Statement>
+				<MethodDefinition>
+					<Identifier name="PUBLIC">
+					<Identifier/>
+					<Identifier name="Class">
+					<Identifier/>
+					<Identifier name="method">
+					<Identifier/>
+					<MethodParameterList>
+					<MethodParameterList/>
+					<MethodBody>
+					<MethodBody/>
+				<MethodDefinition/>
+			<Statement/>
+			<Statement>
+				<MethodDefinition>
+					<Identifier name="PRIVATE">
+					<Identifier/>
+					<Identifier name="VOID">
+					<Identifier/>
+					<Identifier name="doSth">
+					<Identifier/>
+					<MethodParameterList>
+					<MethodParameterList/>
+					<MethodBody>
+					<MethodBody/>
+				<MethodDefinition/>
+			<Statement/>
+			<Statement>
+				<MethodDefinition>
+					<Identifier name="INT">
+					<Identifier/>
+					<Identifier name="a">
+					<Identifier/>
+					<MethodParameterList>
+					<MethodParameterList/>
+					<MethodBody>
+						<ReturnStatement>
+							<Number name="2">
+							<Number/>
+						<ReturnStatement/>
+					<MethodBody/>
+				<MethodDefinition/>
+			<Statement/>
+		<ClassBody/>
+	<ClassDefinition/>
+<Code/>

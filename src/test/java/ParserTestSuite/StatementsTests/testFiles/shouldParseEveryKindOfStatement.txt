@@ -1,0 +1,22 @@
+class A
+{
+    A a;
+    int b;
+    A()
+    {
+
+    }
+    abstract A a();
+
+    private class D
+    {
+    }
+    protected abstract class C
+    {
+
+    }
+    public static void main(String[] args)
+    {
+        return;
+    }
+}

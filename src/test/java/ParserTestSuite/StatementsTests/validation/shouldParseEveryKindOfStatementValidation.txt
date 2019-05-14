@@ -1,0 +1,78 @@
+<Code>
+	<ClassDefinition>
+		<ClassHeader>
+			<Identifier name="A">
+			<Identifier/>
+		<ClassHeader/>
+		<ClassBody>
+			<Statement>
+				<ObjectFieldDeclaration>
+					<Identifier name="A">
+					<Identifier/>
+					<Identifier name="a">
+					<Identifier/>
+				<ObjectFieldDeclaration/>
+			<Statement/>
+			<Statement>
+				<PrimitiveFieldDeclaration>
+					<Identifier name="INT">
+					<Identifier/>
+					<Identifier name="b">
+					<Identifier/>
+				<PrimitiveFieldDeclaration/>
+			<Statement/>
+			<Statement>
+				<ConstructorDefinition>
+					<Identifier name="A">
+					<Identifier/>
+					<MethodParameterList>
+					<MethodParameterList/>
+					<MethodBody>
+					<MethodBody/>
+				<ConstructorDefinition/>
+			<Statement/>
+			<Statement>
+				<AbstractMethodDeclaration>
+					<Identifier name="A">
+					<Identifier/>
+					<Identifier name="a">
+					<Identifier/>
+					<MethodParameterList>
+					<MethodParameterList/>
+				<AbstractMethodDeclaration/>
+			<Statement/>
+			<Statement>
+				<ClassDefinition>
+					<ClassHeader>
+						<Identifier name="PRIVATE">
+						<Identifier/>
+						<Identifier name="D">
+						<Identifier/>
+					<ClassHeader/>
+					<ClassBody>
+					<ClassBody/>
+				<ClassDefinition/>
+			<Statement/>
+			<Statement>
+				<AbstractClassDefinition>
+					<Identifier name="PROTECTED">
+					<Identifier/>
+					<ClassHeader>
+						<Identifier name="C">
+						<Identifier/>
+					<ClassHeader/>
+					<ClassBody>
+					<ClassBody/>
+				<AbstractClassDefinition/>
+			<Statement/>
+			<Statement>
+				<MainMethod>
+					<MethodBody>
+						<ReturnStatement>
+						<ReturnStatement/>
+					<MethodBody/>
+				<MainMethod/>
+			<Statement/>
+		<ClassBody/>
+	<ClassDefinition/>
+<Code/>

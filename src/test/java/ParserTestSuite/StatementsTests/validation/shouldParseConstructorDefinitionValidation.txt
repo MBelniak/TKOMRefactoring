@@ -1,0 +1,46 @@
+<Code>
+	<ClassDefinition>
+		<ClassHeader>
+			<Identifier name="A">
+			<Identifier/>
+		<ClassHeader/>
+		<ClassBody>
+			<Statement>
+				<PrimitiveFieldDeclaration>
+					<Identifier name="PRIVATE">
+					<Identifier/>
+					<Identifier name="INT">
+					<Identifier/>
+					<Identifier name="a">
+					<Identifier/>
+				<PrimitiveFieldDeclaration/>
+			<Statement/>
+			<Statement>
+				<ConstructorDefinition>
+					<Identifier name="A">
+					<Identifier/>
+					<MethodParameterList>
+					<MethodParameterList/>
+					<MethodBody>
+						<SuperCall>
+							<CallParameters>
+							<CallParameters/>
+						<SuperCall/>
+						<MethodStatement>
+							<FetchedObject>
+								<Identifier name="THIS">
+								<Identifier/>
+								<Identifier name="a">
+								<Identifier/>
+							<FetchedObject/>
+							<Assignment>
+							<Assignment/>
+							<Number name="2">
+							<Number/>
+						<MethodStatement/>
+					<MethodBody/>
+				<ConstructorDefinition/>
+			<Statement/>
+		<ClassBody/>
+	<ClassDefinition/>
+<Code/>

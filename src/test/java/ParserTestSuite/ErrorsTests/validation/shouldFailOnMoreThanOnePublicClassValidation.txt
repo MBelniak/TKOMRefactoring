@@ -1,0 +1,1 @@
+There can be only one public class or interface in the file. Line: 11 Column: 1

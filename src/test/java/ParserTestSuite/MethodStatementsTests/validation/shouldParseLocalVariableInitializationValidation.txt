@@ -1,0 +1,144 @@
+<Code>
+	<ClassDefinition>
+		<ClassHeader>
+			<Identifier name="A">
+			<Identifier/>
+		<ClassHeader/>
+		<ClassBody>
+			<Statement>
+				<MethodDefinition>
+					<Identifier name="PRIVATE">
+					<Identifier/>
+					<Identifier name="INT">
+					<Identifier/>
+					<Identifier name="a">
+					<Identifier/>
+					<MethodParameterList>
+					<MethodParameterList/>
+					<MethodBody>
+						<MethodStatement>
+							<PrimitiveFieldDeclaration>
+								<PrimitiveFieldInitialization>
+									<Identifier name="b">
+									<Identifier/>
+									<Assignment>
+									<Assignment/>
+									<Number name="2">
+									<Number/>
+								<PrimitiveFieldInitialization/>
+							<PrimitiveFieldDeclaration/>
+						<MethodStatement/>
+						<MethodStatement>
+							<LocalVariableInitialization>
+								<Identifier name="A">
+								<Identifier/>
+								<Identifier name="a">
+								<Identifier/>
+								<Assignment>
+								<Assignment/>
+								<FetchedObject>
+									<Identifier name="a">
+									<Identifier/>
+									<Identifier name="b">
+									<Identifier/>
+									<MethodCall>
+										<Identifier name="c">
+										<Identifier/>
+										<CallParameters>
+										<CallParameters/>
+									<MethodCall/>
+								<FetchedObject/>
+							<LocalVariableInitialization/>
+						<MethodStatement/>
+						<MethodStatement>
+							<LocalVariableInitialization>
+								<Identifier name="A">
+								<Identifier/>
+								<Identifier name="b">
+								<Identifier/>
+								<Assignment>
+								<Assignment/>
+								<FetchedObject>
+									<Identifier name="dl">
+									<Identifier/>
+								<FetchedObject/>
+							<LocalVariableInitialization/>
+						<MethodStatement/>
+						<MethodStatement>
+							<LocalVariableInitialization>
+								<Identifier name="B">
+								<Identifier/>
+								<Identifier name="c">
+								<Identifier/>
+								<Assignment>
+								<Assignment/>
+								<FetchedObject>
+									<MethodCall>
+										<Identifier name="g">
+										<Identifier/>
+										<CallParameters>
+										<CallParameters/>
+									<MethodCall/>
+								<FetchedObject/>
+							<LocalVariableInitialization/>
+						<MethodStatement/>
+						<MethodStatement>
+							<LocalVariableInitialization>
+								<Identifier name="in">
+								<Identifier/>
+								<Identifier name="a">
+								<Identifier/>
+								<Assignment>
+								<Assignment/>
+								<FetchedObject>
+									<Identifier name="h">
+									<Identifier/>
+									<MethodCall>
+										<Identifier name="j">
+										<Identifier/>
+										<CallParameters>
+										<CallParameters/>
+									<MethodCall/>
+								<FetchedObject/>
+							<LocalVariableInitialization/>
+						<MethodStatement/>
+						<MethodStatement>
+							<PrimitiveFieldDeclaration>
+								<Identifier name="k">
+								<Identifier/>
+							<PrimitiveFieldDeclaration/>
+						<MethodStatement/>
+						<MethodStatement>
+							<LocalVariableDeclaration>
+								<Identifier name="L">
+								<Identifier/>
+								<Identifier name="l">
+								<Identifier/>
+							<LocalVariableDeclaration/>
+						<MethodStatement/>
+						<MethodStatement>
+							<Identifier name="k">
+							<Identifier/>
+							<Assignment>
+							<Assignment/>
+							<Number name="4">
+							<Number/>
+						<MethodStatement/>
+						<MethodStatement>
+							<Identifier name="l">
+							<Identifier/>
+							<Assignment>
+							<Assignment/>
+							<FetchedObject>
+								<Identifier name="m">
+								<Identifier/>
+								<Identifier name="n">
+								<Identifier/>
+							<FetchedObject/>
+						<MethodStatement/>
+					<MethodBody/>
+				<MethodDefinition/>
+			<Statement/>
+		<ClassBody/>
+	<ClassDefinition/>
+<Code/>

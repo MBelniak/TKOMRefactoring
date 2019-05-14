@@ -1,0 +1,14 @@
+class A
+{
+
+}
+
+public class B
+{
+
+}
+
+public interface C
+{
+
+}

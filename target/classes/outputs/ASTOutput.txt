@@ -1,40 +1,20 @@
 <Code>
-	<PackageDeclaration>
-		<Identifier name="A">
-		<Identifier/>
-		<Identifier name="B">
-		<Identifier/>
-		<Identifier name="C">
-		<Identifier/>
-		<Identifier name="D">
-		<Identifier/>
-	<PackageDeclaration/>
-	<ImportDeclaration>
-		<Identifier name="E">
-		<Identifier/>
-		<Identifier name="F">
-		<Identifier/>
-		<Identifier name="G">
-		<Identifier/>
-		<Identifier name="H">
-		<Identifier/>
-	<ImportDeclaration/>
-	<ImportDeclaration>
-		<Identifier name="I">
-		<Identifier/>
-	<ImportDeclaration/>
-	<ImportDeclaration>
-		<Identifier name="J">
-		<Identifier/>
-		<Identifier name="ASTERIX">
-		<Identifier/>
-	<ImportDeclaration/>
-	<ImportDeclaration>
-		<Identifier name="A">
-		<Identifier/>
-		<Identifier name="B">
-		<Identifier/>
-		<Identifier name="ASTERIX">
-		<Identifier/>
-	<ImportDeclaration/>
+	<PublicClassOrInterfaceDefinition>
+		<InterfaceDefinition>
+			<InterfaceHeader>
+				<Identifier name="A">
+				<Identifier/>
+			<InterfaceHeader/>
+			<InterfaceBody>
+			<InterfaceBody/>
+		<InterfaceDefinition/>
+	<PublicClassOrInterfaceDefinition/>
+	<InterfaceDefinition>
+		<InterfaceHeader>
+			<Identifier name="C">
+			<Identifier/>
+		<InterfaceHeader/>
+		<InterfaceBody>
+		<InterfaceBody/>
+	<InterfaceDefinition/>
 <Code/>

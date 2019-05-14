@@ -17,7 +17,7 @@ class Class1 extends Base implements Interface1, Interface2
         int a;
         Class2 b;
         a = new Class();
-        a.c().g = 2;
+        a.c().g(b.f.s);
         this.b = b.field.method4();
         return a.b.c();
     }
@@ -33,6 +33,6 @@ interface Interface1 extends BaseInterface
     private void methodP(int a, int b)
     {
         a = b.m(a.f.f());
-        return a;
+        return bbhhhg+fgfgfg;
     }
 }

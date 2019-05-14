@@ -1,0 +1,14 @@
+class A
+{
+    private int a()
+    {
+        A a;
+        a.b = c;
+        a.b.d = e.f();
+        a.b.d().g = e.f().h();
+        a.b.d().i().j().l = e.f.g.h();
+        a.b.d().i().j(a.b, c.d(), e.f().g(a, b.c));
+        a.c().g(b.f.s);
+        return a.b.f.s().s.a.b();
+    }
+}

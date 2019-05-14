@@ -1,0 +1,36 @@
+<Code>
+	<ClassDefinition>
+		<ClassHeader>
+			<Identifier name="A">
+			<Identifier/>
+		<ClassHeader/>
+		<ClassBody>
+			<Statement>
+				<ConstructorDefinition>
+					<Identifier name="A">
+					<Identifier/>
+					<MethodParameterList>
+					<MethodParameterList/>
+					<MethodBody>
+						<SuperCall>
+							<CallParameters>
+							<CallParameters/>
+						<SuperCall/>
+						<MethodStatement>
+							<PrimitiveFieldDeclaration>
+								<PrimitiveFieldInitialization>
+									<Identifier name="a">
+									<Identifier/>
+									<Assignment>
+									<Assignment/>
+									<Number name="2">
+									<Number/>
+								<PrimitiveFieldInitialization/>
+							<PrimitiveFieldDeclaration/>
+						<MethodStatement/>
+					<MethodBody/>
+				<ConstructorDefinition/>
+			<Statement/>
+		<ClassBody/>
+	<ClassDefinition/>
+<Code/>

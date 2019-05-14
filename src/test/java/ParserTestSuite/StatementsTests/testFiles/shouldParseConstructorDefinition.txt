@@ -1,0 +1,9 @@
+class A
+{
+    private int a;
+    A()
+    {
+        super();
+        this.a = 2;
+    }
+}
