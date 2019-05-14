@@ -9,8 +9,6 @@ import java.util.List;
 import static Parser.AbstractSyntaxTree.ElementType.*;
 public class AbstractSyntaxTree {
 
-
-
     public enum ElementType{
         PublicClassOrInterfaceDefinition, PackageDeclaration, ImportDeclaration, AbstractClassDefinition, ClassDefinition, InterfaceDefinition,
         ClassBody, InterfaceBody, ClassHeader, InterfaceHeader, ExtendList, ImplementsList, Statement, AbstractMethodDeclaration,
@@ -24,7 +22,8 @@ public class AbstractSyntaxTree {
     private ASTNode currentOpenedElement;
     private List<Lexem> lexemBuffer;
     private ASTNode currentlyAnalyzed;
-     AbstractSyntaxTree() {
+
+    AbstractSyntaxTree() {
         this.lexemBuffer = new ArrayList<>();
     }
 
@@ -154,7 +153,7 @@ public class AbstractSyntaxTree {
         pw.close();
     }
 
-    private class ASTNode{
+    public class ASTNode{
         ASTNode parent;
         ArrayList<ASTNode> children;
         final ElementType nodeType;
