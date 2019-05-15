@@ -11,255 +11,79 @@
 					<Identifier/>
 					<Identifier name="INT">
 					<Identifier/>
-					<Identifier name="a">
+					<Identifier name="b">
 					<Identifier/>
 					<MethodParameterList>
 					<MethodParameterList/>
 					<MethodBody>
 						<MethodStatement>
 							<LocalVariableDeclaration>
-								<Identifier name="A">
+								<Identifier name="OtherClass">
 								<Identifier/>
-								<Identifier name="a">
+								<Identifier name="b">
 								<Identifier/>
 							<LocalVariableDeclaration/>
 						<MethodStatement/>
 						<MethodStatement>
-							<FetchedObject>
+							<PrimitiveFieldDeclaration>
 								<Identifier name="a">
 								<Identifier/>
-								<Identifier name="b">
-								<Identifier/>
-							<FetchedObject/>
-							<Assignment>
-							<Assignment/>
-							<FetchedObject>
-								<Identifier name="c">
-								<Identifier/>
-							<FetchedObject/>
+							<PrimitiveFieldDeclaration/>
 						<MethodStatement/>
-						<MethodStatement>
-							<FetchedObject>
-								<Identifier name="a">
-								<Identifier/>
-								<Identifier name="b">
-								<Identifier/>
-								<Identifier name="d">
-								<Identifier/>
-							<FetchedObject/>
-							<Assignment>
-							<Assignment/>
-							<FetchedObject>
-								<Identifier name="e">
-								<Identifier/>
-								<MethodCall>
-									<Identifier name="f">
-									<Identifier/>
-									<CallParameters>
-									<CallParameters/>
-								<MethodCall/>
-							<FetchedObject/>
-						<MethodStatement/>
-						<MethodStatement>
-							<FetchedObject>
-								<Identifier name="a">
-								<Identifier/>
-								<Identifier name="b">
-								<Identifier/>
-								<MethodCall>
-									<Identifier name="d">
-									<Identifier/>
-									<CallParameters>
-									<CallParameters/>
-								<MethodCall/>
-								<Identifier name="g">
-								<Identifier/>
-							<FetchedObject/>
-							<Assignment>
-							<Assignment/>
-							<FetchedObject>
-								<Identifier name="e">
-								<Identifier/>
-								<MethodCall>
-									<Identifier name="f">
-									<Identifier/>
-									<CallParameters>
-									<CallParameters/>
-								<MethodCall/>
-								<MethodCall>
-									<Identifier name="h">
-									<Identifier/>
-									<CallParameters>
-									<CallParameters/>
-								<MethodCall/>
-							<FetchedObject/>
-						<MethodStatement/>
-						<MethodStatement>
-							<FetchedObject>
-								<Identifier name="a">
-								<Identifier/>
-								<Identifier name="b">
-								<Identifier/>
-								<MethodCall>
-									<Identifier name="d">
-									<Identifier/>
-									<CallParameters>
-									<CallParameters/>
-								<MethodCall/>
-								<MethodCall>
-									<Identifier name="i">
-									<Identifier/>
-									<CallParameters>
-									<CallParameters/>
-								<MethodCall/>
-								<MethodCall>
-									<Identifier name="j">
-									<Identifier/>
-									<CallParameters>
-									<CallParameters/>
-								<MethodCall/>
-								<Identifier name="l">
-								<Identifier/>
-							<FetchedObject/>
-							<Assignment>
-							<Assignment/>
-							<FetchedObject>
-								<Identifier name="e">
-								<Identifier/>
-								<Identifier name="f">
-								<Identifier/>
-								<Identifier name="g">
-								<Identifier/>
-								<MethodCall>
-									<Identifier name="h">
-									<Identifier/>
-									<CallParameters>
-									<CallParameters/>
-								<MethodCall/>
-							<FetchedObject/>
-						<MethodStatement/>
-						<MethodStatement>
-							<FetchedObject>
-								<Identifier name="a">
-								<Identifier/>
-								<Identifier name="b">
-								<Identifier/>
-								<MethodCall>
-									<Identifier name="d">
-									<Identifier/>
-									<CallParameters>
-									<CallParameters/>
-								<MethodCall/>
-								<MethodCall>
-									<Identifier name="i">
-									<Identifier/>
-									<CallParameters>
-									<CallParameters/>
-								<MethodCall/>
-								<MethodCall>
-									<Identifier name="j">
-									<Identifier/>
-									<CallParameters>
-										<FetchedObject>
-											<Identifier name="a">
-											<Identifier/>
-											<Identifier name="b">
-											<Identifier/>
-										<FetchedObject/>
-										<FetchedObject>
-											<Identifier name="c">
-											<Identifier/>
-											<MethodCall>
-												<Identifier name="d">
-												<Identifier/>
-												<CallParameters>
-												<CallParameters/>
-											<MethodCall/>
-										<FetchedObject/>
-										<FetchedObject>
-											<Identifier name="e">
-											<Identifier/>
-											<MethodCall>
-												<Identifier name="f">
-												<Identifier/>
-												<CallParameters>
-												<CallParameters/>
-											<MethodCall/>
-											<MethodCall>
-												<Identifier name="g">
-												<Identifier/>
-												<CallParameters>
-													<FetchedObject>
-														<Identifier name="a">
-														<Identifier/>
-													<FetchedObject/>
-													<FetchedObject>
-														<Identifier name="b">
-														<Identifier/>
-														<Identifier name="c">
-														<Identifier/>
-													<FetchedObject/>
-												<CallParameters/>
-											<MethodCall/>
-										<FetchedObject/>
-									<CallParameters/>
-								<MethodCall/>
-							<FetchedObject/>
-						<MethodStatement/>
-						<MethodStatement>
-							<FetchedObject>
-								<Identifier name="a">
-								<Identifier/>
-								<MethodCall>
-									<Identifier name="c">
-									<Identifier/>
-									<CallParameters>
-									<CallParameters/>
-								<MethodCall/>
-								<MethodCall>
-									<Identifier name="g">
-									<Identifier/>
-									<CallParameters>
-										<FetchedObject>
-											<Identifier name="b">
-											<Identifier/>
-											<Identifier name="f">
-											<Identifier/>
-											<Identifier name="s">
-											<Identifier/>
-										<FetchedObject/>
-									<CallParameters/>
-								<MethodCall/>
-							<FetchedObject/>
-						<MethodStatement/>
-						<ReturnStatement>
-							<FetchedObject>
-								<Identifier name="a">
-								<Identifier/>
-								<Identifier name="b">
-								<Identifier/>
-								<Identifier name="f">
-								<Identifier/>
-								<MethodCall>
-									<Identifier name="s">
-									<Identifier/>
-									<CallParameters>
-									<CallParameters/>
-								<MethodCall/>
-								<Identifier name="s">
-								<Identifier/>
-								<Identifier name="a">
-								<Identifier/>
-								<MethodCall>
-									<Identifier name="b">
-									<Identifier/>
-									<CallParameters>
-									<CallParameters/>
-								<MethodCall/>
-							<FetchedObject/>
-						<ReturnStatement/>
 					<MethodBody/>
 				<MethodDefinition/>
+			<Statement/>
+			<Statement>
+				<MethodDefinition>
+					<Identifier name="PUBLIC">
+					<Identifier/>
+					<Identifier name="VOID">
+					<Identifier/>
+					<Identifier name="c">
+					<Identifier/>
+					<MethodParameterList>
+					<MethodParameterList/>
+					<MethodBody>
+						<MethodStatement>
+							<LocalVariableDeclaration>
+								<Identifier name="Other">
+								<Identifier/>
+								<Identifier name="c">
+								<Identifier/>
+							<LocalVariableDeclaration/>
+						<MethodStatement/>
+						<MethodStatement>
+							<PrimitiveFieldDeclaration>
+								<Identifier name="g">
+								<Identifier/>
+							<PrimitiveFieldDeclaration/>
+						<MethodStatement/>
+					<MethodBody/>
+				<MethodDefinition/>
+			<Statement/>
+			<Statement>
+				<ConstructorDefinition>
+					<Identifier name="A">
+					<Identifier/>
+					<MethodParameterList>
+					<MethodParameterList/>
+					<MethodBody>
+						<MethodStatement>
+							<PrimitiveFieldDeclaration>
+								<Identifier name="f">
+								<Identifier/>
+							<PrimitiveFieldDeclaration/>
+						<MethodStatement/>
+						<MethodStatement>
+							<LocalVariableDeclaration>
+								<Identifier name="OtherClass">
+								<Identifier/>
+								<Identifier name="g">
+								<Identifier/>
+							<LocalVariableDeclaration/>
+						<MethodStatement/>
+					<MethodBody/>
+				<ConstructorDefinition/>
 			<Statement/>
 		<ClassBody/>
 	<ClassDefinition/>

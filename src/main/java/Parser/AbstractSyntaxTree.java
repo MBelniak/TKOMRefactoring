@@ -1,13 +1,17 @@
 package Parser;
 
 import Lexems.Lexem;
+import Refactor.ClassInheritanceRepresentation;
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import static Parser.AbstractSyntaxTree.ElementType.*;
 public class AbstractSyntaxTree {
+
+
 
     public enum ElementType{
         PublicClassOrInterfaceDefinition, PackageDeclaration, ImportDeclaration, AbstractClassDefinition, ClassDefinition, InterfaceDefinition,
@@ -15,14 +19,13 @@ public class AbstractSyntaxTree {
         MainMethod, MethodDefinition, PrimitiveFieldDeclaration, ConstructorDefinition, PrimitiveFieldInitialization,
         MethodBody, MethodParameterList, MethodCall, Assignment, NewCall, MethodDeclaration, ReturnStatement, MethodStatement,
         LocalVariableDeclaration, LocalVariableInitialization, FetchedObject, Code, ObjectFieldDeclaration, SuperCall, CallParameters,
-        Identifier, ObjectFieldInitialization, Asterix, Number
+        Identifier, ObjectFieldInitialization, Asterix, Number;
     }
     private ASTNode ASTRoot;
-
     private ASTNode currentOpenedElement;
+
     private List<Lexem> lexemBuffer;
     private ASTNode currentlyAnalyzed;
-
     AbstractSyntaxTree() {
         this.lexemBuffer = new ArrayList<>();
     }
@@ -57,13 +60,13 @@ public class AbstractSyntaxTree {
     {
         lexemBuffer.clear();
     }
+
     void addIdentifierToList(Lexem currentToken) {
         if(currentToken.getValue() == null)
             currentOpenedElement.putAsChild(new ASTNode(Identifier, currentToken.getLine(), currentToken.getColumn(), currentToken.getLexemType().toString()));
         else
             currentOpenedElement.putAsChild(new ASTNode(Identifier, currentToken.getLine(), currentToken.getColumn(), currentToken.getValue()));
     }
-
     void addNumberToList(Lexem currentToken)
     {
         currentOpenedElement.putAsChild(new ASTNode(Number, currentToken.getLine(), currentToken.getColumn(), currentToken.getValue()));
@@ -91,6 +94,20 @@ public class AbstractSyntaxTree {
          ElementType element = findElementAt(lineClicked, columnClicked, ASTRoot);
          return element == Identifier;
     }
+
+    public List<ClassInheritanceRepresentation> findClassesAndPutInContext(String filePath) {
+        if(null != ASTRoot) {
+
+            List<ClassInheritanceRepresentation> classesFound = new ArrayList<>();
+            List<String> contextClasses = new ArrayList<>();
+            for (ASTNode node : ASTRoot.children) {
+                node.findClassesAndPutInContext(filePath, contextClasses, classesFound);
+            }
+
+        }
+    }
+
+
 
     private ElementType findElementAt(int lineClicked, int columnClicked, ASTNode node) {
         if(node.children.isEmpty())
@@ -228,6 +245,29 @@ public class AbstractSyntaxTree {
             return result.toString();
         }
 
+
+        private void findClassesAndPutInContext(String filePath, List<String> context, List<ClassInheritanceRepresentation> classes)
+        {
+            if(this.nodeType==AbstractClassDefinition
+                    || this.nodeType==ClassDefinition)
+            {
+                List<String> path = Arrays.asList(filePath.split("/"));
+                path.addAll(context);
+                ASTNode classHeader = this.children.get(0);
+                String className = classHeader.children.get(0).identifier;
+                ClassInheritanceRepresentation classFound
+                        = new ClassInheritanceRepresentation(path, className);
+
+                classes.add(classFound);
+                context.add(className);
+
+                if(classHeader.children.size()>1
+                        &&classHeader.children.get(1).nodeType==ExtendList)
+                    classFound.setBaseClass(classHeader.children.get(1).children.get(0).identifier);
+            }
+
+            else if(this.nodeType==InterfaceDefinition)
+        }
     }
 }
 

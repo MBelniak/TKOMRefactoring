@@ -11,7 +11,7 @@ public class Main {
     public static void main(String[] args)
     {
         Scanner scanner = new Scanner();
-        File fileSource = new File("src/test/java/ParserTestSuite/ClassesAndInterfacesTests/testFiles/shouldParseSimpleInterfaceHeader.txt");
+        File fileSource = new File("src/main/resources/projectFiles/Class1.txt");
         try {
             scanner.bindFile(fileSource);
         } catch (FileNotFoundException e) {

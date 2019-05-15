@@ -15,11 +15,10 @@ public class Parser {
     public Parser(Scanner scanner) {
 
         this.scanner = scanner;
-        AST = new AbstractSyntaxTree();
     }
 
-    public void parseFile() throws ParsingException{
-        AST.clear();
+    public AbstractSyntaxTree parseFile() throws ParsingException{
+        AST = new AbstractSyntaxTree();
         advance();
         AST.startFile(currentToken);
         parsePackageDeclarationOptional();
@@ -34,7 +33,7 @@ public class Parser {
             if(currentToken.getLexemType() == EOF)
             {
                 AST.writeOutputToFile();
-                return;
+                return AST;
             }
             else
                 throw new ParsingException("Unexpected identifier.", currentToken.getLine(), currentToken.getColumn());
@@ -47,7 +46,7 @@ public class Parser {
         else if(currentToken.getLexemType() == EOF)
         {
             AST.writeOutputToFile();
-            return;
+            return AST;
         }
         else
             throw new ParsingException("Unexpected identifier.", currentToken.getLine(), currentToken.getColumn());
