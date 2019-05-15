@@ -2,6 +2,7 @@ package Parser;
 
 import Lexems.Lexem;
 import Refactor.ClassInheritanceRepresentation;
+import Refactor.InterfaceInheritanceRepresentation;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -90,10 +91,10 @@ public class AbstractSyntaxTree {
         currentOpenedElement = currentOpenedElement.parent;
     }
 
-    public boolean isRenameable(int lineClicked, int columnClicked) {
-         ElementType element = findElementAt(lineClicked, columnClicked, ASTRoot);
-         return element == Identifier;
-    }
+//    public boolean isRenameable(int lineClicked, int columnClicked) {
+//         ElementType element = findElementAt(lineClicked, columnClicked, ASTRoot);
+//         return element == Identifier;
+//    }
 
     public List<ClassInheritanceRepresentation> findClassesAndPutInContext(String filePath) {
         if(null != ASTRoot) {
@@ -103,40 +104,52 @@ public class AbstractSyntaxTree {
             for (ASTNode node : ASTRoot.children) {
                 node.findClassesAndPutInContext(filePath, contextClasses, classesFound);
             }
-
-        }
-    }
-
-
-
-    private ElementType findElementAt(int lineClicked, int columnClicked, ASTNode node) {
-        if(node.children.isEmpty())
-        {
-            if (node.startsAtLine == lineClicked
-                    && node.startsAtColumn <= columnClicked)
-            {
-
-                if(node.nodeType == Identifier)
-                {
-                    if(node.identifier.length() + node.startsAtColumn >= columnClicked) //Clicked at this Identifier
-                    {
-                        currentlyAnalyzed = node;
-                        return Identifier;
-                    }
-                }
-//                else if(node.nodeType.toString())
-//                {
-//
-//                }
-            }
-
-        }
-        else
-        {
-
+            return classesFound;
         }
         return null;
     }
+
+    public List<InterfaceInheritanceRepresentation> findInterfacesAndPutInContext(String filePath) {
+        if(null != ASTRoot) {
+
+            List<InterfaceInheritanceRepresentation> interfacesFound = new ArrayList<>();
+            List<String> contextInterfaces = new ArrayList<>();
+            for (ASTNode node : ASTRoot.children) {
+                node.findInterfacesAndPutInContext(filePath, contextInterfaces, interfacesFound);
+            }
+            return interfacesFound;
+        }
+        return null;
+    }
+
+//    private ElementType findElementAt(int lineClicked, int columnClicked, ASTNode node) {
+//        if(node.children.isEmpty())
+//        {
+//            if (node.startsAtLine == lineClicked
+//                    && node.startsAtColumn <= columnClicked)
+//            {
+//
+//                if(node.nodeType == Identifier)
+//                {
+//                    if(node.identifier.length() + node.startsAtColumn >= columnClicked) //Clicked at this Identifier
+//                    {
+//                        currentlyAnalyzed = node;
+//                        return Identifier;
+//                    }
+//                }
+////                else if(node.nodeType.toString())
+////                {
+////
+////                }
+//            }
+//
+//        }
+//        else
+//        {
+//
+//        }
+//        return null;
+//    }
 
 //    public boolean isPullable(int lineClicked, int columnClicked) {
 //         //TODO
@@ -251,22 +264,61 @@ public class AbstractSyntaxTree {
             if(this.nodeType==AbstractClassDefinition
                     || this.nodeType==ClassDefinition)
             {
-                List<String> path = Arrays.asList(filePath.split("/"));
+                List<String> path = new ArrayList<>(Arrays.asList(filePath.split("/")));
                 path.addAll(context);
                 ASTNode classHeader = this.children.get(0);
                 String className = classHeader.children.get(0).identifier;
                 ClassInheritanceRepresentation classFound
-                        = new ClassInheritanceRepresentation(path, className);
+                        = new ClassInheritanceRepresentation(path, className, this);
+
+                if(classHeader.children.size()>1)
+                {
+                    if(classHeader.children.get(1).nodeType == ExtendList) {
+                        classFound.setBaseClass(classHeader.children.get(1).children.get(0).identifier);
+                        if (classHeader.children.size() > 2) {
+                            for (int i = 0; i < classHeader.children.get(2).children.size(); i++)
+                                classFound.addInterfaceImplemented(classHeader.children.get(2).children.get(i).identifier);
+                        }
+                    }
+                    else
+                    {
+                        for (int i = 0; i < classHeader.children.get(1).children.size(); i++)
+                            classFound.addInterfaceImplemented(classHeader.children.get(1).children.get(i).identifier);
+                    }
+                }
 
                 classes.add(classFound);
                 context.add(className);
-
-                if(classHeader.children.size()>1
-                        &&classHeader.children.get(1).nodeType==ExtendList)
-                    classFound.setBaseClass(classHeader.children.get(1).children.get(0).identifier);
             }
 
-            else if(this.nodeType==InterfaceDefinition)
+            for (ASTNode node : this.children) {
+                node.findClassesAndPutInContext(filePath, context, classes);
+            }
+        }
+        private void findInterfacesAndPutInContext(String filePath, List<String> context, List<InterfaceInheritanceRepresentation> interfaces)
+        {
+            if(this.nodeType==InterfaceDefinition)
+            {
+                List<String> path = Arrays.asList(filePath.split("/"));
+                path.addAll(context);
+                ASTNode interfaceHeader = this.children.get(0);
+                String interfaceName = interfaceHeader.children.get(0).identifier;
+                InterfaceInheritanceRepresentation interfaceFound
+                        = new InterfaceInheritanceRepresentation(path, interfaceName, this);
+
+                if(interfaceHeader.children.size()>1)
+                {
+                    for(int i = 2; i<interfaceHeader.children.size(); i++)
+                        interfaceFound.addBaseInterface(interfaceHeader.children.get(i).identifier);
+                }
+
+                interfaces.add(interfaceFound);
+                context.add(interfaceName);
+            }
+
+            for (ASTNode node : this.children) {
+                node.findInterfacesAndPutInContext(filePath, context, interfaces);
+            }
         }
     }
 }

@@ -8,6 +8,7 @@ import Scanner.Scanner;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -18,6 +19,7 @@ public class Refactor {
     private Map<String, List<Lexem>> lexemsInFiles;
     private Map<String, Map<String,AbstractSyntaxTree.ASTNode>> members;
     private Map<String, List<ClassInheritanceRepresentation>> classesInFiles;
+    private Map<String, List<InterfaceInheritanceRepresentation>> interfacesInFiles;
 
     public enum Refactorings {
         RENAME, PULL_UP, PUSH_DOWN, DELEGATE
@@ -26,22 +28,38 @@ public class Refactor {
     public Refactor(Scanner scanner, Parser parser) {
         this.scanner = scanner;
         this.parser = parser;
+        this.ASTs = new HashMap<>();
+        this.lexemsInFiles = new HashMap<>();
+        this.members = new HashMap<>();
+        this.classesInFiles = new HashMap<>();
+        this.interfacesInFiles = new HashMap<>();
     }
 
-    public void parseFiles(List<String> filenames) throws FileNotFoundException, ParsingException {
+    public void parseFiles(List<String> filenames) throws FileNotFoundException{
         for (String file : filenames) {
             scanner.bindFile(new File(file));
-            String filePath = file.substring(0, 31);
-            ASTs.put(filePath, parser.parseFile());
+            String filePath = file.substring(32, file.length());
+            try {
+                ASTs.put(filePath, parser.parseFile());
+            } catch (ParsingException e) {
+                System.out.println(e.getErrorMessage() + " Line: " + e.getLine() + " Column: " + e.getColumn()
+                        + " in file: " + file);
+                System.exit(0);
+            }
         }
     }
 
-    public void analyzeInheritances()
+    public void analyzeClassesAndInterfaces()
     {
-        ASTs.forEach((filePath, AST)  ->
-        {
-            classesInFiles.put(filePath, AST.findClassesAndPutInContext(filePath));
+        ASTs.forEach((filePath, AST)  ->{
+                classesInFiles.put(filePath, AST.findClassesAndPutInContext(filePath));
+                interfacesInFiles.put(filePath, AST.findInterfacesAndPutInContext(filePath));
         });
+
+        classesInFiles.forEach((filePath, classInFile)->
+                System.out.println(classInFile.toString()));
+        interfacesInFiles.forEach((filePath, interfaceInFiles) ->
+                System.out.println(interfaceInFiles.toString()));
     }
     //        return possibleRefactorings;
     //
