@@ -25,7 +25,7 @@ public class Parser {
         parseImportDeclarationOptional();
         parseClassOrInterfaceDefinitionOptional();
         if (currentToken.getLexemType() == PUBLIC) {
-            AST.startElement(PublicClassOrInterfaceDefinition, currentToken);
+            AST.storeInBuffer(currentToken);
             advance();
         }
         else
@@ -39,7 +39,6 @@ public class Parser {
                 throw new ParsingException("Unexpected identifier.", currentToken.getLine(), currentToken.getColumn());
         }
         parseClassOrInterfaceDefinition();
-        AST.endElement();
         parseClassOrInterfaceDefinitionOptional();
         if(currentToken.getLexemType() == PUBLIC)
             throw new ParsingException("There can be only one public class or interface in the file.", currentToken.getLine(), currentToken.getColumn());
@@ -221,6 +220,7 @@ public class Parser {
     private void parseInterfaceHeader() throws ParsingException {
         if (currentToken.getLexemType() == INTERFACE) {
             AST.startElement(InterfaceHeader, currentToken);
+            AST.flushBuffer();
             advance();
         } else
             throw new ParsingException("'interface' keyword expected", currentToken.getLine(), currentToken.getColumn());

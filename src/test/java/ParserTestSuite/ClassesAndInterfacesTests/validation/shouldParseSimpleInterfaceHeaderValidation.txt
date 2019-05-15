@@ -1,14 +1,14 @@
 <Code>
-	<PublicClassOrInterfaceDefinition>
-		<InterfaceDefinition>
-			<InterfaceHeader>
-				<Identifier name="A">
-				<Identifier/>
-			<InterfaceHeader/>
-			<InterfaceBody>
-			<InterfaceBody/>
-		<InterfaceDefinition/>
-	<PublicClassOrInterfaceDefinition/>
+	<InterfaceDefinition>
+		<InterfaceHeader>
+			<Identifier name="PUBLIC">
+			<Identifier/>
+			<Identifier name="A">
+			<Identifier/>
+		<InterfaceHeader/>
+		<InterfaceBody>
+		<InterfaceBody/>
+	<InterfaceDefinition/>
 	<InterfaceDefinition>
 		<InterfaceHeader>
 			<Identifier name="C">

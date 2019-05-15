@@ -1,28 +1,28 @@
 <Code>
-	<PublicClassOrInterfaceDefinition>
-		<ClassDefinition>
-			<ClassHeader>
-				<Identifier name="A">
-				<Identifier/>
-			<ClassHeader/>
-			<ClassBody>
-				<Statement>
-					<ObjectFieldDeclaration>
-						<Identifier name="B">
-						<Identifier/>
-						<Identifier name="local">
-						<Identifier/>
-					<ObjectFieldDeclaration/>
-				<Statement/>
-				<Statement>
-					<ObjectFieldDeclaration>
-						<Identifier name="C">
-						<Identifier/>
-						<Identifier name="local">
-						<Identifier/>
-					<ObjectFieldDeclaration/>
-				<Statement/>
-			<ClassBody/>
-		<ClassDefinition/>
-	<PublicClassOrInterfaceDefinition/>
+	<ClassDefinition>
+		<ClassHeader>
+			<Identifier name="PUBLIC">
+			<Identifier/>
+			<Identifier name="A">
+			<Identifier/>
+		<ClassHeader/>
+		<ClassBody>
+			<Statement>
+				<ObjectFieldDeclaration>
+					<Identifier name="B">
+					<Identifier/>
+					<Identifier name="local">
+					<Identifier/>
+				<ObjectFieldDeclaration/>
+			<Statement/>
+			<Statement>
+				<ObjectFieldDeclaration>
+					<Identifier name="C">
+					<Identifier/>
+					<Identifier name="local">
+					<Identifier/>
+				<ObjectFieldDeclaration/>
+			<Statement/>
+		<ClassBody/>
+	<ClassDefinition/>
 <Code/>

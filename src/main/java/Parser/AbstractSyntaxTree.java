@@ -267,11 +267,33 @@ public class AbstractSyntaxTree {
                 List<String> path = new ArrayList<>(Arrays.asList(filePath.split("/")));
                 path.addAll(context);
                 ASTNode classHeader = this.children.get(0);
-                String className = classHeader.children.get(0).identifier;
+                boolean isPublic = classHeader.children.get(0).identifier.equals("PUBLIC");
+
+                String className;
+                if(isPublic)
+                    className = classHeader.children.get(1).identifier;
+                else
+                    className = classHeader.children.get(0).identifier;
+
                 ClassInheritanceRepresentation classFound
                         = new ClassInheritanceRepresentation(path, className, this);
 
-                if(classHeader.children.size()>1)
+                if(isPublic && classHeader.children.size()>2)
+                {
+                    if(classHeader.children.get(2).nodeType == ExtendList) {
+                        classFound.setBaseClass(classHeader.children.get(2).children.get(0).identifier);
+                        if (classHeader.children.size() > 3) {
+                            for (int i = 0; i < classHeader.children.get(3).children.size(); i++)
+                                classFound.addInterfaceImplemented(classHeader.children.get(3).children.get(i).identifier);
+                        }
+                    }
+                    else
+                    {
+                        for (int i = 0; i < classHeader.children.get(2).children.size(); i++)
+                            classFound.addInterfaceImplemented(classHeader.children.get(2).children.get(i).identifier);
+                    }
+                }
+                else if(!isPublic && classHeader.children.size()>1)
                 {
                     if(classHeader.children.get(1).nodeType == ExtendList) {
                         classFound.setBaseClass(classHeader.children.get(1).children.get(0).identifier);
@@ -302,14 +324,25 @@ public class AbstractSyntaxTree {
                 List<String> path = Arrays.asList(filePath.split("/"));
                 path.addAll(context);
                 ASTNode interfaceHeader = this.children.get(0);
-                String interfaceName = interfaceHeader.children.get(0).identifier;
+                boolean isPublic = interfaceHeader.children.get(0).identifier.equals("PUBLIC");
+
+                String interfaceName;
+                if(isPublic)
+                    interfaceName = interfaceHeader.children.get(1).identifier;
+                else
+                    interfaceName = interfaceHeader.children.get(0).identifier;
                 InterfaceInheritanceRepresentation interfaceFound
                         = new InterfaceInheritanceRepresentation(path, interfaceName, this);
 
-                if(interfaceHeader.children.size()>1)
+                if(isPublic && interfaceHeader.children.size()>2)
                 {
-                    for(int i = 2; i<interfaceHeader.children.size(); i++)
-                        interfaceFound.addBaseInterface(interfaceHeader.children.get(i).identifier);
+                    for(int i = 0; i<interfaceHeader.children.get(2).children.size(); i++)
+                        interfaceFound.addBaseInterface(interfaceHeader.children.get(2).children.get(i).identifier);
+                }
+                else if(!isPublic && interfaceHeader.children.size()>1)
+                {
+                    for(int i = 0; i<interfaceHeader.children.get(1).children.size(); i++)
+                        interfaceFound.addBaseInterface(interfaceHeader.children.get(1).children.get(i).identifier);
                 }
 
                 interfaces.add(interfaceFound);

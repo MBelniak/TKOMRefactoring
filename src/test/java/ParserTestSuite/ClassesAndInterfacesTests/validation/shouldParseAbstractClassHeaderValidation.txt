@@ -1,14 +1,14 @@
 <Code>
-	<PublicClassOrInterfaceDefinition>
-		<AbstractClassDefinition>
-			<ClassHeader>
-				<Identifier name="A">
-				<Identifier/>
-			<ClassHeader/>
-			<ClassBody>
-			<ClassBody/>
-		<AbstractClassDefinition/>
-	<PublicClassOrInterfaceDefinition/>
+	<AbstractClassDefinition>
+		<ClassHeader>
+			<Identifier name="PUBLIC">
+			<Identifier/>
+			<Identifier name="A">
+			<Identifier/>
+		<ClassHeader/>
+		<ClassBody>
+		<ClassBody/>
+	<AbstractClassDefinition/>
 	<AbstractClassDefinition>
 		<ClassHeader>
 			<Identifier name="B">

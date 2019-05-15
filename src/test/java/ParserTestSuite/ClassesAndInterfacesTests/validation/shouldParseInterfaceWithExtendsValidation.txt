@@ -1,18 +1,18 @@
 <Code>
-	<PublicClassOrInterfaceDefinition>
-		<InterfaceDefinition>
-			<InterfaceHeader>
-				<Identifier name="A">
+	<InterfaceDefinition>
+		<InterfaceHeader>
+			<Identifier name="PUBLIC">
+			<Identifier/>
+			<Identifier name="A">
+			<Identifier/>
+			<ExtendList>
+				<Identifier name="C">
 				<Identifier/>
-				<ExtendList>
-					<Identifier name="C">
-					<Identifier/>
-				<ExtendList/>
-			<InterfaceHeader/>
-			<InterfaceBody>
-			<InterfaceBody/>
-		<InterfaceDefinition/>
-	<PublicClassOrInterfaceDefinition/>
+			<ExtendList/>
+		<InterfaceHeader/>
+		<InterfaceBody>
+		<InterfaceBody/>
+	<InterfaceDefinition/>
 	<InterfaceDefinition>
 		<InterfaceHeader>
 			<Identifier name="A">

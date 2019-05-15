@@ -1,35 +1,113 @@
 <Code>
 	<ClassDefinition>
 		<ClassHeader>
-			<Identifier name="A">
+			<Identifier name="PUBLIC">
+			<Identifier/>
+			<Identifier name="Class3">
 			<Identifier/>
 		<ClassHeader/>
 		<ClassBody>
 			<Statement>
-				<ConstructorDefinition>
-					<Identifier name="A">
+				<PrimitiveFieldDeclaration>
+					<Identifier name="PRIVATE">
+					<Identifier/>
+					<Identifier name="INT">
+					<Identifier/>
+					<Identifier name="a">
+					<Identifier/>
+				<PrimitiveFieldDeclaration/>
+			<Statement/>
+			<Statement>
+				<PrimitiveFieldDeclaration>
+					<Identifier name="PRIVATE">
+					<Identifier/>
+					<Identifier name="INT">
+					<Identifier/>
+					<Identifier name="b">
+					<Identifier/>
+				<PrimitiveFieldDeclaration/>
+			<Statement/>
+			<Statement>
+				<MethodDefinition>
+					<Identifier name="PUBLIC">
+					<Identifier/>
+					<Identifier name="INT">
+					<Identifier/>
+					<Identifier name="add">
 					<Identifier/>
 					<MethodParameterList>
 					<MethodParameterList/>
 					<MethodBody>
-						<SuperCall>
-							<CallParameters>
-							<CallParameters/>
-						<SuperCall/>
+						<ReturnStatement>
+							<Number name="3">
+							<Number/>
+						<ReturnStatement/>
+					<MethodBody/>
+				<MethodDefinition/>
+			<Statement/>
+			<Statement>
+				<MethodDefinition>
+					<Identifier name="PUBLIC">
+					<Identifier/>
+					<Identifier name="VOID">
+					<Identifier/>
+					<Identifier name="setA">
+					<Identifier/>
+					<MethodParameterList>
+						<Identifier name="INT">
+						<Identifier/>
+						<Identifier name="a">
+						<Identifier/>
+					<MethodParameterList/>
+					<MethodBody>
 						<MethodStatement>
-							<PrimitiveFieldDeclaration>
-								<PrimitiveFieldInitialization>
-									<Identifier name="a">
-									<Identifier/>
-									<Assignment>
-									<Assignment/>
-									<Number name="2">
-									<Number/>
-								<PrimitiveFieldInitialization/>
-							<PrimitiveFieldDeclaration/>
+							<FetchedObject>
+								<Identifier name="THIS">
+								<Identifier/>
+								<Identifier name="a">
+								<Identifier/>
+							<FetchedObject/>
+							<Assignment>
+							<Assignment/>
+							<FetchedObject>
+								<Identifier name="a">
+								<Identifier/>
+							<FetchedObject/>
 						<MethodStatement/>
 					<MethodBody/>
-				<ConstructorDefinition/>
+				<MethodDefinition/>
+			<Statement/>
+			<Statement>
+				<MethodDefinition>
+					<Identifier name="PUBLIC">
+					<Identifier/>
+					<Identifier name="VOID">
+					<Identifier/>
+					<Identifier name="setB">
+					<Identifier/>
+					<MethodParameterList>
+						<Identifier name="INT">
+						<Identifier/>
+						<Identifier name="b">
+						<Identifier/>
+					<MethodParameterList/>
+					<MethodBody>
+						<MethodStatement>
+							<FetchedObject>
+								<Identifier name="THIS">
+								<Identifier/>
+								<Identifier name="b">
+								<Identifier/>
+							<FetchedObject/>
+							<Assignment>
+							<Assignment/>
+							<FetchedObject>
+								<Identifier name="b">
+								<Identifier/>
+							<FetchedObject/>
+						<MethodStatement/>
+					<MethodBody/>
+				<MethodDefinition/>
 			<Statement/>
 		<ClassBody/>
 	<ClassDefinition/>

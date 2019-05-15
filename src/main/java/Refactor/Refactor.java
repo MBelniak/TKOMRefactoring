@@ -57,9 +57,9 @@ public class Refactor {
         });
 
         classesInFiles.forEach((filePath, classInFile)->
-                System.out.println(classInFile.toString()));
+                System.out.println(filePath + ": " + classInFile.toString()));
         interfacesInFiles.forEach((filePath, interfaceInFiles) ->
-                System.out.println(interfaceInFiles.toString()));
+                System.out.println(filePath + ": " + interfaceInFiles.toString()));
     }
     //        return possibleRefactorings;
     //

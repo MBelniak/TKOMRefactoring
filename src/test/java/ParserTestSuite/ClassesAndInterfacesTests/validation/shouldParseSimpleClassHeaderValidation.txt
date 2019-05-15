@@ -7,14 +7,14 @@
 		<ClassBody>
 		<ClassBody/>
 	<ClassDefinition/>
-	<PublicClassOrInterfaceDefinition>
-		<ClassDefinition>
-			<ClassHeader>
-				<Identifier name="ClassName">
-				<Identifier/>
-			<ClassHeader/>
-			<ClassBody>
-			<ClassBody/>
-		<ClassDefinition/>
-	<PublicClassOrInterfaceDefinition/>
+	<ClassDefinition>
+		<ClassHeader>
+			<Identifier name="PUBLIC">
+			<Identifier/>
+			<Identifier name="ClassName">
+			<Identifier/>
+		<ClassHeader/>
+		<ClassBody>
+		<ClassBody/>
+	<ClassDefinition/>
 <Code/>
