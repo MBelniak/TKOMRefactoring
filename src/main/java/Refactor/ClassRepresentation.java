@@ -4,18 +4,18 @@ import Parser.AbstractSyntaxTree;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ClassRepresentation {
-    private String filePath;
-    private List<String> outerClassesOrInterfaces;
-    private String className;
+public class ClassRepresentation implements Representation{
     private String baseClass;
     private List<String> interfacesImplemented;
     private AbstractSyntaxTree.ASTNode nodeRepresentation;
     private List<Statement> statements;
+    private String filePath;
+    private List<String> outerClassesOrInterfaces;
+    String name;
 
     public ClassRepresentation(String filePath, String className, AbstractSyntaxTree.ASTNode node, List<String> outerClassesOrInterfaces) {
         this.filePath = filePath;
-        this.className = className;
+        this.name = className;
         this.interfacesImplemented = new ArrayList<>();
         this.nodeRepresentation = node;
         this.outerClassesOrInterfaces = new ArrayList<>(outerClassesOrInterfaces);
@@ -42,11 +42,7 @@ public class ClassRepresentation {
         this.statements = statements;
     }
     String getClassName() {
-        return className;
-    }
-
-    List<Statement> getStatements() {
-        return statements;
+        return name;
     }
 
     @Override
@@ -61,7 +57,7 @@ public class ClassRepresentation {
             result.append("]");
         }
         result.append(", className='")
-                .append(className)
+                .append(name)
                 .append('\'')
                 .append(", baseClass='")
                 .append(baseClass)
@@ -71,5 +67,20 @@ public class ClassRepresentation {
                 .append("}");
 
         return result.toString();
+    }
+
+    @Override
+    public List<String> getOuterClassesOrInterfaces() {
+        return outerClassesOrInterfaces;
+    }
+
+    @Override
+    public String getName() {
+        return this.name;
+    }
+
+    @Override
+    public List<Statement> getStatements() {
+        return statements;
     }
 }

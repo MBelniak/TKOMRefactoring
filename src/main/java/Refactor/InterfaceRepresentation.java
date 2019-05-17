@@ -5,17 +5,18 @@ import Parser.AbstractSyntaxTree;
 import java.util.ArrayList;
 import java.util.List;
 
-public class InterfaceRepresentation {
-    private String filePath;
-    private List<String> outerClassesOrInterfaces;
-    private String interfaceName;
+public class InterfaceRepresentation implements Representation{
     private List<String> baseInterfaces;
     private AbstractSyntaxTree.ASTNode nodeRepresentation;
     private List<Statement> statements;
+    private String filePath;
+    private List<String> outerClassesOrInterfaces;
+    String name;
+
 
     public InterfaceRepresentation(String filePath, String className, AbstractSyntaxTree.ASTNode node, List<String> outerClassesOrInterfaces) {
         this.filePath = filePath;
-        this.interfaceName = className;
+        this.name = className;
         this.baseInterfaces = new ArrayList<>();
         this.nodeRepresentation = node;
         this.outerClassesOrInterfaces = new ArrayList<>(outerClassesOrInterfaces);
@@ -40,11 +41,7 @@ public class InterfaceRepresentation {
     }
 
     String getInterfaceName() {
-        return interfaceName;
-    }
-
-    List<Statement> getStatements() {
-        return statements;
+        return name;
     }
 
     @Override
@@ -59,7 +56,7 @@ public class InterfaceRepresentation {
             result.append("]");
         }
         result.append(", interfaceName='")
-                .append(interfaceName)
+                .append(name)
                 .append('\'')
                 .append(", baseInterfaces=")
                 .append(baseInterfaces)
@@ -68,4 +65,19 @@ public class InterfaceRepresentation {
         return result.toString();
     }
 
+
+    @Override
+    public List<String> getOuterClassesOrInterfaces() {
+        return outerClassesOrInterfaces;
+    }
+
+    @Override
+    public String getName() {
+        return this.name;
+    }
+
+    @Override
+    public List<Statement> getStatements() {
+        return statements;
+    }
 }

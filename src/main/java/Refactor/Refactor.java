@@ -1,6 +1,7 @@
 package Refactor;
 
 import Exceptions.ParsingException;
+import Exceptions.SemanticException;
 import Parser.AbstractSyntaxTree;
 import Parser.Parser;
 import Scanner.Scanner;
@@ -8,9 +9,11 @@ import javafx.util.Pair;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
+import java.util.stream.Collectors;
+
+import static java.util.stream.Collectors.collectingAndThen;
+import static java.util.stream.Collectors.toCollection;
 
 public class Refactor {
     private final Scanner scanner;
@@ -46,16 +49,22 @@ public class Refactor {
 
     public void analyze() {
         analyzeClassesAndInterfaces();
+        writeClassesAndInterfaces();
+
+
+    }
+
+    private void writeClassesAndInterfaces() {
         classesInFiles.forEach((file, classReps) ->
         {
-           StringBuilder output = new StringBuilder();
-           output.append(file).append(": \n");
-           classReps.forEach(classRep ->
-           {
-               output.append("\n\t").append(classRep.toString()).append(": \n");
-               if(!classRep.getStatements().isEmpty())
-                   classRep.getStatements().forEach(statement -> output.append("\t\t").append(statement.toString()).append("\n"));
-           });
+            StringBuilder output = new StringBuilder();
+            output.append(file).append(": \n");
+            classReps.forEach(classRep ->
+            {
+                output.append("\n\t").append(classRep.toString()).append(": \n");
+                if(!classRep.getStatements().isEmpty())
+                    classRep.getStatements().forEach(statement -> output.append("\t\t").append(statement.toString()).append("\n"));
+            });
 
             System.out.println(output);
         });
@@ -80,8 +89,43 @@ public class Refactor {
             Pair<List<ClassRepresentation>, List<InterfaceRepresentation>> foundCI = AST.findClassesAndInterfacesAndPutInContext(filePath);
                 classesInFiles.put(filePath, foundCI.getKey());
                 interfacesInFiles.put(filePath, foundCI.getValue());
+            try {
+                checkForDuplicates(filePath);
+            } catch (SemanticException e) {
+                System.out.println(e.getMessage());
+                System.exit(0);
+            }
         });
     }
+
+    /*
+        Basic check of duplication. Throws SemanticException if class or interface with the same name
+        is declared in overlapping scope.
+     */
+    private void checkForDuplicates(String filePath) throws SemanticException {
+        List<Representation> classesAndInterfaces = new ArrayList<Representation>(classesInFiles.get(filePath));
+        classesAndInterfaces.addAll(interfacesInFiles.get(filePath));
+
+        for(int i = 0; i<classesAndInterfaces.size(); i++) {
+            Representation representation = classesAndInterfaces.get(i);
+
+            if (representation.getOuterClassesOrInterfaces()
+                    .stream()
+                    .filter(elem -> elem.equals(representation.getName())).collect(Collectors.toList()).size()>0) {
+                throw new SemanticException("Duplicated class or interface name: " + representation.getName());
+            }
+            for (int k = 0; k < classesAndInterfaces.size(); k++) {
+                Representation representation2 = classesAndInterfaces.get(k);
+                if (representation != representation2
+                        && representation.getName().equals(representation2.getName())
+                        && representation.getOuterClassesOrInterfaces().equals(representation2.getOuterClassesOrInterfaces()))
+                {
+                    throw new SemanticException("Duplicated class name: " + representation.getName());
+                }
+            }
+        }
+    }
+
 
     //        return possibleRefactorings;
     //
@@ -107,8 +151,10 @@ public class Refactor {
 
 //    }
 
-    private void pullUpMembers(String fileName, String sourceClassName, int[] members, String destFileName, String destClassName)
+    private void pullUpMembers(String fileName, String sourceClassOrInterName, int[] members, String destFileName, String destClassOrInterName)
     {
 
     }
 }
+
+
