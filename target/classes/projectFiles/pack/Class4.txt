@@ -1,0 +1,69 @@
+public class A
+{
+    private void a()
+    {
+
+    }
+    protected void b()
+    {
+
+    }
+    void b()
+    {
+
+    }
+    public void b()
+    {
+
+    }
+    private int b()
+    {
+
+    }
+    protected int b()
+    {
+
+    }
+    int b()
+    {
+
+    }
+    public int b()
+    {
+
+    }
+    private A a()
+    {
+
+    }
+    protected A a()
+    {
+
+    }
+    A a()
+    {
+
+    }
+    public A a()
+    {
+
+    }
+    abstract void a();
+    protected abstract void a();
+    abstract void a();
+    public abstract void a();
+    abstract int a();
+    protected abstract int a();
+    abstract int a();
+    public abstract int a();
+    abstract A a();
+    protected abstract A a();
+    abstract A a();
+    public abstract A a();
+
+    public abstract A a(int a, B b, int c);
+    public int a(int a, int b, B c, C f)
+    {
+
+    }
+}

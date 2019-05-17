@@ -15,12 +15,8 @@ public class Refactor {
     private final Scanner scanner;
     private final Parser parser;
     private Map<String, AbstractSyntaxTree> ASTs;
-    private Map<String, Map<ClassInheritanceRepresentation, List<Statement>>> statementsInClasses;
-    private Map<String, Map<InterfaceInheritanceRepresentation, List<Statement>>> statementsInInterfaces;
     private Map<String, List<ClassInheritanceRepresentation>> classesInFiles;
     private Map<String, List<InterfaceInheritanceRepresentation>> interfacesInFiles;
-
-
 
     public enum Refactorings {
         RENAME, PULL_UP, PUSH_DOWN, DELEGATE;
@@ -29,8 +25,6 @@ public class Refactor {
         this.scanner = scanner;
         this.parser = parser;
         this.ASTs = new HashMap<>();
-        this.statementsInClasses = new HashMap<>();
-        this.statementsInInterfaces = new HashMap<>();
         this.classesInFiles = new HashMap<>();
         this.interfacesInFiles = new HashMap<>();
     }
@@ -51,30 +45,29 @@ public class Refactor {
 
     public void analyze() {
         analyzeClassesAndInterfaces();
-        analyzeStatements();
-        statementsInClasses.forEach((file, map) ->
+        classesInFiles.forEach((file, classReps) ->
         {
            StringBuilder output = new StringBuilder();
            output.append(file).append(": \n");
-           map.forEach((classrep, stmntlist) ->
+           classReps.forEach(classRep ->
            {
-               output.append("\t").append(classrep.getClassName()).append(": \n");
-               if(!stmntlist.isEmpty())
-                   stmntlist.forEach(statement -> output.append("\t\t").append(statement.toString()).append("\n"));
+               output.append("\t").append(classRep.getClassName()).append(": \n");
+               if(!classRep.getStatements().isEmpty())
+                   classRep.getStatements().forEach(statement -> output.append("\t\t").append(statement.toString()).append("\n"));
            });
 
             System.out.println(output);
         });
 
-        statementsInInterfaces.forEach((file, map) ->
+        interfacesInFiles.forEach((file, interfaceReps) ->
         {
             StringBuilder output = new StringBuilder();
             output.append(file).append(": \n");
-            map.forEach((classrep, stmntlist) ->
+            interfaceReps.forEach(interfaceRep ->
             {
-                output.append("\t").append(classrep.getInterfaceName()).append(": \n");
-                if(!stmntlist.isEmpty())
-                    stmntlist.forEach(statement -> output.append("\t\t").append(statement.toString()).append("\n"));
+                output.append("\t").append(interfaceRep.getInterfaceName()).append(": \n");
+                if(!interfaceRep.getStatements().isEmpty())
+                    interfaceRep.getStatements().forEach(statement -> output.append("\t\t").append(statement.toString()).append("\n"));
             });
             System.out.println(output);
         });
@@ -88,26 +81,6 @@ public class Refactor {
         });
     }
 
-    private void analyzeStatements()
-    {
-        classesInFiles.forEach((filePath, classReps) ->
-        {
-            Map<ClassInheritanceRepresentation, List<Statement>> newMap = new HashMap<>();
-            classReps.forEach(classRep ->
-                    newMap.put(classRep, classRep.listAllMoveableStatements()));
-
-            statementsInClasses.put(filePath, newMap);
-        });
-
-        interfacesInFiles.forEach((filePath, interfaceReps) ->
-        {
-            Map<InterfaceInheritanceRepresentation, List<Statement>> newMap = new HashMap<>();
-            interfaceReps.forEach(interfaceRep ->
-                    newMap.put(interfaceRep, interfaceRep.listAllMoveableStatements()));
-
-            statementsInInterfaces.put(filePath, newMap);
-        });
-    }
     //        return possibleRefactorings;
     //
     ////        }
@@ -136,4 +109,15 @@ public class Refactor {
     {
 
     }
+}
+
+class A  implements C
+{
+    int a;
+
+}
+
+interface C
+{
+
 }

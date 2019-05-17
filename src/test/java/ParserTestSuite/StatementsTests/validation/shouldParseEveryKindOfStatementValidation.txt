@@ -55,9 +55,9 @@
 			<Statement/>
 			<Statement>
 				<AbstractClassDefinition>
-					<Identifier name="protected">
-					<Identifier/>
 					<ClassHeader>
+						<Identifier name="protected">
+						<Identifier/>
 						<Identifier name="C">
 						<Identifier/>
 					<ClassHeader/>

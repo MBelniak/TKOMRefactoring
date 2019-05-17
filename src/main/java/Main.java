@@ -22,6 +22,16 @@ public class Main {
         Parser parser = new Parser(scanner);
         Refactor refactor = new Refactor(scanner, parser);
 
+//        try {
+//            scanner.bindFile(new File("src/test/java/ParserTestSuite/StatementsTests/testFiles/shouldParseInterfaceStatements.txt"));
+//        } catch (FileNotFoundException e) {
+//            e.printStackTrace();
+//        }
+//        try {
+//            parser.parseFile();
+//        } catch (ParsingException e) {
+//            e.printStackTrace();
+//        }
         List<String> filesInProjectDirectory = new ArrayList<>();
         try (Stream<Path> walk = Files.walk(Paths.get("src/main/resources/projectFiles"))) {
 

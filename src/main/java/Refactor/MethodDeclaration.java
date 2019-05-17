@@ -6,11 +6,12 @@ import javafx.util.Pair;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MethodDefinition extends Statement{
+public class MethodDeclaration extends Statement {
+
     private List<Pair<String, String>> methodParameterList;
     private String returnType;
 
-    public MethodDefinition(AbstractSyntaxTree.ASTNode node) {
+    public MethodDeclaration(AbstractSyntaxTree.ASTNode node) {
         this.nodeRep = node;
         prepareStatementInfo();
     }
@@ -18,7 +19,7 @@ public class MethodDefinition extends Statement{
     @Override
     protected void prepareStatementInfo() {
         this.accessModifier = checkAccessModifier();
-        this.statementType = StatementType.MethodDefinition;
+        this.statementType = StatementType.MethodDeclaration;
         this.name = checkName();
         this.returnType = checkReturnType();
         this.methodParameterList = checkParameterList();
@@ -51,8 +52,6 @@ public class MethodDefinition extends Statement{
             return AccessModifier.Protected;
         if(nodeRep.children.get(0).identifier.equals("private"))
             return AccessModifier.Private;
-        if(nodeRep.children.get(0).identifier.equals("default"))
-            return AccessModifier.Default;
 
         return AccessModifier.None;
     }

@@ -25,9 +25,9 @@
 								<ClassBody>
 									<Statement>
 										<AbstractClassDefinition>
-											<Identifier name="public">
-											<Identifier/>
 											<ClassHeader>
+												<Identifier name="public">
+												<Identifier/>
 												<Identifier name="F">
 												<Identifier/>
 											<ClassHeader/>

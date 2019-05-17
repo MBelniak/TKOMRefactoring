@@ -2,11 +2,7 @@ package Refactor;
 
 import Parser.AbstractSyntaxTree;
 
-import java.util.List;
-
 public class ClassDefinition extends Statement {
-    private List<String> extendsList;
-    private String interfaceImplemented;
 
     public ClassDefinition(AbstractSyntaxTree.ASTNode node) {
         this.nodeRep = node;
@@ -15,14 +11,36 @@ public class ClassDefinition extends Statement {
 
     @Override
     protected void prepareStatementInfo() {
-
+        this.accessModifier = checkAccessModifier();
+        this.statementType = StatementType.ClassDefinition;
+        this.name = checkName();
     }
 
-    public List<String> getExtendsList() {
-        return extendsList;
+    private AccessModifier checkAccessModifier() {
+        if(nodeRep.children.get(0).children.get(0).nodeType==AbstractSyntaxTree.ElementType.Identifier)
+        {
+            if (nodeRep.children.get(0).children.get(0).identifier.equals("public"))
+                return AccessModifier.Public;
+            if(nodeRep.children.get(0).children.get(0).identifier.equals("protected"))
+                return AccessModifier.Protected;
+            if(nodeRep.children.get(0).children.get(0).identifier.equals("private"))
+                return AccessModifier.Private;
+        }
+        return AccessModifier.None;
     }
 
-    public String getInterfaceImplemented() {
-        return interfaceImplemented;
+    private String checkName() { //must be called after checkAccessModifier
+        int hasAccessModifier = this.accessModifier == AccessModifier.None ? 0 : 1;
+
+        return nodeRep.children.get(0).children.get(hasAccessModifier).identifier;
     }
+
+    @Override
+    public String toString() {
+        return "ClassDefinition{" +
+                "name='" + name + '\'' +
+                ", accessModifier=" + accessModifier +
+                '}';
+    }
+
 }

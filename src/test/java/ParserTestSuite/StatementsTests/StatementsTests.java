@@ -18,6 +18,7 @@ public class StatementsTests {
             new AbstractMap.SimpleEntry<>(TEST_FILES_DIRECTORY + "testFiles/shouldParseObjectFieldDeclaration.txt", TEST_FILES_DIRECTORY+ "validation/shouldParseObjectFieldDeclarationValidation.txt"),
             new AbstractMap.SimpleEntry<>(TEST_FILES_DIRECTORY + "testFiles/shouldParseConstructorDefinition.txt", TEST_FILES_DIRECTORY+ "validation/shouldParseConstructorDefinitionValidation.txt"),
             new AbstractMap.SimpleEntry<>(TEST_FILES_DIRECTORY + "testFiles/shouldParseDifferentAccessModifiers.txt", TEST_FILES_DIRECTORY+ "validation/shouldParseDifferentAccessModifiersValidation.txt"),
+            new AbstractMap.SimpleEntry<>(TEST_FILES_DIRECTORY + "testFiles/shouldParseInterfaceStatements.txt", TEST_FILES_DIRECTORY+ "validation/shouldParseInterfaceStatementsValidation.txt"),
             new AbstractMap.SimpleEntry<>(TEST_FILES_DIRECTORY + "testFiles/shouldParseEveryKindOfStatement.txt", TEST_FILES_DIRECTORY+ "validation/shouldParseEveryKindOfStatementValidation.txt")
             );
 

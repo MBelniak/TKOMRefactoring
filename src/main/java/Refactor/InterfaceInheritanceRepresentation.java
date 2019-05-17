@@ -10,19 +10,21 @@ public class InterfaceInheritanceRepresentation {
     private String interfaceName;
     private List<String> baseInterfaces;
     private AbstractSyntaxTree.ASTNode nodeRepresentation;
+    private List<Statement> statements;
 
     public InterfaceInheritanceRepresentation(List<String> filePath, String className, AbstractSyntaxTree.ASTNode node) {
         this.filePath = filePath;
         this.interfaceName = className;
         this.baseInterfaces = new ArrayList<>();
         this.nodeRepresentation = node;
+        checkAllMoveableStatements();
     }
 
     public void addBaseInterface(String baseInterface) {
         baseInterfaces.add(baseInterface);
     }
 
-    List<Statement> listAllMoveableStatements()
+    private void checkAllMoveableStatements()
     {
         List<Statement> statements = new ArrayList<>();
         nodeRepresentation.children.get(1).children.forEach(child ->
@@ -32,7 +34,7 @@ public class InterfaceInheritanceRepresentation {
                 statements.add(stmntToAdd);
         });
 
-        return statements;
+        this.statements = statements;
     }
 
     @Override
@@ -44,8 +46,12 @@ public class InterfaceInheritanceRepresentation {
                 '}';
     }
 
-    public String getInterfaceName() {
+    String getInterfaceName() {
         return interfaceName;
+    }
+
+    List<Statement> getStatements() {
+        return statements;
     }
 }
 

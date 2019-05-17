@@ -20,7 +20,7 @@ public class AbstractSyntaxTree {
         MainMethod, MethodDefinition, PrimitiveFieldDeclaration, ConstructorDefinition, PrimitiveFieldInitialization,
         MethodBody, MethodParameterList, MethodCall, Assignment, NewCall, MethodDeclaration, ReturnStatement, MethodStatement,
         LocalVariableDeclaration, LocalVariableInitialization, FetchedObject, Code, ObjectFieldDeclaration, SuperCall, CallParameters,
-        Identifier, ObjectFieldInitialization, Asterix, Number;
+        Identifier, ObjectFieldInitialization, Asterix, Number, PrimitiveFieldDefinition
     }
     private ASTNode ASTRoot;
     private ASTNode currentOpenedElement;
@@ -147,18 +147,6 @@ public class AbstractSyntaxTree {
 //
 //        }
 //        return null;
-//    }
-
-//    public boolean isPullable(int lineClicked, int columnClicked) {
-//         //TODO
-//    }
-//
-//    public boolean isPushable(int lineClicked, int columnClicked) {
-//         //TODO
-//    }
-//
-//    public boolean isDelegable(int lineClicked, int columnClicked) {
-//         //TODO
 //    }
 
     @Override

@@ -340,7 +340,6 @@ public class Parser {
                 if(currentToken.getLexemType() == CLASS)
                 {
                     AST.startElement(AbstractClassDefinition, currentToken);
-                    AST.flushBuffer();
                     parseClassDefinition();//endElement moved into the method
                     AST.endElement(currentToken.getLine(), currentToken.getColumn()); //Statement
                     advance();
@@ -409,7 +408,6 @@ public class Parser {
                 if(currentToken.getLexemType() == CLASS)
                 {
                     AST.startElement(AbstractClassDefinition, currentToken);
-                    AST.flushBuffer();
                     parseClassDefinition(); //endElement moved into the method
                     AST.endElement(currentToken.getLine(), currentToken.getColumn()); //Statement
                     advance();
@@ -661,12 +659,11 @@ public class Parser {
                 advance();
                 if(currentToken.getLexemType() == ASSIGNMENT)
                 {
-                    AST.startElement(PrimitiveFieldDeclaration, currentToken);
+                    AST.startElement(PrimitiveFieldDefinition, currentToken);
                     AST.flushBuffer();
                     parsePrimitiveFieldInitialization();
                     AST.endElement();   //PrimitiveFieldDeclaration
                     AST.endElement(currentToken.getLine(), currentToken.getColumn()); //Statement
-                    advance();
                 }
                 else if(currentToken.getLexemType() == LEFT_BRACKET)
                 {
@@ -860,7 +857,8 @@ public class Parser {
         {
             AST.startElement(ObjectFieldInitialization, currentToken);
             AST.flushBuffer();
-            AST.addIdentifierToList(currentToken);
+            AST.startElement(Assignment, currentToken);
+            AST.endElement();
             advance();
             if(currentToken.getLexemType() == NEW)
             {

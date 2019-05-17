@@ -13,6 +13,11 @@ public abstract class Class1 extends Base implements Interface1, Interface2
     protected abstract void method2();
     public abstract void method3(int a, int b);
 
+    protected abstract class F
+    {
+
+    }
+
     public void method4()
     {
         int a;
@@ -31,7 +36,7 @@ public abstract class Class1 extends Base implements Interface1, Interface2
 
         abstract void method1();
         protected abstract void method2();
-        public abstract void method3(int a, int b);
+        public abstract void method3(int a, int b, Inner c);
 
         public void method4()
         {
@@ -42,5 +47,10 @@ public abstract class Class1 extends Base implements Interface1, Interface2
             this.b = b.field.method4();
             return a.b.c();
         }
+    }
+
+    protected abstract class B
+    {
+        int a;
     }
 }

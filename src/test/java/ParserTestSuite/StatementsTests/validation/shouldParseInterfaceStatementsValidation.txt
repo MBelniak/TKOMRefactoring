@@ -1,0 +1,106 @@
+<Code>
+	<InterfaceDefinition>
+		<InterfaceHeader>
+			<Identifier name="public">
+			<Identifier/>
+			<Identifier name="A">
+			<Identifier/>
+		<InterfaceHeader/>
+		<InterfaceBody>
+			<Statement>
+				<PrimitiveFieldDefinition>
+					<Identifier name="int">
+					<Identifier/>
+					<Identifier name="a">
+					<Identifier/>
+					<PrimitiveFieldInitialization>
+						<Assignment>
+						<Assignment/>
+						<Number name="2">
+						<Number/>
+					<PrimitiveFieldInitialization/>
+				<PrimitiveFieldDefinition/>
+			<Statement/>
+		<InterfaceBody/>
+		<Statement>
+			<ObjectFieldInitialization>
+				<Identifier name="ClassB">
+				<Identifier/>
+				<Identifier name="field">
+				<Identifier/>
+				<Assignment>
+				<Assignment/>
+				<NewCall>
+					<MethodCall>
+						<Identifier name="ClassB">
+						<Identifier/>
+						<CallParameters>
+						<CallParameters/>
+					<MethodCall/>
+				<NewCall/>
+			<ObjectFieldInitialization/>
+			<Statement>
+				<MethodDeclaration>
+					<Identifier name="int">
+					<Identifier/>
+					<Identifier name="doSth">
+					<Identifier/>
+					<MethodParameterList>
+					<MethodParameterList/>
+				<MethodDeclaration/>
+			<Statement/>
+			<Statement>
+				<MethodDefinition>
+					<Identifier name="default">
+					<Identifier/>
+					<Identifier name="void">
+					<Identifier/>
+					<Identifier name="method">
+					<Identifier/>
+					<MethodParameterList>
+					<MethodParameterList/>
+					<MethodBody>
+						<MethodStatement>
+							<PrimitiveFieldDeclaration>
+								<Identifier name="b">
+								<Identifier/>
+							<PrimitiveFieldDeclaration/>
+						<MethodStatement/>
+					<MethodBody/>
+				<MethodDefinition/>
+			<Statement/>
+			<Statement>
+				<MethodDefinition>
+					<Identifier name="private">
+					<Identifier/>
+					<Identifier name="int">
+					<Identifier/>
+					<Identifier name="method2">
+					<Identifier/>
+					<MethodParameterList>
+					<MethodParameterList/>
+					<MethodBody>
+						<MethodStatement>
+							<LocalVariableInitialization>
+								<Identifier name="ClassC">
+								<Identifier/>
+								<Identifier name="c">
+								<Identifier/>
+								<Assignment>
+								<Assignment/>
+								<NewCall>
+									<MethodCall>
+										<Identifier name="ClassC">
+										<Identifier/>
+										<CallParameters>
+										<CallParameters/>
+									<MethodCall/>
+								<NewCall/>
+							<LocalVariableInitialization/>
+						<MethodStatement/>
+					<MethodBody/>
+				<MethodDefinition/>
+			<Statement/>
+		<Statement/>
+	<InterfaceDefinition/>
+<Code/>

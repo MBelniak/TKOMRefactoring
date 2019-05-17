@@ -17,13 +17,13 @@ public class AbstractClassDefinition extends Statement {
     }
 
     private AccessModifier checkAccessModifier() {
-        if(nodeRep.children.get(0).nodeType==AbstractSyntaxTree.ElementType.Identifier)
+        if(nodeRep.children.get(0).children.get(0).nodeType==AbstractSyntaxTree.ElementType.Identifier)
         {
-            if (nodeRep.children.get(0).identifier.equals("public"))
+            if (nodeRep.children.get(0).children.get(0).identifier.equals("public"))
                 return AccessModifier.Public;
-            if(nodeRep.children.get(0).identifier.equals("protected"))
+            if(nodeRep.children.get(0).children.get(0).identifier.equals("protected"))
                 return AccessModifier.Protected;
-            if(nodeRep.children.get(0).identifier.equals("provate"))
+            if(nodeRep.children.get(0).children.get(0).identifier.equals("private"))
                 return AccessModifier.Private;
         }
         return AccessModifier.None;
@@ -32,13 +32,13 @@ public class AbstractClassDefinition extends Statement {
     private String checkName() { //must be called after checkAccessModifier
         int hasAccessModifier = this.accessModifier == AccessModifier.None ? 0 : 1;
 
-        return nodeRep.children.get(hasAccessModifier).children.get(0).identifier;
+        return nodeRep.children.get(0).children.get(hasAccessModifier).identifier;
     }
 
     @Override
     public String toString() {
         return "AbstractClassDefinition{" +
-                ", name='" + name + '\'' +
+                "name='" + name + '\'' +
                 ", accessModifier=" + accessModifier +
                 '}';
     }

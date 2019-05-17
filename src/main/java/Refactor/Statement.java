@@ -3,16 +3,17 @@ package Refactor;
 import Parser.AbstractSyntaxTree;
 
 public abstract class Statement {
-    protected AbstractSyntaxTree.ASTNode nodeRep;
-    public enum StatementType{AbstractClassDefinition, AbstractMethodDeclaration, ClassDefinition, FieldDeclaration, MethodDefinition}
-    public enum AccessModifier{Public, Protected, Private, None}
-    protected StatementType statementType;
+    AbstractSyntaxTree.ASTNode nodeRep;
+    public enum StatementType{AbstractClassDefinition, AbstractMethodDeclaration,
+        ClassDefinition, FieldDeclaration, FieldDefinition, MethodDeclaration, MethodDefinition}
+    public enum AccessModifier{Public, Protected, Private, None, Default} //Default for interfaces
+    StatementType statementType;
     protected String name;
-    protected AccessModifier accessModifier;
+    AccessModifier accessModifier;
 
-    public void getStatementType()
+    public StatementType getStatementType()
     {
-
+        return statementType;
     }
 
     public String getName() {
@@ -29,7 +30,7 @@ public abstract class Statement {
 
 class StatementFactory
 {
-    public static Statement getStatement(AbstractSyntaxTree.ASTNode node)
+    static Statement getStatement(AbstractSyntaxTree.ASTNode node)
     {
         switch(node.nodeType) {
             case AbstractClassDefinition:
@@ -50,6 +51,11 @@ class StatementFactory
             case MethodDefinition:
                 return new MethodDefinition(node);
 
+            case PrimitiveFieldDefinition:
+                return new FieldDefinition(node);
+
+            case MethodDeclaration:
+                return new MethodDeclaration(node);
             default:
                 return null;
         }

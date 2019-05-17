@@ -1,0 +1,16 @@
+public interface A
+{
+    int a = 2;
+    ClassB field = new ClassB();
+    int doSth();
+
+    default void method()
+    {
+        int b;
+    }
+
+    private int method2()
+    {
+        ClassC c = new ClassC();
+    }
+}

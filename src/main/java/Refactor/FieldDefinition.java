@@ -2,18 +2,18 @@ package Refactor;
 
 import Parser.AbstractSyntaxTree;
 
-public class FieldDeclaration extends Statement {
+public class FieldDefinition extends Statement { //only in interfaces
     private String type;
 
-    public FieldDeclaration(AbstractSyntaxTree.ASTNode node) {
+    public FieldDefinition(AbstractSyntaxTree.ASTNode node) {
         this.nodeRep = node;
         prepareStatementInfo();
     }
 
     @Override
     protected void prepareStatementInfo() {
-        this.accessModifier = checkAccessModifier();
-        this.statementType = StatementType.FieldDeclaration;
+        this.accessModifier = checkAccessModifier(); // is public by default, but user can type 'public' or not
+        this.statementType = StatementType.FieldDefinition;
         this.name = checkName();
         this.type = checkType();
     }
@@ -47,7 +47,7 @@ public class FieldDeclaration extends Statement {
 
     @Override
     public String toString() {
-        return "FieldDeclaration{" +
+        return "FieldDefinition{" +
                 "type='" + type + '\'' +
                 ", name='" + name + '\'' +
                 ", accessModifier=" + accessModifier +
