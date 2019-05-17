@@ -25,8 +25,12 @@ public class InterfaceInheritanceRepresentation {
     List<Statement> listAllMoveableStatements()
     {
         List<Statement> statements = new ArrayList<>();
-        nodeRepresentation.children.forEach(child ->
-                statements.add(StatementFactory.getStatement(child)));
+        nodeRepresentation.children.get(1).children.forEach(child ->
+        {
+            Statement stmntToAdd = StatementFactory.getStatement(child.children.get(0));
+            if(stmntToAdd != null)
+                statements.add(stmntToAdd);
+        });
 
         return statements;
     }
@@ -38,6 +42,10 @@ public class InterfaceInheritanceRepresentation {
                 ", interfaceName='" + interfaceName + '\'' +
                 ", baseInterfaces=" + baseInterfaces +
                 '}';
+    }
+
+    public String getInterfaceName() {
+        return interfaceName;
     }
 }
 

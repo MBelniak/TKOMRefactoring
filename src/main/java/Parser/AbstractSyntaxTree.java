@@ -265,7 +265,7 @@ public class AbstractSyntaxTree {
                 List<String> path = new ArrayList<>(Arrays.asList(filePath.split("/")));
                 path.addAll(context);
                 ASTNode classHeader = this.children.get(0);
-                boolean isPublic = classHeader.children.get(0).identifier.equals("PUBLIC");
+                boolean isPublic = classHeader.children.get(0).identifier.equals("public");
 
                 String className;
                 if(isPublic)
@@ -322,7 +322,7 @@ public class AbstractSyntaxTree {
                 List<String> path = Arrays.asList(filePath.split("/"));
                 path.addAll(context);
                 ASTNode interfaceHeader = this.children.get(0);
-                boolean isPublic = interfaceHeader.children.get(0).identifier.equals("PUBLIC");
+                boolean isPublic = interfaceHeader.children.get(0).identifier.equals("public");
 
                 String interfaceName;
                 if(isPublic)

@@ -37,6 +37,6 @@ public class Main {
             e.printStackTrace();
             return;
         }
-        //refactor.analyze();
+        refactor.analyze();
     }
 }

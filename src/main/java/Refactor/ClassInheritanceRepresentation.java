@@ -29,9 +29,12 @@ public class ClassInheritanceRepresentation {
     List<Statement> listAllMoveableStatements()
     {
         List<Statement> statements = new ArrayList<>();
-        nodeRepresentation.children.forEach(child ->
-                statements.add(StatementFactory.getStatement(child.children.get(0))));
-
+        nodeRepresentation.children.get(1).children.forEach(child ->
+            {
+                Statement stmntToAdd = StatementFactory.getStatement(child.children.get(0));
+                if(stmntToAdd != null)
+                    statements.add(stmntToAdd);
+            });
         return statements;
     }
     @Override
@@ -42,5 +45,9 @@ public class ClassInheritanceRepresentation {
                 ", baseClass='" + baseClass + '\'' +
                 ", interfacesImplemented=" + interfacesImplemented +
                 '}';
+    }
+
+    public String getClassName() {
+        return className;
     }
 }

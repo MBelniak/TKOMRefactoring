@@ -20,15 +20,11 @@ public class Refactor {
     private Map<String, List<ClassInheritanceRepresentation>> classesInFiles;
     private Map<String, List<InterfaceInheritanceRepresentation>> interfacesInFiles;
 
-    public void analyze() {
-        analyzeClassesAndInterfaces();
-        analyzeStatements();
-    }
+
 
     public enum Refactorings {
-        RENAME, PULL_UP, PUSH_DOWN, DELEGATE
+        RENAME, PULL_UP, PUSH_DOWN, DELEGATE;
     }
-
     public Refactor(Scanner scanner, Parser parser) {
         this.scanner = scanner;
         this.parser = parser;
@@ -53,17 +49,43 @@ public class Refactor {
         }
     }
 
+    public void analyze() {
+        analyzeClassesAndInterfaces();
+        analyzeStatements();
+        statementsInClasses.forEach((file, map) ->
+        {
+           StringBuilder output = new StringBuilder();
+           output.append(file).append(": \n");
+           map.forEach((classrep, stmntlist) ->
+           {
+               output.append("\t").append(classrep.getClassName()).append(": \n");
+               if(!stmntlist.isEmpty())
+                   stmntlist.forEach(statement -> output.append("\t\t").append(statement.toString()).append("\n"));
+           });
+
+            System.out.println(output);
+        });
+
+        statementsInInterfaces.forEach((file, map) ->
+        {
+            StringBuilder output = new StringBuilder();
+            output.append(file).append(": \n");
+            map.forEach((classrep, stmntlist) ->
+            {
+                output.append("\t").append(classrep.getInterfaceName()).append(": \n");
+                if(!stmntlist.isEmpty())
+                    stmntlist.forEach(statement -> output.append("\t\t").append(statement.toString()).append("\n"));
+            });
+            System.out.println(output);
+        });
+    }
+
     private void analyzeClassesAndInterfaces()
     {
         ASTs.forEach((filePath, AST)  ->{
                 classesInFiles.put(filePath, AST.findClassesAndPutInContext(filePath));
                 interfacesInFiles.put(filePath, AST.findInterfacesAndPutInContext(filePath));
         });
-
-        classesInFiles.forEach((filePath, classInFile)->
-                System.out.println(filePath + ": " + classInFile.toString()));
-        interfacesInFiles.forEach((filePath, interfaceInFiles) ->
-                System.out.println(filePath + ": " + interfaceInFiles.toString()));
     }
 
     private void analyzeStatements()

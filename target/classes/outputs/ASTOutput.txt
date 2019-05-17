@@ -1,34 +1,78 @@
 <Code>
 	<ClassDefinition>
 		<ClassHeader>
-			<Identifier name="A">
+			<Identifier name="public">
+			<Identifier/>
+			<Identifier name="Class3">
 			<Identifier/>
 		<ClassHeader/>
 		<ClassBody>
 			<Statement>
-				<MethodDefinition>
+				<PrimitiveFieldDeclaration>
+					<Identifier name="private">
+					<Identifier/>
+					<Identifier name="int">
+					<Identifier/>
+					<Identifier name="a">
+					<Identifier/>
+				<PrimitiveFieldDeclaration/>
+			<Statement/>
+			<Statement>
+				<PrimitiveFieldDeclaration>
 					<Identifier name="private">
 					<Identifier/>
 					<Identifier name="int">
 					<Identifier/>
 					<Identifier name="b">
 					<Identifier/>
+				<PrimitiveFieldDeclaration/>
+			<Statement/>
+			<Statement>
+				<MethodDefinition>
+					<Identifier name="public">
+					<Identifier/>
+					<Identifier name="int">
+					<Identifier/>
+					<Identifier name="add">
+					<Identifier/>
 					<MethodParameterList>
 					<MethodParameterList/>
 					<MethodBody>
+						<ReturnStatement>
+							<Number name="3">
+							<Number/>
+						<ReturnStatement/>
+					<MethodBody/>
+				<MethodDefinition/>
+			<Statement/>
+			<Statement>
+				<MethodDefinition>
+					<Identifier name="public">
+					<Identifier/>
+					<Identifier name="void">
+					<Identifier/>
+					<Identifier name="setA">
+					<Identifier/>
+					<MethodParameterList>
+						<Identifier name="int">
+						<Identifier/>
+						<Identifier name="a">
+						<Identifier/>
+					<MethodParameterList/>
+					<MethodBody>
 						<MethodStatement>
-							<LocalVariableDeclaration>
-								<Identifier name="OtherClass">
+							<FetchedObject>
+								<Identifier name="this">
 								<Identifier/>
-								<Identifier name="b">
-								<Identifier/>
-							<LocalVariableDeclaration/>
-						<MethodStatement/>
-						<MethodStatement>
-							<PrimitiveFieldDeclaration>
 								<Identifier name="a">
 								<Identifier/>
-							<PrimitiveFieldDeclaration/>
+							<FetchedObject/>
+							<Assignment>
+							<Assignment/>
+							<FetchedObject>
+								<Identifier name="a">
+								<Identifier/>
+							<FetchedObject/>
 						<MethodStatement/>
 					<MethodBody/>
 				<MethodDefinition/>
@@ -39,51 +83,31 @@
 					<Identifier/>
 					<Identifier name="void">
 					<Identifier/>
-					<Identifier name="c">
+					<Identifier name="setB">
 					<Identifier/>
 					<MethodParameterList>
+						<Identifier name="int">
+						<Identifier/>
+						<Identifier name="b">
+						<Identifier/>
 					<MethodParameterList/>
 					<MethodBody>
 						<MethodStatement>
-							<LocalVariableDeclaration>
-								<Identifier name="Other">
+							<FetchedObject>
+								<Identifier name="this">
 								<Identifier/>
-								<Identifier name="c">
+								<Identifier name="b">
 								<Identifier/>
-							<LocalVariableDeclaration/>
-						<MethodStatement/>
-						<MethodStatement>
-							<PrimitiveFieldDeclaration>
-								<Identifier name="g">
+							<FetchedObject/>
+							<Assignment>
+							<Assignment/>
+							<FetchedObject>
+								<Identifier name="b">
 								<Identifier/>
-							<PrimitiveFieldDeclaration/>
+							<FetchedObject/>
 						<MethodStatement/>
 					<MethodBody/>
 				<MethodDefinition/>
-			<Statement/>
-			<Statement>
-				<ConstructorDefinition>
-					<Identifier name="A">
-					<Identifier/>
-					<MethodParameterList>
-					<MethodParameterList/>
-					<MethodBody>
-						<MethodStatement>
-							<PrimitiveFieldDeclaration>
-								<Identifier name="f">
-								<Identifier/>
-							<PrimitiveFieldDeclaration/>
-						<MethodStatement/>
-						<MethodStatement>
-							<LocalVariableDeclaration>
-								<Identifier name="OtherClass">
-								<Identifier/>
-								<Identifier name="g">
-								<Identifier/>
-							<LocalVariableDeclaration/>
-						<MethodStatement/>
-					<MethodBody/>
-				<ConstructorDefinition/>
 			<Statement/>
 		<ClassBody/>
 	<ClassDefinition/>
