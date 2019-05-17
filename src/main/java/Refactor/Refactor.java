@@ -110,14 +110,3 @@ public class Refactor {
 
     }
 }
-
-class A  implements C
-{
-    int a;
-
-}
-
-interface C
-{
-
-}
