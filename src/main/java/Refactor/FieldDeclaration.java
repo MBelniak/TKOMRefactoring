@@ -16,6 +16,10 @@ public class FieldDeclaration extends Statement {
         this.statementType = StatementType.FieldDeclaration;
         this.name = checkName();
         this.type = checkType();
+        this.startsAtLine = nodeRep.parent.startsAtLine;
+        this.startsAtColumn = nodeRep.parent.startsAtColumn;
+        this.endsAtLine = nodeRep.parent.endsAtLine;
+        this.endsAtColumn = nodeRep.parent.endsAtColumn;
     }
 
     private AccessModifier checkAccessModifier() {
@@ -51,6 +55,10 @@ public class FieldDeclaration extends Statement {
                 "type='" + type + '\'' +
                 ", name='" + name + '\'' +
                 ", accessModifier=" + accessModifier +
+                ", startsAtLine=" + startsAtLine +
+                ", startsAtColumn=" + startsAtColumn +
+                ", endsAtLine=" + endsAtLine +
+                ", endsAtColumn=" + endsAtColumn +
                 '}';
     }
 }

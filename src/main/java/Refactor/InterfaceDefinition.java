@@ -2,9 +2,9 @@ package Refactor;
 
 import Parser.AbstractSyntaxTree;
 
-public class ClassDefinition extends Statement {
+public class InterfaceDefinition extends Statement {
 
-    public ClassDefinition(AbstractSyntaxTree.ASTNode node) {
+    public InterfaceDefinition(AbstractSyntaxTree.ASTNode node) {
         this.nodeRep = node;
         prepareStatementInfo();
     }
@@ -12,7 +12,7 @@ public class ClassDefinition extends Statement {
     @Override
     protected void prepareStatementInfo() {
         this.accessModifier = checkAccessModifier();
-        this.statementType = StatementType.ClassDefinition;
+        this.statementType = StatementType.InterfaceDefinition;
         this.name = checkName();
         this.startsAtLine = nodeRep.parent.startsAtLine;
         this.startsAtColumn = nodeRep.parent.startsAtColumn;
@@ -41,7 +41,7 @@ public class ClassDefinition extends Statement {
 
     @Override
     public String toString() {
-        return "ClassDefinition{" +
+        return "InterfaceDefinition{" +
                 "name='" + name + '\'' +
                 ", accessModifier=" + accessModifier +
                 ", startsAtLine=" + startsAtLine +

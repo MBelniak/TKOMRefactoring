@@ -23,6 +23,10 @@ public class AbstractMethodDeclaration extends Statement {
         this.name = checkName();
         this.returnType = checkReturnType();
         this.methodParameterList = checkParameterList();
+        this.startsAtLine = nodeRep.parent.startsAtLine;
+        this.startsAtColumn = nodeRep.parent.startsAtColumn;
+        this.endsAtLine = nodeRep.parent.endsAtLine;
+        this.endsAtColumn = nodeRep.parent.endsAtColumn;
     }
 
     private String checkReturnType() {
@@ -77,6 +81,10 @@ public class AbstractMethodDeclaration extends Statement {
                 ", returnType='" + returnType + '\'' +
                 ", name='" + name + '\'' +
                 ", accessModifier=" + accessModifier +
+                ", startsAtLine=" + startsAtLine +
+                ", startsAtColumn=" + startsAtColumn +
+                ", endsAtLine=" + endsAtLine +
+                ", endsAtColumn=" + endsAtColumn +
                 '}';
     }
 }

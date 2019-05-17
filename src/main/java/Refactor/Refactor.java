@@ -4,6 +4,7 @@ import Exceptions.ParsingException;
 import Parser.AbstractSyntaxTree;
 import Parser.Parser;
 import Scanner.Scanner;
+import javafx.util.Pair;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -15,8 +16,8 @@ public class Refactor {
     private final Scanner scanner;
     private final Parser parser;
     private Map<String, AbstractSyntaxTree> ASTs;
-    private Map<String, List<ClassInheritanceRepresentation>> classesInFiles;
-    private Map<String, List<InterfaceInheritanceRepresentation>> interfacesInFiles;
+    private Map<String, List<ClassRepresentation>> classesInFiles;
+    private Map<String, List<InterfaceRepresentation>> interfacesInFiles;
 
     public enum Refactorings {
         RENAME, PULL_UP, PUSH_DOWN, DELEGATE;
@@ -51,7 +52,7 @@ public class Refactor {
            output.append(file).append(": \n");
            classReps.forEach(classRep ->
            {
-               output.append("\t").append(classRep.getClassName()).append(": \n");
+               output.append("\n\t").append(classRep.toString()).append(": \n");
                if(!classRep.getStatements().isEmpty())
                    classRep.getStatements().forEach(statement -> output.append("\t\t").append(statement.toString()).append("\n"));
            });
@@ -65,7 +66,7 @@ public class Refactor {
             output.append(file).append(": \n");
             interfaceReps.forEach(interfaceRep ->
             {
-                output.append("\t").append(interfaceRep.getInterfaceName()).append(": \n");
+                output.append("\n\t").append(interfaceRep.toString()).append(": \n");
                 if(!interfaceRep.getStatements().isEmpty())
                     interfaceRep.getStatements().forEach(statement -> output.append("\t\t").append(statement.toString()).append("\n"));
             });
@@ -76,8 +77,9 @@ public class Refactor {
     private void analyzeClassesAndInterfaces()
     {
         ASTs.forEach((filePath, AST)  ->{
-                classesInFiles.put(filePath, AST.findClassesAndPutInContext(filePath));
-                interfacesInFiles.put(filePath, AST.findInterfacesAndPutInContext(filePath));
+            Pair<List<ClassRepresentation>, List<InterfaceRepresentation>> foundCI = AST.findClassesAndInterfacesAndPutInContext(filePath);
+                classesInFiles.put(filePath, foundCI.getKey());
+                interfacesInFiles.put(filePath, foundCI.getValue());
         });
     }
 

@@ -11,9 +11,14 @@ class Class2
         int g;
     }
 
-    A()
+    public class FFF
     {
-        int f;
-        OtherClass g;
+        public class FSS
+        {
+            public interface GG
+            {
+
+            }
+        }
     }
 }

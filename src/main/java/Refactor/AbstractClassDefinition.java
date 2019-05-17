@@ -14,6 +14,10 @@ public class AbstractClassDefinition extends Statement {
         this.accessModifier = checkAccessModifier();
         this.statementType = StatementType.AbstractClassDefinition;
         this.name = checkName();
+        this.startsAtLine = nodeRep.parent.startsAtLine;
+        this.startsAtColumn = nodeRep.parent.startsAtColumn;
+        this.endsAtLine = nodeRep.parent.endsAtLine;
+        this.endsAtColumn = nodeRep.parent.endsAtColumn;
     }
 
     private AccessModifier checkAccessModifier() {
@@ -40,6 +44,10 @@ public class AbstractClassDefinition extends Statement {
         return "AbstractClassDefinition{" +
                 "name='" + name + '\'' +
                 ", accessModifier=" + accessModifier +
+                ", startsAtLine=" + startsAtLine +
+                ", startsAtColumn=" + startsAtColumn +
+                ", endsAtLine=" + endsAtLine +
+                ", endsAtColumn=" + endsAtColumn +
                 '}';
     }
 }

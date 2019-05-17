@@ -1,12 +1,13 @@
 package Parser;
 
 import Lexems.Lexem;
-import Refactor.ClassInheritanceRepresentation;
-import Refactor.InterfaceInheritanceRepresentation;
+import Refactor.ClassRepresentation;
+import Refactor.InterfaceRepresentation;
+import Refactor.Statement;
+import javafx.util.Pair;
 
 import java.io.*;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import static Parser.AbstractSyntaxTree.ElementType.*;
@@ -94,31 +95,20 @@ public class AbstractSyntaxTree {
 //         return element == Identifier;
 //    }
 
-    public List<ClassInheritanceRepresentation> findClassesAndPutInContext(String filePath) {
+    public Pair<List<ClassRepresentation>, List<InterfaceRepresentation>> findClassesAndInterfacesAndPutInContext(String filePath) {
         if(null != ASTRoot) {
 
-            List<ClassInheritanceRepresentation> classesFound = new ArrayList<>();
-            List<String> contextClasses = new ArrayList<>();
+            List<ClassRepresentation> classesFound = new ArrayList<>();
+            List<InterfaceRepresentation> interfacesFound = new ArrayList<>();
+            List<String> contextClassesOrIntefraces = new ArrayList<>();
             for (ASTNode node : ASTRoot.children) {
-                node.findClassesAndPutInContext(filePath, contextClasses, classesFound);
+                node.findClassesOrInterfacesAndPutInContext(filePath, contextClassesOrIntefraces, classesFound, interfacesFound);
             }
-            return classesFound;
+            return new Pair<>(classesFound, interfacesFound);
         }
         return null;
     }
 
-    public List<InterfaceInheritanceRepresentation> findInterfacesAndPutInContext(String filePath) {
-        if(null != ASTRoot) {
-
-            List<InterfaceInheritanceRepresentation> interfacesFound = new ArrayList<>();
-            List<String> contextInterfaces = new ArrayList<>();
-            for (ASTNode node : ASTRoot.children) {
-                node.findInterfacesAndPutInContext(filePath, contextInterfaces, interfacesFound);
-            }
-            return interfacesFound;
-        }
-        return null;
-    }
 
 //    private ElementType findElementAt(int lineClicked, int columnClicked, ASTNode node) {
 //        if(node.children.isEmpty())
@@ -245,51 +235,51 @@ public class AbstractSyntaxTree {
         }
 
 
-        private void findClassesAndPutInContext(String filePath, List<String> context, List<ClassInheritanceRepresentation> classes)
+        private void findClassesOrInterfacesAndPutInContext(String filePath, List<String> context,
+                                                            List<ClassRepresentation> classes, List<InterfaceRepresentation> interfaces)
         {
-            if(this.nodeType==AbstractClassDefinition
-                    || this.nodeType==ClassDefinition)
-            {
-                List<String> path = new ArrayList<>(Arrays.asList(filePath.split("/")));
-                path.addAll(context);
+            if (this.nodeType == AbstractClassDefinition
+                    || this.nodeType == ClassDefinition) {
                 ASTNode classHeader = this.children.get(0);
-                boolean isPublic = classHeader.children.get(0).identifier.equals("public");
+
+                Statement.AccessModifier accessModifier = null;
+
+                if (classHeader.children.get(0).identifier.equals("public"))
+                    accessModifier = Refactor.Statement.AccessModifier.Public;
+                if (classHeader.children.get(0).identifier.equals("protected"))
+                    accessModifier = Refactor.Statement.AccessModifier.Protected;
+                if (classHeader.children.get(0).identifier.equals("private"))
+                    accessModifier = Refactor.Statement.AccessModifier.Private;
 
                 String className;
-                if(isPublic)
+
+                if (null != accessModifier)
                     className = classHeader.children.get(1).identifier;
                 else
                     className = classHeader.children.get(0).identifier;
 
-                ClassInheritanceRepresentation classFound
-                        = new ClassInheritanceRepresentation(path, className, this);
+                ClassRepresentation classFound
+                        = new ClassRepresentation(filePath, className, this, context);
 
-                if(isPublic && classHeader.children.size()>2)
-                {
-                    if(classHeader.children.get(2).nodeType == ExtendList) {
+                if (null != accessModifier && classHeader.children.size() > 2) {
+                    if (classHeader.children.get(2).nodeType == ExtendList) {
                         classFound.setBaseClass(classHeader.children.get(2).children.get(0).identifier);
                         if (classHeader.children.size() > 3) {
                             for (int i = 0; i < classHeader.children.get(3).children.size(); i++)
                                 classFound.addInterfaceImplemented(classHeader.children.get(3).children.get(i).identifier);
                         }
-                    }
-                    else
-                    {
+                    } else {
                         for (int i = 0; i < classHeader.children.get(2).children.size(); i++)
                             classFound.addInterfaceImplemented(classHeader.children.get(2).children.get(i).identifier);
                     }
-                }
-                else if(!isPublic && classHeader.children.size()>1)
-                {
-                    if(classHeader.children.get(1).nodeType == ExtendList) {
+                } else if (accessModifier == null && classHeader.children.size() > 1) {
+                    if (classHeader.children.get(1).nodeType == ExtendList) {
                         classFound.setBaseClass(classHeader.children.get(1).children.get(0).identifier);
                         if (classHeader.children.size() > 2) {
                             for (int i = 0; i < classHeader.children.get(2).children.size(); i++)
                                 classFound.addInterfaceImplemented(classHeader.children.get(2).children.get(i).identifier);
                         }
-                    }
-                    else
-                    {
+                    } else {
                         for (int i = 0; i < classHeader.children.get(1).children.size(); i++)
                             classFound.addInterfaceImplemented(classHeader.children.get(1).children.get(i).identifier);
                     }
@@ -297,47 +287,49 @@ public class AbstractSyntaxTree {
 
                 classes.add(classFound);
                 context.add(className);
-            }
-
-            for (ASTNode node : this.children) {
-                node.findClassesAndPutInContext(filePath, context, classes);
-            }
-        }
-        private void findInterfacesAndPutInContext(String filePath, List<String> context, List<InterfaceInheritanceRepresentation> interfaces)
-        {
-            if(this.nodeType==InterfaceDefinition)
-            {
-                List<String> path = Arrays.asList(filePath.split("/"));
-                path.addAll(context);
+                for (ASTNode node : this.children) {
+                    node.findClassesOrInterfacesAndPutInContext(filePath, context, classes, interfaces);
+                }
+                context.remove(className);
+            } else if (this.nodeType == InterfaceDefinition) {
                 ASTNode interfaceHeader = this.children.get(0);
-                boolean isPublic = interfaceHeader.children.get(0).identifier.equals("public");
+                Statement.AccessModifier accessModifier = null;
+
+                if (interfaceHeader.children.get(0).identifier.equals("public"))
+                    accessModifier = Refactor.Statement.AccessModifier.Public;
+                if (interfaceHeader.children.get(0).identifier.equals("protected"))
+                    accessModifier = Refactor.Statement.AccessModifier.Protected;
+                if (interfaceHeader.children.get(0).identifier.equals("private"))
+                    accessModifier = Refactor.Statement.AccessModifier.Private;
 
                 String interfaceName;
-                if(isPublic)
+
+                if (null != accessModifier)
                     interfaceName = interfaceHeader.children.get(1).identifier;
                 else
                     interfaceName = interfaceHeader.children.get(0).identifier;
-                InterfaceInheritanceRepresentation interfaceFound
-                        = new InterfaceInheritanceRepresentation(path, interfaceName, this);
 
-                if(isPublic && interfaceHeader.children.size()>2)
-                {
-                    for(int i = 0; i<interfaceHeader.children.get(2).children.size(); i++)
+                InterfaceRepresentation interfaceFound
+                        = new InterfaceRepresentation(filePath, interfaceName, this, context);
+
+                if (null != accessModifier && interfaceHeader.children.size() > 2) {
+                    for (int i = 0; i < interfaceHeader.children.get(2).children.size(); i++)
                         interfaceFound.addBaseInterface(interfaceHeader.children.get(2).children.get(i).identifier);
-                }
-                else if(!isPublic && interfaceHeader.children.size()>1)
-                {
-                    for(int i = 0; i<interfaceHeader.children.get(1).children.size(); i++)
+                } else if (accessModifier == null && interfaceHeader.children.size() > 1) {
+                    for (int i = 0; i < interfaceHeader.children.get(1).children.size(); i++)
                         interfaceFound.addBaseInterface(interfaceHeader.children.get(1).children.get(i).identifier);
                 }
 
                 interfaces.add(interfaceFound);
                 context.add(interfaceName);
-            }
-
-            for (ASTNode node : this.children) {
-                node.findInterfacesAndPutInContext(filePath, context, interfaces);
-            }
+                for (ASTNode node : this.children) {
+                    node.findClassesOrInterfacesAndPutInContext(filePath, context, classes, interfaces);
+                }
+                context.remove(interfaceName);
+            } else
+                for (ASTNode node : this.children) {
+                    node.findClassesOrInterfacesAndPutInContext(filePath, context, classes, interfaces);
+                }
         }
     }
 }

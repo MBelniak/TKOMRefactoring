@@ -146,6 +146,7 @@ public class Parser {
             else if(currentToken.getLexemType() == INTERFACE) {
                 AST.startElement(InterfaceDefinition, currentToken);
                 parseInterfaceDefinition(); //endElement moved into the method
+                advance();
             }
             else
                 throw new ParsingException("Class or interface definition expected", currentToken.getLine(), currentToken.getColumn());
@@ -192,7 +193,6 @@ public class Parser {
         AST.endElement();
         if(currentToken.getLexemType() == RIGHT_CURLY_BRACKET) {
             AST.endElement(currentToken.getLine(), currentToken.getColumn());
-            advance();
         }
         else
             throw new ParsingException("'}' expected.", currentToken.getLine(), currentToken.getColumn());
@@ -366,7 +366,8 @@ public class Parser {
             else if(currentToken.getLexemType() == INT
                     || currentToken.getLexemType() == IDENTIFIER
                     || currentToken.getLexemType() == VOID
-                    || currentToken.getLexemType() == CLASS)
+                    || currentToken.getLexemType() == CLASS
+                    || currentToken.getLexemType() == INTERFACE)
             {
                 parseDefinition(); //end Statement inside the method
             }
@@ -394,7 +395,8 @@ public class Parser {
                 || currentToken.getLexemType() == INT
                 || currentToken.getLexemType() == IDENTIFIER
                 || currentToken.getLexemType() == CLASS
-                || currentToken.getLexemType() == VOID)
+                || currentToken.getLexemType() == VOID
+                || currentToken.getLexemType() == INTERFACE)
         {
             AST.startElement(Statement, currentToken);
             if(currentToken.getLexemType()==PROTECTED)
@@ -433,7 +435,8 @@ public class Parser {
             else if(currentToken.getLexemType() == INT
                     || currentToken.getLexemType() == IDENTIFIER
                     || currentToken.getLexemType() == CLASS
-                    || currentToken.getLexemType() == VOID)
+                    || currentToken.getLexemType() == VOID
+                    || currentToken.getLexemType() == INTERFACE)
             {
                 parseDefinition(); //end Statement inside the method
             }
@@ -479,6 +482,13 @@ public class Parser {
         {
             AST.startElement(ClassDefinition, currentToken);
             parseClassDefinition(); //endElement moved into the method
+            AST.endElement(currentToken.getLine(), currentToken.getColumn());
+            advance();
+        }
+        else if(currentToken.getLexemType() == INTERFACE)
+        {
+            AST.startElement(InterfaceDefinition, currentToken);
+            parseInterfaceDefinition(); //endElement moved into the method
             AST.endElement(currentToken.getLine(), currentToken.getColumn());
             advance();
         }
