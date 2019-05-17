@@ -8,7 +8,7 @@
 			<Statement>
 				<ClassDefinition>
 					<ClassHeader>
-						<Identifier name="PRIVATE">
+						<Identifier name="private">
 						<Identifier/>
 						<Identifier name="B">
 						<Identifier/>
@@ -17,7 +17,7 @@
 						<Statement>
 							<ClassDefinition>
 								<ClassHeader>
-									<Identifier name="PRIVATE">
+									<Identifier name="private">
 									<Identifier/>
 									<Identifier name="C">
 									<Identifier/>
@@ -25,7 +25,7 @@
 								<ClassBody>
 									<Statement>
 										<AbstractClassDefinition>
-											<Identifier name="PUBLIC">
+											<Identifier name="public">
 											<Identifier/>
 											<ClassHeader>
 												<Identifier name="F">
@@ -51,7 +51,7 @@
 						<Statement>
 							<ClassDefinition>
 								<ClassHeader>
-									<Identifier name="PROTECTED">
+									<Identifier name="protected">
 									<Identifier/>
 									<Identifier name="H">
 									<Identifier/>

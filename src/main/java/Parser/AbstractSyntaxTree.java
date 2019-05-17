@@ -15,7 +15,7 @@ public class AbstractSyntaxTree {
 
 
     public enum ElementType{
-        PublicClassOrInterfaceDefinition, PackageDeclaration, ImportDeclaration, AbstractClassDefinition, ClassDefinition, InterfaceDefinition,
+        PackageDeclaration, ImportDeclaration, AbstractClassDefinition, ClassDefinition, InterfaceDefinition,
         ClassBody, InterfaceBody, ClassHeader, InterfaceHeader, ExtendList, ImplementsList, Statement, AbstractMethodDeclaration,
         MainMethod, MethodDefinition, PrimitiveFieldDeclaration, ConstructorDefinition, PrimitiveFieldInitialization,
         MethodBody, MethodParameterList, MethodCall, Assignment, NewCall, MethodDeclaration, ReturnStatement, MethodStatement,
@@ -29,11 +29,6 @@ public class AbstractSyntaxTree {
     private ASTNode currentlyAnalyzed;
     AbstractSyntaxTree() {
         this.lexemBuffer = new ArrayList<>();
-    }
-
-    void clear() {
-        ASTRoot = null;
-        currentOpenedElement = null;
     }
 
     void startFile(Lexem currentToken) {
@@ -63,8 +58,11 @@ public class AbstractSyntaxTree {
     }
 
     void addIdentifierToList(Lexem currentToken) {
-        if(currentToken.getValue() == null)
-            currentOpenedElement.putAsChild(new ASTNode(Identifier, currentToken.getLine(), currentToken.getColumn(), currentToken.getLexemType().toString()));
+        if(currentToken.getValue() == null) {
+            String keyword = currentToken.getLexemType().toString().toLowerCase();
+            currentOpenedElement.putAsChild(new ASTNode(Identifier, currentToken.getLine(), currentToken.getColumn(), keyword));
+
+        }
         else
             currentOpenedElement.putAsChild(new ASTNode(Identifier, currentToken.getLine(), currentToken.getColumn(), currentToken.getValue()));
     }
@@ -184,14 +182,14 @@ public class AbstractSyntaxTree {
     }
 
     public class ASTNode{
-        ASTNode parent;
-        ArrayList<ASTNode> children;
-        final ElementType nodeType;
-        int startsAtLine;
-        int startsAtColumn;
-        int endsAtLine;
-        int endsAtColumn;
-        String identifier;
+        public ASTNode parent;
+        public ArrayList<ASTNode> children;
+        public final ElementType nodeType;
+        public int startsAtLine;
+        public int startsAtColumn;
+        public int endsAtLine;
+        public int endsAtColumn;
+        public String identifier;
         int level;
 
         ASTNode(ElementType nodeType, int startLine, int startColumn) {

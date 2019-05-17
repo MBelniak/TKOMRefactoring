@@ -7,9 +7,9 @@
 		<ClassBody>
 			<Statement>
 				<PrimitiveFieldDeclaration>
-					<Identifier name="PRIVATE">
+					<Identifier name="private">
 					<Identifier/>
-					<Identifier name="INT">
+					<Identifier name="int">
 					<Identifier/>
 					<Identifier name="a">
 					<Identifier/>
@@ -28,7 +28,7 @@
 						<SuperCall/>
 						<MethodStatement>
 							<FetchedObject>
-								<Identifier name="THIS">
+								<Identifier name="this">
 								<Identifier/>
 								<Identifier name="a">
 								<Identifier/>

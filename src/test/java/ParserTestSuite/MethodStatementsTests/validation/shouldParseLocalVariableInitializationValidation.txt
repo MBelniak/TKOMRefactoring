@@ -7,9 +7,9 @@
 		<ClassBody>
 			<Statement>
 				<MethodDefinition>
-					<Identifier name="PRIVATE">
+					<Identifier name="private">
 					<Identifier/>
-					<Identifier name="INT">
+					<Identifier name="int">
 					<Identifier/>
 					<Identifier name="a">
 					<Identifier/>

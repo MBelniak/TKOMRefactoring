@@ -7,9 +7,9 @@
 		<ClassBody>
 			<Statement>
 				<MethodDefinition>
-					<Identifier name="PRIVATE">
+					<Identifier name="private">
 					<Identifier/>
-					<Identifier name="INT">
+					<Identifier name="int">
 					<Identifier/>
 					<Identifier name="b">
 					<Identifier/>
@@ -35,9 +35,9 @@
 			<Statement/>
 			<Statement>
 				<MethodDefinition>
-					<Identifier name="PUBLIC">
+					<Identifier name="public">
 					<Identifier/>
-					<Identifier name="VOID">
+					<Identifier name="void">
 					<Identifier/>
 					<Identifier name="c">
 					<Identifier/>

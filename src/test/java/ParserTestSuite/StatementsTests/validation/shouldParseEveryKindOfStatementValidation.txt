@@ -15,7 +15,7 @@
 			<Statement/>
 			<Statement>
 				<PrimitiveFieldDeclaration>
-					<Identifier name="INT">
+					<Identifier name="int">
 					<Identifier/>
 					<Identifier name="b">
 					<Identifier/>
@@ -44,7 +44,7 @@
 			<Statement>
 				<ClassDefinition>
 					<ClassHeader>
-						<Identifier name="PRIVATE">
+						<Identifier name="private">
 						<Identifier/>
 						<Identifier name="D">
 						<Identifier/>
@@ -55,7 +55,7 @@
 			<Statement/>
 			<Statement>
 				<AbstractClassDefinition>
-					<Identifier name="PROTECTED">
+					<Identifier name="protected">
 					<Identifier/>
 					<ClassHeader>
 						<Identifier name="C">

@@ -1,113 +1,89 @@
 <Code>
 	<ClassDefinition>
 		<ClassHeader>
-			<Identifier name="PUBLIC">
-			<Identifier/>
-			<Identifier name="Class3">
+			<Identifier name="A">
 			<Identifier/>
 		<ClassHeader/>
 		<ClassBody>
 			<Statement>
-				<PrimitiveFieldDeclaration>
-					<Identifier name="PRIVATE">
+				<MethodDefinition>
+					<Identifier name="private">
 					<Identifier/>
-					<Identifier name="INT">
-					<Identifier/>
-					<Identifier name="a">
-					<Identifier/>
-				<PrimitiveFieldDeclaration/>
-			<Statement/>
-			<Statement>
-				<PrimitiveFieldDeclaration>
-					<Identifier name="PRIVATE">
-					<Identifier/>
-					<Identifier name="INT">
+					<Identifier name="int">
 					<Identifier/>
 					<Identifier name="b">
 					<Identifier/>
-				<PrimitiveFieldDeclaration/>
-			<Statement/>
-			<Statement>
-				<MethodDefinition>
-					<Identifier name="PUBLIC">
-					<Identifier/>
-					<Identifier name="INT">
-					<Identifier/>
-					<Identifier name="add">
-					<Identifier/>
 					<MethodParameterList>
-					<MethodParameterList/>
-					<MethodBody>
-						<ReturnStatement>
-							<Number name="3">
-							<Number/>
-						<ReturnStatement/>
-					<MethodBody/>
-				<MethodDefinition/>
-			<Statement/>
-			<Statement>
-				<MethodDefinition>
-					<Identifier name="PUBLIC">
-					<Identifier/>
-					<Identifier name="VOID">
-					<Identifier/>
-					<Identifier name="setA">
-					<Identifier/>
-					<MethodParameterList>
-						<Identifier name="INT">
-						<Identifier/>
-						<Identifier name="a">
-						<Identifier/>
 					<MethodParameterList/>
 					<MethodBody>
 						<MethodStatement>
-							<FetchedObject>
-								<Identifier name="THIS">
+							<LocalVariableDeclaration>
+								<Identifier name="OtherClass">
 								<Identifier/>
+								<Identifier name="b">
+								<Identifier/>
+							<LocalVariableDeclaration/>
+						<MethodStatement/>
+						<MethodStatement>
+							<PrimitiveFieldDeclaration>
 								<Identifier name="a">
 								<Identifier/>
-							<FetchedObject/>
-							<Assignment>
-							<Assignment/>
-							<FetchedObject>
-								<Identifier name="a">
-								<Identifier/>
-							<FetchedObject/>
+							<PrimitiveFieldDeclaration/>
 						<MethodStatement/>
 					<MethodBody/>
 				<MethodDefinition/>
 			<Statement/>
 			<Statement>
 				<MethodDefinition>
-					<Identifier name="PUBLIC">
+					<Identifier name="public">
 					<Identifier/>
-					<Identifier name="VOID">
+					<Identifier name="void">
 					<Identifier/>
-					<Identifier name="setB">
+					<Identifier name="c">
 					<Identifier/>
 					<MethodParameterList>
-						<Identifier name="INT">
-						<Identifier/>
-						<Identifier name="b">
-						<Identifier/>
 					<MethodParameterList/>
 					<MethodBody>
 						<MethodStatement>
-							<FetchedObject>
-								<Identifier name="THIS">
+							<LocalVariableDeclaration>
+								<Identifier name="Other">
 								<Identifier/>
-								<Identifier name="b">
+								<Identifier name="c">
 								<Identifier/>
-							<FetchedObject/>
-							<Assignment>
-							<Assignment/>
-							<FetchedObject>
-								<Identifier name="b">
+							<LocalVariableDeclaration/>
+						<MethodStatement/>
+						<MethodStatement>
+							<PrimitiveFieldDeclaration>
+								<Identifier name="g">
 								<Identifier/>
-							<FetchedObject/>
+							<PrimitiveFieldDeclaration/>
 						<MethodStatement/>
 					<MethodBody/>
 				<MethodDefinition/>
+			<Statement/>
+			<Statement>
+				<ConstructorDefinition>
+					<Identifier name="A">
+					<Identifier/>
+					<MethodParameterList>
+					<MethodParameterList/>
+					<MethodBody>
+						<MethodStatement>
+							<PrimitiveFieldDeclaration>
+								<Identifier name="f">
+								<Identifier/>
+							<PrimitiveFieldDeclaration/>
+						<MethodStatement/>
+						<MethodStatement>
+							<LocalVariableDeclaration>
+								<Identifier name="OtherClass">
+								<Identifier/>
+								<Identifier name="g">
+								<Identifier/>
+							<LocalVariableDeclaration/>
+						<MethodStatement/>
+					<MethodBody/>
+				<ConstructorDefinition/>
 			<Statement/>
 		<ClassBody/>
 	<ClassDefinition/>

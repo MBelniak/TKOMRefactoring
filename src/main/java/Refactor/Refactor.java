@@ -1,7 +1,6 @@
 package Refactor;
 
 import Exceptions.ParsingException;
-import Lexems.Lexem;
 import Parser.AbstractSyntaxTree;
 import Parser.Parser;
 import Scanner.Scanner;
@@ -16,10 +15,15 @@ public class Refactor {
     private final Scanner scanner;
     private final Parser parser;
     private Map<String, AbstractSyntaxTree> ASTs;
-    private Map<String, List<Lexem>> lexemsInFiles;
-    private Map<String, Map<String,AbstractSyntaxTree.ASTNode>> members;
+    private Map<String, Map<ClassInheritanceRepresentation, List<Statement>>> statementsInClasses;
+    private Map<String, Map<InterfaceInheritanceRepresentation, List<Statement>>> statementsInInterfaces;
     private Map<String, List<ClassInheritanceRepresentation>> classesInFiles;
     private Map<String, List<InterfaceInheritanceRepresentation>> interfacesInFiles;
+
+    public void analyze() {
+        analyzeClassesAndInterfaces();
+        analyzeStatements();
+    }
 
     public enum Refactorings {
         RENAME, PULL_UP, PUSH_DOWN, DELEGATE
@@ -29,8 +33,8 @@ public class Refactor {
         this.scanner = scanner;
         this.parser = parser;
         this.ASTs = new HashMap<>();
-        this.lexemsInFiles = new HashMap<>();
-        this.members = new HashMap<>();
+        this.statementsInClasses = new HashMap<>();
+        this.statementsInInterfaces = new HashMap<>();
         this.classesInFiles = new HashMap<>();
         this.interfacesInFiles = new HashMap<>();
     }
@@ -49,7 +53,7 @@ public class Refactor {
         }
     }
 
-    public void analyzeClassesAndInterfaces()
+    private void analyzeClassesAndInterfaces()
     {
         ASTs.forEach((filePath, AST)  ->{
                 classesInFiles.put(filePath, AST.findClassesAndPutInContext(filePath));
@@ -60,6 +64,27 @@ public class Refactor {
                 System.out.println(filePath + ": " + classInFile.toString()));
         interfacesInFiles.forEach((filePath, interfaceInFiles) ->
                 System.out.println(filePath + ": " + interfaceInFiles.toString()));
+    }
+
+    private void analyzeStatements()
+    {
+        classesInFiles.forEach((filePath, classReps) ->
+        {
+            Map<ClassInheritanceRepresentation, List<Statement>> newMap = new HashMap<>();
+            classReps.forEach(classRep ->
+                    newMap.put(classRep, classRep.listAllMoveableStatements()));
+
+            statementsInClasses.put(filePath, newMap);
+        });
+
+        interfacesInFiles.forEach((filePath, interfaceReps) ->
+        {
+            Map<InterfaceInheritanceRepresentation, List<Statement>> newMap = new HashMap<>();
+            interfaceReps.forEach(interfaceRep ->
+                    newMap.put(interfaceRep, interfaceRep.listAllMoveableStatements()));
+
+            statementsInInterfaces.put(filePath, newMap);
+        });
     }
     //        return possibleRefactorings;
     //

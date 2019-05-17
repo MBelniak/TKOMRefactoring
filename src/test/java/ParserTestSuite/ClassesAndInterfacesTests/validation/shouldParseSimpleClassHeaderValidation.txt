@@ -9,7 +9,7 @@
 	<ClassDefinition/>
 	<ClassDefinition>
 		<ClassHeader>
-			<Identifier name="PUBLIC">
+			<Identifier name="public">
 			<Identifier/>
 			<Identifier name="ClassName">
 			<Identifier/>

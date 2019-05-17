@@ -26,6 +26,14 @@ public class ClassInheritanceRepresentation {
         this.interfacesImplemented.add(interfaceName);
     }
 
+    List<Statement> listAllMoveableStatements()
+    {
+        List<Statement> statements = new ArrayList<>();
+        nodeRepresentation.children.forEach(child ->
+                statements.add(StatementFactory.getStatement(child.children.get(0))));
+
+        return statements;
+    }
     @Override
     public String toString() {
         return "ClassInheritanceRepresentation{" +

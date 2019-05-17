@@ -7,13 +7,13 @@ import java.util.List;
 
 public class InterfaceInheritanceRepresentation {
     private List<String> filePath;
-    private String className;
+    private String interfaceName;
     private List<String> baseInterfaces;
     private AbstractSyntaxTree.ASTNode nodeRepresentation;
 
     public InterfaceInheritanceRepresentation(List<String> filePath, String className, AbstractSyntaxTree.ASTNode node) {
         this.filePath = filePath;
-        this.className = className;
+        this.interfaceName = className;
         this.baseInterfaces = new ArrayList<>();
         this.nodeRepresentation = node;
     }
@@ -22,12 +22,23 @@ public class InterfaceInheritanceRepresentation {
         baseInterfaces.add(baseInterface);
     }
 
+    List<Statement> listAllMoveableStatements()
+    {
+        List<Statement> statements = new ArrayList<>();
+        nodeRepresentation.children.forEach(child ->
+                statements.add(StatementFactory.getStatement(child)));
+
+        return statements;
+    }
+
     @Override
     public String toString() {
         return "InterfaceInheritanceRepresentation{" +
                 "filePath=" + filePath +
-                ", className='" + className + '\'' +
+                ", interfaceName='" + interfaceName + '\'' +
                 ", baseInterfaces=" + baseInterfaces +
                 '}';
     }
 }
+
+

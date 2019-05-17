@@ -7,9 +7,9 @@
 		<ClassBody>
 			<Statement>
 				<PrimitiveFieldDeclaration>
-					<Identifier name="PRIVATE">
+					<Identifier name="private">
 					<Identifier/>
-					<Identifier name="INT">
+					<Identifier name="int">
 					<Identifier/>
 					<Identifier name="a">
 					<Identifier/>
@@ -17,7 +17,7 @@
 			<Statement/>
 			<Statement>
 				<ObjectFieldDeclaration>
-					<Identifier name="PRIVATE">
+					<Identifier name="private">
 					<Identifier/>
 					<Identifier name="B">
 					<Identifier/>
@@ -27,7 +27,7 @@
 			<Statement/>
 			<Statement>
 				<ObjectFieldDeclaration>
-					<Identifier name="PUBLIC">
+					<Identifier name="public">
 					<Identifier/>
 					<Identifier name="C">
 					<Identifier/>
@@ -37,9 +37,9 @@
 			<Statement/>
 			<Statement>
 				<PrimitiveFieldDeclaration>
-					<Identifier name="PROTECTED">
+					<Identifier name="protected">
 					<Identifier/>
-					<Identifier name="INT">
+					<Identifier name="int">
 					<Identifier/>
 					<Identifier name="number">
 					<Identifier/>
@@ -55,7 +55,7 @@
 			<Statement/>
 			<Statement>
 				<MethodDefinition>
-					<Identifier name="PUBLIC">
+					<Identifier name="public">
 					<Identifier/>
 					<Identifier name="Class">
 					<Identifier/>
@@ -69,9 +69,9 @@
 			<Statement/>
 			<Statement>
 				<MethodDefinition>
-					<Identifier name="PRIVATE">
+					<Identifier name="private">
 					<Identifier/>
-					<Identifier name="VOID">
+					<Identifier name="void">
 					<Identifier/>
 					<Identifier name="doSth">
 					<Identifier/>
@@ -83,7 +83,7 @@
 			<Statement/>
 			<Statement>
 				<MethodDefinition>
-					<Identifier name="INT">
+					<Identifier name="int">
 					<Identifier/>
 					<Identifier name="a">
 					<Identifier/>

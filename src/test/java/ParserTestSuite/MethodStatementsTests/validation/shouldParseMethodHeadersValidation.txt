@@ -1,7 +1,7 @@
 <Code>
 	<ClassDefinition>
 		<ClassHeader>
-			<Identifier name="PUBLIC">
+			<Identifier name="public">
 			<Identifier/>
 			<Identifier name="A">
 			<Identifier/>
@@ -9,9 +9,9 @@
 		<ClassBody>
 			<Statement>
 				<MethodDefinition>
-					<Identifier name="PRIVATE">
+					<Identifier name="private">
 					<Identifier/>
-					<Identifier name="VOID">
+					<Identifier name="void">
 					<Identifier/>
 					<Identifier name="a">
 					<Identifier/>
@@ -23,9 +23,9 @@
 			<Statement/>
 			<Statement>
 				<MethodDefinition>
-					<Identifier name="PROTECTED">
+					<Identifier name="protected">
 					<Identifier/>
-					<Identifier name="VOID">
+					<Identifier name="void">
 					<Identifier/>
 					<Identifier name="b">
 					<Identifier/>
@@ -37,7 +37,7 @@
 			<Statement/>
 			<Statement>
 				<MethodDefinition>
-					<Identifier name="VOID">
+					<Identifier name="void">
 					<Identifier/>
 					<Identifier name="b">
 					<Identifier/>
@@ -49,23 +49,9 @@
 			<Statement/>
 			<Statement>
 				<MethodDefinition>
-					<Identifier name="PUBLIC">
+					<Identifier name="public">
 					<Identifier/>
-					<Identifier name="VOID">
-					<Identifier/>
-					<Identifier name="b">
-					<Identifier/>
-					<MethodParameterList>
-					<MethodParameterList/>
-					<MethodBody>
-					<MethodBody/>
-				<MethodDefinition/>
-			<Statement/>
-			<Statement>
-				<MethodDefinition>
-					<Identifier name="PRIVATE">
-					<Identifier/>
-					<Identifier name="INT">
+					<Identifier name="void">
 					<Identifier/>
 					<Identifier name="b">
 					<Identifier/>
@@ -77,21 +63,9 @@
 			<Statement/>
 			<Statement>
 				<MethodDefinition>
-					<Identifier name="PROTECTED">
+					<Identifier name="private">
 					<Identifier/>
-					<Identifier name="INT">
-					<Identifier/>
-					<Identifier name="b">
-					<Identifier/>
-					<MethodParameterList>
-					<MethodParameterList/>
-					<MethodBody>
-					<MethodBody/>
-				<MethodDefinition/>
-			<Statement/>
-			<Statement>
-				<MethodDefinition>
-					<Identifier name="INT">
+					<Identifier name="int">
 					<Identifier/>
 					<Identifier name="b">
 					<Identifier/>
@@ -103,9 +77,9 @@
 			<Statement/>
 			<Statement>
 				<MethodDefinition>
-					<Identifier name="PUBLIC">
+					<Identifier name="protected">
 					<Identifier/>
-					<Identifier name="INT">
+					<Identifier name="int">
 					<Identifier/>
 					<Identifier name="b">
 					<Identifier/>
@@ -117,7 +91,33 @@
 			<Statement/>
 			<Statement>
 				<MethodDefinition>
-					<Identifier name="PRIVATE">
+					<Identifier name="int">
+					<Identifier/>
+					<Identifier name="b">
+					<Identifier/>
+					<MethodParameterList>
+					<MethodParameterList/>
+					<MethodBody>
+					<MethodBody/>
+				<MethodDefinition/>
+			<Statement/>
+			<Statement>
+				<MethodDefinition>
+					<Identifier name="public">
+					<Identifier/>
+					<Identifier name="int">
+					<Identifier/>
+					<Identifier name="b">
+					<Identifier/>
+					<MethodParameterList>
+					<MethodParameterList/>
+					<MethodBody>
+					<MethodBody/>
+				<MethodDefinition/>
+			<Statement/>
+			<Statement>
+				<MethodDefinition>
+					<Identifier name="private">
 					<Identifier/>
 					<Identifier name="A">
 					<Identifier/>
@@ -131,7 +131,7 @@
 			<Statement/>
 			<Statement>
 				<MethodDefinition>
-					<Identifier name="PROTECTED">
+					<Identifier name="protected">
 					<Identifier/>
 					<Identifier name="A">
 					<Identifier/>
@@ -157,7 +157,7 @@
 			<Statement/>
 			<Statement>
 				<MethodDefinition>
-					<Identifier name="PUBLIC">
+					<Identifier name="public">
 					<Identifier/>
 					<Identifier name="A">
 					<Identifier/>
@@ -171,7 +171,7 @@
 			<Statement/>
 			<Statement>
 				<AbstractMethodDeclaration>
-					<Identifier name="VOID">
+					<Identifier name="void">
 					<Identifier/>
 					<Identifier name="a">
 					<Identifier/>
@@ -181,19 +181,9 @@
 			<Statement/>
 			<Statement>
 				<AbstractMethodDeclaration>
-					<Identifier name="PROTECTED">
+					<Identifier name="protected">
 					<Identifier/>
-					<Identifier name="VOID">
-					<Identifier/>
-					<Identifier name="a">
-					<Identifier/>
-					<MethodParameterList>
-					<MethodParameterList/>
-				<AbstractMethodDeclaration/>
-			<Statement/>
-			<Statement>
-				<AbstractMethodDeclaration>
-					<Identifier name="VOID">
+					<Identifier name="void">
 					<Identifier/>
 					<Identifier name="a">
 					<Identifier/>
@@ -203,9 +193,7 @@
 			<Statement/>
 			<Statement>
 				<AbstractMethodDeclaration>
-					<Identifier name="PUBLIC">
-					<Identifier/>
-					<Identifier name="VOID">
+					<Identifier name="void">
 					<Identifier/>
 					<Identifier name="a">
 					<Identifier/>
@@ -215,7 +203,9 @@
 			<Statement/>
 			<Statement>
 				<AbstractMethodDeclaration>
-					<Identifier name="INT">
+					<Identifier name="public">
+					<Identifier/>
+					<Identifier name="void">
 					<Identifier/>
 					<Identifier name="a">
 					<Identifier/>
@@ -225,9 +215,7 @@
 			<Statement/>
 			<Statement>
 				<AbstractMethodDeclaration>
-					<Identifier name="PROTECTED">
-					<Identifier/>
-					<Identifier name="INT">
+					<Identifier name="int">
 					<Identifier/>
 					<Identifier name="a">
 					<Identifier/>
@@ -237,7 +225,9 @@
 			<Statement/>
 			<Statement>
 				<AbstractMethodDeclaration>
-					<Identifier name="INT">
+					<Identifier name="protected">
+					<Identifier/>
+					<Identifier name="int">
 					<Identifier/>
 					<Identifier name="a">
 					<Identifier/>
@@ -247,9 +237,7 @@
 			<Statement/>
 			<Statement>
 				<AbstractMethodDeclaration>
-					<Identifier name="PUBLIC">
-					<Identifier/>
-					<Identifier name="INT">
+					<Identifier name="int">
 					<Identifier/>
 					<Identifier name="a">
 					<Identifier/>
@@ -259,19 +247,9 @@
 			<Statement/>
 			<Statement>
 				<AbstractMethodDeclaration>
-					<Identifier name="A">
+					<Identifier name="public">
 					<Identifier/>
-					<Identifier name="a">
-					<Identifier/>
-					<MethodParameterList>
-					<MethodParameterList/>
-				<AbstractMethodDeclaration/>
-			<Statement/>
-			<Statement>
-				<AbstractMethodDeclaration>
-					<Identifier name="PROTECTED">
-					<Identifier/>
-					<Identifier name="A">
+					<Identifier name="int">
 					<Identifier/>
 					<Identifier name="a">
 					<Identifier/>
@@ -291,7 +269,7 @@
 			<Statement/>
 			<Statement>
 				<AbstractMethodDeclaration>
-					<Identifier name="PUBLIC">
+					<Identifier name="protected">
 					<Identifier/>
 					<Identifier name="A">
 					<Identifier/>
@@ -303,14 +281,36 @@
 			<Statement/>
 			<Statement>
 				<AbstractMethodDeclaration>
-					<Identifier name="PUBLIC">
+					<Identifier name="A">
+					<Identifier/>
+					<Identifier name="a">
+					<Identifier/>
+					<MethodParameterList>
+					<MethodParameterList/>
+				<AbstractMethodDeclaration/>
+			<Statement/>
+			<Statement>
+				<AbstractMethodDeclaration>
+					<Identifier name="public">
 					<Identifier/>
 					<Identifier name="A">
 					<Identifier/>
 					<Identifier name="a">
 					<Identifier/>
 					<MethodParameterList>
-						<Identifier name="INT">
+					<MethodParameterList/>
+				<AbstractMethodDeclaration/>
+			<Statement/>
+			<Statement>
+				<AbstractMethodDeclaration>
+					<Identifier name="public">
+					<Identifier/>
+					<Identifier name="A">
+					<Identifier/>
+					<Identifier name="a">
+					<Identifier/>
+					<MethodParameterList>
+						<Identifier name="int">
 						<Identifier/>
 						<Identifier name="a">
 						<Identifier/>
@@ -318,7 +318,7 @@
 						<Identifier/>
 						<Identifier name="b">
 						<Identifier/>
-						<Identifier name="INT">
+						<Identifier name="int">
 						<Identifier/>
 						<Identifier name="c">
 						<Identifier/>
@@ -327,18 +327,18 @@
 			<Statement/>
 			<Statement>
 				<MethodDefinition>
-					<Identifier name="PUBLIC">
+					<Identifier name="public">
 					<Identifier/>
-					<Identifier name="INT">
+					<Identifier name="int">
 					<Identifier/>
 					<Identifier name="a">
 					<Identifier/>
 					<MethodParameterList>
-						<Identifier name="INT">
+						<Identifier name="int">
 						<Identifier/>
 						<Identifier name="a">
 						<Identifier/>
-						<Identifier name="INT">
+						<Identifier name="int">
 						<Identifier/>
 						<Identifier name="b">
 						<Identifier/>

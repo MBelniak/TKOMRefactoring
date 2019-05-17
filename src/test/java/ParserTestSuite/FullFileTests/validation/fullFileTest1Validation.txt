@@ -37,9 +37,9 @@
 		<ClassBody>
 			<Statement>
 				<PrimitiveFieldDeclaration>
-					<Identifier name="PRIVATE">
+					<Identifier name="private">
 					<Identifier/>
-					<Identifier name="INT">
+					<Identifier name="int">
 					<Identifier/>
 					<Identifier name="a">
 					<Identifier/>
@@ -47,9 +47,9 @@
 			<Statement/>
 			<Statement>
 				<PrimitiveFieldDeclaration>
-					<Identifier name="PRIVATE">
+					<Identifier name="private">
 					<Identifier/>
-					<Identifier name="INT">
+					<Identifier name="int">
 					<Identifier/>
 					<Identifier name="b">
 					<Identifier/>
@@ -57,7 +57,7 @@
 			<Statement/>
 			<Statement>
 				<ObjectFieldDeclaration>
-					<Identifier name="PRIVATE">
+					<Identifier name="private">
 					<Identifier/>
 					<Identifier name="Class2">
 					<Identifier/>
@@ -67,7 +67,7 @@
 			<Statement/>
 			<Statement>
 				<AbstractMethodDeclaration>
-					<Identifier name="VOID">
+					<Identifier name="void">
 					<Identifier/>
 					<Identifier name="method1">
 					<Identifier/>
@@ -77,9 +77,9 @@
 			<Statement/>
 			<Statement>
 				<AbstractMethodDeclaration>
-					<Identifier name="PROTECTED">
+					<Identifier name="protected">
 					<Identifier/>
-					<Identifier name="VOID">
+					<Identifier name="void">
 					<Identifier/>
 					<Identifier name="method2">
 					<Identifier/>
@@ -89,18 +89,18 @@
 			<Statement/>
 			<Statement>
 				<AbstractMethodDeclaration>
-					<Identifier name="PUBLIC">
+					<Identifier name="public">
 					<Identifier/>
-					<Identifier name="VOID">
+					<Identifier name="void">
 					<Identifier/>
 					<Identifier name="method3">
 					<Identifier/>
 					<MethodParameterList>
-						<Identifier name="INT">
+						<Identifier name="int">
 						<Identifier/>
 						<Identifier name="a">
 						<Identifier/>
-						<Identifier name="INT">
+						<Identifier name="int">
 						<Identifier/>
 						<Identifier name="b">
 						<Identifier/>
@@ -109,9 +109,9 @@
 			<Statement/>
 			<Statement>
 				<MethodDefinition>
-					<Identifier name="PUBLIC">
+					<Identifier name="public">
 					<Identifier/>
-					<Identifier name="VOID">
+					<Identifier name="void">
 					<Identifier/>
 					<Identifier name="method4">
 					<Identifier/>
@@ -174,7 +174,7 @@
 						<MethodStatement/>
 						<MethodStatement>
 							<FetchedObject>
-								<Identifier name="THIS">
+								<Identifier name="this">
 								<Identifier/>
 								<Identifier name="b">
 								<Identifier/>
@@ -214,7 +214,7 @@
 			<Statement>
 				<ClassDefinition>
 					<ClassHeader>
-						<Identifier name="PUBLIC">
+						<Identifier name="public">
 						<Identifier/>
 						<Identifier name="Inner">
 						<Identifier/>
@@ -222,9 +222,9 @@
 					<ClassBody>
 						<Statement>
 							<PrimitiveFieldDeclaration>
-								<Identifier name="PRIVATE">
+								<Identifier name="private">
 								<Identifier/>
-								<Identifier name="INT">
+								<Identifier name="int">
 								<Identifier/>
 								<Identifier name="a">
 								<Identifier/>
@@ -232,9 +232,9 @@
 						<Statement/>
 						<Statement>
 							<PrimitiveFieldDeclaration>
-								<Identifier name="PRIVATE">
+								<Identifier name="private">
 								<Identifier/>
-								<Identifier name="INT">
+								<Identifier name="int">
 								<Identifier/>
 								<Identifier name="b">
 								<Identifier/>
@@ -242,7 +242,7 @@
 						<Statement/>
 						<Statement>
 							<ObjectFieldDeclaration>
-								<Identifier name="PRIVATE">
+								<Identifier name="private">
 								<Identifier/>
 								<Identifier name="Class2">
 								<Identifier/>
@@ -252,7 +252,7 @@
 						<Statement/>
 						<Statement>
 							<AbstractMethodDeclaration>
-								<Identifier name="VOID">
+								<Identifier name="void">
 								<Identifier/>
 								<Identifier name="method1">
 								<Identifier/>
@@ -262,9 +262,9 @@
 						<Statement/>
 						<Statement>
 							<AbstractMethodDeclaration>
-								<Identifier name="PROTECTED">
+								<Identifier name="protected">
 								<Identifier/>
-								<Identifier name="VOID">
+								<Identifier name="void">
 								<Identifier/>
 								<Identifier name="method2">
 								<Identifier/>
@@ -274,18 +274,18 @@
 						<Statement/>
 						<Statement>
 							<AbstractMethodDeclaration>
-								<Identifier name="PUBLIC">
+								<Identifier name="public">
 								<Identifier/>
-								<Identifier name="VOID">
+								<Identifier name="void">
 								<Identifier/>
 								<Identifier name="method3">
 								<Identifier/>
 								<MethodParameterList>
-									<Identifier name="INT">
+									<Identifier name="int">
 									<Identifier/>
 									<Identifier name="a">
 									<Identifier/>
-									<Identifier name="INT">
+									<Identifier name="int">
 									<Identifier/>
 									<Identifier name="b">
 									<Identifier/>
@@ -294,9 +294,9 @@
 						<Statement/>
 						<Statement>
 							<MethodDefinition>
-								<Identifier name="PUBLIC">
+								<Identifier name="public">
 								<Identifier/>
-								<Identifier name="VOID">
+								<Identifier name="void">
 								<Identifier/>
 								<Identifier name="method4">
 								<Identifier/>
@@ -359,7 +359,7 @@
 									<MethodStatement/>
 									<MethodStatement>
 										<FetchedObject>
-											<Identifier name="THIS">
+											<Identifier name="this">
 											<Identifier/>
 											<Identifier name="b">
 											<Identifier/>
@@ -415,9 +415,9 @@
 		<InterfaceBody>
 			<Statement>
 				<MethodDefinition>
-					<Identifier name="DEFAULT">
+					<Identifier name="default">
 					<Identifier/>
-					<Identifier name="INT">
+					<Identifier name="int">
 					<Identifier/>
 					<Identifier name="methodI">
 					<Identifier/>
@@ -433,18 +433,18 @@
 			<Statement/>
 			<Statement>
 				<MethodDefinition>
-					<Identifier name="PRIVATE">
+					<Identifier name="private">
 					<Identifier/>
-					<Identifier name="VOID">
+					<Identifier name="void">
 					<Identifier/>
 					<Identifier name="methodP">
 					<Identifier/>
 					<MethodParameterList>
-						<Identifier name="INT">
+						<Identifier name="int">
 						<Identifier/>
 						<Identifier name="a">
 						<Identifier/>
-						<Identifier name="INT">
+						<Identifier name="int">
 						<Identifier/>
 						<Identifier name="b">
 						<Identifier/>
@@ -485,7 +485,7 @@
 			<Statement/>
 			<Statement>
 				<MethodDeclaration>
-					<Identifier name="INT">
+					<Identifier name="int">
 					<Identifier/>
 					<Identifier name="methodII">
 					<Identifier/>
@@ -495,16 +495,16 @@
 			<Statement/>
 			<Statement>
 				<MethodDeclaration>
-					<Identifier name="VOID">
+					<Identifier name="void">
 					<Identifier/>
 					<Identifier name="methodIII">
 					<Identifier/>
 					<MethodParameterList>
-						<Identifier name="INT">
+						<Identifier name="int">
 						<Identifier/>
 						<Identifier name="a">
 						<Identifier/>
-						<Identifier name="INT">
+						<Identifier name="int">
 						<Identifier/>
 						<Identifier name="b">
 						<Identifier/>

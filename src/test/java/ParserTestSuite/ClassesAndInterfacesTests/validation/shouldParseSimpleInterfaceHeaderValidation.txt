@@ -1,7 +1,7 @@
 <Code>
 	<InterfaceDefinition>
 		<InterfaceHeader>
-			<Identifier name="PUBLIC">
+			<Identifier name="public">
 			<Identifier/>
 			<Identifier name="A">
 			<Identifier/>

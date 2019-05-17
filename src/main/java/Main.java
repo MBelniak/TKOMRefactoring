@@ -17,7 +17,7 @@ import java.util.stream.Stream;
 
 public class Main {
 
-    public static void main(String[] args) throws FileNotFoundException {
+    public static void main(String[] args) {
         Scanner scanner = new Scanner();
         Parser parser = new Parser(scanner);
         Refactor refactor = new Refactor(scanner, parser);
@@ -37,7 +37,6 @@ public class Main {
             e.printStackTrace();
             return;
         }
-        refactor.analyzeClassesAndInterfaces();
-
+        //refactor.analyze();
     }
 }
