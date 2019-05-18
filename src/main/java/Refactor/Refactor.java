@@ -170,7 +170,7 @@ public class Refactor {
         sourceStatement.remove(1);
 
         if(startsAtLine == endsAtLine)
-            endsAtColumn -= startsAtColumn - 2;
+            endsAtColumn = endsAtColumn - (startsAtColumn - 2);
 
         sourceStatement.add(sourceStatement.get(sourceStatement.size()-1).substring(0, endsAtColumn) + "\n");
         sourceStatement.remove(sourceStatement.size()-2);
@@ -180,6 +180,9 @@ public class Refactor {
             String lineAtDest = sourceFile.get(destinationLine-1);
             sourceStatement.add(0, lineAtDest.substring(0, destinationColumn-1) + sourceStatement.get(0));
             sourceStatement.remove(1);
+            sourceStatement.add(sourceStatement.get(sourceStatement.size()-1) + lineAtDest.substring(destinationColumn-1, lineAtDest.length()));
+            sourceStatement.remove(sourceStatement.size()-2);
+            sourceFile.remove(destinationLine-1);
             sourceFile.addAll(destinationLine-1, sourceStatement);
             for(int i = startsAtLine; i<=endsAtLine; i++)
                 sourceFile.remove(startsAtLine-1);
@@ -196,7 +199,13 @@ public class Refactor {
             System.out.println("Could not open file: " + dest.getName());
             return;
         }
-        sourceFile.forEach(destWriter::println);
+        for(int i = 0; i<sourceFile.size(); i++)
+        {
+            if(i==sourceFile.size()-1)
+                destWriter.print(sourceFile.get(i));
+            else
+                destWriter.println(sourceFile.get(i));
+        }
         destWriter.close();
     }
 
