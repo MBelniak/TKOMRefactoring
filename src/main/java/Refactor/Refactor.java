@@ -7,8 +7,7 @@ import Parser.Parser;
 import Scanner.Scanner;
 import javafx.util.Pair;
 
-import java.io.File;
-import java.io.FileNotFoundException;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -20,6 +19,7 @@ public class Refactor {
     private final Parser parser;
     private Map<String, AbstractSyntaxTree> ASTs;
     private Map<String, List<Representation>> classesAndInterfacesInFiles;
+    private final static String PROJECT_DIRECTORY = "src\\main\\resources\\projectFiles\\";
 
     public enum Refactorings {
         RENAME, PULL_UP, PUSH_DOWN, DELEGATE;
@@ -106,12 +106,8 @@ public class Refactor {
          Representation destRepresentation = findClassOrInterfaceInFile(destFileName, destClassOrInterName);
          if(sourceRepresentation==null || destRepresentation==null)
              return;
-         File source = new File(sourceFileName);
-         File dest;
-         if(!sourceFileName.equals(destFileName))
-             dest = new File(destFileName);
-         else
-             dest = source;
+         File source = new File(PROJECT_DIRECTORY + sourceFileName);
+         File dest = new File(PROJECT_DIRECTORY + destFileName);
 
          List<Statement> statementsToMove = new ArrayList<>();
          members.forEach(member -> {
@@ -123,8 +119,13 @@ public class Refactor {
          statementsToMove.forEach(statement ->
          {
              Pair<Integer, Integer> destinationLineAndColumn = findSpaceAtDestination(destRepresentation);
-             copyStatement(source, dest, statement.getStartsAtLine(), statement.startsAtColumn,
-                     statement.endsAtLine, statement.endsAtColumn, destinationLineAndColumn.getKey(), destinationLineAndColumn.getValue());
+             try {
+                 copyStatement(source, dest, statement.getStartsAtLine(), statement.startsAtColumn,
+                         statement.endsAtLine, statement.endsAtColumn, destinationLineAndColumn.getKey(), destinationLineAndColumn.getValue());
+             } catch (IOException e) {
+                 e.printStackTrace();
+                 return;
+             }
          });
 
     }
@@ -146,8 +147,57 @@ public class Refactor {
 
 
     private void copyStatement(File source, File dest, int startsAtLine, int startsAtColumn,
-                               int endsAtLine, int endsAtColumn, Integer destinationLine, Integer destinationColumn) {
+                               int endsAtLine, int endsAtColumn, Integer destinationLine, Integer destinationColumn) throws IOException {
 
+        BufferedReader sourceReader;
+        try {
+            sourceReader = new BufferedReader(new FileReader(source));
+        } catch (FileNotFoundException e) {
+            System.out.println("Could not open file: " + source.getName());
+            return;
+        }
+
+
+        List<String> sourceFile = new ArrayList<>();
+        String line;
+        while((line=sourceReader.readLine())!=null)
+            sourceFile.add(line);
+
+        sourceReader.close();
+
+        List<String> sourceStatement = new ArrayList<>(sourceFile.subList(startsAtLine-1, endsAtLine));
+        sourceStatement.add(0, "\n" + sourceStatement.get(0).substring(startsAtColumn-1, sourceStatement.get(0).length()));
+        sourceStatement.remove(1);
+
+        if(startsAtLine == endsAtLine)
+            endsAtColumn -= startsAtColumn - 2;
+
+        sourceStatement.add(sourceStatement.get(sourceStatement.size()-1).substring(0, endsAtColumn) + "\n");
+        sourceStatement.remove(sourceStatement.size()-2);
+
+        if(destinationLine >= startsAtLine)
+        {
+            String lineAtDest = sourceFile.get(destinationLine-1);
+            sourceStatement.add(0, lineAtDest.substring(0, destinationColumn-1) + sourceStatement.get(0));
+            sourceStatement.remove(1);
+            sourceFile.addAll(destinationLine-1, sourceStatement);
+            for(int i = startsAtLine; i<=endsAtLine; i++)
+                sourceFile.remove(startsAtLine-1);
+        }
+        else
+        {
+
+        }
+
+        PrintWriter destWriter;
+        try {
+            destWriter = new PrintWriter(dest);
+        } catch (FileNotFoundException e) {
+            System.out.println("Could not open file: " + dest.getName());
+            return;
+        }
+        sourceFile.forEach(destWriter::println);
+        destWriter.close();
     }
 
     private Representation findClassOrInterfaceInFile(String fileName, List<String> sourceClassOrInterName) {

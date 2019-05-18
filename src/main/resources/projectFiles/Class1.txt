@@ -5,7 +5,6 @@ import org.apache.common.*;
 
 public abstract class Class1 extends Base implements Interface1, Interface2
 {
-    private int a;
     private int b;
     private Class2 field;
 
@@ -57,5 +56,8 @@ public abstract class Class1 extends Base implements Interface1, Interface2
 
 class Base
 {
+    
+private int a;
+
     private Base other;
 }
