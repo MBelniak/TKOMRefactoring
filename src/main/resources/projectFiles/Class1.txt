@@ -54,3 +54,8 @@ public abstract class Class1 extends Base implements Interface1, Interface2
         int a;
     }
 }
+
+class Base
+{
+    private Base other;
+}

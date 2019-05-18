@@ -31,6 +31,21 @@ public abstract class Statement {
 
     protected abstract void prepareStatementInfo();
 
+    public int getStartsAtLine() {
+        return startsAtLine;
+    }
+
+    public int getStartsAtColumn() {
+        return startsAtColumn;
+    }
+
+    public int getEndsAtLine() {
+        return endsAtLine;
+    }
+
+    public int getEndsAtColumn() {
+        return endsAtColumn;
+    }
 }
 
 class StatementFactory

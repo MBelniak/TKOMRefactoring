@@ -8,4 +8,5 @@ public interface Representation {
     List<String> getOuterClassesOrInterfaces();
     String getName();
     List<Statement> getStatements();
+    AbstractSyntaxTree.ASTNode getNodeRep();
 }

@@ -3,6 +3,7 @@ package Parser;
 import Lexems.Lexem;
 import Refactor.ClassRepresentation;
 import Refactor.InterfaceRepresentation;
+import Refactor.Representation;
 import Refactor.Statement;
 import javafx.util.Pair;
 
@@ -95,16 +96,15 @@ public class AbstractSyntaxTree {
 //         return element == Identifier;
 //    }
 
-    public Pair<List<ClassRepresentation>, List<InterfaceRepresentation>> findClassesAndInterfacesAndPutInContext(String filePath) {
+    public List<Representation> findClassesAndInterfacesAndPutInContext(String filePath) {
         if(null != ASTRoot) {
 
-            List<ClassRepresentation> classesFound = new ArrayList<>();
-            List<InterfaceRepresentation> interfacesFound = new ArrayList<>();
+            List<Representation> classesAndInterfacesFound = new ArrayList<>();
             List<String> contextClassesOrIntefraces = new ArrayList<>();
             for (ASTNode node : ASTRoot.children) {
-                node.findClassesOrInterfacesAndPutInContext(filePath, contextClassesOrIntefraces, classesFound, interfacesFound);
+                node.findClassesOrInterfacesAndPutInContext(filePath, contextClassesOrIntefraces, classesAndInterfacesFound);
             }
-            return new Pair<>(classesFound, interfacesFound);
+            return classesAndInterfacesFound;
         }
         return null;
     }
@@ -235,8 +235,7 @@ public class AbstractSyntaxTree {
         }
 
 
-        private void findClassesOrInterfacesAndPutInContext(String filePath, List<String> context,
-                                                            List<ClassRepresentation> classes, List<InterfaceRepresentation> interfaces)
+        private void findClassesOrInterfacesAndPutInContext(String filePath, List<String> context, List<Representation> classesAndInterfaces)
         {
             if (this.nodeType == AbstractClassDefinition
                     || this.nodeType == ClassDefinition) {
@@ -285,10 +284,10 @@ public class AbstractSyntaxTree {
                     }
                 }
 
-                classes.add(classFound);
+                classesAndInterfaces.add(classFound);
                 context.add(className);
                 for (ASTNode node : this.children) {
-                    node.findClassesOrInterfacesAndPutInContext(filePath, context, classes, interfaces);
+                    node.findClassesOrInterfacesAndPutInContext(filePath, context, classesAndInterfaces);
                 }
                 context.remove(className);
             } else if (this.nodeType == InterfaceDefinition) {
@@ -320,15 +319,15 @@ public class AbstractSyntaxTree {
                         interfaceFound.addBaseInterface(interfaceHeader.children.get(1).children.get(i).identifier);
                 }
 
-                interfaces.add(interfaceFound);
+                classesAndInterfaces.add(interfaceFound);
                 context.add(interfaceName);
                 for (ASTNode node : this.children) {
-                    node.findClassesOrInterfacesAndPutInContext(filePath, context, classes, interfaces);
+                    node.findClassesOrInterfacesAndPutInContext(filePath, context, classesAndInterfaces);
                 }
                 context.remove(interfaceName);
             } else
                 for (ASTNode node : this.children) {
-                    node.findClassesOrInterfacesAndPutInContext(filePath, context, classes, interfaces);
+                    node.findClassesOrInterfacesAndPutInContext(filePath, context, classesAndInterfaces);
                 }
         }
     }

@@ -80,4 +80,9 @@ public class InterfaceRepresentation implements Representation{
     public List<Statement> getStatements() {
         return statements;
     }
+
+    @Override
+    public AbstractSyntaxTree.ASTNode getNodeRep() {
+        return nodeRepresentation;
+    }
 }

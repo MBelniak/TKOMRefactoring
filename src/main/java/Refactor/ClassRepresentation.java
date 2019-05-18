@@ -83,4 +83,9 @@ public class ClassRepresentation implements Representation{
     public List<Statement> getStatements() {
         return statements;
     }
+
+    @Override
+    public AbstractSyntaxTree.ASTNode getNodeRep() {
+        return nodeRepresentation;
+    }
 }
