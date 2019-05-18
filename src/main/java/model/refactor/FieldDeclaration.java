@@ -1,6 +1,6 @@
-package Refactor;
+package model.refactor;
 
-import Parser.AbstractSyntaxTree;
+import model.parser.AbstractSyntaxTree;
 
 public class FieldDeclaration extends Statement {
     private String type;

@@ -1,4 +1,4 @@
-package Exceptions;
+package model.exceptions;
 
 public class ParsingException extends Exception {
     private String errorMessage;

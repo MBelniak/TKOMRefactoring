@@ -1,4 +1,4 @@
-package Lexems;
+package model.lexems;
 
 public class Lexem
 {

@@ -1,14 +1,14 @@
 package OneLexem;
 
-import Lexems.Lexem;
-import Scanner.Scanner;
+import model.lexems.Lexem;
+import model.scanner.Scanner;
 import org.junit.Test;
 
 
 import java.io.File;
 import java.io.FileNotFoundException;
 
-import static Lexems.Lexem.LexemType.EOF;
+import static model.lexems.Lexem.LexemType.EOF;
 import static org.junit.Assert.assertEquals;
 
 

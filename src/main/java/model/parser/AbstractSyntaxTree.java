@@ -1,17 +1,16 @@
-package Parser;
+package model.parser;
 
-import Lexems.Lexem;
-import Refactor.ClassRepresentation;
-import Refactor.InterfaceRepresentation;
-import Refactor.Representation;
-import Refactor.Statement;
-import javafx.util.Pair;
+import model.lexems.Lexem;
+import model.refactor.ClassRepresentation;
+import model.refactor.InterfaceRepresentation;
+import model.refactor.Representation;
+import model.refactor.Statement;
 
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
-import static Parser.AbstractSyntaxTree.ElementType.*;
+import static model.parser.AbstractSyntaxTree.ElementType.*;
 public class AbstractSyntaxTree {
 
 
@@ -244,11 +243,11 @@ public class AbstractSyntaxTree {
                 Statement.AccessModifier accessModifier = null;
 
                 if (classHeader.children.get(0).identifier.equals("public"))
-                    accessModifier = Refactor.Statement.AccessModifier.Public;
+                    accessModifier = model.refactor.Statement.AccessModifier.Public;
                 if (classHeader.children.get(0).identifier.equals("protected"))
-                    accessModifier = Refactor.Statement.AccessModifier.Protected;
+                    accessModifier = model.refactor.Statement.AccessModifier.Protected;
                 if (classHeader.children.get(0).identifier.equals("private"))
-                    accessModifier = Refactor.Statement.AccessModifier.Private;
+                    accessModifier = model.refactor.Statement.AccessModifier.Private;
 
                 String className;
 
@@ -295,11 +294,11 @@ public class AbstractSyntaxTree {
                 Statement.AccessModifier accessModifier = null;
 
                 if (interfaceHeader.children.get(0).identifier.equals("public"))
-                    accessModifier = Refactor.Statement.AccessModifier.Public;
+                    accessModifier = model.refactor.Statement.AccessModifier.Public;
                 if (interfaceHeader.children.get(0).identifier.equals("protected"))
-                    accessModifier = Refactor.Statement.AccessModifier.Protected;
+                    accessModifier = model.refactor.Statement.AccessModifier.Protected;
                 if (interfaceHeader.children.get(0).identifier.equals("private"))
-                    accessModifier = Refactor.Statement.AccessModifier.Private;
+                    accessModifier = model.refactor.Statement.AccessModifier.Private;
 
                 String interfaceName;
 

@@ -1,8 +1,8 @@
-package Scanner;
+package model.scanner;
 
-import FilesManagement.FileSource;
-import Lexems.Lexem;
-import Lexems.LexemFactory;
+import model.filesManagement.FileSource;
+import model.lexems.Lexem;
+import model.lexems.LexemFactory;
 
 import java.io.File;
 import java.io.FileNotFoundException;

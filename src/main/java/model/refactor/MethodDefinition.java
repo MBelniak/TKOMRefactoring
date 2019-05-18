@@ -1,17 +1,16 @@
-package Refactor;
+package model.refactor;
 
-import Parser.AbstractSyntaxTree;
+import model.parser.AbstractSyntaxTree;
 import javafx.util.Pair;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class MethodDeclaration extends Statement {
-
+public class MethodDefinition extends Statement{
     private List<Pair<String, String>> methodParameterList;
     private String returnType;
 
-    public MethodDeclaration(AbstractSyntaxTree.ASTNode node) {
+    public MethodDefinition(AbstractSyntaxTree.ASTNode node) {
         this.nodeRep = node;
         prepareStatementInfo();
     }
@@ -19,7 +18,7 @@ public class MethodDeclaration extends Statement {
     @Override
     protected void prepareStatementInfo() {
         this.accessModifier = checkAccessModifier();
-        this.statementType = StatementType.MethodDeclaration;
+        this.statementType = StatementType.MethodDefinition;
         this.name = checkName();
         this.returnType = checkReturnType();
         this.methodParameterList = checkParameterList();
@@ -56,6 +55,8 @@ public class MethodDeclaration extends Statement {
             return AccessModifier.Protected;
         if(nodeRep.children.get(0).identifier.equals("private"))
             return AccessModifier.Private;
+        if(nodeRep.children.get(0).identifier.equals("default"))
+            return AccessModifier.Default;
 
         return AccessModifier.None;
     }
@@ -76,7 +77,7 @@ public class MethodDeclaration extends Statement {
 
     @Override
     public String toString() {
-        return "MethodDeclaration{" +
+        return "MethodDefinition{" +
                 "methodParameterList=" + methodParameterList +
                 ", returnType='" + returnType + '\'' +
                 ", name='" + name + '\'' +

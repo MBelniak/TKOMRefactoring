@@ -1,8 +1,8 @@
 package ParserTestSuite.CommonResources;
 
-import Exceptions.ParsingException;
-import Parser.Parser;
-import Scanner.Scanner;
+import model.exceptions.ParsingException;
+import model.parser.Parser;
+import model.scanner.Scanner;
 
 import java.io.*;
 

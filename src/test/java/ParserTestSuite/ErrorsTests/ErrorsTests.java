@@ -1,10 +1,8 @@
 package ParserTestSuite.ErrorsTests;
 
-import Exceptions.ParsingException;
 import ParserTestSuite.CommonResources.SingleTestConductor;
 import org.junit.Test;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.AbstractMap;
 import java.util.Map;

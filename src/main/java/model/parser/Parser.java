@@ -1,11 +1,11 @@
-package Parser;
+package model.parser;
 
-import Exceptions.ParsingException;
-import Lexems.Lexem;
-import Scanner.Scanner;
+import model.exceptions.ParsingException;
+import model.lexems.Lexem;
+import model.scanner.Scanner;
 
-import static Parser.AbstractSyntaxTree.ElementType.*;
-import static Lexems.Lexem.LexemType.*;
+import static model.parser.AbstractSyntaxTree.ElementType.*;
+import static model.lexems.Lexem.LexemType.*;
 
 public class Parser {
     private Scanner scanner;

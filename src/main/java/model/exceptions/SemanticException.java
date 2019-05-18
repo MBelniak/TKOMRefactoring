@@ -1,4 +1,4 @@
-package Exceptions;
+package model.exceptions;
 
 public class SemanticException extends Exception {
     private String message;

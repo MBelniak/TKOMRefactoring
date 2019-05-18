@@ -1,7 +1,6 @@
-package Lexems;
+package model.lexems;
 
-import FilesManagement.FileSource;
-import Lexems.Lexem;
+import model.filesManagement.FileSource;
 
 
 public class LexemFactory {

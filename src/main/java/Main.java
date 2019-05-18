@@ -1,26 +1,49 @@
-import Exceptions.ParsingException;
-import Parser.Parser;
-import Refactor.Refactor;
-import Scanner.Scanner;
+import gui.ChooseFileController;
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 
-public class Main {
+public class Main extends Application {
 
+    private AnchorPane rootView;
     public static void main(String[] args) {
-        Scanner scanner = new Scanner();
-        Parser parser = new Parser(scanner);
-        Refactor refactor = new Refactor(scanner, parser);
+        launch(args);
+    }
+
+    @Override
+    public void start(Stage primaryStage) {
+        try {
+            primaryStage.setTitle("Refactoring");
+
+            FXMLLoader loader = new FXMLLoader(Main.class.getClassLoader().getResource("fxml/chooseFile.fxml"));
+            rootView = loader.load();
+
+            ChooseFileController controller = loader.getController();
+            controller.setStage(primaryStage);
+
+            primaryStage.setScene(new Scene(rootView));
+            primaryStage.show();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
 
 //        try {
 //            scanner.bindFile(new File("src/test/java/ParserTestSuite/StatementsTests/testFiles/shouldParseInterfaceStatements.txt"));
@@ -32,21 +55,3 @@ public class Main {
 //        } catch (ParsingException e) {
 //            e.printStackTrace();
 //        }
-        List<String> filesInProjectDirectory = new ArrayList<>();
-        try (Stream<Path> walk = Files.walk(Paths.get("src/main/resources/projectFiles"))) {
-
-            filesInProjectDirectory = walk.map(Path::toString)
-                    .filter(f -> f.endsWith(".txt")).collect(Collectors.toList());
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        try {
-            refactor.parseFiles(filesInProjectDirectory);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-            return;
-        }
-        refactor.analyze();
-    }
-}

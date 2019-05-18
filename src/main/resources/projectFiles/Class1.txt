@@ -5,12 +5,20 @@ import org.apache.common.*;
 
 class Base{
 
+
+
+
+
+public abstract void method3(int a, int b);
+protected abstract void method2();
+abstract void method1();
+interface A
+    {
+
+    }
 private int b;
 private Class2 field;
 }
 public abstract class Class1 extends Base implements Interface1, Interface2
 {
-    abstract void method1();
-    protected abstract void method2();
-    public abstract void method3(int a, int b);
 }

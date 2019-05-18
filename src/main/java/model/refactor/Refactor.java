@@ -1,10 +1,10 @@
-package Refactor;
+package model.refactor;
 
-import Exceptions.ParsingException;
-import Exceptions.SemanticException;
-import Parser.AbstractSyntaxTree;
-import Parser.Parser;
-import Scanner.Scanner;
+import model.exceptions.ParsingException;
+import model.exceptions.SemanticException;
+import model.parser.AbstractSyntaxTree;
+import model.parser.Parser;
+import model.scanner.Scanner;
 import javafx.util.Pair;
 
 import java.io.*;
@@ -104,10 +104,15 @@ public class Refactor {
     {
          Representation sourceRepresentation = findClassOrInterfaceInFile(sourceFileName, sourceClassOrInterName);
          Representation destRepresentation = findClassOrInterfaceInFile(destFileName, destClassOrInterName);
+
          if(sourceRepresentation==null || destRepresentation==null)
              return;
+
          File source = new File(PROJECT_DIRECTORY + sourceFileName);
          File dest = new File(PROJECT_DIRECTORY + destFileName);
+
+         if(!source.exists() || !dest.exists())
+             return;
 
          List<Statement> statementsToMove = new ArrayList<>();
          members.forEach(member -> {
@@ -127,7 +132,6 @@ public class Refactor {
                  return;
              }
          });
-
     }
 
     private Pair<Integer, Integer> findSpaceAtDestination(Representation representation)
@@ -157,7 +161,6 @@ public class Refactor {
             return;
         }
 
-
         List<String> sourceFile = new ArrayList<>();
         String line;
         while((line=sourceReader.readLine())!=null)
@@ -175,7 +178,7 @@ public class Refactor {
         sourceStatement.add(sourceStatement.get(sourceStatement.size()-1).substring(0, endsAtColumn) + "\n");
         sourceStatement.remove(sourceStatement.size()-2);
 
-        if(destinationLine >= startsAtLine)
+        if(destinationLine >= startsAtLine) //first copy the statement, then remove it from its original location
         {
             String lineAtDest = sourceFile.get(destinationLine-1);
             sourceStatement.add(0, lineAtDest.substring(0, destinationColumn-1) + sourceStatement.get(0));
@@ -187,7 +190,7 @@ public class Refactor {
             for(int i = startsAtLine; i<=endsAtLine; i++)
                 sourceFile.remove(startsAtLine-1);
         }
-        else
+        else    //first remove the statement, then copy it to the destinated location
         {
             String lineAtDest = sourceFile.get(destinationLine-1);
             sourceStatement.add(0, lineAtDest.substring(0, destinationColumn-1) + sourceStatement.get(0));
@@ -251,6 +254,10 @@ public class Refactor {
             System.out.println(output);
         });
     }
-}
 
+    public List<Representation> getClassesAndInterfacesInFile(String fileName)
+    {
+        return classesAndInterfacesInFiles.get(fileName);
+    }
+}
 

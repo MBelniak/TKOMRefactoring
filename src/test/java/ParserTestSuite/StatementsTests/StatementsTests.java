@@ -1,6 +1,6 @@
 package ParserTestSuite.StatementsTests;
 
-import Exceptions.ParsingException;
+import model.exceptions.ParsingException;
 import ParserTestSuite.CommonResources.SingleTestConductor;
 import org.junit.Test;
 
