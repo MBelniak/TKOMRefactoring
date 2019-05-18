@@ -12,6 +12,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -58,7 +59,18 @@ public class Model {
     }
 
     public List<Statement> getStatementsInFileInClass(String fileName, String className) {
-        //TODO
-        return null;
+        List<String> classPath = new ArrayList<>(Arrays.asList(className.split("\\.")));
+        Representation representation = refactor.findClassOrInterfaceInFile(fileName, classPath);
+        if(representation==null)
+            return null;
+        return representation.getStatements();
     }
+
+    public void doRefactor(String fileName, String className, List<Integer> statements, String destClassName, String destFileName)
+    {
+        List<String> classPath = new ArrayList<>(Arrays.asList(className.split("\\.")));
+       // refactor.pullUpMembers(fileName, classPath, statements, "ds", );
+    }
+
+    public <Representation> getPossible
 }

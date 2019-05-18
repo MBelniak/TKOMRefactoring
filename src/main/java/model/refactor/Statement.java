@@ -46,6 +46,8 @@ public abstract class Statement {
     public int getEndsAtColumn() {
         return endsAtColumn;
     }
+
+    public abstract String getExtraInfo();
 }
 
 class StatementFactory

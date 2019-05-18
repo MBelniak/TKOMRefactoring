@@ -4,7 +4,9 @@ import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.CheckMenuItem;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.MenuButton;
 import javafx.stage.Stage;
 import model.modelClass.Model;
 import model.refactor.Representation;
@@ -23,7 +25,13 @@ public class ChooseFileController {
     @FXML
     public ComboBox classesComboBox;
     @FXML
-    public ComboBox statementsComboBox;
+    public MenuButton statementsMenuButton;
+    @FXML
+    public ComboBox destinationFiles;
+    @FXML
+    public ComboBox destinationClasses;
+
+    private List<CheckMenuItem> statementsItems;
 
     private Stage stage;
 
@@ -33,8 +41,11 @@ public class ChooseFileController {
         this.fileComboBox = new ComboBox();
         this.nextButton = new Button();
         this.classesComboBox = new ComboBox();
-        this.statementsComboBox = new ComboBox();
+        this.statementsMenuButton = new MenuButton();
         this.model = new Model();
+        statementsItems = new ArrayList<>();
+        destinationClasses = new ComboBox();
+        destinationFiles = new ComboBox();
     }
 
     @FXML
@@ -63,15 +74,28 @@ public class ChooseFileController {
             StringBuilder classPath = new StringBuilder();
             rep.getOuterClassesOrInterfaces().forEach(name -> classPath.append(name).append("."));
             classPath.append(rep.getName());
-            return classPath;
+            return classPath.toString();
         }).collect(Collectors.toList())));
     }
 
     public void sourceClassChanged(ActionEvent actionEvent) {
-        String chosenOption = (String)fileComboBox.getValue();
+        //fill in statements in menu button
+        String chosenOption = (String)classesComboBox.getValue();
         List<Statement> statements = model.getStatementsInFileInClass((String)fileComboBox.getValue(), chosenOption);
+        if(statements == null)
+            return;
+        List<String> result = statements.stream()
+                            .map(stmnt -> stmnt.getStatementType() + ": " + stmnt.getName() + stmnt.getExtraInfo())
+                            .collect(Collectors.toList());
+        statementsItems.clear();
+        FXCollections.observableArrayList(result).forEach(e-> statementsItems.add(new CheckMenuItem(e)));
+        statementsMenuButton.getItems().setAll(statementsItems);
+
+        //fill in destination file combo box
+
     }
 
-    public void statementChanged(ActionEvent actionEvent) {
+
+    public void destFileChanged(ActionEvent actionEvent) {
     }
 }

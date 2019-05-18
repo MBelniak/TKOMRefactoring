@@ -100,7 +100,7 @@ public class Refactor {
     }
 
     //List<String>, because I will represent inner classes as list of outer classes name.
-    private void pullUpMembers(String sourceFileName, List<String> sourceClassOrInterName, List<Integer> members, String destFileName, List<String> destClassOrInterName)
+    public void pullUpMembers(String sourceFileName, List<String> sourceClassOrInterName, List<Integer> members, String destFileName, List<String> destClassOrInterName)
     {
          Representation sourceRepresentation = findClassOrInterfaceInFile(sourceFileName, sourceClassOrInterName);
          Representation destRepresentation = findClassOrInterfaceInFile(destFileName, destClassOrInterName);
@@ -220,7 +220,7 @@ public class Refactor {
         destWriter.close();
     }
 
-    private Representation findClassOrInterfaceInFile(String fileName, List<String> sourceClassOrInterName) {
+    public Representation findClassOrInterfaceInFile(String fileName, List<String> sourceClassOrInterName) {
         if(classesAndInterfacesInFiles.get(fileName) == null)
             return null;
         List<Representation> representations = classesAndInterfacesInFiles.get(fileName)

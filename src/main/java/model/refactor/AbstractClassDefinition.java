@@ -20,6 +20,11 @@ public class AbstractClassDefinition extends Statement {
         this.endsAtColumn = nodeRep.parent.endsAtColumn;
     }
 
+    @Override
+    public String getExtraInfo() {
+        return "";
+    }
+
     private AccessModifier checkAccessModifier() {
         if(nodeRep.children.get(0).children.get(0).nodeType==AbstractSyntaxTree.ElementType.Identifier)
         {

@@ -22,6 +22,11 @@ public class FieldDefinition extends Statement { //only in interfaces
         this.endsAtColumn = nodeRep.parent.endsAtColumn;
     }
 
+    @Override
+    public String getExtraInfo() {
+        return " (" + type + ")";
+    }
+
     private AccessModifier checkAccessModifier() {
         if (nodeRep.children.get(0).identifier.equals("public"))
             return AccessModifier.Public;
