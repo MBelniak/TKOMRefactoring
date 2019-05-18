@@ -189,7 +189,15 @@ public class Refactor {
         }
         else
         {
-
+            String lineAtDest = sourceFile.get(destinationLine-1);
+            sourceStatement.add(0, lineAtDest.substring(0, destinationColumn-1) + sourceStatement.get(0));
+            sourceStatement.remove(1);
+            sourceStatement.add(sourceStatement.get(sourceStatement.size()-1) + lineAtDest.substring(destinationColumn-1, lineAtDest.length()));
+            sourceStatement.remove(sourceStatement.size()-2);
+            for(int i = startsAtLine; i<=endsAtLine; i++)
+                sourceFile.remove(startsAtLine-1);
+            sourceFile.remove(destinationLine-1);
+            sourceFile.addAll(destinationLine-1, sourceStatement);
         }
 
         PrintWriter destWriter;

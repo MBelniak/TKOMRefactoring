@@ -38,8 +38,8 @@
       <file leaf-file-name="Refactor.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Refactor/Refactor.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="163">
-              <caret line="172" column="61" selection-start-line="172" selection-start-column="61" selection-end-line="172" selection-end-column="61" />
+            <state relative-caret-position="316">
+              <caret line="196" column="57" selection-start-line="196" selection-start-column="57" selection-end-line="196" selection-end-column="57" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -51,7 +51,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/resources/projectFiles/Class1.txt">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="153">
-              <caret line="9" column="28" lean-forward="true" selection-start-line="9" selection-start-column="28" selection-end-line="9" selection-end-column="28" />
+              <caret line="9" column="1" lean-forward="true" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -242,8 +242,8 @@
         <option value="$PROJECT_DIR$/src/main/java/Refactor/Representation.java" />
         <option value="$PROJECT_DIR$/src/main/java/Refactor/ClassRepresentation.java" />
         <option value="$PROJECT_DIR$/src/main/java/Refactor/InterfaceRepresentation.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Refactor/Refactor.java" />
         <option value="$PROJECT_DIR$/src/main/resources/projectFiles/Class1.txt" />
+        <option value="$PROJECT_DIR$/src/main/java/Refactor/Refactor.java" />
       </list>
     </option>
   </component>
@@ -518,7 +518,7 @@
       <workItem from="1555938544104" duration="82137000" />
       <workItem from="1557127248557" duration="29852000" />
       <workItem from="1557812685197" duration="28094000" />
-      <workItem from="1558025375795" duration="48386000" />
+      <workItem from="1558025375795" duration="49904000" />
     </task>
     <servers />
   </component>
@@ -555,7 +555,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="255590000" />
+    <option name="totallyTimeSpent" value="257108000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="878" extended-state="6" />
@@ -571,12 +571,12 @@
       <window_info anchor="right" id="Maven Projects" order="4" />
       <window_info anchor="bottom" id="Database Changes" order="11" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.35465926" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.12656467" />
       <window_info anchor="right" id="Coverage" order="9" side_tool="true" weight="0.3295302" />
       <window_info anchor="bottom" id="Terminal" order="9" weight="0.28650904" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="3" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26308724" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.26308724" />
       <window_info anchor="right" id="Database" order="5" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32823366" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -645,39 +645,21 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/Refactor/Refactor.java</url>
-          <line>179</line>
-          <properties />
-          <option name="timeStamp" value="97" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Refactor/Refactor.java</url>
-          <line>194</line>
+          <line>202</line>
           <properties />
           <option name="timeStamp" value="98" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/Refactor/Refactor.java</url>
-          <line>196</line>
+          <line>204</line>
           <properties />
           <option name="timeStamp" value="99" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Refactor/Refactor.java</url>
-          <line>187</line>
-          <properties />
-          <option name="timeStamp" value="100" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Refactor/Refactor.java</url>
-          <line>167</line>
-          <properties />
-          <option name="timeStamp" value="101" />
         </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="102" />
+      <option name="time" value="103" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="JUnit">
@@ -1037,8 +1019,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Refactor/Refactor.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="163">
-          <caret line="172" column="61" selection-start-line="172" selection-start-column="61" selection-end-line="172" selection-end-column="61" />
+        <state relative-caret-position="316">
+          <caret line="196" column="57" selection-start-line="196" selection-start-column="57" selection-end-line="196" selection-end-column="57" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1048,7 +1030,7 @@
     <entry file="file://$PROJECT_DIR$/src/main/resources/projectFiles/Class1.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
-          <caret line="9" column="28" lean-forward="true" selection-start-line="9" selection-start-column="28" selection-end-line="9" selection-end-column="28" />
+          <caret line="9" column="1" lean-forward="true" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
         </state>
       </provider>
     </entry>
