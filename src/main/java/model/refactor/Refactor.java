@@ -19,7 +19,7 @@ public class Refactor {
     private Map<String, List<Representation>> classesAndInterfacesInFiles;
     private Map<String, List<String>> visibleFilesAndClasses;
     private final static String PROJECT_DIRECTORY = "src\\main\\resources\\projectFiles\\";
-    private final static String FILE_EXTENSION = "txt";
+    public final static String FILE_EXTENSION = "txt";
     public final List<String> refactorings = new ArrayList<>(Arrays.asList("Pull up", "Push down", "Inheritance to delegation"));
     private List<String> files;
 
@@ -164,39 +164,33 @@ public class Refactor {
     }
 
     //List<String>, because I will represent inner classes as list of outer classes name.
-    public void pullUpMembers(String sourceFileName, List<String> sourceClassOrInterName, List<Integer> members, String destFileName, List<String> destClassOrInterName)
+    public void pullUpMember(String sourceFileName, List<String> sourceClassOrInterName, int member, String destClassOrInterName)
     {
          Representation sourceRepresentation = findClassOrInterfaceInFile(sourceFileName, sourceClassOrInterName);
-         Representation destRepresentation = findClassOrInterfaceInFile(destFileName, destClassOrInterName);
+         Representation destRepresentation = sourceRepresentation.getBaseByName(destClassOrInterName);
 
          if(sourceRepresentation==null || destRepresentation==null)
              return;
 
          File source = new File(PROJECT_DIRECTORY + sourceFileName);
-         File dest = new File(PROJECT_DIRECTORY + destFileName);
+         File dest = new File(PROJECT_DIRECTORY + destRepresentation.getFilePath());
 
          if(!source.exists() || !dest.exists())
              return;
 
-         List<Statement> statementsToMove = new ArrayList<>();
-         members.forEach(member -> {
-             if(member>=sourceRepresentation.getStatements().size())
-                 return;
-             statementsToMove.add(sourceRepresentation.getStatements().get(member));
-         });
+         Statement statementToMove = sourceRepresentation.getStatements().get(member);
 
-         statementsToMove.forEach(statement ->
-         {
-             Pair<Integer, Integer> destinationLineAndColumn = findSpaceAtDestination(destRepresentation);
-             try {
-                 copyStatement(source, dest, statement.getStartsAtLine(), statement.startsAtColumn,
-                         statement.endsAtLine, statement.endsAtColumn, destinationLineAndColumn.getKey(), destinationLineAndColumn.getValue());
-             } catch (IOException e) {
-                 e.printStackTrace();
-                 return;
-             }
-         });
+         Pair<Integer, Integer> destinationLineAndColumn = findSpaceAtDestination(destRepresentation);
+         try {
+             copyStatement(source, dest, statementToMove.getStartsAtLine(), statementToMove.getStartsAtColumn(),
+                     statementToMove.endsAtLine, statementToMove.endsAtColumn, destinationLineAndColumn.getKey(), destinationLineAndColumn.getValue());
+         } catch (IOException e) {
+             e.printStackTrace();
+             return;
+         }
     }
+
+
 
     private Pair<Integer, Integer> findSpaceAtDestination(Representation representation)
     {
@@ -242,46 +236,106 @@ public class Refactor {
         sourceStatement.add(sourceStatement.get(sourceStatement.size()-1).substring(0, endsAtColumn) + "\n");
         sourceStatement.remove(sourceStatement.size()-2);
 
-        if(destinationLine >= startsAtLine) //first copy the statement, then remove it from its original location
-        {
-            String lineAtDest = sourceFile.get(destinationLine-1);
-            sourceStatement.add(0, lineAtDest.substring(0, destinationColumn-1) + sourceStatement.get(0));
-            sourceStatement.remove(1);
-            sourceStatement.add(sourceStatement.get(sourceStatement.size()-1) + lineAtDest.substring(destinationColumn-1, lineAtDest.length()));
-            sourceStatement.remove(sourceStatement.size()-2);
-            sourceFile.remove(destinationLine-1);
-            sourceFile.addAll(destinationLine-1, sourceStatement);
-            for(int i = startsAtLine; i<=endsAtLine; i++)
-                sourceFile.remove(startsAtLine-1);
-        }
-        else    //first remove the statement, then copy it to the destinated location
-        {
-            String lineAtDest = sourceFile.get(destinationLine-1);
-            sourceStatement.add(0, lineAtDest.substring(0, destinationColumn-1) + sourceStatement.get(0));
-            sourceStatement.remove(1);
-            sourceStatement.add(sourceStatement.get(sourceStatement.size()-1) + lineAtDest.substring(destinationColumn-1, lineAtDest.length()));
-            sourceStatement.remove(sourceStatement.size()-2);
-            for(int i = startsAtLine; i<=endsAtLine; i++)
-                sourceFile.remove(startsAtLine-1);
-            sourceFile.remove(destinationLine-1);
-            sourceFile.addAll(destinationLine-1, sourceStatement);
-        }
+        List<String> destFile;
 
-        PrintWriter destWriter;
-        try {
-            destWriter = new PrintWriter(dest);
-        } catch (FileNotFoundException e) {
-            System.out.println("Could not open file: " + dest.getName());
-            return;
+        if(source.getName().equals(dest.getName())) {
+            destFile = new ArrayList<>(sourceFile);
+
+            if (destinationLine >= startsAtLine) //first copy the statement, then remove it from its original location
+            {
+                String lineAtDest = destFile.get(destinationLine - 1);
+                sourceStatement.add(0, lineAtDest.substring(0, destinationColumn - 1) + sourceStatement.get(0));
+                sourceStatement.remove(1);
+                sourceStatement.add(sourceStatement.get(sourceStatement.size() - 1) + lineAtDest.substring(destinationColumn - 1, lineAtDest.length()));
+                sourceStatement.remove(sourceStatement.size() - 2);
+                destFile.remove(destinationLine - 1);
+                destFile.addAll(destinationLine - 1, sourceStatement);
+                for (int i = startsAtLine; i <= endsAtLine; i++)
+                    destFile.remove(startsAtLine - 1);
+            }
+            else    //first remove the statement, then copy it to the destinated location
+            {
+                String lineAtDest = destFile.get(destinationLine - 1);
+                sourceStatement.add(0, lineAtDest.substring(0, destinationColumn - 1) + sourceStatement.get(0));
+                sourceStatement.remove(1);
+                sourceStatement.add(sourceStatement.get(sourceStatement.size() - 1) + lineAtDest.substring(destinationColumn - 1, lineAtDest.length()));
+                sourceStatement.remove(sourceStatement.size() - 2);
+                for (int i = startsAtLine; i <= endsAtLine; i++)
+                    destFile.remove(startsAtLine - 1);
+                destFile.remove(destinationLine - 1);
+                destFile.addAll(destinationLine - 1, sourceStatement);
+            }
+
+            PrintWriter destWriter;
+            try {
+                destWriter = new PrintWriter(dest);
+            } catch (FileNotFoundException e) {
+                System.out.println("Could not open file: " + dest.getName());
+                return;
+            }
+            for (int i = 0; i < destFile.size(); i++) {
+                if (i == destFile.size() - 1)
+                    destWriter.print(destFile.get(i));
+                else
+                    destWriter.println(destFile.get(i));
+            }
+            destWriter.close();
         }
-        for(int i = 0; i<sourceFile.size(); i++)
+        else
         {
-            if(i==sourceFile.size()-1)
-                destWriter.print(sourceFile.get(i));
-            else
-                destWriter.println(sourceFile.get(i));
+            try {
+                sourceReader = new BufferedReader(new FileReader(dest));
+            } catch (FileNotFoundException e) {
+                System.out.println("Could not open file: " + dest.getName());
+                return;
+            }
+
+            destFile = new ArrayList<>();
+            String lineDest;
+            while((lineDest=sourceReader.readLine())!=null)
+                destFile.add(lineDest);
+
+            sourceReader.close();
+
+            String lineAtDest = destFile.get(destinationLine - 1);
+            sourceStatement.add(0, lineAtDest.substring(0, destinationColumn - 1) + sourceStatement.get(0));
+            sourceStatement.remove(1);
+            sourceStatement.add(sourceStatement.get(sourceStatement.size() - 1) + lineAtDest.substring(destinationColumn - 1, lineAtDest.length()));
+            sourceStatement.remove(sourceStatement.size() - 2);
+            for (int i = startsAtLine; i <= endsAtLine; i++)
+                sourceFile.remove(startsAtLine - 1);
+            destFile.remove(destinationLine - 1);
+            destFile.addAll(destinationLine - 1, sourceStatement);
+
+            PrintWriter destWriter;
+            try {
+                destWriter = new PrintWriter(source);
+            } catch (FileNotFoundException e) {
+                System.out.println("Could not open file: " + source.getName());
+                return;
+            }
+            for (int i = 0; i < sourceFile.size(); i++) {
+                if (i == sourceFile.size() - 1)
+                    destWriter.print(sourceFile.get(i));
+                else
+                    destWriter.println(sourceFile.get(i));
+            }
+            destWriter.close();
+
+            try {
+                destWriter = new PrintWriter(dest);
+            } catch (FileNotFoundException e) {
+                System.out.println("Could not open file: " + dest.getName());
+                return;
+            }
+            for (int i = 0; i < destFile.size(); i++) {
+                if (i == destFile.size() - 1)
+                    destWriter.print(destFile.get(i));
+                else
+                    destWriter.println(destFile.get(i));
+            }
+            destWriter.close();
         }
-        destWriter.close();
     }
 
     public Representation findClassOrInterfaceInFile(String fileName, List<String> sourceClassOrInterName) {

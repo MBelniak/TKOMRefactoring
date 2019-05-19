@@ -14,7 +14,7 @@ public class ClassRepresentation implements Representation{
     private List<InterfaceRepresentation> interfacesImplementedRepresentations;
     private AbstractSyntaxTree.ASTNode nodeRepresentation;
     private List<Statement> statements;
-    private String filePath;
+    private String filePath;        //A\B\C\d.txt
     private List<String> outerClassesOrInterfaces;
     String name;
 
@@ -175,6 +175,31 @@ public class ClassRepresentation implements Representation{
         }
 
         return null;
+    }
+
+    @Override
+    public List<String> getBases()
+    {
+        List<String> result = new ArrayList<>(interfacesImplemented);
+        result.add(baseClass);
+        return result;
+    }
+
+    @Override
+    public Representation getBaseByName(String className) {
+        if(baseClassRepresentation.getName().equals(className))
+            return baseClassRepresentation;
+        for(Representation representation : interfacesImplementedRepresentations)
+        {
+            if(representation.getName().equals(className))
+                return representation;
+        }
+        return null;
+    }
+
+    @Override
+    public String getFilePath() {
+        return filePath;
     }
 
 }

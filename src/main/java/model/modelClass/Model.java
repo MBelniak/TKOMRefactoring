@@ -38,7 +38,7 @@ public class Model {
             refactor.parseFiles(filesInProjectDirectory);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
-            return;
+            System.exit(0);
         }
         refactor.analyze();
     }
@@ -59,6 +59,8 @@ public class Model {
     }
 
     public List<Statement> getStatementsInFileInClass(String fileName, String className) {
+        if(className == null || className.length()==0)
+            return null;
         List<String> classPath = new ArrayList<>(Arrays.asList(className.split("\\.")));
         Representation representation = refactor.findClassOrInterfaceInFile(fileName, classPath);
         if(representation==null)
@@ -66,14 +68,34 @@ public class Model {
         return representation.getStatements();
     }
 
-    public void doRefactor(String fileName, String className, List<Integer> statements, String destClassName, String destFileName)
+    public void doPullUp(String fileName, String className, List<Integer> statements, String destClassName)
     {
         List<String> classPath = new ArrayList<>(Arrays.asList(className.split("\\.")));
-       // refactor.pullUpMembers(fileName, classPath, statements, "ds", );
+        for(int i = 0; i<statements.size(); i++) {
+            refactor.pullUpMember(fileName, classPath, statements.get(i), destClassName);
+            statements = statements.stream().map(x-> x - 1).collect(Collectors.toList());
+            try {
+                refactor.parseFiles(filesInProjectDirectory);
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+                System.exit(0);
+            }
+            refactor.analyze();
+        }
     }
 
     public List<String> getRefactors() {
         return refactor.getRefactorings();
     }
 
+
+    public List<String> getBasesFor(String file, String chosenClass) {
+        file = file.replace(".", "\\").substring(0, file.length()-4).concat("." + Refactor.FILE_EXTENSION);
+        List<String> chosenClassPath = new ArrayList<>(Arrays.asList(chosenClass.split("\\.")));
+        Representation representation = refactor.findClassOrInterfaceInFile(file, chosenClassPath);
+        if(representation==null)
+            return new ArrayList<>();
+        List<String> bases = representation.getBases();
+        return bases;
+    }
 }

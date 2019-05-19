@@ -48,6 +48,26 @@ public abstract class Statement {
     }
 
     public abstract String getExtraInfo();
+
+    public void setNodeRep(AbstractSyntaxTree.ASTNode nodeRep) {
+        this.nodeRep = nodeRep;
+    }
+
+    public void setStartsAtLine(int startsAtLine) {
+        this.startsAtLine = startsAtLine;
+    }
+
+    public void setStartsAtColumn(int startsAtColumn) {
+        this.startsAtColumn = startsAtColumn;
+    }
+
+    public void setEndsAtLine(int endsAtLine) {
+        this.endsAtLine = endsAtLine;
+    }
+
+    public void setEndsAtColumn(int endsAtColumn) {
+        this.endsAtColumn = endsAtColumn;
+    }
 }
 
 class StatementFactory

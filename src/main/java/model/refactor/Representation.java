@@ -18,4 +18,10 @@ public interface Representation {
     void checkIfBaseVisible(List<String> visibleClasses, Map<String, List<Representation>> representationsInFiles) throws SemanticException;
 
     void checkIfInterfacesVisible(List<String> strings, Map<String, List<Representation>> classesAndInterfacesInFiles) throws SemanticException;
+
+    List<String> getBases();
+
+    Representation getBaseByName(String destClassOrInterName);
+
+    String getFilePath();
 }

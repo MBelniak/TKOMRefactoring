@@ -29,3 +29,8 @@ class Class2 extends Class1
 
     }
 }
+
+interface OtherInterface
+{
+
+}
