@@ -73,6 +73,8 @@ public class Model {
         List<String> classPath = new ArrayList<>(Arrays.asList(className.split("\\.")));
         for(int i = 0; i<statements.size(); i++) {
             refactor.pullUpMember(fileName, classPath, statements.get(i), destClassName);
+            if(i==statements.size()-1)
+                return;
             statements = statements.stream().map(x-> x - 1).collect(Collectors.toList());
             try {
                 refactor.parseFiles(filesInProjectDirectory);

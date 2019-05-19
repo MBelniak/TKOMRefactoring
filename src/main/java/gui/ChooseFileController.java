@@ -1,14 +1,16 @@
 package gui;
 
 import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
-import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import model.modelClass.Model;
 import model.refactor.Representation;
 import model.refactor.Statement;
+import org.controlsfx.control.CheckComboBox;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,15 +25,17 @@ public class ChooseFileController {
     @FXML
     public ComboBox classesComboBox;
     @FXML
-    public MenuButton statementsMenuButton;
-    @FXML
     public ComboBox destinationClasses;
     @FXML
     public ComboBox refactorComboBox;
     @FXML
-    public AnchorPane checkBoxAnchor;
+    public Pane mainPane;
+    @FXML
+    public CheckComboBox statementsComboBox;
+    @FXML
+    public Pane checkBoxPane;
 
-    private List<CheckMenuItem> statementsItems;
+    private ObservableList<String> statementsItems;
 
     private Stage stage;
 
@@ -43,11 +47,12 @@ public class ChooseFileController {
         this.filesComboBox = new ComboBox();
         this.nextButton = new Button();
         this.classesComboBox = new ComboBox();
-        this.statementsMenuButton = new MenuButton();
         this.model = new Model();
-        statementsItems = new ArrayList<>();
-        destinationClasses = new ComboBox();
-        refactorComboBox = new ComboBox();
+        this.statementsItems = FXCollections.observableArrayList(new ArrayList<>());
+        this.statementsComboBox = new CheckComboBox();
+        this.destinationClasses = new ComboBox();
+        this.refactorComboBox = new ComboBox();
+        this.checkBoxPane = new Pane();
     }
 
     @FXML
@@ -55,6 +60,10 @@ public class ChooseFileController {
     {
         setUpComboBox();
         nextButton.setDisable(true);
+        checkBoxPane.getChildren().add(statementsComboBox);
+        statementsComboBox.setLayoutY(10);
+        statementsComboBox.setLayoutX(25);
+        statementsComboBox.setMaxWidth(200);
     }
 
     private void setUpComboBox()
@@ -69,9 +78,8 @@ public class ChooseFileController {
             case "Pull up":
             {
                 List<Integer> choosenIndeces = new ArrayList<>();
-                List<MenuItem> choosenStatements = statementsMenuButton.getItems();
-                for(int i = 0; i < choosenStatements.size(); i++)
-                    if(!choosenStatements.get(i).isDisable())
+                for(int i = 0; i < statementsComboBox.getItems().size(); i++)
+                    if(statementsComboBox.getCheckModel().isChecked(i))
                         choosenIndeces.add(i);
 
                 model.doPullUp((String)filesComboBox.getValue(), (String) classesComboBox.getValue(),
@@ -85,8 +93,9 @@ public class ChooseFileController {
     }
 
     public void sourceFileChanged(ActionEvent actionEvent) {
-        statementsMenuButton.getItems().clear();
+        statementsComboBox.getItems().clear();
         destinationClasses.getItems().clear();
+        nextButton.setDisable(true);
         String chosenOption = (String) filesComboBox.getValue();
         List<Representation> representations = model.getRepresentationsInFile(chosenOption);
         classesComboBox.setItems(FXCollections.observableArrayList(representations.stream().map(rep -> {
@@ -98,6 +107,7 @@ public class ChooseFileController {
     }
 
     public void sourceClassChanged(ActionEvent actionEvent) {
+        nextButton.setDisable(true);
         //fill in statements in menu button
         String chosenClass = (String)classesComboBox.getValue();
         List<Statement> statements = model.getStatementsInFileInClass((String) filesComboBox.getValue(), chosenClass);
@@ -107,8 +117,8 @@ public class ChooseFileController {
                             .map(stmnt -> stmnt.getStatementType() + ": " + stmnt.getName() + stmnt.getExtraInfo())
                             .collect(Collectors.toList());
         statementsItems.clear();
-        FXCollections.observableArrayList(result).forEach(e-> statementsItems.add(new CheckMenuItem(e)));
-        statementsMenuButton.getItems().setAll(statementsItems);
+        statementsItems.addAll(FXCollections.observableArrayList(result));
+        statementsComboBox.getItems().setAll(statementsItems);
     }
 
     public void refactorComboBoxChanged(ActionEvent actionEvent) {
@@ -121,8 +131,9 @@ public class ChooseFileController {
                 .map(stmnt -> stmnt.getStatementType() + ": " + stmnt.getName() + stmnt.getExtraInfo())
                 .collect(Collectors.toList());
         statementsItems.clear();
-        FXCollections.observableArrayList(result).forEach(e-> statementsItems.add(new CheckMenuItem(e)));
-        statementsMenuButton.getItems().setAll(statementsItems);
+        statementsItems.addAll(FXCollections.observableArrayList(result));
+
+        statementsComboBox.getItems().setAll(statementsItems);
         destinationClasses.setItems(FXCollections.observableArrayList(model.getBasesFor((String)filesComboBox.getValue(), chosenClass)));
     }
 

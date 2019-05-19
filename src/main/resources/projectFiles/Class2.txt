@@ -2,16 +2,6 @@ import Class1;
 
 class Class2 extends Class1
 {
-    private int b()
-    {
-        OtherClass b;
-        int a;
-    }
-    public void c()
-    {
-        Other c;
-        int g;
-    }
 
     public class FFF
     {
@@ -24,10 +14,6 @@ class Class2 extends Class1
         }
     }
 
-    class FSS
-    {
-
-    }
 }
 
 interface OtherInterface
