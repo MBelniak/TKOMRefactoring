@@ -1,5 +1,6 @@
 package model.parser;
 
+import model.exceptions.SemanticException;
 import model.lexems.Lexem;
 import model.refactor.ClassRepresentation;
 import model.refactor.InterfaceRepresentation;
@@ -13,25 +14,21 @@ import java.util.List;
 import static model.parser.AbstractSyntaxTree.ElementType.*;
 public class AbstractSyntaxTree {
 
-
-
     public enum ElementType{
         PackageDeclaration, ImportDeclaration, AbstractClassDefinition, ClassDefinition, InterfaceDefinition,
         ClassBody, InterfaceBody, ClassHeader, InterfaceHeader, ExtendList, ImplementsList, Statement, AbstractMethodDeclaration,
         MainMethod, MethodDefinition, PrimitiveFieldDeclaration, ConstructorDefinition, PrimitiveFieldInitialization,
         MethodBody, MethodParameterList, MethodCall, Assignment, NewCall, MethodDeclaration, ReturnStatement, MethodStatement,
         LocalVariableDeclaration, LocalVariableInitialization, FetchedObject, Code, ObjectFieldDeclaration, SuperCall, CallParameters,
-        Identifier, ObjectFieldInitialization, Asterix, Number, PrimitiveFieldDefinition
+        Identifier, ObjectFieldInitialization, Asterix, Number, PrimitiveFieldDefinition;
     }
     private ASTNode ASTRoot;
     private ASTNode currentOpenedElement;
-
     private List<Lexem> lexemBuffer;
-    private ASTNode currentlyAnalyzed;
+
     AbstractSyntaxTree() {
         this.lexemBuffer = new ArrayList<>();
     }
-
     void startFile(Lexem currentToken) {
         ASTRoot = new ASTNode(Code, currentToken.getLine(), currentToken.getColumn());
         currentOpenedElement = ASTRoot;
@@ -67,11 +64,11 @@ public class AbstractSyntaxTree {
         else
             currentOpenedElement.putAsChild(new ASTNode(Identifier, currentToken.getLine(), currentToken.getColumn(), currentToken.getValue()));
     }
+
     void addNumberToList(Lexem currentToken)
     {
         currentOpenedElement.putAsChild(new ASTNode(Number, currentToken.getLine(), currentToken.getColumn(), currentToken.getValue()));
     }
-
     void startElement(ElementType elementType, Lexem currentToken) {
         ASTNode child = new ASTNode(elementType, currentToken.getLine(), currentToken.getColumn());
         currentOpenedElement.putAsChild(child);
@@ -90,12 +87,8 @@ public class AbstractSyntaxTree {
         currentOpenedElement = currentOpenedElement.parent;
     }
 
-//    public boolean isRenameable(int lineClicked, int columnClicked) {
-//         ElementType element = findElementAt(lineClicked, columnClicked, ASTRoot);
-//         return element == Identifier;
-//    }
 
-    public List<Representation> findClassesAndInterfacesAndPutInContext(String filePath) {
+    public List<Representation> findClassesAndInterfacesAndPutInContext(String filePath) throws SemanticException {
         if(null != ASTRoot) {
 
             List<Representation> classesAndInterfacesFound = new ArrayList<>();
@@ -108,35 +101,38 @@ public class AbstractSyntaxTree {
         return null;
     }
 
+    public List<String> checkImports() {                //File -> Pack_dec_opt Import_dec_opt
+        List<String> resultImports = new ArrayList<>();
+        if(ASTRoot == null || ASTRoot.children == null)
+            return resultImports;
 
-//    private ElementType findElementAt(int lineClicked, int columnClicked, ASTNode node) {
-//        if(node.children.isEmpty())
-//        {
-//            if (node.startsAtLine == lineClicked
-//                    && node.startsAtColumn <= columnClicked)
-//            {
-//
-//                if(node.nodeType == Identifier)
-//                {
-//                    if(node.identifier.length() + node.startsAtColumn >= columnClicked) //Clicked at this Identifier
-//                    {
-//                        currentlyAnalyzed = node;
-//                        return Identifier;
-//                    }
-//                }
-////                else if(node.nodeType.toString())
-////                {
-////
-////                }
-//            }
-//
-//        }
-//        else
-//        {
-//
-//        }
-//        return null;
-//    }
+        int firstIndexOfImport = 0;
+        List<ASTNode> mainNodes = ASTRoot.children;
+        for(int childIndex = 0; childIndex<mainNodes.size(); childIndex++) {
+            firstIndexOfImport = childIndex;
+            if(mainNodes.get(childIndex).nodeType==ImportDeclaration)
+                break;
+            if(childIndex==mainNodes.size()-1)
+                return resultImports;
+        }
+        for(int childIndex = firstIndexOfImport; childIndex < mainNodes.size(); childIndex++)
+        {
+            if(mainNodes.get(childIndex).nodeType!=ImportDeclaration)
+                break;
+            StringBuilder oneImport = new StringBuilder();
+            for(int ident = 0; ident < mainNodes.get(childIndex).children.size(); ident++)
+            {
+                if(mainNodes.get(childIndex).children.get(ident).nodeType==Asterix)
+                    oneImport.append("*");
+                else
+                    oneImport.append(mainNodes.get(childIndex).children.get(ident).identifier);
+                if(ident!=mainNodes.get(childIndex).children.size()-1)
+                    oneImport.append(".");
+            }
+            resultImports.add(oneImport.toString());
+        }
+        return resultImports;
+    }
 
     @Override
     public String toString() {
@@ -234,8 +230,7 @@ public class AbstractSyntaxTree {
         }
 
 
-        private void findClassesOrInterfacesAndPutInContext(String filePath, List<String> context, List<Representation> classesAndInterfaces)
-        {
+        private void findClassesOrInterfacesAndPutInContext(String filePath, List<String> context, List<Representation> classesAndInterfaces) throws SemanticException {
             if (this.nodeType == AbstractClassDefinition
                     || this.nodeType == ClassDefinition) {
                 ASTNode classHeader = this.children.get(0);
@@ -261,6 +256,8 @@ public class AbstractSyntaxTree {
 
                 if (null != accessModifier && classHeader.children.size() > 2) {
                     if (classHeader.children.get(2).nodeType == ExtendList) {
+                        if(classHeader.children.get(2).children.get(0).identifier.equals(classFound.getName()))
+                            throw new SemanticException("Class cannot extend itself (" + className +" in " + filePath + ".");
                         classFound.setBaseClass(classHeader.children.get(2).children.get(0).identifier);
                         if (classHeader.children.size() > 3) {
                             for (int i = 0; i < classHeader.children.get(3).children.size(); i++)
@@ -272,6 +269,8 @@ public class AbstractSyntaxTree {
                     }
                 } else if (accessModifier == null && classHeader.children.size() > 1) {
                     if (classHeader.children.get(1).nodeType == ExtendList) {
+                        if(classHeader.children.get(1).children.get(0).identifier.equals(classFound.getName()))
+                            throw new SemanticException("Class cannot extend itself (" + className +" in " + filePath + ".");
                         classFound.setBaseClass(classHeader.children.get(1).children.get(0).identifier);
                         if (classHeader.children.size() > 2) {
                             for (int i = 0; i < classHeader.children.get(2).children.size(); i++)

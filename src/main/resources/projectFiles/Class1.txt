@@ -1,14 +1,8 @@
-package TestSuite.test;
 import junit;
 import org.apache.common.*;
 
 
 class Base{
-
-
-
-
-
 public abstract void method3(int a, int b);
 protected abstract void method2();
 abstract void method1();

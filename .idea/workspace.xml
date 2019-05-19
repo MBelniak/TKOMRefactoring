@@ -6,17 +6,14 @@
       <change beforePath="$PROJECT_DIR$/src/main/java/gui/ChooseFileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gui/ChooseFileController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/gui/chooseFile.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gui/chooseFile.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/model/modelClass/Model.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/modelClass/Model.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/refactor/AbstractClassDefinition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/refactor/AbstractClassDefinition.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/refactor/AbstractMethodDeclaration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/refactor/AbstractMethodDeclaration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/refactor/ClassDefinition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/refactor/ClassDefinition.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/refactor/FieldDeclaration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/refactor/FieldDeclaration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/refactor/FieldDefinition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/refactor/FieldDefinition.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/refactor/InterfaceDefinition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/refactor/InterfaceDefinition.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/refactor/MethodDeclaration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/refactor/MethodDeclaration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/refactor/MethodDefinition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/refactor/MethodDefinition.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/parser/AbstractSyntaxTree.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/parser/AbstractSyntaxTree.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/refactor/ClassRepresentation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/refactor/ClassRepresentation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/refactor/InterfaceRepresentation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/refactor/InterfaceRepresentation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/model/refactor/Refactor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/refactor/Refactor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/refactor/Statement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/refactor/Statement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/refactor/Representation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/refactor/Representation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/chooseFile.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/chooseFile.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/projectFiles/Class1.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/projectFiles/Class1.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/projectFiles/Class2.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/projectFiles/Class2.txt" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -35,87 +32,26 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="ChooseFileController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/gui/ChooseFileController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="94" lean-forward="true" selection-start-line="94" selection-end-line="94" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#280#281#0" expanded="true" />
-                <element signature="e#300#301#0" expanded="true" />
-                <element signature="e#680#681#0" expanded="true" />
-                <element signature="e#714#715#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MethodDeclaration.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/model/refactor/MethodDeclaration.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="29" column="5" lean-forward="true" selection-start-line="29" selection-start-column="5" selection-end-line="29" selection-end-column="5" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="InterfaceDefinition.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/model/refactor/InterfaceDefinition.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="24" column="16" selection-start-line="24" selection-start-column="16" selection-end-line="24" selection-end-column="16" />
-              <folding>
-                <element signature="e#744#745#0" expanded="true" />
-                <element signature="e#771#772#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="FieldDefinition.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/model/refactor/FieldDefinition.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="26" column="17" selection-start-line="26" selection-start-column="17" selection-end-line="26" selection-end-column="17" />
-              <folding>
-                <element signature="e#870#871#0" expanded="true" />
-                <element signature="e#897#898#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="FieldDeclaration.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/model/refactor/FieldDeclaration.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="26" column="17" selection-start-line="26" selection-start-column="17" selection-end-line="26" selection-end-column="17" />
-              <folding>
-                <element signature="e#793#794#0" expanded="true" />
-                <element signature="e#820#821#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="Refactor.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/model/refactor/Refactor.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2421">
-              <caret line="102" column="10" selection-start-line="102" selection-start-column="10" selection-end-line="102" selection-end-column="10" />
+            <state relative-caret-position="163">
+              <caret line="80" column="40" lean-forward="true" selection-start-line="80" selection-start-column="40" selection-end-line="80" selection-end-column="40" />
+              <folding>
+                <element signature="e#12100#12101#0" expanded="true" />
+                <element signature="e#12135#12136#0" expanded="true" />
+                <element signature="e#12203#12204#0" expanded="true" />
+                <element signature="e#12248#12249#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AbstractMethodDeclaration.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/model/refactor/AbstractMethodDeclaration.java">
+      <file leaf-file-name="ClassRepresentation.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/model/refactor/ClassRepresentation.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="44" lean-forward="true" selection-start-line="44" selection-end-line="44" />
+            <state relative-caret-position="153">
+              <caret line="116" selection-start-line="116" selection-end-line="116" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -123,31 +59,76 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="chooseFile.fxml" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/gui/chooseFile.fxml">
-          <provider editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="21" column="38" lean-forward="true" selection-start-line="21" selection-start-column="38" selection-end-line="21" selection-end-column="38" />
-            </state>
-          </provider>
-          <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
+      <file leaf-file-name="Class1.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/projectFiles/Class1.txt">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
-      <file leaf-file-name="chooseFile.fxml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/fxml/chooseFile.fxml">
+      <file leaf-file-name="Class2.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/projectFiles/Class2.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="396">
-              <caret line="26" lean-forward="true" selection-start-line="26" selection-end-line="26" />
+            <state>
+              <caret column="13" selection-start-column="13" selection-end-column="13" />
             </state>
           </provider>
-          <provider editor-type-id="JavaFX-Scene-Builder" />
         </entry>
       </file>
-      <file leaf-file-name="Model.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/model/modelClass/Model.java">
+      <file leaf-file-name="Interface1.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/projectFiles/Interface1.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="74" column="11" selection-start-line="74" selection-start-column="11" selection-end-line="74" selection-end-column="11" />
+            <state relative-caret-position="255">
+              <caret line="15" column="30" selection-start-line="15" selection-start-column="30" selection-end-line="15" selection-end-column="30" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Class4.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/projectFiles/pack/Class4.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1156">
+              <caret line="68" column="1" selection-start-line="68" selection-start-column="1" selection-end-line="68" selection-end-column="1" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Class3.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/projectFiles/pack/Class3.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="34">
+              <caret line="2" selection-start-line="2" selection-end-line="2" selection-end-column="18" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MethodDefinition.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/model/refactor/MethodDefinition.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="119">
+              <caret line="32" column="8" selection-start-line="32" selection-start-column="8" selection-end-line="41" selection-end-column="33" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Representation.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/model/refactor/Representation.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="272">
+              <caret line="16" column="8" selection-start-line="16" selection-start-column="4" selection-end-line="16" selection-end-column="8" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="InterfaceRepresentation.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/model/refactor/InterfaceRepresentation.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="408">
+              <caret line="97" column="8" selection-start-line="97" selection-start-column="8" selection-end-line="97" selection-end-column="8" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -167,8 +148,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>parseCal</find>
-      <find>ClassDefi</find>
       <find>PublicClassD</find>
       <find>parseRetu</find>
       <find>parseDefinitio</find>
@@ -197,6 +176,8 @@
       <find>parseClassDe</find>
       <find>parseDefi</find>
       <find>pull</find>
+      <find>set</find>
+      <find>replace</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -205,10 +186,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/test/java/ParserTestSuite/StatementsTests/validation/shouldParseEveryKindOfStatementValidation.txt" />
-        <option value="$PROJECT_DIR$/src/test/java/ParserTestSuite/StatementsTests/testFiles/shouldParseInterfaceStatements.txt" />
-        <option value="$PROJECT_DIR$/src/test/java/ParserTestSuite/StatementsTests/StatementsTests.java" />
-        <option value="$PROJECT_DIR$/src/test/java/ParserTestSuite/StatementsTests/validation/shouldParseInterfaceStatementsValidation.txt" />
         <option value="$PROJECT_DIR$/src/main/resources/projectFiles/pack/Class4.txt" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/src/main/java/Refactor/ClassInheritanceRepresentation.java" />
@@ -225,13 +202,11 @@
         <option value="$PROJECT_DIR$/src/main/java/Refactor/InterfaceDefinition.java" />
         <option value="$PROJECT_DIR$/src/main/java/Refactor/aaa.java" />
         <option value="$PROJECT_DIR$/src/main/java/Exceptions/SemanticException.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/projectFiles/Class2.txt" />
         <option value="$PROJECT_DIR$/src/main/java/Parser/AbstractSyntaxTree.java" />
         <option value="$PROJECT_DIR$/src/main/java/Refactor/Statement.java" />
         <option value="$PROJECT_DIR$/src/main/java/Refactor/Representation.java" />
         <option value="$PROJECT_DIR$/src/main/java/Refactor/ClassRepresentation.java" />
         <option value="$PROJECT_DIR$/src/main/java/Refactor/InterfaceRepresentation.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/projectFiles/Class1.txt" />
         <option value="$PROJECT_DIR$/src/main/java/Refactor/Refactor.java" />
         <option value="$PROJECT_DIR$/src/main/java/GUI/chooseFileController.java" />
         <option value="$PROJECT_DIR$/src/main/java/model/Scanner/Scanner.java" />
@@ -251,11 +226,17 @@
         <option value="$PROJECT_DIR$/src/main/java/model/refactor/InterfaceDefinition.java" />
         <option value="$PROJECT_DIR$/src/main/java/model/refactor/FieldDefinition.java" />
         <option value="$PROJECT_DIR$/src/main/java/model/refactor/FieldDeclaration.java" />
-        <option value="$PROJECT_DIR$/src/main/java/model/refactor/Refactor.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/fxml/chooseFile.fxml" />
-        <option value="$PROJECT_DIR$/src/main/java/gui/ChooseFileController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/model/modelClass/Model.java" />
         <option value="$PROJECT_DIR$/src/main/java/gui/chooseFile.fxml" />
+        <option value="$PROJECT_DIR$/src/main/resources/fxml/chooseFile.fxml" />
+        <option value="$PROJECT_DIR$/src/main/java/model/modelClass/Model.java" />
+        <option value="$PROJECT_DIR$/src/main/java/gui/ChooseFileController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/model/parser/AbstractSyntaxTree.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/projectFiles/Class1.txt" />
+        <option value="$PROJECT_DIR$/src/main/resources/projectFiles/Class2.txt" />
+        <option value="$PROJECT_DIR$/src/main/java/model/refactor/Refactor.java" />
+        <option value="$PROJECT_DIR$/src/main/java/model/refactor/Representation.java" />
+        <option value="$PROJECT_DIR$/src/main/java/model/refactor/ClassRepresentation.java" />
+        <option value="$PROJECT_DIR$/src/main/java/model/refactor/InterfaceRepresentation.java" />
       </list>
     </option>
   </component>
@@ -287,9 +268,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="AndroidView" />
       <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -347,6 +328,15 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="model" type="462c0819:PsiDirectoryNode" />
+              <item name="parser" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TKOMRefactoring" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TKOMRefactoring" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="model" type="462c0819:PsiDirectoryNode" />
               <item name="refactor" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -373,6 +363,81 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
               <item name="fxml" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TKOMRefactoring" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TKOMRefactoring" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="outputs" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TKOMRefactoring" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TKOMRefactoring" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="projectFiles" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TKOMRefactoring" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TKOMRefactoring" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="projectFiles" type="462c0819:PsiDirectoryNode" />
+              <item name="pack" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TKOMRefactoring" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TKOMRefactoring" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TKOMRefactoring" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TKOMRefactoring" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TKOMRefactoring" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TKOMRefactoring" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="ParserTestSuite" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TKOMRefactoring" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TKOMRefactoring" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="ParserTestSuite" type="462c0819:PsiDirectoryNode" />
+              <item name="PackagesTests" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TKOMRefactoring" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TKOMRefactoring" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="ParserTestSuite" type="462c0819:PsiDirectoryNode" />
+              <item name="PackagesTests" type="462c0819:PsiDirectoryNode" />
+              <item name="testFiles" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TKOMRefactoring" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TKOMRefactoring" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="ParserTestSuite" type="462c0819:PsiDirectoryNode" />
+              <item name="PackagesTests" type="462c0819:PsiDirectoryNode" />
+              <item name="validation" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="TKOMRefactoring" type="b2602c69:ProjectViewProjectNode" />
@@ -551,19 +616,11 @@
       <workItem from="1557127248557" duration="29852000" />
       <workItem from="1557812685197" duration="28094000" />
       <workItem from="1558025375795" duration="62599000" />
+      <workItem from="1558254574677" duration="10459000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Tests - 2019.05.17 at 15h 33m 53s.xml">
-      <configuration name="Tests" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="Tests - 2019.05.17 at 15h 36m 07s.xml">
-      <configuration name="Tests" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="Tests - 2019.05.17 at 15h 36m 49s.xml">
-      <configuration name="Tests" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="Tests - 2019.05.17 at 15h 36m 59s.xml">
       <configuration name="Tests" configurationId="JUnit" />
     </history-entry>
@@ -585,74 +642,83 @@
     <history-entry file="Tests - 2019.05.18 at 19h 37m 51s.xml">
       <configuration name="Tests" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="Tests - 2019.05.19 at 11h 25m 29s.xml">
+      <configuration name="Tests" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="Tests - 2019.05.19 at 11h 29m 12s.xml">
+      <configuration name="Tests" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="Tests - 2019.05.19 at 11h 56m 49s.xml">
+      <configuration name="Tests" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="269803000" />
+    <option name="totallyTimeSpent" value="280262000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="878" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
-      <window_info anchor="right" id="Maven Projects" order="4" />
-      <window_info anchor="bottom" id="Database Changes" order="11" show_stripe_button="false" />
-      <window_info id="Capture Tool" order="2" />
-      <window_info id="Designer" order="3" />
-      <window_info anchor="bottom" id="Inspection Results" weight="0.32962447" />
-      <window_info anchor="right" id="Database" order="5" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info id="UI Designer" order="4" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.42420027" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Messages" order="10" weight="0.18497914" />
       <window_info anchor="right" id="Palette&#9;" order="8" />
       <window_info id="Image Layers" order="6" />
       <window_info anchor="right" id="Capture Analysis" order="6" />
+      <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
+      <window_info anchor="right" id="Maven Projects" order="4" />
+      <window_info anchor="bottom" id="Database Changes" order="11" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32684284" />
-      <window_info anchor="right" id="Coverage" order="9" side_tool="true" weight="0.3295302" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.3504868" />
       <window_info anchor="bottom" id="Terminal" order="9" weight="0.28650904" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26308724" />
+      <window_info id="Capture Tool" order="2" />
+      <window_info id="Designer" order="3" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2671141" />
+      <window_info anchor="right" id="Database" order="5" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32823366" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info id="UI Designer" order="4" />
       <window_info anchor="right" id="Theme Preview" order="7" />
       <window_info id="Favorites" order="5" side_tool="true" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.50347704" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="right" id="Coverage" order="9" side_tool="true" weight="0.3295302" />
       <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection Results" order="12" weight="0.32962447" />
     </layout>
     <layout-to-restore>
       <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Capture Analysis" order="6" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.33895922" />
       <window_info anchor="right" id="Theme Preview" order="7" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="bottom" id="Messages" order="10" weight="0.32823366" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.30790567" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Database Changes" order="11" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
       <window_info id="Image Layers" order="6" />
       <window_info id="Designer" order="3" />
       <window_info id="UI Designer" order="4" />
+      <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39803094" />
-      <window_info anchor="right" id="Database" order="5" />
       <window_info anchor="right" id="Palette&#9;" order="8" />
       <window_info anchor="bottom" id="Terminal" order="9" weight="0.32962447" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Database Changes" order="11" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info id="Favorites" order="5" side_tool="true" />
       <window_info id="Capture Tool" order="2" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Messages" order="10" weight="0.32823366" />
+      <window_info anchor="right" id="Database" order="5" />
       <window_info anchor="right" id="Maven Projects" order="4" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.30790567" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
     </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -678,27 +744,39 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/model/refactor/Refactor.java</url>
-          <line>205</line>
+          <line>232</line>
           <properties />
           <option name="timeStamp" value="98" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/model/refactor/Refactor.java</url>
-          <line>207</line>
+          <line>234</line>
           <properties />
           <option name="timeStamp" value="99" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/gui/ChooseFileController.java</url>
-          <line>83</line>
+          <line>86</line>
           <properties />
           <option name="timeStamp" value="107" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/model/refactor/ClassRepresentation.java</url>
+          <line>122</line>
+          <properties />
+          <option name="timeStamp" value="111" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/model/refactor/ClassRepresentation.java</url>
+          <line>97</line>
+          <properties />
+          <option name="timeStamp" value="112" />
         </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="108" />
+      <option name="time" value="114" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="JUnit">
@@ -707,29 +785,8 @@
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/test/java/ParserTestSuite/MethodStatementsTests/testFiles/shouldParseLocalVariableInitialization.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="11" selection-start-line="7" selection-start-column="11" selection-end-line="7" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/ParserTestSuite/MethodStatementsTests/testFiles/shouldParseMethodHeaders.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="5" selection-end-line="68" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/test.txt">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/outputs/ASTOutput.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-5391">
-          <caret line="20" column="33" lean-forward="true" selection-start-line="20" selection-start-column="33" selection-end-line="20" selection-end-column="33" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/ParserTestSuite/ClassesAndInterfacesTests/testFiles/shouldParseClassHeaderWithExtendsAndImplements.txt">
       <provider selected="true" editor-type-id="text-editor" />
@@ -755,13 +812,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Refactor/aaa.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" selection-start-line="4" selection-end-line="4" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Refactor/aaa.java" />
     <entry file="file://$PROJECT_DIR$/TKOMRefactoring.iml">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -769,39 +820,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
           <caret line="2" column="5" lean-forward="true" selection-start-line="2" selection-start-column="5" selection-end-line="2" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/projectFiles/pack/Class3.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" selection-start-line="2" selection-end-line="2" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/projectFiles/pack/Class4.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1156">
-          <caret line="68" column="1" selection-start-line="68" selection-start-column="1" selection-end-line="68" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/projectFiles/Class2.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="20" column="12" selection-start-line="20" selection-start-column="12" selection-end-line="20" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/model/refactor/ClassRepresentation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1292">
-          <caret line="88" column="33" selection-start-line="88" selection-start-column="33" selection-end-line="88" selection-end-column="33" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2790#2791#0" expanded="true" />
-            <element signature="e#2817#2818#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -822,20 +840,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/projectFiles/Interface1.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="30" selection-start-line="15" selection-start-column="30" selection-end-line="15" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/projectFiles/Class1.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" selection-start-line="14" selection-end-line="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/model/exceptions/ParsingException.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
@@ -850,13 +854,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Model/Model.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret lean-forward="true" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Model/Model.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/model/filesManagement/FileSource.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
@@ -905,58 +903,15 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://C:/Program Files/Java/jdk-9.0.4/lib/src.zip!/javafx.fxml/javafx/fxml/FXMLLoader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="146">
-          <caret line="2434" selection-start-line="2434" selection-end-line="2434" />
-          <folding>
-            <element signature="e#84213#84214#0" expanded="true" />
-            <element signature="e#84253#84254#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-434" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/model/parser/AbstractSyntaxTree.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2499">
-          <caret line="236" column="21" selection-start-line="236" selection-start-column="21" selection-end-line="236" selection-end-column="21" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/model/refactor/Representation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="44" selection-start-line="10" selection-start-column="44" selection-end-line="10" selection-end-column="44" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
       </provider>
     </entry>
     <entry file="jar://C:/Program Files/Java/jdk-9.0.4/lib/src.zip!/java.base/java/lang/Class.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="231">
           <caret line="2667" selection-start-line="2667" selection-end-line="2667" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="20" selection-start-line="20" selection-end-line="20" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#656#657#0" expanded="true" />
-            <element signature="e#684#685#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -985,37 +940,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/model/refactor/MethodDefinition.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="32" column="8" selection-start-line="32" selection-start-column="8" selection-end-line="41" selection-end-column="33" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/model/refactor/InterfaceRepresentation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="85" column="33" selection-start-line="85" selection-start-column="33" selection-end-line="85" selection-end-column="33" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/model/refactor/ClassDefinition.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="24" column="16" selection-start-line="24" selection-start-column="16" selection-end-line="24" selection-end-column="16" />
-          <folding>
-            <element signature="e#732#733#0" expanded="true" />
-            <element signature="e#759#760#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/model/refactor/AbstractClassDefinition.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="374">
@@ -1029,8 +953,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/model/refactor/AbstractMethodDeclaration.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="44" lean-forward="true" selection-start-line="44" selection-end-line="44" />
+        <state relative-caret-position="680">
+          <caret line="44" selection-start-line="44" selection-end-line="44" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1039,19 +963,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/model/refactor/InterfaceDefinition.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
+        <state relative-caret-position="391">
           <caret line="24" column="16" selection-start-line="24" selection-start-column="16" selection-end-line="24" selection-end-column="16" />
           <folding>
             <element signature="e#744#745#0" expanded="true" />
-            <element signature="e#771#772#0" expanded="true" />
+            <element signature="e#769#770#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/model/refactor/MethodDeclaration.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="29" column="5" lean-forward="true" selection-start-line="29" selection-start-column="5" selection-end-line="29" selection-end-column="5" />
+        <state relative-caret-position="425">
+          <caret line="29" column="5" selection-start-line="29" selection-start-column="5" selection-end-line="29" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1060,72 +984,208 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/model/refactor/FieldDefinition.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
+        <state relative-caret-position="425">
           <caret line="26" column="17" selection-start-line="26" selection-start-column="17" selection-end-line="26" selection-end-column="17" />
           <folding>
             <element signature="e#870#871#0" expanded="true" />
-            <element signature="e#897#898#0" expanded="true" />
+            <element signature="e#910#911#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/model/refactor/FieldDeclaration.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
+        <state relative-caret-position="425">
           <caret line="26" column="17" selection-start-line="26" selection-start-column="17" selection-end-line="26" selection-end-column="17" />
           <folding>
             <element signature="e#793#794#0" expanded="true" />
-            <element signature="e#820#821#0" expanded="true" />
+            <element signature="e#833#834#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/model/refactor/Refactor.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/gui/chooseFile.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder" />
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2421">
-          <caret line="102" column="10" selection-start-line="102" selection-start-column="10" selection-end-line="102" selection-end-column="10" />
+        <state relative-caret-position="374">
+          <caret line="22" column="94" selection-end-line="26" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/fxml/chooseFile.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="396">
           <caret line="26" lean-forward="true" selection-start-line="26" selection-end-line="26" />
         </state>
       </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/ParserTestSuite/PackagesTests/testFiles/shouldParsePackageAndImportDeclarations.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="23" selection-start-line="23" selection-end-line="23" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/outputs/ASTOutput.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="33" lean-forward="true" selection-start-line="17" selection-start-column="33" selection-end-line="17" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/ParserTestSuite/PackagesTests/validation/shouldParsePackageAndImportDeclarationsValidation.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="29" column="18" lean-forward="true" selection-start-line="29" selection-start-column="18" selection-end-line="29" selection-end-column="18" />
+        </state>
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/gui/ChooseFileController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="94" lean-forward="true" selection-start-line="94" selection-end-line="94" />
+        <state relative-caret-position="1088">
+          <caret line="94" column="64" selection-start-line="94" selection-start-column="64" selection-end-line="94" selection-end-column="64" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#280#281#0" expanded="true" />
-            <element signature="e#300#301#0" expanded="true" />
-            <element signature="e#680#681#0" expanded="true" />
-            <element signature="e#714#715#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/model/refactor/ClassDefinition.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="24" column="16" selection-start-line="24" selection-start-column="16" selection-end-line="24" selection-end-column="16" />
+          <folding>
+            <element signature="e#732#733#0" expanded="true" />
+            <element signature="e#757#758#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/model/parser/AbstractSyntaxTree.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="110">
+          <caret line="96" column="68" selection-start-line="96" selection-start-column="68" selection-end-line="96" selection-end-column="68" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#4741#4742#0" expanded="true" />
+            <element signature="e#4782#4783#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk-9.0.4/lib/src.zip!/javafx.fxml/javafx/fxml/FXMLLoader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="146">
+          <caret line="2601" selection-start-line="2601" selection-end-line="2601" />
+          <folding>
+            <element signature="e#84213#84214#0" expanded="true" />
+            <element signature="e#84253#84254#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/model/modelClass/Model.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="74" column="11" selection-start-line="74" selection-start-column="11" selection-end-line="74" selection-end-column="11" />
+        <state relative-caret-position="93">
+          <caret line="42" column="20" selection-start-line="42" selection-start-column="20" selection-end-line="42" selection-end-column="20" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2596#2597#0" expanded="true" />
+            <element signature="e#2641#2642#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/projectFiles/Interface1.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="30" selection-start-line="15" selection-start-column="30" selection-end-line="15" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/projectFiles/pack/Class4.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1156">
+          <caret line="68" column="1" selection-start-line="68" selection-start-column="1" selection-end-line="68" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/projectFiles/pack/Class3.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" selection-start-line="2" selection-end-line="2" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/projectFiles/Class2.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="13" selection-start-column="13" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/projectFiles/Class1.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/model/refactor/MethodDefinition.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="32" column="8" selection-start-line="32" selection-start-column="8" selection-end-line="41" selection-end-column="33" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/gui/chooseFile.fxml">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="21" column="38" lean-forward="true" selection-start-line="21" selection-start-column="38" selection-end-line="21" selection-end-column="38" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/model/refactor/Refactor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="163">
+          <caret line="80" column="40" lean-forward="true" selection-start-line="80" selection-start-column="40" selection-end-line="80" selection-end-column="40" />
+          <folding>
+            <element signature="e#12100#12101#0" expanded="true" />
+            <element signature="e#12135#12136#0" expanded="true" />
+            <element signature="e#12203#12204#0" expanded="true" />
+            <element signature="e#12248#12249#0" expanded="true" />
+          </folding>
         </state>
       </provider>
-      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/model/refactor/Representation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="8" selection-start-line="16" selection-start-column="4" selection-end-line="16" selection-end-column="8" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/model/refactor/ClassRepresentation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="116" selection-start-line="116" selection-end-line="116" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/model/refactor/InterfaceRepresentation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="97" column="8" selection-start-line="97" selection-start-column="8" selection-end-line="97" selection-end-column="8" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
     </entry>
   </component>
   <component name="masterDetails">

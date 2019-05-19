@@ -8,10 +8,7 @@ import model.scanner.Scanner;
 import javafx.util.Pair;
 
 import java.io.*;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class Refactor {
@@ -19,16 +16,19 @@ public class Refactor {
     private final Parser parser;
     private Map<String, AbstractSyntaxTree> ASTs;
     private Map<String, List<Representation>> classesAndInterfacesInFiles;
+    private Map<String, List<String>> visibleFilesAndClasses;
     private final static String PROJECT_DIRECTORY = "src\\main\\resources\\projectFiles\\";
+    private final static String FILE_EXTENSION = "txt";
+    public final List<String> refactorings = new ArrayList<>(Arrays.asList("Pull up", "Push down", "Inheritance to delegation"));
+    private List<String> files;
 
-    public enum Refactorings {
-        RENAME, PULL_UP, PUSH_DOWN, DELEGATE;
-    }
     public Refactor(Scanner scanner, Parser parser) {
         this.scanner = scanner;
         this.parser = parser;
         this.ASTs = new HashMap<>();
         this.classesAndInterfacesInFiles = new HashMap<>();
+        visibleFilesAndClasses = new HashMap<>();
+        this.files = new ArrayList<>();
     }
 
     public void parseFiles(List<String> filenames) throws FileNotFoundException{
@@ -37,6 +37,7 @@ public class Refactor {
             String filePath = file.substring(32, file.length());
             try {
                 ASTs.put(filePath, parser.parseFile());
+                files.add(filePath);
             } catch (ParsingException e) {
                 System.out.println(e.getErrorMessage() + " Line: " + e.getLine() + " Column: " + e.getColumn()
                         + " in file: " + file);
@@ -46,54 +47,80 @@ public class Refactor {
     }
 
     public void analyze() {
-        analyzeClassesAndInterfaces();
+        try {
+            analyzeClassesAndInterfaces();
+        } catch (SemanticException e) {
+            System.out.println(e.getMessage());
+        }
         //writeClassesAndInterfaces();
-        List<String> source = new ArrayList<>();
-        source.add("Class1");
-        List<String> dest = new ArrayList<>();
-        dest.add("Base");
-        List<Integer> members = new ArrayList<>();
-        members.add(0);
-        pullUpMembers("Class1.txt", source, members, "Class1.txt", dest);
+        analyzeVisibleFilesAndClasses();
+        checkIfBaseVisible();
     }
 
-    private void analyzeClassesAndInterfaces()
-    {
+    private void analyzeClassesAndInterfaces() throws SemanticException {
         ASTs.forEach((filePath, AST)  ->{
-            List<Representation> foundCI = AST.findClassesAndInterfacesAndPutInContext(filePath);
-                classesAndInterfacesInFiles.put(filePath, foundCI);
+            List<Representation> foundCI = null;
             try {
-                checkForDuplicates(filePath);
+                foundCI = AST.findClassesAndInterfacesAndPutInContext(filePath);
             } catch (SemanticException e) {
                 System.out.println(e.getMessage());
                 System.exit(0);
             }
+            classesAndInterfacesInFiles.put(filePath, foundCI);
         });
+        checkForDuplicates();
+    }
+
+    private void checkIfBaseVisible() {
+        classesAndInterfacesInFiles.forEach((file, classReps) ->
+        {
+            classReps.forEach(rep ->
+            {
+                try {
+                    rep.checkIfBaseVisible(visibleFilesAndClasses.get(file), classesAndInterfacesInFiles);
+                    rep.checkIfInterfacesVisible(visibleFilesAndClasses.get(file), classesAndInterfacesInFiles);
+                }catch (SemanticException e)
+                {
+                    System.out.println(e.getMessage());
+                    System.exit(0);
+                }
+            });
+        });
+    }
+
+    private void analyzeVisibleFilesAndClasses() {
+        ASTs.forEach((filePath, AST) ->
+            {
+                List<String> imports = AST.checkImports();
+                classesAndInterfacesInFiles.get(filePath).
+                        forEach(classRep -> imports.add(filePath.replace("\\\\/", ".").replace(FILE_EXTENSION, "").concat(classRep.getName()))); // have to add classes in that file
+                visibleFilesAndClasses.put(filePath, imports);
+            });
     }
 
     /*
         Basic check of duplication. Throws SemanticException if class or interface with the same name
         is declared in overlapping scope in the certain file.
      */
+    private void checkForDuplicates() throws SemanticException {
+        for(int fileIndex = 0; fileIndex<files.size(); fileIndex++)
+        {
+            List<Representation> concernedClassesAndInt = classesAndInterfacesInFiles.get(files.get(fileIndex));
+            for(int i = 0; i<concernedClassesAndInt.size(); i++) {
+                Representation representation = concernedClassesAndInt.get(i);
 
-    private void checkForDuplicates(String filePath) throws SemanticException {
-
-        List<Representation> concernedClassesAndInt = classesAndInterfacesInFiles.get(filePath);
-        for(int i = 0; i<concernedClassesAndInt.size(); i++) {
-            Representation representation = concernedClassesAndInt.get(i);
-
-            if (representation.getOuterClassesOrInterfaces()
-                    .stream()
-                    .filter(elem -> elem.equals(representation.getName())).collect(Collectors.toList()).size()>0) {
-                throw new SemanticException("Duplicated class or interface name: " + representation.getName());
-            }
-            for (int k = 0; k < concernedClassesAndInt.size(); k++) {
-                Representation representation2 = concernedClassesAndInt.get(k);
-                if (representation != representation2
-                        && representation.getName().equals(representation2.getName())
-                        && representation.getOuterClassesOrInterfaces().equals(representation2.getOuterClassesOrInterfaces()))
-                {
-                    throw new SemanticException("Duplicated class name: " + representation.getName());
+                if (representation.getOuterClassesOrInterfaces()
+                        .stream()
+                        .filter(elem -> elem.equals(representation.getName())).collect(Collectors.toList()).size() > 0) {
+                    throw new SemanticException("Duplicated class or interface name: " + representation.getName());
+                }
+                for (int k = 0; k < concernedClassesAndInt.size(); k++) {
+                    Representation representation2 = concernedClassesAndInt.get(k);
+                    if (representation != representation2
+                            && representation.getName().equals(representation2.getName())
+                            && representation.getOuterClassesOrInterfaces().equals(representation2.getOuterClassesOrInterfaces())) {
+                        throw new SemanticException("Duplicated class name: " + representation.getName());
+                    }
                 }
             }
         }
@@ -258,6 +285,14 @@ public class Refactor {
     public List<Representation> getClassesAndInterfacesInFile(String fileName)
     {
         return classesAndInterfacesInFiles.get(fileName);
+    }
+
+    public List<String> getRefactorings() {
+        return refactorings;
+    }
+
+    public Map<String, List<String>> getVisibleFilesAndClasses() {
+        return visibleFilesAndClasses;
     }
 }
 

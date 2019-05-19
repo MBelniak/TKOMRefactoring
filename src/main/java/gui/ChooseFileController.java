@@ -30,6 +30,7 @@ public class ChooseFileController {
     public ComboBox destinationFiles;
     @FXML
     public ComboBox destinationClasses;
+    public ComboBox refactorComboBox;
 
     private List<CheckMenuItem> statementsItems;
 
@@ -46,6 +47,7 @@ public class ChooseFileController {
         statementsItems = new ArrayList<>();
         destinationClasses = new ComboBox();
         destinationFiles = new ComboBox();
+        refactorComboBox = new ComboBox();
     }
 
     @FXML
@@ -57,6 +59,7 @@ public class ChooseFileController {
     private void setUpComboBox()
     {
         fileComboBox.setItems(FXCollections.observableArrayList(model.getFilesInProjectDirectory()));
+        refactorComboBox.setItems(FXCollections.observableArrayList(model.getRefactors()));
     }
 
     public void nextButtonClicked(ActionEvent actionEvent) {
@@ -91,11 +94,12 @@ public class ChooseFileController {
         FXCollections.observableArrayList(result).forEach(e-> statementsItems.add(new CheckMenuItem(e)));
         statementsMenuButton.getItems().setAll(statementsItems);
 
-        //fill in destination file combo box
-
     }
 
 
     public void destFileChanged(ActionEvent actionEvent) {
+    }
+
+    public void refactorComboBoxChanged(ActionEvent actionEvent) {
     }
 }

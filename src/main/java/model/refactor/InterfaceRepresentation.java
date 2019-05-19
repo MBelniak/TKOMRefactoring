@@ -1,9 +1,11 @@
 package model.refactor;
 
+import model.exceptions.SemanticException;
 import model.parser.AbstractSyntaxTree;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 public class InterfaceRepresentation implements Representation{
     private List<String> baseInterfaces;
@@ -84,5 +86,15 @@ public class InterfaceRepresentation implements Representation{
     @Override
     public AbstractSyntaxTree.ASTNode getNodeRep() {
         return nodeRepresentation;
+    }
+
+    @Override
+    public void checkIfBaseVisible(List<String> visibleClasses, Map<String, List<Representation>> representationsInFiles) throws SemanticException {
+
+    }
+
+    @Override
+    public void checkIfInterfacesVisible(List<String> strings, Map<String, List<Representation>> classesAndInterfacesInFiles) {
+
     }
 }

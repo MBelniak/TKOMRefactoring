@@ -72,5 +72,8 @@ public class Model {
        // refactor.pullUpMembers(fileName, classPath, statements, "ds", );
     }
 
-    public <Representation> getPossible
+    public List<String> getRefactors() {
+        return refactor.getRefactorings();
+    }
+
 }
