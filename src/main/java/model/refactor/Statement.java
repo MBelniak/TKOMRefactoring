@@ -25,8 +25,13 @@ public abstract class Statement {
         return name;
     }
 
-    public AccessModifier getAccessModifier() {
-        return accessModifier;
+    public String getAccessModifier() {
+        if(accessModifier==AccessModifier.Private
+                || accessModifier==AccessModifier.Protected
+                || accessModifier==AccessModifier.Public
+                || accessModifier==AccessModifier.Default)
+            return accessModifier.toString();
+        return "";
     }
 
     protected abstract void prepareStatementInfo();
@@ -49,10 +54,6 @@ public abstract class Statement {
 
     public abstract String getExtraInfo();
 
-    public void setNodeRep(AbstractSyntaxTree.ASTNode nodeRep) {
-        this.nodeRep = nodeRep;
-    }
-
     public void setStartsAtLine(int startsAtLine) {
         this.startsAtLine = startsAtLine;
     }
@@ -68,6 +69,7 @@ public abstract class Statement {
     public void setEndsAtColumn(int endsAtColumn) {
         this.endsAtColumn = endsAtColumn;
     }
+
 }
 
 class StatementFactory

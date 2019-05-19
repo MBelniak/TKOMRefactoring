@@ -45,10 +45,6 @@ public class InterfaceRepresentation implements Representation{
         this.statements = statements;
     }
 
-    String getInterfaceName() {
-        return name;
-    }
-
     @Override
     public String toString() {
         StringBuilder result = new StringBuilder("ClassRepresentation{" +
@@ -104,8 +100,8 @@ public class InterfaceRepresentation implements Representation{
         for(String inter : baseInterfaces)
         {
             Representation interfaceFound = null;
-            for (int impor = 0; impor < visibleClasses.size(); impor++) {
-                List<String> path = new ArrayList<>(Arrays.asList(visibleClasses.get(impor).split("\\.")));
+            for (String visibleClass : visibleClasses) {
+                List<String> path = new ArrayList<>(Arrays.asList(visibleClass.split("\\.")));
                 if (path.get(path.size() - 1).equals(inter)) {
                     if ((interfaceFound = findInterfaceByPath(representationsInFiles, path)) != null) {
                         baseInterfacesRepresentations.add((InterfaceRepresentation) interfaceFound);   //save the base representation for further purposes

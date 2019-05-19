@@ -20,6 +20,6 @@ public class Class3
     }
 }
 class ClassInner
-   {
+{
 
-    }
+}

@@ -98,12 +98,10 @@ public class ClassRepresentation implements Representation{
             return;
 
         Representation classFound = null;
-        for(int impor = 0; impor < visibleClasses.size(); impor++)
-        {
-            List<String> path = new ArrayList<>(Arrays.asList(visibleClasses.get(impor).split("\\.")));
-            if(path.get(path.size()-1).equals(baseClass))
-            {
-                if((classFound = findClassByPath(representationsInFiles, path))!=null) {
+        for (String visibleClass : visibleClasses) {
+            List<String> path = new ArrayList<>(Arrays.asList(visibleClass.split("\\.")));
+            if (path.get(path.size() - 1).equals(baseClass)) {
+                if ((classFound = findClassByPath(representationsInFiles, path)) != null) {
                     baseClassRepresentation = (ClassRepresentation) classFound;   //save the base representation for further purposes
                     break;
                 }
@@ -121,11 +119,11 @@ public class ClassRepresentation implements Representation{
         for(String inter : interfacesImplemented)
         {
             Representation interfaceFound = null;
-            for (int impor = 0; impor < visibleClasses.size(); impor++) {
-                List<String> path = new ArrayList<>(Arrays.asList(visibleClasses.get(impor).split("\\.")));
+            for (String visibleClass : visibleClasses) {
+                List<String> path = new ArrayList<>(Arrays.asList(visibleClass.split("\\.")));
                 if (path.get(path.size() - 1).equals(inter)) {
                     if ((interfaceFound = findInterfaceByPath(representationsInFiles, path)) != null) {
-                        interfacesImplementedRepresentations.add((InterfaceRepresentation)interfaceFound);   //save the base representation for further purposes
+                        interfacesImplementedRepresentations.add((InterfaceRepresentation) interfaceFound);   //save the base representation for further purposes
                         break;
                     }
                 }

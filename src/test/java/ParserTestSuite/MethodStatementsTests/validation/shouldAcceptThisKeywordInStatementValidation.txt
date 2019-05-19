@@ -1,0 +1,76 @@
+<Code>
+	<ClassDefinition>
+		<ClassHeader>
+			<Identifier name="public">
+			<Identifier/>
+			<Identifier name="Class">
+			<Identifier/>
+		<ClassHeader/>
+		<ClassBody>
+			<Statement>
+				<MethodDefinition>
+					<Identifier name="public">
+					<Identifier/>
+					<Identifier name="void">
+					<Identifier/>
+					<Identifier name="b">
+					<Identifier/>
+					<MethodParameterList>
+					<MethodParameterList/>
+					<MethodBody>
+						<MethodStatement>
+							<PrimitiveFieldDeclaration>
+								<PrimitiveFieldInitialization>
+									<Identifier name="a">
+									<Identifier/>
+									<Assignment>
+									<Assignment/>
+									<FetchedObject>
+										<Identifier name="this">
+										<Identifier/>
+										<Identifier name="b">
+										<Identifier/>
+									<FetchedObject/>
+								<PrimitiveFieldInitialization/>
+							<PrimitiveFieldDeclaration/>
+						<MethodStatement/>
+						<ReturnStatement>
+						<ReturnStatement/>
+					<MethodBody/>
+				<MethodDefinition/>
+			<Statement/>
+			<Statement>
+				<MethodDefinition>
+					<Identifier name="private">
+					<Identifier/>
+					<Identifier name="int">
+					<Identifier/>
+					<Identifier name="b">
+					<Identifier/>
+					<MethodParameterList>
+					<MethodParameterList/>
+					<MethodBody>
+						<MethodStatement>
+							<FetchedObject>
+								<Identifier name="this">
+								<Identifier/>
+								<Identifier name="b">
+								<Identifier/>
+							<FetchedObject/>
+							<Assignment>
+							<Assignment/>
+							<Number name="3">
+							<Number/>
+						<MethodStatement/>
+						<ReturnStatement>
+							<FetchedObject>
+								<Identifier name="b">
+								<Identifier/>
+							<FetchedObject/>
+						<ReturnStatement/>
+					<MethodBody/>
+				<MethodDefinition/>
+			<Statement/>
+		<ClassBody/>
+	<ClassDefinition/>
+<Code/>

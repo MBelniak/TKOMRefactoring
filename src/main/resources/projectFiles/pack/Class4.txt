@@ -14,11 +14,13 @@ public class A extends ClassInner
     }
     public void b()
     {
-
+        int a = this.b;
+        return;
     }
     private int b()
     {
-
+        int b = 23;
+        return b;
     }
     protected int b()
     {

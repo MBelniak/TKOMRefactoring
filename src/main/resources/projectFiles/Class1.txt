@@ -18,10 +18,6 @@ public abstract class Class1 extends Base implements Interface1, Interface2
 
 
 
-class FSS
-    {
-
-    }
 public void c()
     {
         Other c;

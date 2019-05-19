@@ -20,7 +20,7 @@ public class Refactor {
     private Map<String, List<String>> visibleFilesAndClasses;
     private final static String PROJECT_DIRECTORY = "src\\main\\resources\\projectFiles\\";
     public final static String FILE_EXTENSION = "txt";
-    public final List<String> refactorings = new ArrayList<>(Arrays.asList("Pull up", "Push down", "Inheritance to delegation"));
+    private final List<String> refactorings = new ArrayList<>(Arrays.asList("Pull up", "Push down", "Inheritance to delegation"));
     private List<String> files;
 
     public Refactor(Scanner scanner, Parser parser) {
@@ -101,11 +101,11 @@ public class Refactor {
     }
 
     private List<String> getAllClassesAndIntInDirectoryOf(String filePath) {
-        List<String> directories = Arrays.asList(filePath.split("\\\\|/"));     //pack Class3.txt
+        List<String> directories = Arrays.asList(filePath.split("[\\\\/]"));     //pack Class3.txt
         directories = directories.subList(0, directories.size()-1);                    //pack
         if(directories.isEmpty())
         {
-            List<String> outerFiles = files.stream().filter(e->e.split("\\\\|/").length==1).collect(Collectors.toList());
+            List<String> outerFiles = files.stream().filter(e->e.split("[\\\\/]").length==1).collect(Collectors.toList());
             Set<String> classesAndInts = new HashSet<>();
             outerFiles.forEach(file -> classesAndInterfacesInFiles.get(file).forEach(rep -> {
                 if(rep.getOuterClassesOrInterfaces().isEmpty())
@@ -117,7 +117,7 @@ public class Refactor {
         {
             List<String> finalDirectories = directories;    //pack
             List<String> filesWithClasses = files.stream()
-                                                    .filter(e->Arrays.asList(e.split("\\\\|/")).subList(0, e.split("\\\\|/").length-1).equals(finalDirectories))
+                                                    .filter(e->Arrays.asList(e.split("[\\\\/]")).subList(0, e.split("[\\\\/]").length-1).equals(finalDirectories))
                                                     .collect(Collectors.toList());
             List<String> classesAndInts = new ArrayList<>();
             filesWithClasses.forEach(file->
@@ -140,10 +140,9 @@ public class Refactor {
         is declared in overlapping scope in the certain file.
      */
     private void checkForDuplicates() throws SemanticException {
-        for(int fileIndex = 0; fileIndex<files.size(); fileIndex++)
-        {
-            List<Representation> concernedClassesAndInt = classesAndInterfacesInFiles.get(files.get(fileIndex));
-            for(int i = 0; i<concernedClassesAndInt.size(); i++) {
+        for (String file : files) {
+            List<Representation> concernedClassesAndInt = classesAndInterfacesInFiles.get(file);
+            for (int i = 0; i < concernedClassesAndInt.size(); i++) {
                 Representation representation = concernedClassesAndInt.get(i);
 
                 if (representation.getOuterClassesOrInterfaces()
@@ -151,8 +150,7 @@ public class Refactor {
                         .filter(elem -> elem.equals(representation.getName())).collect(Collectors.toList()).size() > 0) {
                     throw new SemanticException("Duplicated class or interface name: " + representation.getName());
                 }
-                for (int k = 0; k < concernedClassesAndInt.size(); k++) {
-                    Representation representation2 = concernedClassesAndInt.get(k);
+                for (Representation representation2 : concernedClassesAndInt) {
                     if (representation != representation2
                             && representation.getName().equals(representation2.getName())
                             && representation.getOuterClassesOrInterfaces().equals(representation2.getOuterClassesOrInterfaces())) {
@@ -186,7 +184,6 @@ public class Refactor {
                      statementToMove.endsAtLine, statementToMove.endsAtColumn, destinationLineAndColumn.getKey(), destinationLineAndColumn.getValue());
          } catch (IOException e) {
              e.printStackTrace();
-             return;
          }
     }
 

@@ -18,6 +18,7 @@ public class MethodStatementsTests {
             new AbstractMap.SimpleEntry<>(TEST_FILES_DIRECTORY + "testFiles/constructorShouldBeAbleToCallSuper.txt", TEST_FILES_DIRECTORY+ "validation/constructorShouldBeAbleToCallSuperValidation.txt"),
             new AbstractMap.SimpleEntry<>(TEST_FILES_DIRECTORY + "testFiles/shouldParseLocalVariableDeclaration.txt", TEST_FILES_DIRECTORY+ "validation/shouldParseLocalVariableDeclarationValidation.txt"),
             new AbstractMap.SimpleEntry<>(TEST_FILES_DIRECTORY + "testFiles/shouldParseLocalVariableInitialization.txt", TEST_FILES_DIRECTORY+ "validation/shouldParseLocalVariableInitializationValidation.txt"),
+            new AbstractMap.SimpleEntry<>(TEST_FILES_DIRECTORY + "testFiles/shouldAcceptThisKeywordInStatement.txt", TEST_FILES_DIRECTORY+ "validation/shouldAcceptThisKeywordInStatementValidation.txt"),
             new AbstractMap.SimpleEntry<>(TEST_FILES_DIRECTORY + "testFiles/shouldParseFetchingObjectsAndCalls.txt", TEST_FILES_DIRECTORY+ "validation/shouldParseFetchingObjectsAndCallsValidation.txt")
     );
 

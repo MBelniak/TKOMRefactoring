@@ -775,6 +775,15 @@ public class Parser {
                 throw new ParsingException("'}' expected", currentToken.getLine(), currentToken.getColumn());
             parseInterfaceBody();
         }
+        else if(currentToken.getLexemType()==CLASS)
+        {
+            AST.startElement(Statement, currentToken);
+            AST.startElement(ClassDefinition, currentToken);
+            parseClassDefinition(); //endElement moved into the method
+            AST.endElement(currentToken.getLine(), currentToken.getColumn()); //Statement
+            advance();
+            parseInterfaceBody();
+        }
         else
             return;
     }
@@ -813,6 +822,14 @@ public class Parser {
             }
             else {
                 AST.startElement(FetchedObject, currentToken);
+                if(currentToken.getLexemType()==THIS) {
+                    AST.addIdentifierToList(currentToken);
+                    advance();
+                    if(currentToken.getLexemType()==DOT)
+                        advance();
+                    else
+                        throw new ParsingException("'.' expected.", currentToken.getLine(), currentToken.getColumn());
+                }
                 parseFetchAny();
                 AST.endElement();
             }

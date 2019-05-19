@@ -1,74 +1,14 @@
 <Code>
 	<ClassDefinition>
 		<ClassHeader>
-			<Identifier name="public">
-			<Identifier/>
 			<Identifier name="A">
 			<Identifier/>
-			<ExtendList>
-				<Identifier name="ClassInner">
-				<Identifier/>
-			<ExtendList/>
 		<ClassHeader/>
 		<ClassBody>
 			<Statement>
 				<MethodDefinition>
 					<Identifier name="private">
 					<Identifier/>
-					<Identifier name="void">
-					<Identifier/>
-					<Identifier name="a">
-					<Identifier/>
-					<MethodParameterList>
-					<MethodParameterList/>
-					<MethodBody>
-					<MethodBody/>
-				<MethodDefinition/>
-			<Statement/>
-			<Statement>
-				<MethodDefinition>
-					<Identifier name="protected">
-					<Identifier/>
-					<Identifier name="void">
-					<Identifier/>
-					<Identifier name="b">
-					<Identifier/>
-					<MethodParameterList>
-					<MethodParameterList/>
-					<MethodBody>
-					<MethodBody/>
-				<MethodDefinition/>
-			<Statement/>
-			<Statement>
-				<MethodDefinition>
-					<Identifier name="void">
-					<Identifier/>
-					<Identifier name="b">
-					<Identifier/>
-					<MethodParameterList>
-					<MethodParameterList/>
-					<MethodBody>
-					<MethodBody/>
-				<MethodDefinition/>
-			<Statement/>
-			<Statement>
-				<MethodDefinition>
-					<Identifier name="public">
-					<Identifier/>
-					<Identifier name="void">
-					<Identifier/>
-					<Identifier name="b">
-					<Identifier/>
-					<MethodParameterList>
-					<MethodParameterList/>
-					<MethodBody>
-					<MethodBody/>
-				<MethodDefinition/>
-			<Statement/>
-			<Statement>
-				<MethodDefinition>
-					<Identifier name="private">
-					<Identifier/>
 					<Identifier name="int">
 					<Identifier/>
 					<Identifier name="b">
@@ -76,288 +16,74 @@
 					<MethodParameterList>
 					<MethodParameterList/>
 					<MethodBody>
+						<MethodStatement>
+							<LocalVariableDeclaration>
+								<Identifier name="OtherClass">
+								<Identifier/>
+								<Identifier name="b">
+								<Identifier/>
+							<LocalVariableDeclaration/>
+						<MethodStatement/>
+						<MethodStatement>
+							<PrimitiveFieldDeclaration>
+								<Identifier name="a">
+								<Identifier/>
+							<PrimitiveFieldDeclaration/>
+						<MethodStatement/>
 					<MethodBody/>
 				<MethodDefinition/>
 			<Statement/>
 			<Statement>
 				<MethodDefinition>
-					<Identifier name="protected">
-					<Identifier/>
-					<Identifier name="int">
-					<Identifier/>
-					<Identifier name="b">
-					<Identifier/>
-					<MethodParameterList>
-					<MethodParameterList/>
-					<MethodBody>
-					<MethodBody/>
-				<MethodDefinition/>
-			<Statement/>
-			<Statement>
-				<MethodDefinition>
-					<Identifier name="int">
-					<Identifier/>
-					<Identifier name="b">
-					<Identifier/>
-					<MethodParameterList>
-					<MethodParameterList/>
-					<MethodBody>
-					<MethodBody/>
-				<MethodDefinition/>
-			<Statement/>
-			<Statement>
-				<MethodDefinition>
-					<Identifier name="public">
-					<Identifier/>
-					<Identifier name="int">
-					<Identifier/>
-					<Identifier name="b">
-					<Identifier/>
-					<MethodParameterList>
-					<MethodParameterList/>
-					<MethodBody>
-					<MethodBody/>
-				<MethodDefinition/>
-			<Statement/>
-			<Statement>
-				<MethodDefinition>
-					<Identifier name="private">
-					<Identifier/>
-					<Identifier name="A">
-					<Identifier/>
-					<Identifier name="a">
-					<Identifier/>
-					<MethodParameterList>
-					<MethodParameterList/>
-					<MethodBody>
-					<MethodBody/>
-				<MethodDefinition/>
-			<Statement/>
-			<Statement>
-				<MethodDefinition>
-					<Identifier name="protected">
-					<Identifier/>
-					<Identifier name="A">
-					<Identifier/>
-					<Identifier name="a">
-					<Identifier/>
-					<MethodParameterList>
-					<MethodParameterList/>
-					<MethodBody>
-					<MethodBody/>
-				<MethodDefinition/>
-			<Statement/>
-			<Statement>
-				<MethodDefinition>
-					<Identifier name="A">
-					<Identifier/>
-					<Identifier name="a">
-					<Identifier/>
-					<MethodParameterList>
-					<MethodParameterList/>
-					<MethodBody>
-					<MethodBody/>
-				<MethodDefinition/>
-			<Statement/>
-			<Statement>
-				<MethodDefinition>
-					<Identifier name="public">
-					<Identifier/>
-					<Identifier name="A">
-					<Identifier/>
-					<Identifier name="a">
-					<Identifier/>
-					<MethodParameterList>
-					<MethodParameterList/>
-					<MethodBody>
-					<MethodBody/>
-				<MethodDefinition/>
-			<Statement/>
-			<Statement>
-				<AbstractMethodDeclaration>
-					<Identifier name="void">
-					<Identifier/>
-					<Identifier name="a">
-					<Identifier/>
-					<MethodParameterList>
-					<MethodParameterList/>
-				<AbstractMethodDeclaration/>
-			<Statement/>
-			<Statement>
-				<AbstractMethodDeclaration>
-					<Identifier name="protected">
-					<Identifier/>
-					<Identifier name="void">
-					<Identifier/>
-					<Identifier name="a">
-					<Identifier/>
-					<MethodParameterList>
-					<MethodParameterList/>
-				<AbstractMethodDeclaration/>
-			<Statement/>
-			<Statement>
-				<AbstractMethodDeclaration>
-					<Identifier name="void">
-					<Identifier/>
-					<Identifier name="a">
-					<Identifier/>
-					<MethodParameterList>
-					<MethodParameterList/>
-				<AbstractMethodDeclaration/>
-			<Statement/>
-			<Statement>
-				<AbstractMethodDeclaration>
 					<Identifier name="public">
 					<Identifier/>
 					<Identifier name="void">
 					<Identifier/>
-					<Identifier name="a">
+					<Identifier name="c">
 					<Identifier/>
 					<MethodParameterList>
-					<MethodParameterList/>
-				<AbstractMethodDeclaration/>
-			<Statement/>
-			<Statement>
-				<AbstractMethodDeclaration>
-					<Identifier name="int">
-					<Identifier/>
-					<Identifier name="a">
-					<Identifier/>
-					<MethodParameterList>
-					<MethodParameterList/>
-				<AbstractMethodDeclaration/>
-			<Statement/>
-			<Statement>
-				<AbstractMethodDeclaration>
-					<Identifier name="protected">
-					<Identifier/>
-					<Identifier name="int">
-					<Identifier/>
-					<Identifier name="a">
-					<Identifier/>
-					<MethodParameterList>
-					<MethodParameterList/>
-				<AbstractMethodDeclaration/>
-			<Statement/>
-			<Statement>
-				<AbstractMethodDeclaration>
-					<Identifier name="int">
-					<Identifier/>
-					<Identifier name="a">
-					<Identifier/>
-					<MethodParameterList>
-					<MethodParameterList/>
-				<AbstractMethodDeclaration/>
-			<Statement/>
-			<Statement>
-				<AbstractMethodDeclaration>
-					<Identifier name="public">
-					<Identifier/>
-					<Identifier name="int">
-					<Identifier/>
-					<Identifier name="a">
-					<Identifier/>
-					<MethodParameterList>
-					<MethodParameterList/>
-				<AbstractMethodDeclaration/>
-			<Statement/>
-			<Statement>
-				<AbstractMethodDeclaration>
-					<Identifier name="A">
-					<Identifier/>
-					<Identifier name="a">
-					<Identifier/>
-					<MethodParameterList>
-					<MethodParameterList/>
-				<AbstractMethodDeclaration/>
-			<Statement/>
-			<Statement>
-				<AbstractMethodDeclaration>
-					<Identifier name="protected">
-					<Identifier/>
-					<Identifier name="A">
-					<Identifier/>
-					<Identifier name="a">
-					<Identifier/>
-					<MethodParameterList>
-					<MethodParameterList/>
-				<AbstractMethodDeclaration/>
-			<Statement/>
-			<Statement>
-				<AbstractMethodDeclaration>
-					<Identifier name="A">
-					<Identifier/>
-					<Identifier name="a">
-					<Identifier/>
-					<MethodParameterList>
-					<MethodParameterList/>
-				<AbstractMethodDeclaration/>
-			<Statement/>
-			<Statement>
-				<AbstractMethodDeclaration>
-					<Identifier name="public">
-					<Identifier/>
-					<Identifier name="A">
-					<Identifier/>
-					<Identifier name="a">
-					<Identifier/>
-					<MethodParameterList>
-					<MethodParameterList/>
-				<AbstractMethodDeclaration/>
-			<Statement/>
-			<Statement>
-				<AbstractMethodDeclaration>
-					<Identifier name="public">
-					<Identifier/>
-					<Identifier name="A">
-					<Identifier/>
-					<Identifier name="a">
-					<Identifier/>
-					<MethodParameterList>
-						<Identifier name="int">
-						<Identifier/>
-						<Identifier name="a">
-						<Identifier/>
-						<Identifier name="B">
-						<Identifier/>
-						<Identifier name="b">
-						<Identifier/>
-						<Identifier name="int">
-						<Identifier/>
-						<Identifier name="c">
-						<Identifier/>
-					<MethodParameterList/>
-				<AbstractMethodDeclaration/>
-			<Statement/>
-			<Statement>
-				<MethodDefinition>
-					<Identifier name="public">
-					<Identifier/>
-					<Identifier name="int">
-					<Identifier/>
-					<Identifier name="a">
-					<Identifier/>
-					<MethodParameterList>
-						<Identifier name="int">
-						<Identifier/>
-						<Identifier name="a">
-						<Identifier/>
-						<Identifier name="int">
-						<Identifier/>
-						<Identifier name="b">
-						<Identifier/>
-						<Identifier name="B">
-						<Identifier/>
-						<Identifier name="c">
-						<Identifier/>
-						<Identifier name="C">
-						<Identifier/>
-						<Identifier name="f">
-						<Identifier/>
 					<MethodParameterList/>
 					<MethodBody>
+						<MethodStatement>
+							<LocalVariableDeclaration>
+								<Identifier name="Other">
+								<Identifier/>
+								<Identifier name="c">
+								<Identifier/>
+							<LocalVariableDeclaration/>
+						<MethodStatement/>
+						<MethodStatement>
+							<PrimitiveFieldDeclaration>
+								<Identifier name="g">
+								<Identifier/>
+							<PrimitiveFieldDeclaration/>
+						<MethodStatement/>
 					<MethodBody/>
 				<MethodDefinition/>
+			<Statement/>
+			<Statement>
+				<ConstructorDefinition>
+					<Identifier name="A">
+					<Identifier/>
+					<MethodParameterList>
+					<MethodParameterList/>
+					<MethodBody>
+						<MethodStatement>
+							<PrimitiveFieldDeclaration>
+								<Identifier name="f">
+								<Identifier/>
+							<PrimitiveFieldDeclaration/>
+						<MethodStatement/>
+						<MethodStatement>
+							<LocalVariableDeclaration>
+								<Identifier name="OtherClass">
+								<Identifier/>
+								<Identifier name="g">
+								<Identifier/>
+							<LocalVariableDeclaration/>
+						<MethodStatement/>
+					<MethodBody/>
+				<ConstructorDefinition/>
 			<Statement/>
 		<ClassBody/>
 	<ClassDefinition/>

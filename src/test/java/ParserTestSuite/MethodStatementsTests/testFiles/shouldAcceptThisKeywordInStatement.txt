@@ -1,0 +1,13 @@
+public class Class
+{
+    public void b()
+    {
+        int a = this.b;
+        return;
+    }
+    private int b()
+    {
+        this.b = 3;
+        return b;
+    }
+}

@@ -114,7 +114,7 @@ public class ChooseFileController {
         if(statements == null)
             return;
         List<String> result = statements.stream()
-                            .map(stmnt -> stmnt.getStatementType() + ": " + stmnt.getName() + stmnt.getExtraInfo())
+                            .map(stmnt -> stmnt.getStatementType() + ": " + stmnt.getAccessModifier() + " " + stmnt.getName() + stmnt.getExtraInfo())
                             .collect(Collectors.toList());
         statementsItems.clear();
         statementsItems.addAll(FXCollections.observableArrayList(result));
@@ -128,7 +128,7 @@ public class ChooseFileController {
         if(statements == null)
             return;
         List<String> result = statements.stream()
-                .map(stmnt -> stmnt.getStatementType() + ": " + stmnt.getName() + stmnt.getExtraInfo())
+                .map(stmnt -> stmnt.getStatementType() + ": " + stmnt.getAccessModifier() + " " + stmnt.getName() + stmnt.getExtraInfo())
                 .collect(Collectors.toList());
         statementsItems.clear();
         statementsItems.addAll(FXCollections.observableArrayList(result));
@@ -141,3 +141,12 @@ public class ChooseFileController {
         nextButton.setDisable(false);
     }
 }
+
+interface A
+{
+    class C
+    {
+
+    }
+}
+

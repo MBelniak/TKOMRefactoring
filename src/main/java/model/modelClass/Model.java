@@ -26,6 +26,7 @@ public class Model {
     public Model()
     {
         filesInProjectDirectory  = new ArrayList<>();
+
         try (Stream<Path> walk = Files.walk(Paths.get("src/main/resources/projectFiles"))) {
 
             filesInProjectDirectory = walk.map(Path::toString)
@@ -48,9 +49,7 @@ public class Model {
     }
 
     public List<String> getFilesInProjectDirectory() {
-        List<String> files = new ArrayList<>();
-        files.addAll(filesInProjectDirectory.stream().map(string -> string.substring(32, string.length())).collect(Collectors.toList()));
-        return files;
+        return filesInProjectDirectory.stream().map(string -> string.substring(32, string.length())).collect(Collectors.toList());
     }
 
     public List<Representation> getRepresentationsInFile(String fileName)
@@ -97,7 +96,6 @@ public class Model {
         Representation representation = refactor.findClassOrInterfaceInFile(file, chosenClassPath);
         if(representation==null)
             return new ArrayList<>();
-        List<String> bases = representation.getBases();
-        return bases;
+        return representation.getBases();
     }
 }
