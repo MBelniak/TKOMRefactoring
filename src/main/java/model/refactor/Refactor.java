@@ -8,6 +8,7 @@ import model.scanner.Scanner;
 import javafx.util.Pair;
 
 import java.io.*;
+import java.lang.reflect.Array;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -93,9 +94,45 @@ public class Refactor {
             {
                 List<String> imports = AST.checkImports();
                 classesAndInterfacesInFiles.get(filePath).
-                        forEach(classRep -> imports.add(filePath.replace("\\\\/", ".").replace(FILE_EXTENSION, "").concat(classRep.getName()))); // have to add classes in that file
+                        forEach(classRep -> imports.add(filePath.replace("/", ".").replace("\\", ".").replace(FILE_EXTENSION, "").concat(classRep.getName()))); // have to add classes in that file
+                imports.addAll(getAllClassesAndIntInDirectoryOf(filePath));
                 visibleFilesAndClasses.put(filePath, imports);
             });
+    }
+
+    private List<String> getAllClassesAndIntInDirectoryOf(String filePath) {
+        List<String> directories = Arrays.asList(filePath.split("\\\\|/"));     //pack Class3.txt
+        directories = directories.subList(0, directories.size()-1);                    //pack
+        if(directories.isEmpty())
+        {
+            List<String> outerFiles = files.stream().filter(e->e.split("\\\\|/").length==1).collect(Collectors.toList());
+            Set<String> classesAndInts = new HashSet<>();
+            outerFiles.forEach(file -> classesAndInterfacesInFiles.get(file).forEach(rep -> {
+                if(rep.getOuterClassesOrInterfaces().isEmpty())
+                    classesAndInts.add(file.substring(0, file.length()-4) + "." + rep.getName());
+            }));
+            return new ArrayList<>(classesAndInts);
+        }
+        else
+        {
+            List<String> finalDirectories = directories;    //pack
+            List<String> filesWithClasses = files.stream()
+                                                    .filter(e->Arrays.asList(e.split("\\\\|/")).subList(0, e.split("\\\\|/").length-1).equals(finalDirectories))
+                                                    .collect(Collectors.toList());
+            List<String> classesAndInts = new ArrayList<>();
+            filesWithClasses.forEach(file->
+                    classesAndInterfacesInFiles.get(file).forEach(rep ->
+                    {
+                        if(rep.getOuterClassesOrInterfaces().isEmpty()) {
+                            StringBuilder result = new StringBuilder();
+                            filesWithClasses.forEach(e -> result.append(e).append("."));
+                            result.delete(result.length()-5, result.length()-4);
+                            result.append(rep.getName());
+                            classesAndInts.add(result.toString());
+                        }
+                    }));
+            return classesAndInts;
+        }
     }
 
     /*

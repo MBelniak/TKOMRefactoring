@@ -1,4 +1,4 @@
-public class A
+public class A extends ClassInner
 {
     private void a()
     {

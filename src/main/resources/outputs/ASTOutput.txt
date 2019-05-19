@@ -5,6 +5,10 @@
 			<Identifier/>
 			<Identifier name="A">
 			<Identifier/>
+			<ExtendList>
+				<Identifier name="ClassInner">
+				<Identifier/>
+			<ExtendList/>
 		<ClassHeader/>
 		<ClassBody>
 			<Statement>

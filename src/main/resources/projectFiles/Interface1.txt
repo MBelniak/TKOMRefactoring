@@ -15,3 +15,7 @@ interface Interface1 extends BaseInterface, OtherInterface
     void methodIII(int a, int b);
     Class1 methodIV(Class1 a);
 }
+interface Interface2
+{
+
+}

@@ -9,8 +9,9 @@ import java.util.Map;
 
 public class ClassRepresentation implements Representation{
     private String baseClass;
-    private Representation baseClassRepresentation;
+    private ClassRepresentation baseClassRepresentation;
     private List<String> interfacesImplemented;
+    private List<InterfaceRepresentation> interfacesImplementedRepresentations;
     private AbstractSyntaxTree.ASTNode nodeRepresentation;
     private List<Statement> statements;
     private String filePath;
@@ -23,6 +24,7 @@ public class ClassRepresentation implements Representation{
         this.interfacesImplemented = new ArrayList<>();
         this.nodeRepresentation = node;
         this.outerClassesOrInterfaces = new ArrayList<>(outerClassesOrInterfaces);
+        interfacesImplementedRepresentations = new ArrayList<>();
         checkAllMovableStatements();
     }
 
@@ -92,7 +94,7 @@ public class ClassRepresentation implements Representation{
 
     @Override
     public void checkIfBaseVisible(List<String> visibleClasses, Map<String, List<Representation>> representationsInFiles) throws SemanticException {
-        if(baseClass == null && interfacesImplemented.isEmpty())
+        if(baseClass == null)
             return;
 
         Representation classFound = null;
@@ -102,7 +104,7 @@ public class ClassRepresentation implements Representation{
             if(path.get(path.size()-1).equals(baseClass))
             {
                 if((classFound = findClassByPath(representationsInFiles, path))!=null) {
-                    baseClassRepresentation = classFound;   //save the base representation for further purposes
+                    baseClassRepresentation = (ClassRepresentation) classFound;   //save the base representation for further purposes
                     break;
                 }
             }
@@ -112,9 +114,46 @@ public class ClassRepresentation implements Representation{
     }
 
     @Override
-    public void checkIfInterfacesVisible(List<String> strings, Map<String, List<Representation>> classesAndInterfacesInFiles) throws SemanticException{
+    public void checkIfInterfacesVisible(List<String> visibleClasses, Map<String, List<Representation>> representationsInFiles) throws SemanticException{
+        if(interfacesImplemented.isEmpty())
+            return;
 
+        for(String inter : interfacesImplemented)
+        {
+            Representation interfaceFound = null;
+            for (int impor = 0; impor < visibleClasses.size(); impor++) {
+                List<String> path = new ArrayList<>(Arrays.asList(visibleClasses.get(impor).split("\\.")));
+                if (path.get(path.size() - 1).equals(inter)) {
+                    if ((interfaceFound = findInterfaceByPath(representationsInFiles, path)) != null) {
+                        interfacesImplementedRepresentations.add((InterfaceRepresentation)interfaceFound);   //save the base representation for further purposes
+                        break;
+                    }
+                }
+            }
+            if(interfaceFound == null)
+                throw new SemanticException("Cannot find interface: " + inter + " for class " + this.getName() + " in file " + this.filePath);
+        }
+    }
 
+    private Representation findInterfaceByPath(Map<String,List<Representation>> representationsInFiles, List<String> path) {
+        if(path==null)
+            return null;
+        StringBuilder pathToFind= new StringBuilder(path.get(0)+".txt");
+        for (int i = 0; i<path.size(); i++) {
+            if (representationsInFiles.get(pathToFind.toString()) != null)  //found potential file in which there can be class sought
+            {
+                for(Representation rep : representationsInFiles.get(pathToFind.toString()))
+                {
+                    if(rep.getName().equals(path.get(path.size()-1)) && rep instanceof InterfaceRepresentation) {
+                        return rep;
+                    }
+                }
+            }
+            if(i<path.size()-1)
+                pathToFind.delete(pathToFind.length() - 4, pathToFind.length()).append("\\").append(path.get(i+1)).append(".txt");
+        }
+
+        return null;
     }
 
     private Representation findClassByPath(Map<String,List<Representation>> representationsInFiles, List<String> path) {

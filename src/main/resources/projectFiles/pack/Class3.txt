@@ -1,5 +1,6 @@
 public class Class3
 {
+
     private int a;
     private int b;
 
@@ -18,3 +19,7 @@ public class Class3
         this.b = b;
     }
 }
+class ClassInner
+   {
+
+    }
