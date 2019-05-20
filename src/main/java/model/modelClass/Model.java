@@ -21,13 +21,14 @@ public class Model {
     private static final Scanner scanner = new Scanner();
     private static final Parser parser = new Parser(scanner);
     private static final Refactor refactor = new Refactor(scanner, parser);
+    private static final String PROJECT_DIRECTORY = "src\\main\\resources\\projectFiles\\";
     private List<String> filesInProjectDirectory;
 
     public Model()
     {
         filesInProjectDirectory  = new ArrayList<>();
 
-        try (Stream<Path> walk = Files.walk(Paths.get("src/main/resources/projectFiles"))) {
+        try (Stream<Path> walk = Files.walk(Paths.get(PROJECT_DIRECTORY))) {
 
             filesInProjectDirectory = walk.map(Path::toString)
                     .filter(f -> f.endsWith(".txt")).collect(Collectors.toList());

@@ -2,6 +2,7 @@ package model.refactor;
 
 import model.exceptions.SemanticException;
 import model.parser.AbstractSyntaxTree;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;

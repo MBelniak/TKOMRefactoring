@@ -1,23 +1,26 @@
 package model.refactor;
 
+import javafx.util.Pair;
 import model.exceptions.ParsingException;
 import model.exceptions.SemanticException;
 import model.parser.AbstractSyntaxTree;
 import model.parser.Parser;
 import model.scanner.Scanner;
-import javafx.util.Pair;
 
 import java.io.*;
-import java.lang.reflect.Array;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.*;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class Refactor {
     private final Scanner scanner;
     private final Parser parser;
     private Map<String, AbstractSyntaxTree> ASTs;
     private Map<String, List<Representation>> classesAndInterfacesInFiles;
-    private Map<String, List<String>> visibleFilesAndClasses;
+    private Map<String, List<String>> visibleFilesAndClasses; //file1.file2.Class1, ...
     private final static String PROJECT_DIRECTORY = "src\\main\\resources\\projectFiles\\";
     public final static String FILE_EXTENSION = "txt";
     private final List<String> refactorings = new ArrayList<>(Arrays.asList("Pull up", "Push down", "Inheritance to delegation"));
@@ -92,48 +95,84 @@ public class Refactor {
     private void analyzeVisibleFilesAndClasses() {
         ASTs.forEach((filePath, AST) ->
             {
-                List<String> imports = AST.checkImports();
-                classesAndInterfacesInFiles.get(filePath).
-                        forEach(classRep -> imports.add(filePath.replace("/", ".").replace("\\", ".").replace(FILE_EXTENSION, "").concat(classRep.getName()))); // have to add classes in that file
-                imports.addAll(getAllClassesAndIntInDirectoryOf(filePath));
-                visibleFilesAndClasses.put(filePath, imports);
+                List<String> imports = AST.checkImports(); //A.B.C.*, A.B.C
+                List<String> visibleClasses = getClassesBasedOnImports(imports);
+                String selfImport;
+                if(filePath.contains("\\"))
+                     selfImport = filePath.substring(0, filePath.lastIndexOf('\\')); //classes in the same package are always visible
+                else
+                    selfImport = "";
+                visibleClasses.addAll(getPublicClassesPathsInDirectory(selfImport));
+
+                visibleFilesAndClasses.put(filePath, visibleClasses);
             });
     }
 
-    private List<String> getAllClassesAndIntInDirectoryOf(String filePath) {
-        List<String> directories = Arrays.asList(filePath.split("[\\\\/]"));     //pack Class3.txt
-        directories = directories.subList(0, directories.size()-1);                    //pack
-        if(directories.isEmpty())
+    private List<String> getClassesBasedOnImports(List<String> imports) {
+        Set<String> result = new HashSet<>();
+        imports.forEach(imp ->
         {
-            List<String> outerFiles = files.stream().filter(e->e.split("[\\\\/]").length==1).collect(Collectors.toList());
-            Set<String> classesAndInts = new HashSet<>();
-            outerFiles.forEach(file -> classesAndInterfacesInFiles.get(file).forEach(rep -> {
-                if(rep.getOuterClassesOrInterfaces().isEmpty())
-                    classesAndInts.add(file.substring(0, file.length()-4) + "." + rep.getName());
-            }));
-            return new ArrayList<>(classesAndInts);
-        }
-        else
-        {
-            List<String> finalDirectories = directories;    //pack
-            List<String> filesWithClasses = files.stream()
-                                                    .filter(e->Arrays.asList(e.split("[\\\\/]")).subList(0, e.split("[\\\\/]").length-1).equals(finalDirectories))
-                                                    .collect(Collectors.toList());
-            List<String> classesAndInts = new ArrayList<>();
-            filesWithClasses.forEach(file->
-                    classesAndInterfacesInFiles.get(file).forEach(rep ->
-                    {
-                        if(rep.getOuterClassesOrInterfaces().isEmpty()) {
-                            StringBuilder result = new StringBuilder();
-                            filesWithClasses.forEach(e -> result.append(e).append("."));
-                            result.delete(result.length()-5, result.length()-4);
-                            result.append(rep.getName());
-                            classesAndInts.add(result.toString());
-                        }
-                    }));
-            return classesAndInts;
-        }
+            if(imp.charAt(imp.length()-1) == '*')   //import all classes in directory
+            {
+                imp = imp.substring(0, imp.length()-2);
+                imp = imp.replace(".", "\\");
+                List<String> publicClasses = getPublicClassesPathsInDirectory(imp);
+                if(publicClasses!=null)
+                {
+                    publicClasses = publicClasses.stream().map(pc -> pc.replace("\\", ".")).collect(Collectors.toList());
+                    publicClasses.forEach(file -> result.add(file + file.substring(file.lastIndexOf(".")+1, file.length())));  //I'll double the class name for easier looking for a class
+                }
+            }
+            else
+            {
+                result.add(imp + "." + imp.substring(imp.indexOf("."), imp.length()));
+            }
+        });
+        return new ArrayList<>(result);
     }
+
+    private List<String> getPublicClassesPathsInDirectory(String path) {    //path as package/one/two
+        List<String> filesInDirectory  = new ArrayList<>();
+        int level = path.split("\\\\").length;
+
+        try (Stream<Path> walk = Files.walk(Paths.get(PROJECT_DIRECTORY+path))) {
+
+            filesInDirectory = walk.map(Path::toString)
+                    .filter(f -> f.endsWith("." + FILE_EXTENSION)).collect(Collectors.toList());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        filesInDirectory = filesInDirectory.stream().filter(file -> file.split("\\\\").length == level+1).collect(Collectors.toList());
+        filesInDirectory = filesInDirectory.stream().map(file -> file.substring(32, file.length()-4)).collect(Collectors.toList());
+        return filesInDirectory;
+    }
+
+//    private List<String> getAllClassesAndIntInDirectoryOf(String filePath) {
+//        List<String> directoryPathSplitted = Arrays.asList(filePath.split("[\\\\/]"));     //pack Class3.txt
+//        directoryPathSplitted = directoryPathSplitted.subList(0, directoryPathSplitted.size()-1);                    //pack
+//        if(directoryPathSplitted.isEmpty())
+//        {
+//            List<String> outerFiles = files.stream().filter(e->e.split("[\\\\/]").length==1).collect(Collectors.toList());
+//            Set<String> classesAndInts = new HashSet<>();
+//            outerFiles.forEach(file ->
+//                    classesAndInts.add(file.substring(0, file.length()-4) + "." + file.substring(0, file.length()-4)));
+//            return new ArrayList<>(classesAndInts);
+//        }
+//        else
+//        {
+//            StringBuilder directoryPath = new StringBuilder();
+//            directoryPathSplitted.forEach(dir -> directoryPath.append(dir).append("\\"));
+//            directoryPath.delete(directoryPath.length()-1, directoryPath.length());
+//            List<String> publicClasses = getPublicClassesPathsInDirectory(directoryPath.toString());
+//            List<String> result = new ArrayList<>();
+//            if(publicClasses!=null)
+//            {
+//                publicClasses = publicClasses.stream().map(pc -> pc.replace("\\", ".")).collect(Collectors.toList());
+//                publicClasses.forEach(file -> result.add(file + file.substring(file.lastIndexOf(".")+1, file.length())));  //I'll double the class name for easier looking for a class
+//            }
+//            return result;
+//        }
+//    }
 
     /*
         Basic check of duplication. Throws SemanticException if class or interface with the same name

@@ -1,5 +1,6 @@
 import junit;
 import org.apache.common.*;
+import pack.A;
 
 
 class Base{
@@ -13,7 +14,7 @@ interface A
 private int b;
 private Class2 field;
 }
-public abstract class Class1 extends Base implements Interface1, Interface2
+public abstract class Class1 extends A
 {
 
 
