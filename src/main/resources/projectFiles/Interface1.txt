@@ -1,32 +1,12 @@
-interface Interface1 extends BaseInterface, OtherInterface
+interface Interface1
 {
-
-
-    
-class FSS
+    private void b()
     {
 
     }
-int methodII();
-    void methodIII(int a, int b);
-    Class1 methodIV(Class1 a);
-}
-interface Interface2
-{
 
-}
-interface BaseInterface
-{
-
-
-
-private void methodP(int a, int b)
+    class b
     {
-        a = b.m(a.f.f());
-        return;
-    }
-default int methodI()
-    {
-        return 2;
+
     }
 }

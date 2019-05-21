@@ -2,11 +2,11 @@ package model.refactor;
 
 import model.exceptions.SemanticException;
 import model.parser.AbstractSyntaxTree;
+import model.util.PackagesUtils;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Map;
+import javax.swing.plaf.nimbus.State;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class ClassRepresentation implements Representation{
     private String baseClass;
@@ -17,6 +17,7 @@ public class ClassRepresentation implements Representation{
     private List<Statement> statements;
     private String filePath;        //A\B\C\d.txt
     private List<String> outerClassesOrInterfaces;
+    private List<String> imports;
     String name;
 
     public ClassRepresentation(String filePath, String className, AbstractSyntaxTree.ASTNode node, List<String> outerClassesOrInterfaces) {
@@ -94,86 +95,34 @@ public class ClassRepresentation implements Representation{
     }
 
     @Override
-    public void checkIfBaseVisible(List<String> visibleClasses, Map<String, List<Representation>> representationsInFiles) throws SemanticException {
+    public void checkIfBaseVisible(Map<String, List<Representation>> representationsInFiles) throws SemanticException {
         if(baseClass == null)
             return;
 
-        Representation classFound = null;
-        for (String visibleClass : visibleClasses) {
-            List<String> path = new ArrayList<>(Arrays.asList(visibleClass.split("\\.")));
-            if (path.get(path.size() - 1).equals(baseClass)) {
-                if ((classFound = findClassByPath(representationsInFiles, path)) != null) {
-                    baseClassRepresentation = (ClassRepresentation) classFound;   //save the base representation for further purposes
-                    break;
-                }
-            }
-        }
-        if(classFound == null)
-            throw new SemanticException("Cannot find base class: " + baseClass + " for class " + this.getName() + " in file " + this.filePath);
+        if((baseClassRepresentation = PackagesUtils.checkVisibilityInTheSameFile(representationsInFiles, this, baseClass, outerClassesOrInterfaces, this.filePath)) == null)
+            if((baseClassRepresentation = PackagesUtils.checkVisibilityInTheSamePackage(representationsInFiles, this, baseClass, this.filePath)) == null)
+                if((baseClassRepresentation = PackagesUtils.checkVisibilityByImports(representationsInFiles, imports, this, baseClass)) == null)
+                    throw new SemanticException("Cannot find base class for " + getName() + " in file " + getFilePath());
+
     }
 
     @Override
-    public void checkIfInterfacesVisible(List<String> visibleClasses, Map<String, List<Representation>> representationsInFiles) throws SemanticException{
+    public void checkIfInterfacesVisible(Map<String, List<Representation>> representationsInFiles) throws SemanticException{
         if(interfacesImplemented.isEmpty())
             return;
 
-        for(String inter : interfacesImplemented)
-        {
-            Representation interfaceFound = null;
-            for (String visibleClass : visibleClasses) {
-                List<String> path = new ArrayList<>(Arrays.asList(visibleClass.split("\\.")));
-                if (path.get(path.size() - 1).equals(inter)) {
-                    if ((interfaceFound = findInterfaceByPath(representationsInFiles, path)) != null) {
-                        interfacesImplementedRepresentations.add((InterfaceRepresentation) interfaceFound);   //save the base representation for further purposes
-                        break;
-                    }
-                }
-            }
-            if(interfaceFound == null)
-                throw new SemanticException("Cannot find interface: " + inter + " for class " + this.getName() + " in file " + this.filePath);
+        InterfaceRepresentation interfaceRepresentation = new InterfaceRepresentation("a", "a", this.nodeRepresentation, new ArrayList<>());
+        for (String oneInterface : interfacesImplemented) {
+
+            InterfaceRepresentation oneInterfaceFound;
+
+            if((oneInterfaceFound = PackagesUtils
+                                    .checkVisibilityInTheSameFile(representationsInFiles, interfaceRepresentation, oneInterface, outerClassesOrInterfaces, this.filePath)) == null)
+                if((oneInterfaceFound = PackagesUtils.checkVisibilityInTheSamePackage(representationsInFiles, interfaceRepresentation, oneInterface, this.filePath)) == null)
+                    if((oneInterfaceFound = PackagesUtils.checkVisibilityByImports(representationsInFiles, imports, interfaceRepresentation, oneInterface)) == null)
+                        throw new SemanticException("Cannot find base interface for " + getName() + " in file " + getFilePath());
+            interfacesImplementedRepresentations.add(oneInterfaceFound);
         }
-    }
-
-    private Representation findInterfaceByPath(Map<String,List<Representation>> representationsInFiles, List<String> path) {
-        if(path==null)
-            return null;
-        StringBuilder pathToFind= new StringBuilder(path.get(0)+".txt");
-        for (int i = 0; i<path.size(); i++) {
-            if (representationsInFiles.get(pathToFind.toString()) != null)  //found potential file in which there can be class sought
-            {
-                for(Representation rep : representationsInFiles.get(pathToFind.toString()))
-                {
-                    if(rep.getName().equals(path.get(path.size()-1)) && rep instanceof InterfaceRepresentation) {
-                        return rep;
-                    }
-                }
-            }
-            if(i<path.size()-1)
-                pathToFind.delete(pathToFind.length() - 4, pathToFind.length()).append("\\").append(path.get(i+1)).append(".txt");
-        }
-
-        return null;
-    }
-
-    private Representation findClassByPath(Map<String,List<Representation>> representationsInFiles, List<String> path) {
-        if(path==null)
-            return null;
-        StringBuilder pathToFind= new StringBuilder(path.get(0)+".txt");
-        for (int i = 0; i<path.size(); i++) {
-            if (representationsInFiles.get(pathToFind.toString()) != null)  //found potential file in which there can be class sought
-            {
-                for(Representation rep : representationsInFiles.get(pathToFind.toString()))
-                {
-                    if(rep.getName().equals(path.get(path.size()-1)) && rep instanceof ClassRepresentation) {
-                        return rep;
-                    }
-                }
-            }
-            if(i<path.size()-1)
-                pathToFind.delete(pathToFind.length() - 4, pathToFind.length()).append("\\").append(path.get(i+1)).append(".txt");
-        }
-
-        return null;
     }
 
     @Override
@@ -200,5 +149,32 @@ public class ClassRepresentation implements Representation{
     public String getFilePath() {
         return filePath;
     }
+
+    @Override
+    public String getAccessModifier() {
+        AbstractSyntaxTree.ASTNode header = nodeRepresentation.children.get(0);
+        if(header.children.get(0).identifier.equals("public")
+                ||header.children.get(0).identifier.equals("protected")
+                ||header.children.get(0).identifier.equals("private"))
+            return header.children.get(0).identifier;
+        return "";
+    }
+
+    @Override
+    public void setImports(List<String> imports) {
+        this.imports = imports;
+    }
+
+    @Override
+    public boolean checkIfSameStatementExists(Statement statement, int count) {
+        if(statement==null)
+            return false;
+        List<Statement> statementsFound = statements.stream()
+                .filter(stmnt -> stmnt.getStatementSignature().equals(statement.getStatementSignature())
+                        && stmnt.getCategory().equals(statement.getCategory()))
+                .collect(Collectors.toList());
+        return statementsFound.size() >= count;
+    }
+
 
 }

@@ -54,6 +54,10 @@ public abstract class Statement {
 
     public abstract String getExtraInfo();
 
+    public abstract String getStatementSignature();
+
+    public abstract String getCategory();
+
     public void setStartsAtLine(int startsAtLine) {
         this.startsAtLine = startsAtLine;
     }

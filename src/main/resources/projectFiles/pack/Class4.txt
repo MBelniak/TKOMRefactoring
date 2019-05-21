@@ -1,10 +1,6 @@
-public class A extends ClassInner
+public class Class4 extends InnerClass
 {
     private void a()
-    {
-
-    }
-    protected void b()
     {
 
     }
@@ -12,59 +8,59 @@ public class A extends ClassInner
     {
 
     }
-    public void b()
+    public void c()
     {
         int a = this.b;
         return;
     }
-    private int b()
+    private int d()
     {
         int b = 23;
         return b;
     }
-    protected int b()
+    protected int e()
     {
 
     }
-    int b()
+    int f()
     {
 
     }
-    public int b()
+    public int g()
     {
 
     }
-    private A a()
+    private A h()
     {
 
     }
-    protected A a()
+    protected A i()
     {
 
     }
-    A a()
+    A j()
     {
 
     }
-    public A a()
+    public A k()
     {
 
     }
-    abstract void a();
-    protected abstract void a();
-    abstract void a();
-    public abstract void a();
-    abstract int a();
-    protected abstract int a();
-    abstract int a();
-    public abstract int a();
-    abstract A a();
-    protected abstract A a();
-    abstract A a();
-    public abstract A a();
+    abstract void l();
+    protected abstract void m();
+    abstract void n();
+    public abstract void o();
+    abstract int p();
+    protected abstract int r();
+    abstract int s();
+    public abstract int t();
+    abstract A u();
+    protected abstract A v();
+    abstract A w();
+    public abstract A z();
 
-    public abstract A a(int a, B b, int c);
-    public int a(int a, int b, B c, C f)
+    public abstract A aa(int a, B b, int c);
+    public int bb(int a, int b, B c, C f)
     {
 
     }

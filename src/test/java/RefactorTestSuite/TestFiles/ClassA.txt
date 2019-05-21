@@ -1,0 +1,17 @@
+import Pack.*;
+
+public class A extends ClassPackB
+{
+    private void a()
+    {
+
+    }
+    protected void b()
+    {
+
+    }
+    void b()
+    {
+
+    }
+}

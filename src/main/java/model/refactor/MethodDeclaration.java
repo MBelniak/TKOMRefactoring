@@ -43,6 +43,23 @@ public class MethodDeclaration extends Statement {
         return result.toString();
     }
 
+    @Override
+    public String getStatementSignature() {
+        StringBuilder parameters = new StringBuilder();
+        for (int i = 0; i < methodParameterList.size(); i++)
+        {
+            parameters.append(methodParameterList.get(i).getKey()).append(" ").append(methodParameterList.get(i).getValue());
+            if(i != methodParameterList.size()-1)
+                parameters.append(", ");
+        }
+        return this.name + " (" + parameters.toString() + ")";
+    }
+
+    @Override
+    public String getCategory() {
+        return "Method";
+    }
+
     private String checkReturnType() {
         int hasAccessModifier = this.accessModifier == AccessModifier.None ? 0 : 1;
 

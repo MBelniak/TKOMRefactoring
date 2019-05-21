@@ -25,6 +25,16 @@ public class ClassDefinition extends Statement {
         return "";
     }
 
+    @Override
+    public String getStatementSignature() {
+        return this.name;
+    }
+
+    @Override
+    public String getCategory() {
+        return "Class";
+    }
+
     private AccessModifier checkAccessModifier() {
         if(nodeRep.children.get(0).children.get(0).nodeType==AbstractSyntaxTree.ElementType.Identifier)
         {

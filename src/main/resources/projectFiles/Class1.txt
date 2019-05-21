@@ -1,24 +1,22 @@
 import junit;
 import org.apache.common.*;
-import pack.A;
+import pack.InnerClass;
 
 
 class Base{
-public abstract void method3(int a, int b);
-protected abstract void method2();
-abstract void method1();
-interface A
-    {
+    public abstract void method3(int a, int b);
+    protected abstract void method2();
+    abstract void method1();
+    interface A
+        {
 
-    }
-private int b;
-private Class2 field;
+        }
+    private int b;
+    private Class2 field;
 }
-public abstract class Class1 extends A
+
+public abstract class Class1 extends InnerClass
 {
-
-
-
 public void c()
     {
         Other c;
@@ -29,4 +27,9 @@ private int b()
         OtherClass b;
         int a;
     }
+}
+
+class A
+{
+
 }

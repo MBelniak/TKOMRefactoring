@@ -8,20 +8,15 @@ import model.parser.Parser;
 import model.scanner.Scanner;
 
 import java.io.*;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.*;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 public class Refactor {
     private final Scanner scanner;
     private final Parser parser;
     private Map<String, AbstractSyntaxTree> ASTs;
-    private Map<String, List<Representation>> classesAndInterfacesInFiles;
-    private Map<String, List<String>> visibleFilesAndClasses; //file1.file2.Class1, ...
-    private final static String PROJECT_DIRECTORY = "src\\main\\resources\\projectFiles\\";
+    private Map<String, List<Representation>> classesAndInterfacesInFiles;  //dir1/dir2/file.txt
+    public final static String PROJECT_DIRECTORY = "src\\main\\resources\\projectFiles\\";
     public final static String FILE_EXTENSION = "txt";
     private final List<String> refactorings = new ArrayList<>(Arrays.asList("Pull up", "Push down", "Inheritance to delegation"));
     private List<String> files;
@@ -31,7 +26,6 @@ public class Refactor {
         this.parser = parser;
         this.ASTs = new HashMap<>();
         this.classesAndInterfacesInFiles = new HashMap<>();
-        visibleFilesAndClasses = new HashMap<>();
         this.files = new ArrayList<>();
     }
 
@@ -57,8 +51,6 @@ public class Refactor {
             System.out.println(e.getMessage());
         }
         //writeClassesAndInterfaces();
-        analyzeVisibleFilesAndClasses();
-        checkIfBaseVisible();
     }
 
     private void analyzeClassesAndInterfaces() throws SemanticException {
@@ -72,17 +64,75 @@ public class Refactor {
             }
             classesAndInterfacesInFiles.put(filePath, foundCI);
         });
-        checkForDuplicates();
+        checkForDuplicatedClasses();
+        checkForDuplicatedStatements();
+        analyzePublicClassesNamesMatch();
+        setImportsInRepresentations();
+        checkBasesVisibilities();
     }
 
-    private void checkIfBaseVisible() {
+    /*
+       Basic check of duplication. Throws SemanticException if class or interface with the same name
+       is declared in overlapping scope in the certain file.
+    */
+    private void checkForDuplicatedClasses() throws SemanticException {
+        for (String file : files) {
+            checkForInnerDuplicates(file);
+        }
+        //checkForOuterDuplicates(); not needed if made sure, that all public classes are named same as the file
+    }
+
+    private void checkForDuplicatedStatements() {
+        classesAndInterfacesInFiles.forEach((filePath, reps) ->
+        {
+            reps.forEach(rep ->
+            {
+                rep.getStatements().forEach(statement -> {
+                    if(rep.checkIfSameStatementExists(statement, 2)) {
+                        System.out.println("Found duplicated " + statement.getCategory() + ": "
+                                + statement.getStatementSignature() + " in class " + rep.getName() + " in file " + filePath);
+                        System.exit(0);
+                    }
+                });
+            });
+        });
+    }
+
+    private void setImportsInRepresentations() {
+        ASTs.forEach((filePath, AST) ->
+        {
+            List<String> imports = AST.checkImports(); //A.B.C.*, A.B.C
+            classesAndInterfacesInFiles.get(filePath).forEach(rep->
+                    rep.setImports(imports));
+        });
+    }
+
+    private void analyzePublicClassesNamesMatch() {
+        classesAndInterfacesInFiles.forEach((file, reps) ->
+        {
+            //get Outer Classes
+            List<Representation> representations = reps.stream().filter(rep -> rep.getOuterClassesOrInterfaces().isEmpty()).collect(Collectors.toList());
+            List<Representation> representation = representations.stream().filter(rep -> rep.getAccessModifier().equals("public")).collect(Collectors.toList());
+            if(representation.size() == 1)
+                if(!representation.get(0).getName().equals(getFileName(file)))
+                    try {
+                        throw new SemanticException("Public class/interface name does not match the file name. File path: " + file + ", class/interface name: " + representation.get(0).getName());
+                    } catch (SemanticException e) {
+                        System.out.println(e.getMessage());
+                        System.exit(0);
+                    }
+        });
+    }
+
+    private void checkBasesVisibilities()
+    {
         classesAndInterfacesInFiles.forEach((file, classReps) ->
         {
             classReps.forEach(rep ->
             {
                 try {
-                    rep.checkIfBaseVisible(visibleFilesAndClasses.get(file), classesAndInterfacesInFiles);
-                    rep.checkIfInterfacesVisible(visibleFilesAndClasses.get(file), classesAndInterfacesInFiles);
+                    rep.checkIfBaseVisible(classesAndInterfacesInFiles);
+                    rep.checkIfInterfacesVisible(classesAndInterfacesInFiles);
                 }catch (SemanticException e)
                 {
                     System.out.println(e.getMessage());
@@ -92,109 +142,37 @@ public class Refactor {
         });
     }
 
-    private void analyzeVisibleFilesAndClasses() {
-        ASTs.forEach((filePath, AST) ->
-            {
-                List<String> imports = AST.checkImports(); //A.B.C.*, A.B.C
-                List<String> visibleClasses = getClassesBasedOnImports(imports);
-                String selfImport;
-                if(filePath.contains("\\"))
-                     selfImport = filePath.substring(0, filePath.lastIndexOf('\\')); //classes in the same package are always visible
-                else
-                    selfImport = "";
-                visibleClasses.addAll(getPublicClassesPathsInDirectory(selfImport));
-
-                visibleFilesAndClasses.put(filePath, visibleClasses);
-            });
-    }
-
-    private List<String> getClassesBasedOnImports(List<String> imports) {
-        Set<String> result = new HashSet<>();
-        imports.forEach(imp ->
+    private String getFileName(String filePath)
+    {
+        List<String> dirs = Arrays.asList(filePath.split("[\\\\/]"));
+        dirs = dirs.subList(dirs.size()-1, dirs.size());
+        String fileName = dirs.get(0);
+        if(fileName.contains("."))
         {
-            if(imp.charAt(imp.length()-1) == '*')   //import all classes in directory
-            {
-                imp = imp.substring(0, imp.length()-2);
-                imp = imp.replace(".", "\\");
-                List<String> publicClasses = getPublicClassesPathsInDirectory(imp);
-                if(publicClasses!=null)
-                {
-                    publicClasses = publicClasses.stream().map(pc -> pc.replace("\\", ".")).collect(Collectors.toList());
-                    publicClasses.forEach(file -> result.add(file + file.substring(file.lastIndexOf(".")+1, file.length())));  //I'll double the class name for easier looking for a class
-                }
-            }
-            else
-            {
-                result.add(imp + "." + imp.substring(imp.indexOf("."), imp.length()));
-            }
-        });
-        return new ArrayList<>(result);
-    }
-
-    private List<String> getPublicClassesPathsInDirectory(String path) {    //path as package/one/two
-        List<String> filesInDirectory  = new ArrayList<>();
-        int level = path.split("\\\\").length;
-
-        try (Stream<Path> walk = Files.walk(Paths.get(PROJECT_DIRECTORY+path))) {
-
-            filesInDirectory = walk.map(Path::toString)
-                    .filter(f -> f.endsWith("." + FILE_EXTENSION)).collect(Collectors.toList());
-        } catch (IOException e) {
-            e.printStackTrace();
+            fileName = fileName.substring(0, fileName.lastIndexOf('.'));
         }
-        filesInDirectory = filesInDirectory.stream().filter(file -> file.split("\\\\").length == level+1).collect(Collectors.toList());
-        filesInDirectory = filesInDirectory.stream().map(file -> file.substring(32, file.length()-4)).collect(Collectors.toList());
-        return filesInDirectory;
+        return fileName;
     }
 
-//    private List<String> getAllClassesAndIntInDirectoryOf(String filePath) {
-//        List<String> directoryPathSplitted = Arrays.asList(filePath.split("[\\\\/]"));     //pack Class3.txt
-//        directoryPathSplitted = directoryPathSplitted.subList(0, directoryPathSplitted.size()-1);                    //pack
-//        if(directoryPathSplitted.isEmpty())
-//        {
-//            List<String> outerFiles = files.stream().filter(e->e.split("[\\\\/]").length==1).collect(Collectors.toList());
-//            Set<String> classesAndInts = new HashSet<>();
-//            outerFiles.forEach(file ->
-//                    classesAndInts.add(file.substring(0, file.length()-4) + "." + file.substring(0, file.length()-4)));
-//            return new ArrayList<>(classesAndInts);
-//        }
-//        else
-//        {
-//            StringBuilder directoryPath = new StringBuilder();
-//            directoryPathSplitted.forEach(dir -> directoryPath.append(dir).append("\\"));
-//            directoryPath.delete(directoryPath.length()-1, directoryPath.length());
-//            List<String> publicClasses = getPublicClassesPathsInDirectory(directoryPath.toString());
-//            List<String> result = new ArrayList<>();
-//            if(publicClasses!=null)
-//            {
-//                publicClasses = publicClasses.stream().map(pc -> pc.replace("\\", ".")).collect(Collectors.toList());
-//                publicClasses.forEach(file -> result.add(file + file.substring(file.lastIndexOf(".")+1, file.length())));  //I'll double the class name for easier looking for a class
-//            }
-//            return result;
-//        }
-//    }
 
-    /*
-        Basic check of duplication. Throws SemanticException if class or interface with the same name
-        is declared in overlapping scope in the certain file.
-     */
-    private void checkForDuplicates() throws SemanticException {
-        for (String file : files) {
-            List<Representation> concernedClassesAndInt = classesAndInterfacesInFiles.get(file);
-            for (int i = 0; i < concernedClassesAndInt.size(); i++) {
-                Representation representation = concernedClassesAndInt.get(i);
 
-                if (representation.getOuterClassesOrInterfaces()
-                        .stream()
-                        .filter(elem -> elem.equals(representation.getName())).collect(Collectors.toList()).size() > 0) {
-                    throw new SemanticException("Duplicated class or interface name: " + representation.getName());
-                }
-                for (Representation representation2 : concernedClassesAndInt) {
-                    if (representation != representation2
-                            && representation.getName().equals(representation2.getName())
-                            && representation.getOuterClassesOrInterfaces().equals(representation2.getOuterClassesOrInterfaces())) {
-                        throw new SemanticException("Duplicated class name: " + representation.getName());
-                    }
+
+    private void checkForInnerDuplicates(String file) throws SemanticException {
+        List<Representation> concernedClassesAndInt = classesAndInterfacesInFiles.get(file);
+        for (int i = 0; i < concernedClassesAndInt.size(); i++) {
+            Representation representation = concernedClassesAndInt.get(i);
+            List<String> outerNames = representation.getOuterClassesOrInterfaces()
+                    .stream()
+                    .filter(elem -> elem.equals(representation.getName())).collect(Collectors.toList());
+
+            if (outerNames.size() > 0) {        //duplicates in the certain class
+                throw new SemanticException("Duplicated class or interface name: " + representation.getName());
+            }
+            for (Representation representation2 : concernedClassesAndInt) { //duplicates over other classes
+                if (representation != representation2
+                        && representation.getName().equals(representation2.getName())
+                        && representation.getOuterClassesOrInterfaces().equals(representation2.getOuterClassesOrInterfaces())) {
+                    throw new SemanticException("Duplicated class name: " + representation.getName());
                 }
             }
         }
@@ -204,9 +182,11 @@ public class Refactor {
     public void pullUpMember(String sourceFileName, List<String> sourceClassOrInterName, int member, String destClassOrInterName)
     {
          Representation sourceRepresentation = findClassOrInterfaceInFile(sourceFileName, sourceClassOrInterName);
+         if(sourceRepresentation == null)
+             return;
          Representation destRepresentation = sourceRepresentation.getBaseByName(destClassOrInterName);
 
-         if(sourceRepresentation==null || destRepresentation==null)
+         if(destRepresentation==null)
              return;
 
          File source = new File(PROJECT_DIRECTORY + sourceFileName);
@@ -226,8 +206,6 @@ public class Refactor {
          }
     }
 
-
-
     private Pair<Integer, Integer> findSpaceAtDestination(Representation representation)
     {
         Pair<Integer, Integer> destLineAndColumn;
@@ -242,7 +220,6 @@ public class Refactor {
         }
         return destLineAndColumn;
     }
-
 
     private void copyStatement(File source, File dest, int startsAtLine, int startsAtColumn,
                                int endsAtLine, int endsAtColumn, Integer destinationLine, Integer destinationColumn) throws IOException {
@@ -417,9 +394,4 @@ public class Refactor {
     public List<String> getRefactorings() {
         return refactorings;
     }
-
-    public Map<String, List<String>> getVisibleFilesAndClasses() {
-        return visibleFilesAndClasses;
-    }
 }
-

@@ -27,6 +27,16 @@ public class FieldDeclaration extends Statement {
         return " (" + type + ")";
     }
 
+    @Override
+    public String getStatementSignature() {
+        return this.name;
+    }
+
+    @Override
+    public String getCategory() {
+        return "Field";
+    }
+
     private AccessModifier checkAccessModifier() {
         if (nodeRep.children.get(0).identifier.equals("public"))
             return AccessModifier.Public;
@@ -67,3 +77,4 @@ public class FieldDeclaration extends Statement {
                 '}';
     }
 }
+

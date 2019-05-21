@@ -5,6 +5,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.control.Button;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import model.modelClass.Model;
@@ -82,6 +83,10 @@ public class ChooseFileController {
                     if(statementsComboBox.getCheckModel().isChecked(i))
                         choosenIndeces.add(i);
 
+                List<String> warnings = model.checkForPullUpWarnings((String)filesComboBox.getValue(), (String) classesComboBox.getValue(),
+                        choosenIndeces, (String)destinationClasses.getValue());
+                if(!warnings.isEmpty())
+
                 model.doPullUp((String)filesComboBox.getValue(), (String) classesComboBox.getValue(),
                         choosenIndeces, (String)destinationClasses.getValue());
             }
@@ -142,11 +147,5 @@ public class ChooseFileController {
     }
 }
 
-interface A
-{
-    class C
-    {
 
-    }
-}
 

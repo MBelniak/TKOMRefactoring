@@ -5,7 +5,9 @@ import model.refactor.Refactor;
 import model.refactor.Representation;
 import model.refactor.Statement;
 import model.scanner.Scanner;
+import model.util.PackagesUtils;
 
+import javax.swing.plaf.nimbus.State;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -73,8 +75,6 @@ public class Model {
         List<String> classPath = new ArrayList<>(Arrays.asList(className.split("\\.")));
         for(int i = 0; i<statements.size(); i++) {
             refactor.pullUpMember(fileName, classPath, statements.get(i), destClassName);
-            if(i==statements.size()-1)
-                return;
             statements = statements.stream().map(x-> x - 1).collect(Collectors.toList());
             try {
                 refactor.parseFiles(filesInProjectDirectory);
@@ -92,11 +92,31 @@ public class Model {
 
 
     public List<String> getBasesFor(String file, String chosenClass) {
+        if(file == null || !file.contains("."))
+            return new ArrayList<>();
         file = file.replace(".", "\\").substring(0, file.length()-4).concat("." + Refactor.FILE_EXTENSION);
         List<String> chosenClassPath = new ArrayList<>(Arrays.asList(chosenClass.split("\\.")));
         Representation representation = refactor.findClassOrInterfaceInFile(file, chosenClassPath);
         if(representation==null)
             return new ArrayList<>();
         return representation.getBases();
+    }
+
+    public List<String> checkForPullUpWarnings(String fileName, String className, List<Integer> statements, String destClassName) {
+        List<String> classPath = new ArrayList<>(Arrays.asList(className.split("\\.")));
+        Representation sourceRepresentation = refactor.findClassOrInterfaceInFile(fileName, classPath);
+        Representation destRepresenation = sourceRepresentation.getBaseByName(destClassName);
+        List<String> warningList = new ArrayList<>();
+
+        for(int i = 0; i<statements.size(); i++)
+        {
+            Statement statement = sourceRepresentation.getStatements().get(statements.get(i));
+            if(destRepresenation.checkIfSameStatementExists(statement, 1)) //exists
+            {
+                warningList.add(statement.getCategory() + " declared as "
+                        + statement.toString() + " already exists in class/interface "+ destRepresenation.getName());
+            }
+        }
+        return warningList;
     }
 }

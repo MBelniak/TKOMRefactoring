@@ -1,4 +1,4 @@
-public class Class3
+class Class3
 {
 
     private int a;
@@ -19,7 +19,12 @@ public class Class3
         this.b = b;
     }
 }
-class ClassInner
+public class InnerClass
 {
 
+
+protected void b()
+    {
+
+    }
 }

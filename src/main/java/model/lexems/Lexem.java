@@ -1,5 +1,7 @@
 package model.lexems;
 
+import model.filesManagement.FileSource;
+
 public class Lexem
 {
     public enum LexemType {

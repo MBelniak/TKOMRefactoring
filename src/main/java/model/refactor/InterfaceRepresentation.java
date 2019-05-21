@@ -2,11 +2,10 @@ package model.refactor;
 
 import model.exceptions.SemanticException;
 import model.parser.AbstractSyntaxTree;
+import model.util.PackagesUtils;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class InterfaceRepresentation implements Representation{
     private List<String> baseInterfaces;
@@ -15,6 +14,7 @@ public class InterfaceRepresentation implements Representation{
     private List<Statement> statements;
     private String filePath;
     private List<String> outerClassesOrInterfaces;
+    private List<String> imports;
     String name;
 
 
@@ -88,52 +88,26 @@ public class InterfaceRepresentation implements Representation{
     }
 
     @Override
-    public void checkIfBaseVisible(List<String> visibleClasses, Map<String, List<Representation>> representationsInFiles) throws SemanticException {
+    public void checkIfBaseVisible(Map<String, List<Representation>> representationsInFiles) throws SemanticException {
 
     }
 
     @Override
-    public void checkIfInterfacesVisible(List<String> visibleClasses, Map<String, List<Representation>> representationsInFiles) throws SemanticException {
+    public void checkIfInterfacesVisible(Map<String, List<Representation>> representationsInFiles) throws SemanticException {
         if(baseInterfaces.isEmpty())
             return;
+        for (String oneInterface : baseInterfaces) {
 
-        for(String inter : baseInterfaces)
-        {
-            Representation interfaceFound = null;
-            for (String visibleClass : visibleClasses) {
-                List<String> path = new ArrayList<>(Arrays.asList(visibleClass.split("\\.")));
-                if (path.get(path.size() - 1).equals(inter)) {
-                    if ((interfaceFound = findInterfaceByPath(representationsInFiles, path)) != null) {
-                        baseInterfacesRepresentations.add((InterfaceRepresentation) interfaceFound);   //save the base representation for further purposes
-                        break;
-                    }
-                }
-            }
-            if(interfaceFound == null)
-                throw new SemanticException("Cannot find interface: " + inter + " for interface " + this.getName() + " in file " + this.filePath);
+            InterfaceRepresentation oneInterfaceFound;
+
+            if((oneInterfaceFound = PackagesUtils.checkVisibilityInTheSameFile(representationsInFiles, this, oneInterface, outerClassesOrInterfaces, this.filePath)) == null)
+                if((oneInterfaceFound = PackagesUtils.checkVisibilityInTheSamePackage(representationsInFiles, this, oneInterface, this.filePath)) == null)
+                    if((oneInterfaceFound = PackagesUtils.checkVisibilityByImports(representationsInFiles, imports,this, oneInterface)) == null)
+                        throw new SemanticException("Cannot find base interface for " + getName() + " in file " + getFilePath());
+            baseInterfacesRepresentations.add(oneInterfaceFound);
         }
     }
 
-    private Representation findInterfaceByPath(Map<String,List<Representation>> representationsInFiles, List<String> path) {
-        if(path==null)
-            return null;
-        StringBuilder pathToFind= new StringBuilder(path.get(0)+".txt");
-        for (int i = 0; i<path.size(); i++) {
-            if (representationsInFiles.get(pathToFind.toString()) != null)  //found potential file in which there can be class sought
-            {
-                for(Representation rep : representationsInFiles.get(pathToFind.toString()))
-                {
-                    if(rep.getName().equals(path.get(path.size()-1)) && rep instanceof InterfaceRepresentation) {
-                        return rep;
-                    }
-                }
-            }
-            if(i<path.size()-1)
-                pathToFind.delete(pathToFind.length() - 4, pathToFind.length()).append("\\").append(path.get(i+1)).append(".txt");
-        }
-
-        return null;
-    }
 
     @Override
     public List<String> getBases() {
@@ -153,5 +127,31 @@ public class InterfaceRepresentation implements Representation{
     @Override
     public String getFilePath() {
         return filePath;
+    }
+
+    @Override
+    public String getAccessModifier() {
+        AbstractSyntaxTree.ASTNode header = nodeRepresentation.children.get(0);
+        if(header.children.get(0).identifier.equals("public")
+                ||header.children.get(0).identifier.equals("protected")
+                ||header.children.get(0).identifier.equals("private"))
+            return header.children.get(0).identifier;
+        return "";
+    }
+
+    @Override
+    public void setImports(List<String> imports) {
+        this.imports = imports;
+    }
+
+    @Override
+    public boolean checkIfSameStatementExists(Statement statement, int count) {
+        if(statement==null)
+            return false;
+        List<Statement> statementsFound = statements.stream()
+                .filter(stmnt -> stmnt.getStatementSignature().equals(statement.getStatementSignature())
+                        && stmnt.getCategory().equals(statement.getCategory()))
+                .collect(Collectors.toList());
+        return statementsFound.size() >= count;
     }
 }

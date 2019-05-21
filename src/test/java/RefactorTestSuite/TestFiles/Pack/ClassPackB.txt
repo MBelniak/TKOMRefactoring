@@ -1,0 +1,7 @@
+public class ClassPackB
+{
+    private void methodB()
+    {
+
+    }
+}
