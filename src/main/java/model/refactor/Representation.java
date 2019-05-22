@@ -31,4 +31,8 @@ public interface Representation {
     void setImports(List<String> imports);
 
     boolean checkIfSameStatementExists(Statement statement, int count);
+
+    Representation getSubByName(String destClass);
+
+    List<String> getSubclassesOrSubinterfaces();
 }

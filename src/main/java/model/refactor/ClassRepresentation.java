@@ -10,6 +10,8 @@ import java.util.stream.Collectors;
 public class ClassRepresentation implements Representation{
     private String baseClass;
     private ClassRepresentation baseClassRepresentation;
+    private List<String> subclasses;
+    private List<Representation> subclassesRepresentations;
     private List<String> interfacesImplemented;
     private List<InterfaceRepresentation> interfacesImplementedRepresentations;
     private AbstractSyntaxTree.ASTNode nodeRepresentation;
@@ -25,7 +27,10 @@ public class ClassRepresentation implements Representation{
         this.interfacesImplemented = new ArrayList<>();
         this.nodeRepresentation = node;
         this.outerClassesOrInterfaces = new ArrayList<>(outerClassesOrInterfaces);
-        interfacesImplementedRepresentations = new ArrayList<>();
+        this.subclasses = new ArrayList<>();
+        this.interfacesImplementedRepresentations = new ArrayList<>();
+        this.statements = new ArrayList<>();
+        this.subclassesRepresentations = new ArrayList<>();
         checkAllMovableStatements();
     }
 
@@ -103,6 +108,8 @@ public class ClassRepresentation implements Representation{
                 if((baseClassRepresentation = PackagesUtils.checkVisibilityByImports(representationsInFiles, imports, this, baseClass)) == null)
                     throw new SemanticException("Cannot find base class for " + getName() + " in file " + getFilePath());
 
+        baseClassRepresentation.addSubclassRepresentation(this);
+        baseClassRepresentation.addSubclass(this.name);
     }
 
     @Override
@@ -121,6 +128,8 @@ public class ClassRepresentation implements Representation{
                     if((oneInterfaceFound = PackagesUtils.checkVisibilityByImports(representationsInFiles, imports, interfaceRepresentation, oneInterface)) == null)
                         throw new SemanticException("Cannot find base interface for " + getName() + " in file " + getFilePath());
             interfacesImplementedRepresentations.add(oneInterfaceFound);
+            oneInterfaceFound.addSubInterfaceOrClass(this.name);
+            oneInterfaceFound.addSubInterfaceOrClassRepresentation(this);
         }
     }
 
@@ -175,5 +184,25 @@ public class ClassRepresentation implements Representation{
         return statementsFound.size() >= count;
     }
 
+    @Override
+    public Representation getSubByName(String destClass) {
+        for (Representation subclassRepresentation : subclassesRepresentations) {
+            if(subclassRepresentation.getName().equals(destClass))
+                return subclassRepresentation;
+        }
+        return null;
+    }
 
+    @Override
+    public List<String> getSubclassesOrSubinterfaces() {
+        return subclasses;
+    }
+
+    private void addSubclassRepresentation(Representation subclassesRepresentations) {
+        this.subclassesRepresentations.add(subclassesRepresentations);
+    }
+
+    private void addSubclass(String subclass) {
+        this.subclasses.add(subclass);
+    }
 }

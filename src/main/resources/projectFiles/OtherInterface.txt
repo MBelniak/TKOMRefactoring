@@ -1,20 +1,36 @@
-class Class2 extends Class1
+class Class2 extends Class1 implements OtherInterface
 {
-
-    public class FFF
+public void c()
+    {
+        Other c;
+        int g;
+    }
+public class FFF
     {
         public class FSS
         {
-            public interface GG
+            int a;
+public class GG extends FSS
             {
-
             }
         }
     }
 
+    abstract void ff();
+
+    interface inner
+    {
+    }
+
 }
 
-interface OtherInterface
+public interface OtherInterface
 {
+ default int method()
+    {
+        return 2;
+    }
+    void getField();
 
+    int a = 4;
 }

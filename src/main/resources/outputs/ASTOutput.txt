@@ -119,6 +119,18 @@
 		<ClassBody>
 			<Statement>
 				<AbstractMethodDeclaration>
+					<Identifier name="protected">
+					<Identifier/>
+					<Identifier name="void">
+					<Identifier/>
+					<Identifier name="m">
+					<Identifier/>
+					<MethodParameterList>
+					<MethodParameterList/>
+				<AbstractMethodDeclaration/>
+			<Statement/>
+			<Statement>
+				<AbstractMethodDeclaration>
 					<Identifier name="void">
 					<Identifier/>
 					<Identifier name="l">

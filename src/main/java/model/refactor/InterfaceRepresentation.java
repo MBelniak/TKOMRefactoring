@@ -10,6 +10,8 @@ import java.util.stream.Collectors;
 public class InterfaceRepresentation implements Representation{
     private List<String> baseInterfaces;
     private List<InterfaceRepresentation> baseInterfacesRepresentations;
+    private List<String> subInterfacesOrClasses;
+    private List<Representation> subInterfacesOrClassesRepresentations;
     private AbstractSyntaxTree.ASTNode nodeRepresentation;
     private List<Statement> statements;
     private String filePath;
@@ -25,6 +27,8 @@ public class InterfaceRepresentation implements Representation{
         this.nodeRepresentation = node;
         this.outerClassesOrInterfaces = new ArrayList<>(outerClassesOrInterfaces);
         this.baseInterfacesRepresentations = new ArrayList<>();
+        this.subInterfacesOrClasses = new ArrayList<>();
+        this.subInterfacesOrClassesRepresentations = new ArrayList<>();
         checkAllMovableStatements();
     }
 
@@ -105,9 +109,10 @@ public class InterfaceRepresentation implements Representation{
                     if((oneInterfaceFound = PackagesUtils.checkVisibilityByImports(representationsInFiles, imports,this, oneInterface)) == null)
                         throw new SemanticException("Cannot find base interface for " + getName() + " in file " + getFilePath());
             baseInterfacesRepresentations.add(oneInterfaceFound);
+            oneInterfaceFound.addSubInterfaceOrClass(this.name);
+            oneInterfaceFound.addSubInterfaceOrClassRepresentation(this);
         }
     }
-
 
     @Override
     public List<String> getBases() {
@@ -153,5 +158,27 @@ public class InterfaceRepresentation implements Representation{
                         && stmnt.getCategory().equals(statement.getCategory()))
                 .collect(Collectors.toList());
         return statementsFound.size() >= count;
+    }
+
+    @Override
+    public Representation getSubByName(String destClass) {
+        for (Representation subclassOrInterfaceRepresentation : subInterfacesOrClassesRepresentations) {
+            if(subclassOrInterfaceRepresentation.getName().equals(destClass))
+                return subclassOrInterfaceRepresentation;
+        }
+        return null;
+    }
+
+    @Override
+    public List<String> getSubclassesOrSubinterfaces() {
+        return subInterfacesOrClasses;
+    }
+
+    void addSubInterfaceOrClass(String subInterfaceOrClass) {
+        this.subInterfacesOrClasses.add(subInterfaceOrClass);
+    }
+
+    void addSubInterfaceOrClassRepresentation(Representation subInterfaceOrClassRepresentation) {
+        this.subInterfacesOrClassesRepresentations.add(subInterfaceOrClassRepresentation);
     }
 }

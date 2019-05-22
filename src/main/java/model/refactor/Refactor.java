@@ -3,6 +3,7 @@ package model.refactor;
 import javafx.util.Pair;
 import model.exceptions.ParsingException;
 import model.exceptions.SemanticException;
+import model.modelClass.Model;
 import model.parser.AbstractSyntaxTree;
 import model.parser.Parser;
 import model.scanner.Scanner;
@@ -178,12 +179,18 @@ public class Refactor {
     }
 
     //List<String>, because I will represent inner classes as list of outer classes name.
-    public void pullUpMember(String sourceFileName, List<String> sourceClassOrInterName, int member, String destClassOrInterName)
+    public void pullUpOrPushDownMember(String sourceFileName, List<String> sourceClassOrInterName, int member,
+                                       String destClassOrInterName, String ref)
     {
          Representation sourceRepresentation = findClassOrInterfaceInFile(sourceFileName, sourceClassOrInterName);
          if(sourceRepresentation == null)
              return;
-         Representation destRepresentation = sourceRepresentation.getBaseByName(destClassOrInterName);
+
+        Representation destRepresentation;
+         if(ref.equals(Model.PULL_UP))
+            destRepresentation = sourceRepresentation.getBaseByName(destClassOrInterName);
+         else
+             destRepresentation = sourceRepresentation.getSubByName(destClassOrInterName);
 
          if(destRepresentation==null)
              return;

@@ -1,7 +1,7 @@
-public class Class4 extends InnerClass
+import OtherInterface;
+
+public class Class4 extends InnerClass implements OtherInterface
 {
-    protected abstract void m();
-    abstract void n();
     public abstract void o();
     abstract int p();
     protected abstract int r();

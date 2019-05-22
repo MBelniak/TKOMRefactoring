@@ -180,7 +180,7 @@ public class PackagesUtils {
         for(int i = outerClassesOrInterfaces.size()-1; i>=0; i--)
         {
             if(outerClassesOrInterfaces.get(i).equals(base)) {
-                potentialRepresentation = findClassOrInterfaceByPathInFile(representations, outerClassesOrInterfaces.subList(0, i));
+                potentialRepresentation = findClassOrInterfaceByPathInFile(representations, outerClassesOrInterfaces.subList(0, i+1));
                 if(potentialRepresentation != null && potentialRepresentation.getClass().equals(ref.getClass()))
                     return (T)potentialRepresentation;
             }

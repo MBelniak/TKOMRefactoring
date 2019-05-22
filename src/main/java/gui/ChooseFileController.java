@@ -28,7 +28,7 @@ public class ChooseFileController {
     @FXML
     public Button refactorButton;
     @FXML
-    public ComboBox classesComboBox;
+    public ComboBox sourceClasses;
     @FXML
     public ComboBox destinationClasses;
     @FXML
@@ -51,11 +51,15 @@ public class ChooseFileController {
     private Model model;
 
     private String chosenRefactor;
+    private String chosenSourceCorI;
+    private String chosenDestCorI;
+    private String chosenSourceFile;
+    private List<Integer> chosenStatements;
 
     public ChooseFileController() {
         this.sourceFilesComboBox = new ComboBox();
         this.refactorButton = new Button();
-        this.classesComboBox = new ComboBox();
+        this.sourceClasses = new ComboBox();
         this.model = new Model();
         this.statementsItems = FXCollections.observableArrayList(new ArrayList<>());
         this.statementsComboBox = new CheckComboBox(statementsItems);
@@ -64,6 +68,7 @@ public class ChooseFileController {
         this.checkBoxPane = new Pane();
         this.sourceClassTextArea = new TextArea();
         this.destClassTextArea = new TextArea();
+        this.chosenStatements = new ArrayList<>();
     }
 
     @FXML
@@ -83,18 +88,24 @@ public class ChooseFileController {
         refactorComboBox.setItems(FXCollections.observableArrayList(model.getRefactors()));
     }
 
+    private void updateChosenStatements()
+    {
+        chosenStatements.clear();
+        for(int i = 0; i < statementsComboBox.getItems().size(); i++)
+            if(statementsComboBox.getCheckModel().isChecked(i))
+                chosenStatements.add(i);
+    }
+
     public void refactorButtonClicked(ActionEvent actionEvent) {
+        if(statementsComboBox.getCheckModel().getCheckedIndices().isEmpty())
+            return;
+        updateChosenStatements();
         switch (chosenRefactor)
         {
             case Model.PULL_UP:
             {
-                List<Integer> chosenIndeces = new ArrayList<>();
-                for(int i = 0; i < statementsComboBox.getItems().size(); i++)
-                    if(statementsComboBox.getCheckModel().isChecked(i))
-                        chosenIndeces.add(i);
-
-                List<String> warnings = model.checkForPullUpWarnings((String) sourceFilesComboBox.getValue(), (String) classesComboBox.getValue(),
-                        chosenIndeces, (String)destinationClasses.getValue());
+                List<String> warnings = model.checkForWarnings(chosenSourceFile, chosenSourceCorI,
+                        chosenStatements, chosenDestCorI, chosenRefactor);
                 if(!warnings.isEmpty())
                 {
                     String warning = prepareWarning(warnings);
@@ -107,18 +118,39 @@ public class ChooseFileController {
                     alert.getDialogPane().setContent(scroll);
                     alert.showAndWait();
                     if (alert.getResult() == ButtonType.YES) {
-                        model.doPullUp((String) sourceFilesComboBox.getValue(), (String) classesComboBox.getValue(),
-                                chosenIndeces, (String) destinationClasses.getValue());
+                        model.doPushOrPull(chosenSourceFile, chosenSourceCorI,
+                                chosenStatements, chosenDestCorI, chosenRefactor);
                     }
                 }
                 else {
-                    model.doPullUp((String) sourceFilesComboBox.getValue(), (String) classesComboBox.getValue(),
-                            chosenIndeces, (String) destinationClasses.getValue());
+                    model.doPushOrPull(chosenSourceFile, chosenSourceCorI,
+                            chosenStatements, chosenDestCorI, chosenRefactor);
                 }
             }
             case Model.PUSH_DOWN:
             {
-
+                List<String> warnings = model.checkForWarnings(chosenSourceFile, chosenSourceCorI,
+                        chosenStatements, chosenDestCorI, chosenRefactor);
+                if(!warnings.isEmpty())
+                {
+                    String warning = prepareWarning(warnings);
+                    Alert alert = new Alert(Alert.AlertType.WARNING, null, ButtonType.YES, ButtonType.NO);
+                    alert.setHeaderText("Confirm pushing down");
+                    TextArea text = new TextArea(warning);
+                    ScrollPane scroll = new ScrollPane();
+                    scroll.setContent(text);
+                    scroll.setMaxHeight(500);
+                    alert.getDialogPane().setContent(scroll);
+                    alert.showAndWait();
+                    if (alert.getResult() == ButtonType.YES) {
+                        model.doPushOrPull(chosenSourceFile, chosenSourceCorI,
+                                chosenStatements, chosenDestCorI, chosenRefactor);
+                    }
+                }
+                else {
+                    model.doPushOrPull(chosenSourceFile, chosenSourceCorI,
+                            chosenStatements, chosenDestCorI, chosenRefactor);
+                }
             }
             case Model.DELEGATE:
             {
@@ -150,6 +182,7 @@ public class ChooseFileController {
         statementsComboBox.getItems().clear();
         destinationClasses.getItems().clear();
         refactorButton.setDisable(true);
+        chosenSourceFile = (String) sourceFilesComboBox.getValue();
         updateSourceClasses();
         updateSourceFileTextArea();
         updateDestFileTextArea();
@@ -166,27 +199,25 @@ public class ChooseFileController {
     }
 
     private void updateSourceClasses() {
-        String chosenSourceFile = (String) sourceFilesComboBox.getValue();
-        List<Representation> representations = model.getRepresentationsInFile(chosenSourceFile);
-        classesComboBox.setItems(FXCollections.observableArrayList(representations.stream().map(rep -> {
-            StringBuilder classPath = new StringBuilder();
-            rep.getOuterClassesOrInterfaces().forEach(name -> classPath.append(name).append("."));
-            classPath.append(rep.getName());
-            return classPath.toString();
-        }).collect(Collectors.toList())));
+        this.sourceClasses.setItems(FXCollections.observableArrayList(model.getClassesListWithType(chosenSourceFile)));
     }
 
     public void sourceClassChanged(ActionEvent actionEvent) {
         refactorButton.setDisable(true);
+        chosenSourceCorI = ((String)sourceClasses.getValue());
+        chosenSourceCorI = chosenSourceCorI.substring(4, chosenSourceCorI.length());
         updateStatements();
         updateDestinationClasses();
         updateDestFileTextArea();
     }
 
     private void updateStatements() {
+        if(chosenRefactor == null || chosenRefactor.equals(Model.DELEGATE)) {
+            statementsItems.clear();
+            return;
+        }
         //fill in statements in menu button
-        String chosenClass = (String)classesComboBox.getValue();
-        List<Statement> statements = model.getStatementsInFileInClass((String)sourceFilesComboBox.getValue(), chosenClass);
+        List<Statement> statements = model.getStatementsInFileInClass(chosenSourceFile, chosenSourceCorI);
         if(statements == null)
             return;
         List<String> result = statements.stream()
@@ -206,27 +237,31 @@ public class ChooseFileController {
 
     private void updateDestinationClasses() {
         destinationClasses.getItems().clear();
-        String chosenClass = (String)classesComboBox.getValue();
-        destinationClasses.setItems(FXCollections.observableArrayList(model.getDestClassesFor((String) sourceFilesComboBox.getValue(), chosenClass, chosenRefactor)));
+        destinationClasses.setItems(FXCollections.observableArrayList(model.getDestClassesWithTypeFor(chosenSourceFile, chosenSourceCorI, chosenRefactor)));
     }
 
-    public void destinationClassesChanged(ActionEvent actionEvent) {
+    public void destinationClassChanged(ActionEvent actionEvent) {
         refactorButton.setDisable(false);
+        chosenDestCorI = ((String)destinationClasses.getValue());
+        chosenDestCorI = chosenDestCorI.substring(4, chosenDestCorI.length());
         updateDestFileTextArea();
     }
 
     private void updateDestFileTextArea() {
-        String chosenFile = (String)sourceFilesComboBox.getValue();
-        String chosenClass = (String)classesComboBox.getValue();
-        String chosenDestClass = model.getDestFileNameForClasses(chosenClass, (String)destinationClasses.getValue(), chosenFile);
+        Representation potentialFoundRepresentation = model.getClassOrInterfaceFor(chosenSourceCorI,
+                                                    chosenDestCorI, chosenSourceFile, chosenRefactor);
+        if(potentialFoundRepresentation==null)
+            return;
+
+        String destFile = potentialFoundRepresentation.getFilePath();
+
         try {
-            destClassTextArea.setText(FileSource.readWholeFile(PROJECT_DIRECTORY+chosenDestClass));
+            destClassTextArea.setText(FileSource.readWholeFile(PROJECT_DIRECTORY+destFile));
         } catch (IOException e) {
             e.printStackTrace();
             destClassTextArea.setText("");
         }
     }
 }
-
 
 
