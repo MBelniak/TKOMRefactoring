@@ -4,7 +4,6 @@ import model.exceptions.SemanticException;
 import model.parser.AbstractSyntaxTree;
 import model.util.PackagesUtils;
 
-import javax.swing.plaf.nimbus.State;
 import java.util.*;
 import java.util.stream.Collectors;
 

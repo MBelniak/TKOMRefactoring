@@ -23,7 +23,62 @@ public class InnerClass
 {
 
 
+abstract void l();
+public A k()
+    {
+
+    }
+A j()
+    {
+
+    }
+protected A i()
+    {
+
+    }
+private A h()
+    {
+
+    }
+public int g()
+    {
+
+    }
+int f()
+    {
+
+    }
+protected int e()
+    {
+
+    }
+private int d()
+    {
+        int b = 23;
+        return b;
+    }
+public void c()
+    {
+        int a = this.b;
+        return;
+    }
+void b()
+    {
+
+    }
+private void a()
+    {
+
+    }
 protected void b()
+    {
+
+    }
+    private void c()
+    {
+
+    }
+    int d()
     {
 
     }

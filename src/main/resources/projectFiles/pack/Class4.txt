@@ -1,52 +1,5 @@
 public class Class4 extends InnerClass
 {
-    private void a()
-    {
-
-    }
-    void b()
-    {
-
-    }
-    public void c()
-    {
-        int a = this.b;
-        return;
-    }
-    private int d()
-    {
-        int b = 23;
-        return b;
-    }
-    protected int e()
-    {
-
-    }
-    int f()
-    {
-
-    }
-    public int g()
-    {
-
-    }
-    private A h()
-    {
-
-    }
-    protected A i()
-    {
-
-    }
-    A j()
-    {
-
-    }
-    public A k()
-    {
-
-    }
-    abstract void l();
     protected abstract void m();
     abstract void n();
     public abstract void o();

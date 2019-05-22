@@ -51,7 +51,7 @@ public class MethodDefinition extends Statement{
             if(i != methodParameterList.size()-1)
                 parameters.append(", ");
         }
-        return this.name + " (" + parameters.toString() + ")";
+        return this.name + "(" + parameters.toString() + ")";
     }
 
     @Override

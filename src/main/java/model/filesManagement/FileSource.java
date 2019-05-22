@@ -79,4 +79,15 @@ public class FileSource {
     public int getColumnNumber() {
         return columnNumber;
     }
+
+    public static String readWholeFile(String classPath) throws IOException {
+        InputStream bounded;
+        bounded = new BoundedInputStream(new FileInputStream(classPath), MAX_LINE_LENGTH);
+        BufferedReader fileInput = new BufferedReader(new InputStreamReader(bounded));
+        StringBuilder resultString = new StringBuilder();
+        String temp;
+        while((temp = fileInput.readLine()) != null)
+            resultString.append(temp).append("\n");
+        return resultString.toString();
+    }
 }

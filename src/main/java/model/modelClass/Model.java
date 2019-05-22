@@ -5,9 +5,7 @@ import model.refactor.Refactor;
 import model.refactor.Representation;
 import model.refactor.Statement;
 import model.scanner.Scanner;
-import model.util.PackagesUtils;
 
-import javax.swing.plaf.nimbus.State;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -15,6 +13,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -25,6 +24,9 @@ public class Model {
     private static final Refactor refactor = new Refactor(scanner, parser);
     private static final String PROJECT_DIRECTORY = "src\\main\\resources\\projectFiles\\";
     private List<String> filesInProjectDirectory;
+    public static final String PULL_UP = "Pull up";
+    public static final String PUSH_DOWN = "Push down";
+    public static final String DELEGATE = "Inheritance to delegation";
 
     public Model()
     {
@@ -86,12 +88,7 @@ public class Model {
         }
     }
 
-    public List<String> getRefactors() {
-        return refactor.getRefactorings();
-    }
-
-
-    public List<String> getBasesFor(String file, String chosenClass) {
+    private List<String> getBasesFor(String file, String chosenClass) {
         if(file == null || !file.contains("."))
             return new ArrayList<>();
         file = file.replace(".", "\\").substring(0, file.length()-4).concat("." + Refactor.FILE_EXTENSION);
@@ -103,10 +100,23 @@ public class Model {
     }
 
     public List<String> checkForPullUpWarnings(String fileName, String className, List<Integer> statements, String destClassName) {
+
+        List<String> warningList = new ArrayList<>(getDuplicationWarnings(fileName, className, statements, destClassName));
+        warningList.addAll(getOtherWarnigns(fileName, className, statements, destClassName));
+
+        return warningList;
+    }
+
+    private List<String> getOtherWarnigns(String fileName, String className, List<Integer> statements, String destClassName) {
+        return new ArrayList<>(); // todo
+    }
+
+    private List<String> getDuplicationWarnings(String fileName, String className, List<Integer> statements, String destClassName) {
+        List<String> warningList = new ArrayList<>();
+
         List<String> classPath = new ArrayList<>(Arrays.asList(className.split("\\.")));
         Representation sourceRepresentation = refactor.findClassOrInterfaceInFile(fileName, classPath);
         Representation destRepresenation = sourceRepresentation.getBaseByName(destClassName);
-        List<String> warningList = new ArrayList<>();
 
         for(int i = 0; i<statements.size(); i++)
         {
@@ -114,9 +124,51 @@ public class Model {
             if(destRepresenation.checkIfSameStatementExists(statement, 1)) //exists
             {
                 warningList.add(statement.getCategory() + " declared as "
-                        + statement.toString() + " already exists in class/interface "+ destRepresenation.getName());
+                        + statement.getStatementSignature() + " already exists in class/interface "+ destRepresenation.getName());
             }
         }
+        
         return warningList;
+    }
+
+    public List<String> getDestClassesFor(String file, String chosenClass, String chosenRefactor) {
+        if(chosenRefactor==null)
+            return new ArrayList<>();
+        switch (chosenRefactor)
+        {
+            case (PULL_UP):
+            {
+                return getBasesFor(file, chosenClass);
+            }
+            case (PUSH_DOWN):
+            {
+
+            }
+            case (DELEGATE):
+            {
+
+            }
+            default:
+                return new ArrayList<>();
+        }
+    }
+
+    public List<String> getRefactors() {
+        List<String> refactors = new ArrayList<>();
+        refactors.add(PULL_UP);
+        refactors.add(PUSH_DOWN);
+        refactors.add(DELEGATE);
+        return refactors;
+    }
+
+    public String getDestFileNameForClasses(String sourceClass, String baseClass, String sourceFile)
+    {
+        if(sourceFile == null || !sourceFile.contains("."))
+            return "";
+        sourceFile = sourceFile.replace(".", "\\").substring(0, sourceFile.length()-4).concat("." + Refactor.FILE_EXTENSION);
+        List<String> chosenClassPath = new ArrayList<>(Arrays.asList(sourceClass.split("\\.")));
+        Representation representation = refactor.findClassOrInterfaceInFile(sourceFile, chosenClassPath);
+        Representation dest = representation.getBaseByName(baseClass);
+        return dest.getFilePath();
     }
 }

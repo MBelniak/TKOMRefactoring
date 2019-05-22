@@ -18,7 +18,6 @@ public class Refactor {
     private Map<String, List<Representation>> classesAndInterfacesInFiles;  //dir1/dir2/file.txt
     public final static String PROJECT_DIRECTORY = "src\\main\\resources\\projectFiles\\";
     public final static String FILE_EXTENSION = "txt";
-    private final List<String> refactorings = new ArrayList<>(Arrays.asList("Pull up", "Push down", "Inheritance to delegation"));
     private List<String> files;
 
     public Refactor(Scanner scanner, Parser parser) {
@@ -49,6 +48,7 @@ public class Refactor {
             analyzeClassesAndInterfaces();
         } catch (SemanticException e) {
             System.out.println(e.getMessage());
+            System.exit(0);
         }
         //writeClassesAndInterfaces();
     }
@@ -91,7 +91,6 @@ public class Refactor {
                     if(rep.checkIfSameStatementExists(statement, 2)) {
                         System.out.println("Found duplicated " + statement.getCategory() + ": "
                                 + statement.getStatementSignature() + " in class " + rep.getName() + " in file " + filePath);
-                        System.exit(0);
                     }
                 });
             });
@@ -166,13 +165,13 @@ public class Refactor {
                     .filter(elem -> elem.equals(representation.getName())).collect(Collectors.toList());
 
             if (outerNames.size() > 0) {        //duplicates in the certain class
-                throw new SemanticException("Duplicated class or interface name: " + representation.getName());
+                throw new SemanticException("Duplicated class or interface name: " + representation.getName() + " in file " + file);
             }
             for (Representation representation2 : concernedClassesAndInt) { //duplicates over other classes
                 if (representation != representation2
                         && representation.getName().equals(representation2.getName())
                         && representation.getOuterClassesOrInterfaces().equals(representation2.getOuterClassesOrInterfaces())) {
-                    throw new SemanticException("Duplicated class name: " + representation.getName());
+                    throw new SemanticException("Duplicated class name: " + representation.getName() + " in file " + file);
                 }
             }
         }
@@ -240,11 +239,11 @@ public class Refactor {
         sourceReader.close();
 
         List<String> sourceStatement = new ArrayList<>(sourceFile.subList(startsAtLine-1, endsAtLine));
-        sourceStatement.add(0, "\n" + sourceStatement.get(0).substring(startsAtColumn-1, sourceStatement.get(0).length()));
+        sourceStatement.add(0, sourceStatement.get(0).substring(startsAtColumn-1, sourceStatement.get(0).length()));
         sourceStatement.remove(1);
 
         if(startsAtLine == endsAtLine)
-            endsAtColumn = endsAtColumn - (startsAtColumn - 2);
+            endsAtColumn = endsAtColumn - (startsAtColumn - 1);
 
         sourceStatement.add(sourceStatement.get(sourceStatement.size()-1).substring(0, endsAtColumn) + "\n");
         sourceStatement.remove(sourceStatement.size()-2);
@@ -320,21 +319,22 @@ public class Refactor {
             destFile.remove(destinationLine - 1);
             destFile.addAll(destinationLine - 1, sourceStatement);
 
-            PrintWriter destWriter;
+            PrintWriter sourceWriter;
             try {
-                destWriter = new PrintWriter(source);
+                sourceWriter = new PrintWriter(source);
             } catch (FileNotFoundException e) {
                 System.out.println("Could not open file: " + source.getName());
                 return;
             }
             for (int i = 0; i < sourceFile.size(); i++) {
                 if (i == sourceFile.size() - 1)
-                    destWriter.print(sourceFile.get(i));
+                    sourceWriter.print(sourceFile.get(i));
                 else
-                    destWriter.println(sourceFile.get(i));
+                    sourceWriter.println(sourceFile.get(i));
             }
-            destWriter.close();
+            sourceWriter.close();
 
+            PrintWriter destWriter;
             try {
                 destWriter = new PrintWriter(dest);
             } catch (FileNotFoundException e) {
@@ -391,7 +391,4 @@ public class Refactor {
         return classesAndInterfacesInFiles.get(fileName);
     }
 
-    public List<String> getRefactorings() {
-        return refactorings;
-    }
 }
