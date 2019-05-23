@@ -17,6 +17,7 @@ class Base{
 
 public abstract class Class1 extends InnerClass
 {
+abstract void l();
 private int b()
     {
         OtherClass b;

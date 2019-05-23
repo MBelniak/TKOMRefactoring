@@ -24,7 +24,6 @@ public class InnerClass
 
 
 protected abstract void m();
-abstract void l();
 public A k()
     {
 

@@ -14,7 +14,7 @@ import java.util.stream.Collectors;
 public class PackagesUtils {
 
 
-    public static List<String> getFilesInDirectory(String relativeDirectory, String projectDirectory) {
+    private static List<String> getFilesInDirectory(String relativeDirectory, String projectDirectory) {
         File projectDirectoryAsFile = new File(projectDirectory + relativeDirectory);
         String[] filesArray = projectDirectoryAsFile.list((current, name) -> new File(current, name).isFile());
         if(filesArray == null)
@@ -24,7 +24,7 @@ public class PackagesUtils {
         return files;
     }
 
-    public static List<String> getFilesInDirectoryOfFile(String relativeFilePath, String projectDirectory)
+    private static List<String> getFilesInDirectoryOfFile(String relativeFilePath, String projectDirectory)
     {
         if(relativeFilePath == null)
             return new ArrayList<>();
@@ -42,28 +42,7 @@ public class PackagesUtils {
         }
     }
 
-    public static Representation findClassByPath(Map<String,List<Representation>> representationsInFiles, List<String> path) {
-        if(path==null)
-            return null;
-        StringBuilder pathToFind= new StringBuilder(path.get(0)+".txt");
-        for (int i = 0; i<path.size(); i++) {
-            if (representationsInFiles.get(pathToFind.toString()) != null)  //found potential file in which there can be class sought
-            {
-                for(Representation rep : representationsInFiles.get(pathToFind.toString()))
-                {
-                    if(rep.getName().equals(path.get(path.size()-1)) && rep instanceof ClassRepresentation) {
-                        return rep;
-                    }
-                }
-            }
-            if(i<path.size()-1)
-                pathToFind.delete(pathToFind.length() - 4, pathToFind.length()).append("\\").append(path.get(i+1)).append(".txt");
-        }
-
-        return null;
-    }
-
-    public static Representation findClassOrInterfaceByPathInFile(List<Representation> representations, List<String> PathInFile)
+    private static Representation findClassOrInterfaceByPathInFile(List<Representation> representations, List<String> PathInFile)
     {
         final Representation[] representation = new ClassRepresentation[1];
         representation[0] = null;
@@ -75,7 +54,7 @@ public class PackagesUtils {
         return representation[0];
     }
 
-    public static <T extends Representation> T findOuterClassOrInterfaceWithName(List<Representation> representations, String name, T ref)
+    private static <T extends Representation> T findOuterClassOrInterfaceWithName(List<Representation> representations, String name, T ref)
     {
         if(representations == null)
             return null;

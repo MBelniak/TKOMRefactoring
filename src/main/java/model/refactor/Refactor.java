@@ -3,7 +3,6 @@ package model.refactor;
 import javafx.util.Pair;
 import model.exceptions.ParsingException;
 import model.exceptions.SemanticException;
-import model.modelClass.Model;
 import model.parser.AbstractSyntaxTree;
 import model.parser.Parser;
 import model.scanner.Scanner;
@@ -20,6 +19,9 @@ public class Refactor {
     public final static String PROJECT_DIRECTORY = "src\\main\\resources\\projectFiles\\";
     public final static String FILE_EXTENSION = "txt";
     private List<String> files;
+    public static final String PULL_UP = "Pull up";
+    public static final String PUSH_DOWN = "Push down";
+    public static final String DELEGATE = "Inheritance to delegation";
 
     public Refactor(Scanner scanner, Parser parser) {
         this.scanner = scanner;
@@ -154,9 +156,6 @@ public class Refactor {
         return fileName;
     }
 
-
-
-
     private void checkForInnerDuplicates(String file) throws SemanticException {
         List<Representation> concernedClassesAndInt = classesAndInterfacesInFiles.get(file);
         for (int i = 0; i < concernedClassesAndInt.size(); i++) {
@@ -187,7 +186,7 @@ public class Refactor {
              return;
 
         Representation destRepresentation;
-         if(ref.equals(Model.PULL_UP))
+         if(ref.equals(PULL_UP))
             destRepresentation = sourceRepresentation.getBaseByName(destClassOrInterName);
          else
              destRepresentation = sourceRepresentation.getSubByName(destClassOrInterName);
@@ -393,9 +392,83 @@ public class Refactor {
         });
     }
 
+    public Representation getBaseOrSubClassOrInterfaceFor(String sourceClass, String destClass, String sourceFile, String chosenRefactor)
+    {
+        if(sourceFile == null || !sourceFile.contains(".") || destClass==null || chosenRefactor==null || sourceClass==null)
+            return null;
+        List<String> chosenClassPath = new ArrayList<>(Arrays.asList(sourceClass.split("\\.")));
+        Representation representation = findClassOrInterfaceInFile(sourceFile, chosenClassPath);
+        switch (chosenRefactor)
+        {
+            case PULL_UP:
+            {
+                return representation.getBaseByName(destClass);
+            }
+            case PUSH_DOWN:
+            {
+                return representation.getSubByName(destClass);
+            }
+            case DELEGATE:
+            {
+                return representation.getBaseByName(destClass);
+            }
+            default:
+                return null;
+        }
+    }
+
     public List<Representation> getClassesAndInterfacesInFile(String fileName)
     {
         return classesAndInterfacesInFiles.get(fileName);
     }
 
+    public void replaceInheritanceWithDelegationFor(String sourceFile, String sourceClass, List<Integer> chosenStatements, String destClass)
+    {
+        if(sourceFile == null || !sourceFile.contains(".") || destClass==null || sourceClass==null)
+            return;
+        List<String> chosenClassPath = new ArrayList<>(Arrays.asList(sourceClass.split("\\.")));
+        Representation sourceRepresentation = findClassOrInterfaceInFile(sourceFile,chosenClassPath );
+        Representation baseRepresentation = getBaseOrSubClassOrInterfaceFor(sourceClass, destClass, sourceFile, DELEGATE);
+
+        List<Statement> statementsPre = getStatementsForDelegationFromClass(baseRepresentation);
+        List<Statement> statementsToMove = new ArrayList<>();
+
+        chosenStatements.forEach(number -> statementsToMove.add(statementsPre.get(number)));
+
+
+
+    }
+
+    public List<Statement> getStatementsForDelegationFromClass(Representation destRepresentation)
+    {
+        return destRepresentation.getStatements().stream().filter(stmnt -> stmnt.getStatementType().equals(Statement.StatementType.AbstractMethodDeclaration)
+                || stmnt.getStatementType().equals(Statement.StatementType.MethodDefinition)
+                || stmnt.getStatementType().equals(Statement.StatementType.MethodDeclaration))
+                .collect(Collectors.toList());
+    }
+}
+
+class A
+{
+    int a()
+    {
+        return 2;
+    }
+
+}
+
+class B {
+
+    private final MyA a = new MyA();
+
+    int a() {
+        return a.a();
+    }
+
+    private class MyA extends A {
+        int a()
+        {
+            return 2;
+        }
+    }
 }
