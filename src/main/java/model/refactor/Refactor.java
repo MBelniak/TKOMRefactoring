@@ -429,41 +429,37 @@ public class Refactor {
         List<String> sourceFile = readFileToListOfLines(source);
         List<String> baseFile = readFileToListOfLines(base);
 
-        List<String> sourceClassHeader = new ArrayList<>();
+        StringBuilder sourceClassHeader = new StringBuilder();
         int originalHeaderStart = sourceRepresentation.getNodeRep().children.get(0).startsAtLine;
-
-        String sourceName = sourceRepresentation.getName();
-        for(int i = originalHeaderStart-1; i<sourceFile.size()-1; i++)
-        {
-            if(sourceFile.get(i).matches(".*extends.*") && sourceRepresentation.getExtends().size()==1)
-            {
-                if(sourceFile.get(i).indexOf('{')>=0 && sourceFile.get(i).indexOf('{') < sourceFile.get(i).indexOf("extends"))
-                    break;
-                sourceFile.add(i, sourceFile.get(i).replaceFirst("[\\s]*extends", ""));
-                sourceFile.remove(i+1);
-            }
-            if(sourceFile.get(i).contains(baseClassName) && sourceRepresentation.getExtends().size()==1)
-            {
-                if(sourceFile.get(i).indexOf('{')>=0 && sourceFile.get(i).indexOf('{') < sourceFile.get(i).indexOf(baseClassName))
-                    break;
-                sourceFile.add(i, sourceFile.get(i).replaceFirst(baseClassName, ""));
-                sourceFile.remove(i+1);
-            }
-            else if(sourceFile.get(i).contains(baseClassName) && sourceRepresentation.getExtends().size()>1)
-            {
-                if(sourceFile.get(i).indexOf('{')>=0 && sourceFile.get(i).indexOf('{') < sourceFile.get(i).indexOf(baseClassName))
-                    break;
-                sourceFile.add(i, sourceFile.get(i).replaceFirst(baseClassName+"[\\s]*,", ""));
-                sourceFile.remove(i+1);
-                sourceFile.add(i, sourceFile.get(i).replaceFirst("[\\s]*,"+baseClassName, ""));
-                sourceFile.remove(i+1);
-            }
-            if(sourceFile.get(i).contains("{")) {
+        int originalHeaderStartColumn = sourceRepresentation.getNodeRep().children.get(0).startsAtColumn;
+        while (!sourceFile.isEmpty()){
+            sourceClassHeader.append(sourceFile.get(originalHeaderStart-1)).append("\n");
+            sourceFile.remove(originalHeaderStart-1);
+            if(sourceClassHeader.toString().contains("{")
+                    && sourceClassHeader.toString().lastIndexOf("{") > originalHeaderStartColumn) {
                 break;
             }
         }
 
+        String restBeginning = sourceClassHeader.substring(0, originalHeaderStartColumn-1);
+        sourceClassHeader = new StringBuilder(sourceClassHeader.substring(originalHeaderStartColumn-1));
+        String restEnding = sourceClassHeader.substring(sourceClassHeader.indexOf("{"));
+        sourceClassHeader = new StringBuilder(sourceClassHeader.substring(0, sourceClassHeader.indexOf("{")));
 
+        String toFix = sourceClassHeader.toString();
+
+        if(sourceRepresentation.getExtends().size()==1)
+            toFix = toFix.replaceFirst("[\\s]*extends", "");
+        if(sourceRepresentation.getExtends().size()==1)
+            toFix = toFix.replaceFirst(baseClassName, "");
+        else if(sourceRepresentation.getExtends().size()>1) {
+            toFix = toFix.replaceFirst(baseClassName + "[\\s]*,", "");
+            toFix = toFix.replaceFirst("[\\s]*," + baseClassName, "");
+        }
+
+        String finalLine = restBeginning + toFix + restEnding;
+
+        sourceFile.add(originalHeaderStart, finalLine);
 
         List<String> linesToAddToSource = new ArrayList<>();
 

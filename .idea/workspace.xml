@@ -3,18 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="569db950-2a4c-4d14-bd10-c4385d25069d" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gui/ChooseFileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gui/ChooseFileController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/modelClass/Model.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/modelClass/Model.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/refactor/AbstractMethodDeclaration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/refactor/AbstractMethodDeclaration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/refactor/ClassRepresentation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/refactor/ClassRepresentation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/refactor/InterfaceRepresentation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/refactor/InterfaceRepresentation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/refactor/MethodDeclaration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/refactor/MethodDeclaration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/refactor/MethodDefinition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/refactor/MethodDefinition.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/model/refactor/Refactor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/refactor/Refactor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/refactor/Representation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/refactor/Representation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/outputs/ASTOutput.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/outputs/ASTOutput.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/projectFiles/pack/Class4.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/projectFiles/pack/Class4.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/projectFiles/pack/InnerClass.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/projectFiles/pack/InnerClass.txt" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -75,8 +64,8 @@
       <file leaf-file-name="Refactor.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/model/refactor/Refactor.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="109">
-              <caret line="467" selection-start-line="467" selection-end-line="467" />
+            <state relative-caret-position="262">
+              <caret line="461" column="42" selection-start-line="461" selection-start-column="42" selection-end-line="461" selection-end-column="42" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#Refactor#0;class#Refactor#0" />
@@ -725,7 +714,7 @@
       <workItem from="1557812685197" duration="28094000" />
       <workItem from="1558025375795" duration="62599000" />
       <workItem from="1558254574677" duration="37577000" />
-      <workItem from="1558629922243" duration="15958000" />
+      <workItem from="1558629922243" duration="17650000" />
     </task>
     <servers />
   </component>
@@ -762,10 +751,11 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="375295000" />
+    <option name="totallyTimeSpent" value="376987000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="878" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -900,15 +890,15 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/model/refactor/Refactor.java</url>
-          <line>435</line>
+          <line>428</line>
           <properties />
-          <option name="timeStamp" value="185" />
+          <option name="timeStamp" value="186" />
         </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="186" />
+      <option name="time" value="187" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="JUnit">
@@ -1334,8 +1324,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/model/refactor/Refactor.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="109">
-          <caret line="467" selection-start-line="467" selection-end-line="467" />
+        <state relative-caret-position="262">
+          <caret line="461" column="42" selection-start-line="461" selection-start-column="42" selection-end-line="461" selection-end-column="42" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#Refactor#0;class#Refactor#0" />
