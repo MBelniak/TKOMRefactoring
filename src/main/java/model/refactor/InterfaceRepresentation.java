@@ -120,6 +120,11 @@ public class InterfaceRepresentation implements Representation{
     }
 
     @Override
+    public List<String> getExtends() {
+        return baseInterfaces;
+    }
+
+    @Override
     public Representation getBaseByName(String className) {
         for(Representation representation : baseInterfacesRepresentations)
         {

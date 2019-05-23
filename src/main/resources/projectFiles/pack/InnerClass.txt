@@ -23,6 +23,11 @@ public class InnerClass
 {
 
 
+public abstract int t();
+abstract int s();
+protected abstract int r();
+abstract int p();
+public abstract void o();
 protected abstract void m();
 public A k()
     {

@@ -147,14 +147,35 @@ public class Model {
     private List<String> getOtherWarnings(String fileName, String className, String newFieldName, String newClassName)
     {
         Representation representation = refactor.findClassOrInterfaceInFile(fileName, Arrays.asList(className.split("\\.")));
-        List<String> result = new ArrayList<>();
+        List<String> warnings = new ArrayList<>();
+        List<Statement> conflictableStatementsInRepresentation = representation.getStatements().stream().filter(stmnt ->
+                           stmnt.getStatementType().equals(Statement.StatementType.FieldDeclaration)
+                        || stmnt.getStatementType().equals(Statement.StatementType.FieldDefinition)
+                        || stmnt.getStatementType().equals(Statement.StatementType.AbstractClassDefinition)
+                        || stmnt.getStatementType().equals(Statement.StatementType.ClassDefinition)
+                        || stmnt.getStatementType().equals(Statement.StatementType.InterfaceDefinition)).collect(Collectors.toList());
 
-        return result;
+        conflictableStatementsInRepresentation.forEach(stmnt ->
+        {
+            if(stmnt.getStatementType().equals(Statement.StatementType.AbstractClassDefinition)
+                    || stmnt.getStatementType().equals(Statement.StatementType.ClassDefinition)
+                    || stmnt.getStatementType().equals(Statement.StatementType.InterfaceDefinition))
+            {
+                if(stmnt.getName().equals(newClassName))
+                    warnings.add("Class or interface with name " + stmnt.getName() + " already exists in this class.");
+            }
+            else
+            {
+                if(stmnt.getName().equals(newFieldName))
+                    warnings.add("Field with name " + stmnt.getName() + " already exists in this class.");
+            }
+        });
+        return warnings;
     }
     private List<String> getDuplicationWarnings(String fileName, String className, List<Integer> statements, String destClassName, String refType) {
         List<String> warningList = new ArrayList<>();
 
-        if(refType == DELEGATE)
+        if(refType.equals(DELEGATE))
             return warningList;
 
         List<String> classPath = new ArrayList<>(Arrays.asList(className.split("\\.")));
@@ -191,8 +212,19 @@ public class Model {
         Representation representation = refactor.findClassOrInterfaceInFile(file, chosenClassPath);
         if(representation==null)
             return new ArrayList<>();
-        if(refType.equals(PULL_UP) || refType.equals(DELEGATE))
+        if(refType.equals(PULL_UP))
             return representation.getBases().stream().map(base -> {
+                StringBuilder result = new StringBuilder();
+                Representation b = representation.getBaseByName(base);
+                if(b instanceof ClassRepresentation)
+                    result.append("(").append('C').append(") ");
+                else
+                    result.append("(").append('I').append(") ");
+                result.append(base);
+                return result.toString();
+            }).collect(Collectors.toList());
+        else if(refType.equals(DELEGATE))
+            return representation.getExtends().stream().map(base -> {
                 StringBuilder result = new StringBuilder();
                 Representation b = representation.getBaseByName(base);
                 if(b instanceof ClassRepresentation)
@@ -237,19 +269,20 @@ public class Model {
     }
 
     public List<Statement> getStatementsWithFileAndSourceClassForDelegation(String chosenSourceFile, String sourceClass, String destClass) {
-        Representation destRepresentation = refactor.getBaseOrSubClassOrInterfaceFor(sourceClass, destClass, chosenSourceFile, DELEGATE);
-        if(destRepresentation == null)
+        Representation baseRepresentation = refactor.getBaseOrSubClassOrInterfaceFor(sourceClass, destClass, chosenSourceFile, DELEGATE);
+        if(baseRepresentation == null)
             return new ArrayList<>();
 
-        return refactor.getStatementsForDelegationFromClass(destRepresentation);
+        return refactor.getStatementsForDelegationFromClass(baseRepresentation);
     }
 
-    public void doDelegate(String sourceFile, String sourceClass, List<Integer> chosenStatements, String destClass) {
+    public void doDelegate(String sourceFile, String sourceClass, List<Integer> chosenStatements, String destClass,
+                           String newFieldName, String newClassName) {
         if(sourceFile == null
                 ||sourceClass == null
                 || destClass == null)
             return;
-        refactor.replaceInheritanceWithDelegationFor(sourceFile, sourceClass, chosenStatements, destClass);
+        refactor.replaceInheritanceWithDelegationFor(sourceFile, sourceClass, chosenStatements, destClass, newFieldName, newClassName);
         try {
             refactor.parseFiles(filesInProjectDirectory);
         } catch (FileNotFoundException e) {

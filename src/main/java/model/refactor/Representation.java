@@ -5,7 +5,6 @@ import model.parser.AbstractSyntaxTree;
 
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
 public interface Representation {
     List<String> getOuterClassesOrInterfaces();
@@ -21,6 +20,8 @@ public interface Representation {
     void checkIfInterfacesVisible(Map<String, List<Representation>> classesAndInterfacesInFiles) throws SemanticException;
 
     List<String> getBases();
+
+    List<String> getExtends();
 
     Representation getBaseByName(String destClassOrInterName);
 

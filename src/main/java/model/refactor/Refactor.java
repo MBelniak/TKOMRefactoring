@@ -208,6 +208,8 @@ public class Refactor {
                      statementToMove.endsAtLine, statementToMove.endsAtColumn, destinationLineAndColumn.getKey(), destinationLineAndColumn.getValue());
          } catch (IOException e) {
              e.printStackTrace();
+             System.out.println("Problem with reading or writing to file occured. Exiting");
+             System.exit(0);
          }
     }
 
@@ -229,20 +231,7 @@ public class Refactor {
     private void copyStatement(File source, File dest, int startsAtLine, int startsAtColumn,
                                int endsAtLine, int endsAtColumn, Integer destinationLine, Integer destinationColumn) throws IOException {
 
-        BufferedReader sourceReader;
-        try {
-            sourceReader = new BufferedReader(new FileReader(source));
-        } catch (FileNotFoundException e) {
-            System.out.println("Could not open file: " + source.getName());
-            return;
-        }
-
-        List<String> sourceFile = new ArrayList<>();
-        String line;
-        while((line=sourceReader.readLine())!=null)
-            sourceFile.add(line);
-
-        sourceReader.close();
+        List<String> sourceFile = readFileToListOfLines(source);
 
         List<String> sourceStatement = new ArrayList<>(sourceFile.subList(startsAtLine-1, endsAtLine));
         sourceStatement.add(0, sourceStatement.get(0).substring(startsAtColumn-1, sourceStatement.get(0).length()));
@@ -284,36 +273,11 @@ public class Refactor {
                 destFile.addAll(destinationLine - 1, sourceStatement);
             }
 
-            PrintWriter destWriter;
-            try {
-                destWriter = new PrintWriter(dest);
-            } catch (FileNotFoundException e) {
-                System.out.println("Could not open file: " + dest.getName());
-                return;
-            }
-            for (int i = 0; i < destFile.size(); i++) {
-                if (i == destFile.size() - 1)
-                    destWriter.print(destFile.get(i));
-                else
-                    destWriter.println(destFile.get(i));
-            }
-            destWriter.close();
+            writeListOfLinesToFile(dest, destFile);
         }
         else
         {
-            try {
-                sourceReader = new BufferedReader(new FileReader(dest));
-            } catch (FileNotFoundException e) {
-                System.out.println("Could not open file: " + dest.getName());
-                return;
-            }
-
-            destFile = new ArrayList<>();
-            String lineDest;
-            while((lineDest=sourceReader.readLine())!=null)
-                destFile.add(lineDest);
-
-            sourceReader.close();
+            destFile = readFileToListOfLines(dest);
 
             String lineAtDest = destFile.get(destinationLine - 1);
             sourceStatement.add(0, lineAtDest.substring(0, destinationColumn - 1) + sourceStatement.get(0));
@@ -325,38 +289,42 @@ public class Refactor {
             destFile.remove(destinationLine - 1);
             destFile.addAll(destinationLine - 1, sourceStatement);
 
-            PrintWriter sourceWriter;
-            try {
-                sourceWriter = new PrintWriter(source);
-            } catch (FileNotFoundException e) {
-                System.out.println("Could not open file: " + source.getName());
-                return;
-            }
-            for (int i = 0; i < sourceFile.size(); i++) {
-                if (i == sourceFile.size() - 1)
-                    sourceWriter.print(sourceFile.get(i));
-                else
-                    sourceWriter.println(sourceFile.get(i));
-            }
-            sourceWriter.close();
-
-            PrintWriter destWriter;
-            try {
-                destWriter = new PrintWriter(dest);
-            } catch (FileNotFoundException e) {
-                System.out.println("Could not open file: " + dest.getName());
-                return;
-            }
-            for (int i = 0; i < destFile.size(); i++) {
-                if (i == destFile.size() - 1)
-                    destWriter.print(destFile.get(i));
-                else
-                    destWriter.println(destFile.get(i));
-            }
-            destWriter.close();
+            writeListOfLinesToFile(source, sourceFile);
+            writeListOfLinesToFile(dest, destFile);
         }
     }
 
+    private List<String> readFileToListOfLines(File file) throws IOException {
+        BufferedReader sourceReader;
+        sourceReader = new BufferedReader(new FileReader(file));
+
+        List<String> sourceFile = new ArrayList<>();
+        String line;
+        while((line=sourceReader.readLine())!=null)
+            sourceFile.add(line);
+
+        sourceReader.close();
+
+        return sourceFile;
+    }
+
+    private void writeListOfLinesToFile(File file, List<String> lines)
+    {
+        PrintWriter destWriter;
+        try {
+            destWriter = new PrintWriter(file);
+        } catch (FileNotFoundException e) {
+            System.out.println("Could not open file: " + file.getName());
+            return;
+        }
+        for (int i = 0; i < lines.size(); i++) {
+            if (i == lines.size() - 1)
+                destWriter.print(lines.get(i));
+            else
+                destWriter.println(lines.get(i));
+        }
+        destWriter.close();
+    }
     public Representation findClassOrInterfaceInFile(String fileName, List<String> sourceClassOrInterName) {
         if(classesAndInterfacesInFiles.get(fileName) == null)
             return null;
@@ -422,7 +390,8 @@ public class Refactor {
         return classesAndInterfacesInFiles.get(fileName);
     }
 
-    public void replaceInheritanceWithDelegationFor(String sourceFile, String sourceClass, List<Integer> chosenStatements, String destClass)
+    public void replaceInheritanceWithDelegationFor(String sourceFile, String sourceClass, List<Integer> chosenStatements,
+                                                    String destClass, String newFieldName, String newClassName)
     {
         if(sourceFile == null || !sourceFile.contains(".") || destClass==null || sourceClass==null)
             return;
@@ -430,13 +399,75 @@ public class Refactor {
         Representation sourceRepresentation = findClassOrInterfaceInFile(sourceFile,chosenClassPath );
         Representation baseRepresentation = getBaseOrSubClassOrInterfaceFor(sourceClass, destClass, sourceFile, DELEGATE);
 
-        List<Statement> statementsPre = getStatementsForDelegationFromClass(baseRepresentation);
-        List<Statement> statementsToMove = new ArrayList<>();
+        List<Statement> statementsBase = getStatementsForDelegationFromClass(baseRepresentation);
+        List<Statement> statementsSource = getStatementsForDelegationFromClass(sourceRepresentation);
+        List<Statement> statementsToDelegate = new ArrayList<>();
 
-        chosenStatements.forEach(number -> statementsToMove.add(statementsPre.get(number)));
+        chosenStatements.forEach(number -> statementsToDelegate.add(statementsBase.get(number)));
+
+        List<Statement> overriddenMethods = statementsSource.stream().filter(stmnt ->
+                statementsBase.stream().filter(stmntBase -> stmntBase.getStatementSignature().equals(stmnt.getStatementSignature()))
+                        .collect(Collectors.toList()).size()>0).collect(Collectors.toList());
+
+        File source = new File(PROJECT_DIRECTORY + sourceFile);
+        File base = new File(PROJECT_DIRECTORY + baseRepresentation.getFilePath());
+        try {
+            makeDelegateOperationsOnFiles(source, sourceRepresentation, base, destClass, statementsToDelegate,
+                                            overriddenMethods, newFieldName, newClassName);
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.out.println("Problem with reading or writing to file. Exiting");
+            System.exit(0);
+        }
+
+    }
+
+    private void makeDelegateOperationsOnFiles(File source, Representation sourceRepresentation, File base, String baseClassName,
+                                               List<Statement> statementsToDelegate, List<Statement> overriddenMethods,
+                                               String newFieldName, String newClassName) throws IOException
+    {
+        List<String> sourceFile = readFileToListOfLines(source);
+        List<String> baseFile = readFileToListOfLines(base);
+
+        List<String> sourceClassHeader = new ArrayList<>();
+        int originalHeaderStart = sourceRepresentation.getNodeRep().children.get(0).startsAtLine;
+
+        String sourceName = sourceRepresentation.getName();
+        for(int i = originalHeaderStart-1; i<sourceFile.size()-1; i++)
+        {
+            if(sourceFile.get(i).matches(".*extends.*") && sourceRepresentation.getExtends().size()==1)
+            {
+                if(sourceFile.get(i).indexOf('{')>=0 && sourceFile.get(i).indexOf('{') < sourceFile.get(i).indexOf("extends"))
+                    break;
+                sourceFile.add(i, sourceFile.get(i).replaceFirst("[\\s]*extends", ""));
+                sourceFile.remove(i+1);
+            }
+            if(sourceFile.get(i).contains(baseClassName) && sourceRepresentation.getExtends().size()==1)
+            {
+                if(sourceFile.get(i).indexOf('{')>=0 && sourceFile.get(i).indexOf('{') < sourceFile.get(i).indexOf(baseClassName))
+                    break;
+                sourceFile.add(i, sourceFile.get(i).replaceFirst(baseClassName, ""));
+                sourceFile.remove(i+1);
+            }
+            else if(sourceFile.get(i).contains(baseClassName) && sourceRepresentation.getExtends().size()>1)
+            {
+                if(sourceFile.get(i).indexOf('{')>=0 && sourceFile.get(i).indexOf('{') < sourceFile.get(i).indexOf(baseClassName))
+                    break;
+                sourceFile.add(i, sourceFile.get(i).replaceFirst(baseClassName+"[\\s]*,", ""));
+                sourceFile.remove(i+1);
+                sourceFile.add(i, sourceFile.get(i).replaceFirst("[\\s]*,"+baseClassName, ""));
+                sourceFile.remove(i+1);
+            }
+            if(sourceFile.get(i).contains("{")) {
+                break;
+            }
+        }
 
 
 
+        List<String> linesToAddToSource = new ArrayList<>();
+
+        String newClassHeader = "private class";
     }
 
     public List<Statement> getStatementsForDelegationFromClass(Representation destRepresentation)
@@ -445,30 +476,5 @@ public class Refactor {
                 || stmnt.getStatementType().equals(Statement.StatementType.MethodDefinition)
                 || stmnt.getStatementType().equals(Statement.StatementType.MethodDeclaration))
                 .collect(Collectors.toList());
-    }
-}
-
-class A
-{
-    int a()
-    {
-        return 2;
-    }
-
-}
-
-class B {
-
-    private final MyA a = new MyA();
-
-    int a() {
-        return a.a();
-    }
-
-    private class MyA extends A {
-        int a()
-        {
-            return 2;
-        }
     }
 }

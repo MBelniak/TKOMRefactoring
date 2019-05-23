@@ -108,8 +108,11 @@ public class ChooseFileController {
         if(statementsComboBox.getCheckModel().getCheckedIndices().isEmpty())
             return;
         updateChosenStatements();
+        String newFieldName = delegateFieldNameTextField.getText();
+        String newClassName = delegateClassNameTextField.getText();
+
         List<String> warnings = model.checkForWarnings(chosenSourceFile, chosenSourceCorI,
-                chosenStatements, chosenDestCorI, chosenRefactor);
+                chosenStatements, chosenDestCorI, chosenRefactor, newFieldName, newClassName);
 
         switch (chosenRefactor)
         {
@@ -135,6 +138,8 @@ public class ChooseFileController {
                     model.doPushOrPull(chosenSourceFile, chosenSourceCorI,
                             chosenStatements, chosenDestCorI, chosenRefactor);
                 }
+                statementsComboBox.getCheckModel().getCheckedIndices().clear();
+                break;
             }
             case Model.PUSH_DOWN:
             {
@@ -158,11 +163,11 @@ public class ChooseFileController {
                     model.doPushOrPull(chosenSourceFile, chosenSourceCorI,
                             chosenStatements, chosenDestCorI, chosenRefactor);
                 }
+                statementsComboBox.getCheckModel().getCheckedIndices().clear();
+                break;
             }
             case Model.DELEGATE:
             {
-                String newFieldName = delegateFieldNameTextField.getText();
-                String newClassName = delegateClassNameTextField.getText();
                 if(!warnings.isEmpty())
                 {
                     String warning = prepareWarning(warnings);
@@ -183,6 +188,8 @@ public class ChooseFileController {
                     model.doDelegate(chosenSourceFile, chosenSourceCorI,
                             chosenStatements, chosenDestCorI, newFieldName, newClassName);
                 }
+                statementsComboBox.getCheckModel().getCheckedIndices().clear();
+                break;
             }
             default:
             {
@@ -239,6 +246,8 @@ public class ChooseFileController {
     public void sourceClassChanged(ActionEvent actionEvent) {
         refactorButton.setDisable(true);
         chosenSourceCorI = ((String)sourceClasses.getValue());
+        if(chosenSourceCorI == null)
+            return;
         chosenSourceCorI = chosenSourceCorI.substring(4, chosenSourceCorI.length());
         delegateClassNameTextField.setText("");
         delegateFieldNameTextField.setText("");

@@ -142,6 +142,13 @@ public class ClassRepresentation implements Representation{
     }
 
     @Override
+    public List<String> getExtends() {
+        List<String> result = new ArrayList<>();
+        result.add(baseClass);
+        return result;
+    }
+
+    @Override
     public Representation getBaseByName(String className) {
         if(baseClassRepresentation.getName().equals(className))
             return baseClassRepresentation;

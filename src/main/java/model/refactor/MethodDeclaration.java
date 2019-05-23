@@ -48,7 +48,7 @@ public class MethodDeclaration extends Statement {
         StringBuilder parameters = new StringBuilder();
         for (int i = 0; i < methodParameterList.size(); i++)
         {
-            parameters.append(methodParameterList.get(i).getKey()).append(" ").append(methodParameterList.get(i).getValue());
+            parameters.append(methodParameterList.get(i).getKey());
             if(i != methodParameterList.size()-1)
                 parameters.append(", ");
         }

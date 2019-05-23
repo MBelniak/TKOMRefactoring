@@ -2,11 +2,6 @@ import OtherInterface;
 
 public class Class4 extends InnerClass implements OtherInterface
 {
-    public abstract void o();
-    abstract int p();
-    protected abstract int r();
-    abstract int s();
-    public abstract int t();
     abstract A u();
     protected abstract A v();
     abstract A w();
