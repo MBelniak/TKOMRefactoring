@@ -3,68 +3,40 @@
 		<ClassHeader>
 			<Identifier name="public">
 			<Identifier/>
-			<Identifier name="Class6">
+			<Identifier name="Class9">
 			<Identifier/>
+			<ImplementsList>
+				<Identifier name="Interface9">
+				<Identifier/>
+			<ImplementsList/>
 		<ClassHeader/>
 		<ClassBody>
 			<Statement>
-				<PrimitiveFieldDeclaration>
+				<MethodDefinition>
+					<Identifier name="private">
+					<Identifier/>
 					<Identifier name="int">
 					<Identifier/>
 					<Identifier name="a">
 					<Identifier/>
-				<PrimitiveFieldDeclaration/>
-			<Statement/>
-			<Statement>
-				<ClassDefinition>
-					<ClassHeader>
-						<Identifier name="public">
-						<Identifier/>
-						<Identifier name="Class7">
-						<Identifier/>
-					<ClassHeader/>
-					<ClassBody>
-						<Statement>
-							<ClassDefinition>
-								<ClassHeader>
-									<Identifier name="Class8">
-									<Identifier/>
-									<ExtendList>
-										<Identifier name="Class6">
-										<Identifier/>
-									<ExtendList/>
-								<ClassHeader/>
-								<ClassBody>
-									<Statement>
-										<PrimitiveFieldDeclaration>
-											<Identifier name="int">
-											<Identifier/>
-											<Identifier name="b">
-											<Identifier/>
-										<PrimitiveFieldDeclaration/>
-									<Statement/>
-									<Statement>
-										<MethodDefinition>
-											<Identifier name="int">
-											<Identifier/>
-											<Identifier name="method">
-											<Identifier/>
-											<MethodParameterList>
-											<MethodParameterList/>
-											<MethodBody>
-												<ReturnStatement>
-													<Number name="2">
-													<Number/>
-												<ReturnStatement/>
-											<MethodBody/>
-										<MethodDefinition/>
-									<Statement/>
-								<ClassBody/>
-							<ClassDefinition/>
-						<Statement/>
-					<ClassBody/>
-				<ClassDefinition/>
+					<MethodParameterList>
+					<MethodParameterList/>
+					<MethodBody>
+						<ReturnStatement>
+							<Number name="2">
+							<Number/>
+						<ReturnStatement/>
+					<MethodBody/>
+				<MethodDefinition/>
 			<Statement/>
 		<ClassBody/>
 	<ClassDefinition/>
+	<InterfaceDefinition>
+		<InterfaceHeader>
+			<Identifier name="Interface9">
+			<Identifier/>
+		<InterfaceHeader/>
+		<InterfaceBody>
+		<InterfaceBody/>
+	<InterfaceDefinition/>
 <Code/>

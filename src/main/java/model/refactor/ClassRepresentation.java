@@ -152,10 +152,10 @@ public class ClassRepresentation implements Representation{
 
     @Override
     public Representation getBaseByName(String className) {
-        if(baseClassRepresentation == null)
-            return null;
-        if(baseClassRepresentation.getName().equals(className))
-            return baseClassRepresentation;
+        if(baseClassRepresentation != null)
+            if(baseClassRepresentation.getName().equals(className))
+                return baseClassRepresentation;
+
         for(Representation representation : interfacesImplementedRepresentations)
         {
             if(representation.getName().equals(className))

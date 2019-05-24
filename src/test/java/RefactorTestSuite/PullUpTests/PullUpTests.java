@@ -152,4 +152,20 @@ public class PullUpTests {
         FileUtils.copyDirectory(new File(ORIGINAL_FILES), new File(TEST_FILES));
     }
 
+    @Test
+    public void shouldPullUpFromClassToInterface() throws IOException {
+        model = new Model(TEST_FILES);
+        List<Integer> statementsToMove = new ArrayList<>();
+        statementsToMove.add(0);
+        model.doPushOrPull("package2\\Class9.txt",
+                "Class9", statementsToMove,
+                "Interface9", Refactor.PULL_UP);
+        File validationFile = new File(VALIDATION_FILES + "shouldPullUpFromClassToInterface.txt");
+        File validatedFile = new File(TEST_FILES + "package2\\Class9.txt");
+        assertThat(validationFile).hasSameContentAs(validatedFile);
+
+        //cleanup
+        FileUtils.copyDirectory(new File(ORIGINAL_FILES), new File(TEST_FILES));
+    }
+
 }

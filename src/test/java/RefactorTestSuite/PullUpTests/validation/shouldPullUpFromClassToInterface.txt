@@ -1,0 +1,12 @@
+public class Class9 implements Interface9
+{
+}
+
+interface Interface9
+{
+
+private int a()
+    {
+        return 2;
+    }
+}
