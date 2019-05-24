@@ -70,7 +70,7 @@ public class ChooseFileController {
         this.sourceFilesComboBox = new ComboBox();
         this.refactorButton = new Button();
         this.sourceClasses = new ComboBox();
-        this.model = new Model();
+        this.model = new Model("src\\main\\resources\\projectFiles\\");
         this.statementsItems = FXCollections.observableArrayList(new ArrayList<>());
         this.statementsComboBox = new CheckComboBox(statementsItems);
         this.destinationClasses = new ComboBox();
@@ -105,8 +105,6 @@ public class ChooseFileController {
     }
 
     public void refactorButtonClicked(ActionEvent actionEvent) {
-        if(statementsComboBox.getCheckModel().getCheckedIndices().isEmpty())
-            return;
         updateChosenStatements();
         String newFieldName = delegateFieldNameTextField.getText();
         String newClassName = delegateClassNameTextField.getText();
@@ -118,6 +116,8 @@ public class ChooseFileController {
         {
             case Model.PULL_UP:
             {
+                if(chosenStatements.isEmpty())
+                    return;
                 if(!warnings.isEmpty())
                 {
                     String warning = prepareWarning(warnings);
@@ -138,11 +138,12 @@ public class ChooseFileController {
                     model.doPushOrPull(chosenSourceFile, chosenSourceCorI,
                             chosenStatements, chosenDestCorI, chosenRefactor);
                 }
-                statementsComboBox.getCheckModel().getCheckedIndices().clear();
                 break;
             }
             case Model.PUSH_DOWN:
             {
+                if(chosenStatements.isEmpty())
+                    return;
                 if(!warnings.isEmpty())
                 {
                     String warning = prepareWarning(warnings);
@@ -163,7 +164,6 @@ public class ChooseFileController {
                     model.doPushOrPull(chosenSourceFile, chosenSourceCorI,
                             chosenStatements, chosenDestCorI, chosenRefactor);
                 }
-                statementsComboBox.getCheckModel().getCheckedIndices().clear();
                 break;
             }
             case Model.DELEGATE:
@@ -188,7 +188,8 @@ public class ChooseFileController {
                     model.doDelegate(chosenSourceFile, chosenSourceCorI,
                             chosenStatements, chosenDestCorI, newFieldName, newClassName);
                 }
-                statementsComboBox.getCheckModel().getCheckedIndices().clear();
+                updateSourceClasses();
+                updateDestinationClasses();
                 break;
             }
             default:
@@ -300,7 +301,11 @@ public class ChooseFileController {
         if(chosenRefactor == null)
             return;
         destinationClasses.getItems().clear();
-        destinationClasses.setItems(FXCollections.observableArrayList(model.getBaseOrSubClassesWithTypeFor(chosenSourceFile, chosenSourceCorI, chosenRefactor)));
+        List<String> toSet = model.getBaseOrSubClassesWithTypeFor(
+                chosenSourceFile, chosenSourceCorI, chosenRefactor);
+        if(toSet.isEmpty())
+            return;
+        destinationClasses.setItems(FXCollections.observableArrayList(toSet));
     }
 
     public void destinationClassChanged(ActionEvent actionEvent) {

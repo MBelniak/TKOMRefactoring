@@ -60,10 +60,6 @@ public class FieldDeclaration extends Statement {
         return nodeRep.children.get(hasAccessModifier).identifier;
     }
 
-    public String getType() {
-        return type;
-    }
-
     @Override
     public String toString() {
         return "FieldDeclaration{" +

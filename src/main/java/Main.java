@@ -4,16 +4,21 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import model.exceptions.ParsingException;
+import model.parser.Parser;
+import model.scanner.Scanner;
+import model.util.PackagesUtils;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 
 
 public class Main extends Application {
 
     private AnchorPane rootView;
-    public static void main(String[] args) {
-        launch(args);
-    }
+    public static void main(String[] args) { launch(args);
+      }
 
     @Override
     public void start(Stage primaryStage) {
@@ -34,10 +39,6 @@ public class Main extends Application {
         }
     }
 }
-
-
-
-
 
 
 

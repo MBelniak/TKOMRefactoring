@@ -1,0 +1,15 @@
+public class Class6
+{
+    int a;
+    public class Class7
+    {
+        class Class8 extends Class6
+        {
+            int b;
+            int method()
+            {
+                return 2;
+            }
+        }
+    }
+}

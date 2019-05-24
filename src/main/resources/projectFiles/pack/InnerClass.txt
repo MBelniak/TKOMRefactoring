@@ -22,7 +22,6 @@ class Class3
 public class InnerClass
 {
 
-
 public abstract int t();
 abstract int s();
 protected abstract int r();

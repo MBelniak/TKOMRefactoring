@@ -2,6 +2,9 @@ package model.refactor;
 
 import model.parser.AbstractSyntaxTree;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public abstract class Statement {
     public enum StatementType{AbstractClassDefinition, AbstractMethodDeclaration,
         ClassDefinition, FieldDeclaration, FieldDefinition, MethodDeclaration, InterfaceDefinition, MethodDefinition}
@@ -33,6 +36,21 @@ public abstract class Statement {
             return accessModifier.toString();
         return "";
     }
+
+
+    String getMethodParameterList()
+    {
+        return "";
+    }
+    String getReturnType()
+    {
+        return "";
+    }
+    List<String> getParametersNames()
+    {
+        return new ArrayList<>();
+    }
+
 
     protected abstract void prepareStatementInfo();
 

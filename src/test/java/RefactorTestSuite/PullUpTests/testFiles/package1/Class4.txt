@@ -1,0 +1,14 @@
+import package2.Class5;
+
+public class Class4 extends Class5
+{
+    int a;
+    int b()
+    {
+        return 2;
+    }
+    public class C
+    {
+
+    }
+}

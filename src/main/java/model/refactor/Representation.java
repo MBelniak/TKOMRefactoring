@@ -37,3 +37,4 @@ public interface Representation {
 
     List<String> getSubclassesOrSubinterfaces();
 }
+

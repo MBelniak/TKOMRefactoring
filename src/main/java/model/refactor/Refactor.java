@@ -16,25 +16,29 @@ public class Refactor {
     private final Parser parser;
     private Map<String, AbstractSyntaxTree> ASTs;
     private Map<String, List<Representation>> classesAndInterfacesInFiles;  //dir1/dir2/file.txt
-    public final static String PROJECT_DIRECTORY = "src\\main\\resources\\projectFiles\\";
+    public static String PROJECT_DIRECTORY;
     public final static String FILE_EXTENSION = "txt";
     private List<String> files;
     public static final String PULL_UP = "Pull up";
     public static final String PUSH_DOWN = "Push down";
     public static final String DELEGATE = "Inheritance to delegation";
 
-    public Refactor(Scanner scanner, Parser parser) {
+    public Refactor(Scanner scanner, Parser parser, String projectDirectory) {
         this.scanner = scanner;
         this.parser = parser;
         this.ASTs = new HashMap<>();
         this.classesAndInterfacesInFiles = new HashMap<>();
         this.files = new ArrayList<>();
+        if(projectDirectory == null)
+            PROJECT_DIRECTORY = "src\\main\\resources\\projectFiles\\";
+        else
+            PROJECT_DIRECTORY = projectDirectory;
     }
 
     public void parseFiles(List<String> filenames) throws FileNotFoundException{
         for (String file : filenames) {
             scanner.bindFile(new File(file));
-            String filePath = file.substring(32, file.length());
+            String filePath = file.substring(PROJECT_DIRECTORY.length(), file.length());
             try {
                 ASTs.put(filePath, parser.parseFile());
                 files.add(filePath);
@@ -113,7 +117,7 @@ public class Refactor {
         classesAndInterfacesInFiles.forEach((file, reps) ->
         {
             //get Outer Classes
-            List<Representation> representations = reps.stream().filter(rep -> rep.getOuterClassesOrInterfaces().isEmpty()).collect(Collectors.toList());
+            List<Representation> representations = reps.stream().filter(rep -> rep. getOuterClassesOrInterfaces().isEmpty()).collect(Collectors.toList());
             List<Representation> representation = representations.stream().filter(rep -> rep.getAccessModifier().equals("public")).collect(Collectors.toList());
             if(representation.size() == 1)
                 if(!representation.get(0).getName().equals(getFileName(file)))
@@ -129,19 +133,17 @@ public class Refactor {
     private void checkBasesVisibilities()
     {
         classesAndInterfacesInFiles.forEach((file, classReps) ->
-        {
-            classReps.forEach(rep ->
-            {
-                try {
-                    rep.checkIfBaseVisible(classesAndInterfacesInFiles);
-                    rep.checkIfInterfacesVisible(classesAndInterfacesInFiles);
-                }catch (SemanticException e)
+                classReps.forEach(rep ->
                 {
-                    System.out.println(e.getMessage());
-                    System.exit(0);
-                }
-            });
-        });
+                    try {
+                        rep.checkIfBaseVisible(classesAndInterfacesInFiles);
+                        rep.checkIfInterfacesVisible(classesAndInterfacesInFiles);
+                    }catch (SemanticException e)
+                    {
+                        System.out.println(e.getMessage());
+                        System.exit(0);
+                    }
+                }));
     }
 
     private String getFileName(String filePath)
@@ -205,7 +207,8 @@ public class Refactor {
          Pair<Integer, Integer> destinationLineAndColumn = findSpaceAtDestination(destRepresentation);
          try {
              copyStatement(source, dest, statementToMove.getStartsAtLine(), statementToMove.getStartsAtColumn(),
-                     statementToMove.endsAtLine, statementToMove.endsAtColumn, destinationLineAndColumn.getKey(), destinationLineAndColumn.getValue());
+                     statementToMove.endsAtLine, statementToMove.endsAtColumn, destinationLineAndColumn.getKey(),
+                     destinationLineAndColumn.getValue());
          } catch (IOException e) {
              e.printStackTrace();
              System.out.println("Problem with reading or writing to file occured. Exiting");
@@ -406,13 +409,13 @@ public class Refactor {
         chosenStatements.forEach(number -> statementsToDelegate.add(statementsBase.get(number)));
 
         List<Statement> overriddenMethods = statementsSource.stream().filter(stmnt ->
-                statementsBase.stream().filter(stmntBase -> stmntBase.getStatementSignature().equals(stmnt.getStatementSignature()))
+                statementsBase.stream().filter(stmntBase -> (stmntBase.getStatementSignature()+stmntBase.getReturnType())
+                                        .equals(stmnt.getStatementSignature() + stmnt.getReturnType()))
                         .collect(Collectors.toList()).size()>0).collect(Collectors.toList());
 
         File source = new File(PROJECT_DIRECTORY + sourceFile);
-        File base = new File(PROJECT_DIRECTORY + baseRepresentation.getFilePath());
         try {
-            makeDelegateOperationsOnFiles(source, sourceRepresentation, base, destClass, statementsToDelegate,
+            makeDelegateOperationsOnFiles(source, sourceRepresentation, destClass, statementsToDelegate,
                                             overriddenMethods, newFieldName, newClassName);
         } catch (IOException e) {
             e.printStackTrace();
@@ -422,19 +425,19 @@ public class Refactor {
 
     }
 
-    private void makeDelegateOperationsOnFiles(File source, Representation sourceRepresentation, File base, String baseClassName,
+    private void makeDelegateOperationsOnFiles(File source, Representation sourceRepresentation, String baseClassName,
                                                List<Statement> statementsToDelegate, List<Statement> overriddenMethods,
                                                String newFieldName, String newClassName) throws IOException
     {
         List<String> sourceFile = readFileToListOfLines(source);
-        List<String> baseFile = readFileToListOfLines(base);
 
         StringBuilder sourceClassHeader = new StringBuilder();
         int originalHeaderStart = sourceRepresentation.getNodeRep().children.get(0).startsAtLine;
         int originalHeaderStartColumn = sourceRepresentation.getNodeRep().children.get(0).startsAtColumn;
+        int linesToRemove = 0;
         while (!sourceFile.isEmpty()){
-            sourceClassHeader.append(sourceFile.get(originalHeaderStart-1)).append("\n");
-            sourceFile.remove(originalHeaderStart-1);
+            sourceClassHeader.append(sourceFile.get(originalHeaderStart-1+linesToRemove)).append("\n");
+            linesToRemove++;
             if(sourceClassHeader.toString().contains("{")
                     && sourceClassHeader.toString().lastIndexOf("{") > originalHeaderStartColumn) {
                 break;
@@ -443,8 +446,8 @@ public class Refactor {
 
         String restBeginning = sourceClassHeader.substring(0, originalHeaderStartColumn-1);
         sourceClassHeader = new StringBuilder(sourceClassHeader.substring(originalHeaderStartColumn-1));
-        String restEnding = sourceClassHeader.substring(sourceClassHeader.indexOf("{"));
-        sourceClassHeader = new StringBuilder(sourceClassHeader.substring(0, sourceClassHeader.indexOf("{")));
+        String restEnding = sourceClassHeader.substring(sourceClassHeader.indexOf("{")+1);
+        sourceClassHeader = new StringBuilder(sourceClassHeader.substring(0, sourceClassHeader.indexOf("{")+1));
 
         String toFix = sourceClassHeader.toString();
 
@@ -457,14 +460,83 @@ public class Refactor {
             toFix = toFix.replaceFirst("[\\s]*," + baseClassName, "");
         }
 
-        String finalLine = restBeginning + toFix + restEnding;
 
-        sourceFile.add(originalHeaderStart, finalLine);
+        StringBuilder withDelegates = new StringBuilder();
+        withDelegates.append(toFix);
+        withDelegates.append(" private ").append(newClassName).append(" ").append(newFieldName).append(";\n");
 
-        List<String> linesToAddToSource = new ArrayList<>();
+        statementsToDelegate.forEach(stmnt->
+                {
+                        withDelegates.append(stmnt.getAccessModifier().toLowerCase()).append(" ").append(stmnt.getReturnType())
+                                .append(" ").append(stmnt.getName())
+                                .append(stmnt.getMethodParameterList()).append("{\n\t\t");
+                        if(!stmnt.getReturnType().equals(""))
+                            withDelegates.append("return ");
+                        withDelegates.append("this.").append(newFieldName+".").append(stmnt.getName()).append("(");
+                        for(int i = 0; i<stmnt.getParametersNames().size(); i++)
+                        {
+                            withDelegates.append(stmnt.getParametersNames().get(i));
+                            if(i<stmnt.getParametersNames().size()-1)
+                                withDelegates.append(", ");
+                        }
+                        withDelegates.append(");\n\t}\n");
+                }
+        );
 
-        String newClassHeader = "private class";
+        withDelegates.append(" private class ").append(newClassName).append(" extends ").append(baseClassName).append("{\n");
+        String finalForm = putOverriddenMethodsAndRemoveFromSource(withDelegates, overriddenMethods, sourceFile);
+        ///////////////////////////////////////////////////////////////////////////
+
+        String toPutToSource = restBeginning + finalForm + restEnding;
+
+        for(int i = 0; i<linesToRemove; i++)
+        {
+            sourceFile.remove(originalHeaderStart-1);
+        }
+        sourceFile.add(originalHeaderStart-1, toPutToSource);
+
+        writeListOfLinesToFile(source, sourceFile);
     }
+
+    private String putOverriddenMethodsAndRemoveFromSource(StringBuilder withDelegates, List<Statement> overriddenMethods,
+                                                           List<String> sourceFile)
+    {
+        String temporary;
+        StringBuilder result = new StringBuilder();
+        for(int i = overriddenMethods.size()-1; i>=0; i--)
+        {
+            Statement current = overriddenMethods.get(i);
+            if(current.startsAtLine == current.endsAtLine)
+            {
+                temporary = sourceFile.get(current.startsAtLine-1);
+                result.append(temporary, current.startsAtColumn-1, current.endsAtColumn);
+                temporary = temporary.substring(0, current.startsAtColumn-1) + temporary.substring(current.endsAtColumn, temporary.length());
+                sourceFile.remove(current.startsAtLine-1);
+                sourceFile.add(current.startsAtLine-1, temporary);
+            }
+            else
+            {
+                temporary = sourceFile.get(current.startsAtLine-1);
+                result.append(temporary, current.startsAtColumn-1, temporary.length()).append("\n");
+                temporary = temporary.substring(0, current.startsAtColumn-1);
+                for(int k = current.startsAtLine; k<current.endsAtLine-1; k++)
+                {
+                    result.append(sourceFile.get(k)).append("\n");
+                }
+                String temporaryEnd = sourceFile.get(current.endsAtLine-1);
+                result.append(temporaryEnd, 0, current.endsAtColumn);
+                temporary += temporaryEnd.substring(current.endsAtColumn, temporaryEnd.length());
+                for(int k = current.startsAtLine-1; k<current.endsAtLine; k++)
+                {
+                    sourceFile.remove(current.startsAtLine-1);
+                }
+                sourceFile.add(current.startsAtLine-1, temporary);
+            }
+        }
+        withDelegates.append(result.toString()).append("\n").append("}\n");
+        return withDelegates.toString();
+    }
+
 
     public List<Statement> getStatementsForDelegationFromClass(Representation destRepresentation)
     {

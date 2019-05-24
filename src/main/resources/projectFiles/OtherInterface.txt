@@ -18,15 +18,15 @@ public class GG extends FSS
 
     abstract void ff();
 
-    interface inner
-    {
-    }
 
 }
 
 public interface OtherInterface
 {
- default int method()
+ interface inner
+    {
+    }
+default int method()
     {
         return 2;
     }

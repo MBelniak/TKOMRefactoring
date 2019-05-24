@@ -55,6 +55,27 @@ public class MethodDefinition extends Statement{
     }
 
     @Override
+    public String getMethodParameterList() {
+        StringBuilder result = new StringBuilder();
+        result.append("(");
+        for(int i = 0; i<methodParameterList.size(); i++)
+        {
+            result.append(methodParameterList.get(i).getKey()).append(" ").append(methodParameterList.get(i).getValue());
+            if(i!=methodParameterList.size()-1)
+                result.append(", ");
+        }
+        result.append(")");
+        return result.toString();
+    }
+
+    @Override
+    List<String> getParametersNames() {
+        List<String> result = new ArrayList<>();
+        methodParameterList.forEach(param -> result.add(param.getValue()));
+        return result;
+    }
+
+    @Override
     public String getCategory() {
         return "Method";
     }
@@ -96,10 +117,6 @@ public class MethodDefinition extends Statement{
         int hasAccessModifier = this.accessModifier == AccessModifier.None ? 1 : 2;
 
         return nodeRep.children.get(hasAccessModifier).identifier;
-    }
-
-    public List<Pair<String, String>> getMethodParameterList() {
-        return methodParameterList;
     }
 
     public String getReturnType() {

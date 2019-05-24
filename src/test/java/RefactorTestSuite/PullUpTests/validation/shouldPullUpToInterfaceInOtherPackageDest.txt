@@ -1,0 +1,8 @@
+public interface Interface5
+{
+
+default void method2()
+    {
+        a = 5;
+    }
+}

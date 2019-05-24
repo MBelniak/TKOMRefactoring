@@ -21,24 +21,24 @@
 					<PrimitiveFieldInitialization/>
 				<PrimitiveFieldDefinition/>
 			<Statement/>
-		<InterfaceBody/>
-		<Statement>
-			<ObjectFieldInitialization>
-				<Identifier name="ClassB">
-				<Identifier/>
-				<Identifier name="field">
-				<Identifier/>
-				<Assignment>
-				<Assignment/>
-				<NewCall>
-					<MethodCall>
-						<Identifier name="ClassB">
-						<Identifier/>
-						<CallParameters>
-						<CallParameters/>
-					<MethodCall/>
-				<NewCall/>
-			<ObjectFieldInitialization/>
+			<Statement>
+				<ObjectFieldInitialization>
+					<Identifier name="ClassB">
+					<Identifier/>
+					<Identifier name="field">
+					<Identifier/>
+					<Assignment>
+					<Assignment/>
+					<NewCall>
+						<MethodCall>
+							<Identifier name="ClassB">
+							<Identifier/>
+							<CallParameters>
+							<CallParameters/>
+						<MethodCall/>
+					<NewCall/>
+				<ObjectFieldInitialization/>
+			<Statement/>
 			<Statement>
 				<MethodDeclaration>
 					<Identifier name="int">
@@ -101,6 +101,6 @@
 					<MethodBody/>
 				<MethodDefinition/>
 			<Statement/>
-		<Statement/>
+		<InterfaceBody/>
 	<InterfaceDefinition/>
 <Code/>

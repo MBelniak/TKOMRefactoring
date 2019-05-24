@@ -1,0 +1,10 @@
+import interfacePackage2.Interface5;
+
+public interface Interface4 extends Interface5
+{
+    int a = 2;
+    default void method2()
+    {
+        a = 5;
+    }
+}

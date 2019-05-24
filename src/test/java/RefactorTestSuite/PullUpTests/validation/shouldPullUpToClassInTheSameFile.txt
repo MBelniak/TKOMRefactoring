@@ -1,0 +1,19 @@
+public class Class1 extends Class1Base
+{
+}
+
+class Class1Base
+{
+
+void c()
+    {
+        int k = 3;
+        this.c = 2;
+        return;
+    }
+int b()
+    {
+        return 2;
+    }
+int a;
+}

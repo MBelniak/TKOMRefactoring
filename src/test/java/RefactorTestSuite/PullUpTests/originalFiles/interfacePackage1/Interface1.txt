@@ -1,0 +1,15 @@
+public interface Interface1 extends BaseInterface
+{
+    int a = 2;
+    private int method()
+    {
+        return 2;
+    }
+
+    int method2();
+}
+
+interface BaseInterface
+{
+
+}

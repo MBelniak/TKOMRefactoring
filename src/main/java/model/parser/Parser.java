@@ -13,7 +13,6 @@ public class Parser {
     private AbstractSyntaxTree AST;
 
     public Parser(Scanner scanner) {
-
         this.scanner = scanner;
     }
 
@@ -673,7 +672,6 @@ public class Parser {
                     AST.flushBuffer();
                     parsePrimitiveFieldInitialization();
                     AST.endElement();   //PrimitiveFieldDeclaration
-                    AST.endElement(currentToken.getLine(), currentToken.getColumn()); //Statement
                 }
                 else if(currentToken.getLexemType() == LEFT_BRACKET)
                 {
@@ -709,6 +707,7 @@ public class Parser {
                 if(currentToken.getLexemType() == ASSIGNMENT)
                 {
                     parseObjectFieldInitialization();
+                    AST.endElement(currentToken.getLine(), currentToken.getColumn());
                 }
                 else if(currentToken.getLexemType() == LEFT_BRACKET)
                 {

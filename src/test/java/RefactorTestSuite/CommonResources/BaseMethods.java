@@ -11,7 +11,7 @@ import java.util.stream.Stream;
 
 public class BaseMethods {
 
-    public List<String> getFilePathsInDirectory(String directory)
+    public static List<String> getFilePathsInDirectory(String directory)
     {
         List<String> filesInProjectDirectory = new ArrayList<>();
         try (Stream<Path> walk = Files.walk(Paths.get(directory))) {

@@ -2,12 +2,13 @@ import OtherInterface;
 
 public class Class4 extends InnerClass implements OtherInterface
 {
-    abstract A u();
-    protected abstract A v();
-    abstract A w();
-    public abstract A z();
+    int method2()
+    {
+        return 2;
+    }
 
-    public abstract A aa(int a, B b, int c);
+    protected abstract A abs();
+
     public int bb(int a, int b, B c, C f)
     {
 

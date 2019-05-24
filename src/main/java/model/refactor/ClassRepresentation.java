@@ -137,19 +137,23 @@ public class ClassRepresentation implements Representation{
     public List<String> getBases()
     {
         List<String> result = new ArrayList<>(interfacesImplemented);
-        result.add(baseClass);
+        if(baseClass!=null)
+            result.add(baseClass);
         return result;
     }
 
     @Override
     public List<String> getExtends() {
         List<String> result = new ArrayList<>();
-        result.add(baseClass);
+        if(baseClass!=null)
+            result.add(baseClass);
         return result;
     }
 
     @Override
     public Representation getBaseByName(String className) {
+        if(baseClassRepresentation == null)
+            return null;
         if(baseClassRepresentation.getName().equals(className))
             return baseClassRepresentation;
         for(Representation representation : interfacesImplementedRepresentations)

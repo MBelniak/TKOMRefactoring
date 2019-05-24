@@ -18,16 +18,22 @@ import java.util.stream.Stream;
 public class Model {
     private static final Scanner scanner = new Scanner();
     private static final Parser parser = new Parser(scanner);
-    private static final Refactor refactor = new Refactor(scanner, parser);
-    private static final String PROJECT_DIRECTORY = "src\\main\\resources\\projectFiles\\";
+    private static Refactor refactor;
+    private static String PROJECT_DIRECTORY;
     private List<String> filesInProjectDirectory;
     public static final String PULL_UP = Refactor.PULL_UP;
     public static final String PUSH_DOWN = Refactor.PUSH_DOWN;
     public static final String DELEGATE = Refactor.DELEGATE;
 
-    public Model()
+    public Model(String projectDirectory)
     {
         filesInProjectDirectory  = new ArrayList<>();
+        if(projectDirectory == null)
+            PROJECT_DIRECTORY = "src\\main\\resources\\projectFiles\\";
+        else
+            PROJECT_DIRECTORY = projectDirectory;
+
+        refactor = new Refactor(scanner, parser, PROJECT_DIRECTORY);
 
         try (Stream<Path> walk = Files.walk(Paths.get(PROJECT_DIRECTORY))) {
 
@@ -47,7 +53,7 @@ public class Model {
     }
 
     public List<String> getFilesInProjectDirectory() {
-        return filesInProjectDirectory.stream().map(string -> string.substring(32, string.length())).collect(Collectors.toList());
+        return filesInProjectDirectory.stream().map(string -> string.substring(PROJECT_DIRECTORY.length(), string.length())).collect(Collectors.toList());
     }
 
     private List<Representation> getRepresentationsInFile(String fileName)
@@ -212,28 +218,34 @@ public class Model {
         Representation representation = refactor.findClassOrInterfaceInFile(file, chosenClassPath);
         if(representation==null)
             return new ArrayList<>();
-        if(refType.equals(PULL_UP))
+        if(refType.equals(PULL_UP)) {
+            if(representation.getBases().isEmpty())
+                return new ArrayList<>();
             return representation.getBases().stream().map(base -> {
                 StringBuilder result = new StringBuilder();
                 Representation b = representation.getBaseByName(base);
-                if(b instanceof ClassRepresentation)
+                if (b instanceof ClassRepresentation)
                     result.append("(").append('C').append(") ");
                 else
                     result.append("(").append('I').append(") ");
                 result.append(base);
                 return result.toString();
             }).collect(Collectors.toList());
-        else if(refType.equals(DELEGATE))
+        }
+        else if(refType.equals(DELEGATE)) {
+            if(representation.getExtends().isEmpty())
+                return new ArrayList<>();
             return representation.getExtends().stream().map(base -> {
                 StringBuilder result = new StringBuilder();
                 Representation b = representation.getBaseByName(base);
-                if(b instanceof ClassRepresentation)
+                if (b instanceof ClassRepresentation)
                     result.append("(").append('C').append(") ");
                 else
                     result.append("(").append('I').append(") ");
                 result.append(base);
                 return result.toString();
             }).collect(Collectors.toList());
+        }
         return representation.getSubclassesOrSubinterfaces().stream().map(sub -> {
             StringBuilder result = new StringBuilder();
             Representation b = representation.getSubByName(sub);
