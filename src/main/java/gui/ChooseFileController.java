@@ -16,6 +16,7 @@ import org.controlsfx.control.CheckComboBox;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -33,8 +34,6 @@ public class ChooseFileController {
     public ComboBox destinationClasses;
     @FXML
     public ComboBox refactorComboBox;
-    @FXML
-    public Pane mainPane;
     @FXML
     public CheckComboBox statementsComboBox;
     @FXML
@@ -101,15 +100,15 @@ public class ChooseFileController {
     private void setUpComboBox()
     {
         sourceFilesComboBox.setItems(FXCollections.observableArrayList(model.getFilesInProjectDirectory()));
-        refactorComboBox.setItems(FXCollections.observableArrayList(model.getRefactors()));
     }
 
     public void refactorButtonClicked(ActionEvent actionEvent) {
         updateChosenStatements();
         String newFieldName = delegateFieldNameTextField.getText();
         String newClassName = delegateClassNameTextField.getText();
+        String chosenCorI = chosenSourceCorI.substring(4, chosenSourceCorI.length());
 
-        List<String> warnings = model.checkForWarnings(chosenSourceFile, chosenSourceCorI,
+        List<String> warnings = model.checkForWarnings(chosenSourceFile, chosenCorI,
                 chosenStatements, chosenDestCorI, chosenRefactor, newFieldName, newClassName);
 
         switch (chosenRefactor)
@@ -130,12 +129,12 @@ public class ChooseFileController {
                     alert.getDialogPane().setContent(scroll);
                     alert.showAndWait();
                     if (alert.getResult() == ButtonType.YES) {
-                        model.doPushOrPull(chosenSourceFile, chosenSourceCorI,
+                        model.doPushOrPull(chosenSourceFile, chosenCorI,
                                 chosenStatements, chosenDestCorI, chosenRefactor);
                     }
                 }
                 else {
-                    model.doPushOrPull(chosenSourceFile, chosenSourceCorI,
+                    model.doPushOrPull(chosenSourceFile, chosenCorI,
                             chosenStatements, chosenDestCorI, chosenRefactor);
                 }
                 break;
@@ -156,12 +155,12 @@ public class ChooseFileController {
                     alert.getDialogPane().setContent(scroll);
                     alert.showAndWait();
                     if (alert.getResult() == ButtonType.YES) {
-                        model.doPushOrPull(chosenSourceFile, chosenSourceCorI,
+                        model.doPushOrPull(chosenSourceFile, chosenCorI,
                                 chosenStatements, chosenDestCorI, chosenRefactor);
                     }
                 }
                 else {
-                    model.doPushOrPull(chosenSourceFile, chosenSourceCorI,
+                    model.doPushOrPull(chosenSourceFile, chosenCorI,
                             chosenStatements, chosenDestCorI, chosenRefactor);
                 }
                 break;
@@ -194,12 +193,12 @@ public class ChooseFileController {
                     alert.getDialogPane().setContent(scroll);
                     alert.showAndWait();
                     if (alert.getResult() == ButtonType.YES) {
-                        model.doDelegate(chosenSourceFile, chosenSourceCorI,
+                        model.doDelegate(chosenSourceFile, chosenCorI,
                                 chosenStatements, chosenDestCorI, newFieldName, newClassName);
                     }
                 }
                 else {
-                    model.doDelegate(chosenSourceFile, chosenSourceCorI,
+                    model.doDelegate(chosenSourceFile, chosenCorI,
                             chosenStatements, chosenDestCorI, newFieldName, newClassName);
                 }
                 updateSourceClasses();
@@ -245,6 +244,7 @@ public class ChooseFileController {
         destinationClasses.getItems().clear();
         delegateClassNameTextField.setText("");
         delegateFieldNameTextField.setText("");
+        refactorComboBox.getItems().clear();
         refactorButton.setDisable(true);
         chosenSourceFile = (String) sourceFilesComboBox.getValue();
         updateSourceClasses();
@@ -263,6 +263,8 @@ public class ChooseFileController {
     }
 
     private void updateSourceClasses() {
+        if(chosenSourceFile == null)
+            return;
         this.sourceClasses.setItems(FXCollections.observableArrayList(model.getClassesListWithType(chosenSourceFile)));
     }
 
@@ -271,12 +273,23 @@ public class ChooseFileController {
         chosenSourceCorI = ((String)sourceClasses.getValue());
         if(chosenSourceCorI == null)
             return;
-        chosenSourceCorI = chosenSourceCorI.substring(4, chosenSourceCorI.length());
         delegateClassNameTextField.setText("");
         delegateFieldNameTextField.setText("");
+        updateRefactorComboCox();
         updateStatements();
         updateDestinationClasses();
         updateDestFileTextArea();
+    }
+
+    private void updateRefactorComboCox() {
+        if(chosenSourceCorI == null || chosenSourceCorI.equals(""))
+            return;
+        if(chosenSourceCorI.substring(1,2).equals("I")) {
+            List<String> refacts = Arrays.asList(Model.PULL_UP, Model.PUSH_DOWN);
+            refactorComboBox.setItems(FXCollections.observableArrayList(refacts));
+        }
+        else
+            refactorComboBox.setItems(FXCollections.observableArrayList(model.getRefactors()));
     }
 
     private void updateStatements() {
@@ -286,12 +299,13 @@ public class ChooseFileController {
         }
 
         List<Statement> statements;
+        String chosenCorI = chosenSourceCorI.substring(4, chosenSourceCorI.length());
         //fill in statements in menu button
         if(chosenRefactor.equals(Model.PUSH_DOWN) || chosenRefactor.equals(Model.PULL_UP))
-            statements = model.getStatementsInFileInClass(chosenSourceFile, chosenSourceCorI);
+            statements = model.getStatementsInFileInClass(chosenSourceFile, chosenCorI);
         else
         {
-            statements = model.getStatementsWithFileAndSourceClassForDelegation(chosenSourceFile, chosenSourceCorI, chosenDestCorI);
+            statements = model.getStatementsWithFileAndSourceClassForDelegation(chosenSourceFile, chosenCorI, chosenDestCorI);
         }
 
         List<String> result = statements.stream()
@@ -304,6 +318,13 @@ public class ChooseFileController {
     public void refactorComboBoxChanged(ActionEvent actionEvent) {
         refactorButton.setDisable(true);
         chosenRefactor = (String) refactorComboBox.getValue();
+        if(chosenRefactor == null || chosenRefactor.equals(""))
+        {
+            delegatePane.setVisible(false);
+            delegateFieldNameTextField.setText("");
+            delegateClassNameTextField.setText("");
+            return;
+        }
         if(chosenRefactor.equals(Model.PULL_UP) || chosenRefactor.equals(Model.PUSH_DOWN))
         {
             delegatePane.setVisible(false);
@@ -323,8 +344,9 @@ public class ChooseFileController {
         if(chosenRefactor == null)
             return;
         destinationClasses.getItems().clear();
+        String chosenCorI = chosenSourceCorI.substring(4, chosenSourceCorI.length());
         List<String> toSet = model.getBaseOrSubClassesWithTypeFor(
-                chosenSourceFile, chosenSourceCorI, chosenRefactor);
+                chosenSourceFile, chosenCorI, chosenRefactor);
         if(toSet.isEmpty())
             return;
         destinationClasses.setItems(FXCollections.observableArrayList(toSet));
@@ -340,7 +362,10 @@ public class ChooseFileController {
     }
 
     private void updateDestFileTextArea() {
-        Representation potentialFoundRepresentation = model.getClassOrInterfaceFor(chosenSourceCorI,
+        if(chosenSourceCorI == null || chosenSourceCorI.equals(""))
+            return;
+        String chosenCorI = chosenSourceCorI.substring(4, chosenSourceCorI.length());
+        Representation potentialFoundRepresentation = model.getClassOrInterfaceFor(chosenCorI,
                                                     chosenDestCorI, chosenSourceFile, chosenRefactor);
         if(potentialFoundRepresentation==null)
             return;

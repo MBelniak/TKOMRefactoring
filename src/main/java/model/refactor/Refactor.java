@@ -400,10 +400,13 @@ public class Refactor {
             return;
         List<String> chosenClassPath = new ArrayList<>(Arrays.asList(sourceClass.split("\\.")));
         Representation sourceRepresentation = findClassOrInterfaceInFile(sourceFile,chosenClassPath );
-        if(sourceRepresentation.getBases().isEmpty())
+        if(sourceRepresentation.getBases().isEmpty() || sourceRepresentation instanceof InterfaceRepresentation)
             return;
 
         Representation baseRepresentation = getBaseOrSubClassOrInterfaceFor(sourceClass, destClass, sourceFile, DELEGATE);
+
+        if(baseRepresentation instanceof InterfaceRepresentation)
+            return;
 
         List<Statement> statementsBase = getStatementsForDelegationFromClass(baseRepresentation);   //get methods
         List<Statement> statementsSource = getStatementsForDelegationFromClass(sourceRepresentation);

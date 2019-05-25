@@ -21,7 +21,7 @@ public class GG extends FSS
 
 }
 
-public interface OtherInterface
+public interface OtherInterface extends Interface
 {
     default int method()
     {
@@ -30,4 +30,8 @@ public interface OtherInterface
     void getField();
 
     int a = 4;
+}
+interface Interface
+{
+
 }

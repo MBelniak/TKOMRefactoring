@@ -119,6 +119,18 @@
 		<ClassBody>
 			<Statement>
 				<AbstractMethodDeclaration>
+					<Identifier name="public">
+					<Identifier/>
+					<Identifier name="int">
+					<Identifier/>
+					<Identifier name="t">
+					<Identifier/>
+					<MethodParameterList>
+					<MethodParameterList/>
+				<AbstractMethodDeclaration/>
+			<Statement/>
+			<Statement>
+				<AbstractMethodDeclaration>
 					<Identifier name="int">
 					<Identifier/>
 					<Identifier name="s">
