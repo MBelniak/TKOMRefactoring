@@ -198,7 +198,10 @@ public class ClassRepresentation implements Representation{
     @Override
     public Representation getSubByName(String destClass) {
         for (Representation subclassRepresentation : subclassesRepresentations) {
-            if(subclassRepresentation.getName().equals(destClass))
+            StringBuilder nameOfSubclass = new StringBuilder();
+            subclassRepresentation.getOuterClassesOrInterfaces().forEach(outer -> nameOfSubclass.append(outer).append("."));
+            nameOfSubclass.append(subclassRepresentation.getName());
+            if(nameOfSubclass.toString().equals(destClass))
                 return subclassRepresentation;
         }
         return null;

@@ -1,0 +1,6 @@
+import interfacePackage2.Interface5;
+
+public interface Interface4 extends Interface5
+{
+
+}

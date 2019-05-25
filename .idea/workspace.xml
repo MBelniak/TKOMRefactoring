@@ -2,13 +2,65 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="569db950-2a4c-4d14-bd10-c4385d25069d" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/test/java/RefactorTestSuite/PullUpTests/originalFiles/package2/Class9.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/RefactorTestSuite/PullUpTests/testFiles/package2/Class9.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/RefactorTestSuite/PullUpTests/validation/shouldPullUpFromClassToInterface.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/AllTests.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/RefactorTestSuite/DelegateTests/originalFiles/package1/Class1.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/RefactorTestSuite/DelegateTests/originalFiles/package1/Class2.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/RefactorTestSuite/DelegateTests/originalFiles/package1/Class3.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/RefactorTestSuite/DelegateTests/testFiles/package1/Class1.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/RefactorTestSuite/DelegateTests/testFiles/package1/Class2.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/RefactorTestSuite/DelegateTests/testFiles/package1/Class3.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/RefactorTestSuite/DelegateTests/validation/shouldDelegateOverriddenMethods.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/RefactorTestSuite/DelegateTests/validation/shouldDelegateStatements.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/RefactorTestSuite/DelegateTests/validation/shouldDelegateWithoutAnyStatement.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/RefactorTestSuite/PushDownTests/originalFiles/interfacePackage1/Interface1.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/RefactorTestSuite/PushDownTests/originalFiles/interfacePackage1/Interface2.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/RefactorTestSuite/PushDownTests/originalFiles/interfacePackage1/Interface3.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/RefactorTestSuite/PushDownTests/originalFiles/interfacePackage1/Interface4.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/RefactorTestSuite/PushDownTests/originalFiles/interfacePackage2/Interface5.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/RefactorTestSuite/PushDownTests/originalFiles/package1/Class1.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/RefactorTestSuite/PushDownTests/originalFiles/package1/Class2.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/RefactorTestSuite/PushDownTests/originalFiles/package1/Class3.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/RefactorTestSuite/PushDownTests/originalFiles/package1/Class4.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/RefactorTestSuite/PushDownTests/originalFiles/package2/Class5.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/RefactorTestSuite/PushDownTests/originalFiles/package2/Class6.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/RefactorTestSuite/PushDownTests/originalFiles/package2/Class9.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/RefactorTestSuite/PushDownTests/testFiles/interfacePackage1/Interface1.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/RefactorTestSuite/PushDownTests/testFiles/interfacePackage1/Interface2.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/RefactorTestSuite/PushDownTests/testFiles/interfacePackage1/Interface3.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/RefactorTestSuite/PushDownTests/testFiles/interfacePackage1/Interface4.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/RefactorTestSuite/PushDownTests/testFiles/interfacePackage2/Interface5.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/RefactorTestSuite/PushDownTests/testFiles/package1/Class1.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/RefactorTestSuite/PushDownTests/testFiles/package1/Class2.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/RefactorTestSuite/PushDownTests/testFiles/package1/Class3.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/RefactorTestSuite/PushDownTests/testFiles/package2/Class5.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/RefactorTestSuite/PushDownTests/testFiles/package2/Class6.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/RefactorTestSuite/PushDownTests/testFiles/package2/Class9.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/RefactorTestSuite/PushDownTests/validation/shouldPushDownFromInterfaceToClass.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/RefactorTestSuite/PushDownTests/validation/shouldPushDownToClassInOtherFileSamePackageDest.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/RefactorTestSuite/PushDownTests/validation/shouldPushDownToClassInOtherFileSamePackageSource.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/RefactorTestSuite/PushDownTests/validation/shouldPushDownToClassInOtherPackageDest.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/RefactorTestSuite/PushDownTests/validation/shouldPushDownToClassInOtherPackageSource.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/RefactorTestSuite/PushDownTests/validation/shouldPushDownToClassInTheSameFile.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/RefactorTestSuite/PushDownTests/validation/shouldPushDownToInnerClass.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/RefactorTestSuite/PushDownTests/validation/shouldPushDownToInterfaceInOtherFileSamePackageDest.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/RefactorTestSuite/PushDownTests/validation/shouldPushDownToInterfaceInOtherFileSamePackageSource.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/RefactorTestSuite/PushDownTests/validation/shouldPushDownToInterfaceInOtherPackageDest.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/RefactorTestSuite/PushDownTests/validation/shouldPushDownToInterfaceInOtherPackageSource.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/RefactorTestSuite/PushDownTests/validation/shouldPushDownToInterfaceInTheSameFile.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gui/ChooseFileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gui/ChooseFileController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/model/refactor/ClassRepresentation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/refactor/ClassRepresentation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/refactor/InterfaceRepresentation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/refactor/InterfaceRepresentation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/refactor/Refactor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/refactor/Refactor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/scanner/Scanner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/scanner/Scanner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/util/PackagesUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/util/PackagesUtils.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/outputs/ASTOutput.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/outputs/ASTOutput.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/projectFiles/OtherInterface.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/projectFiles/OtherInterface.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/RefactorTestSuite/DelegateTests/DelegateTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/RefactorTestSuite/DelegateTests/DelegateTests.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/RefactorTestSuite/PullUpTests/PullUpTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/RefactorTestSuite/PullUpTests/PullUpTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/RefactorTestSuite/PushDownTests/PushDownTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/RefactorTestSuite/PushDownTests/PushDownTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/RefactorTestSuite/PushDownTests/testFiles/ClassA.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/RefactorTestSuite/PushDownTests/testFiles/Pack/ClassPackB.txt" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -30,11 +82,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="PullUpTests.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/test/java/RefactorTestSuite/PullUpTests/PullUpTests.java">
+      <file leaf-file-name="ChooseFileController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/gui/ChooseFileController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="233">
-              <caret line="162" selection-start-line="162" selection-end-line="162" />
+            <state relative-caret-position="242">
+              <caret line="219" column="26" selection-start-line="219" selection-start-column="26" selection-end-line="219" selection-end-column="26" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -42,104 +94,77 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Model.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/model/modelClass/Model.java">
+      <file leaf-file-name="OtherInterface.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/projectFiles/OtherInterface.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="194">
-              <caret line="77" selection-start-line="77" selection-end-line="77" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="method#getRepresentationsInFile#0;class#Model#0" />
-                <element signature="method#getStatementsInFileInClass#0;class#Model#0" />
-                <element signature="method#getRefactors#0;class#Model#0" />
-                <element signature="method#getClassesListWithType#0;class#Model#0" />
-              </folding>
+            <state relative-caret-position="249">
+              <caret line="25" column="4" selection-start-line="25" selection-start-column="4" selection-end-line="25" selection-end-column="4" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ClassRepresentation.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/model/refactor/ClassRepresentation.java">
+      <file leaf-file-name="Class4.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/projectFiles/pack/Class4.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="228">
-              <caret line="157" selection-start-line="157" selection-end-line="157" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#3054#3055#0" expanded="true" />
-                <element signature="e#3101#3102#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="51">
+              <caret line="3" column="1" selection-start-line="3" selection-start-column="1" selection-end-line="3" selection-end-column="1" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Refactor.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/model/refactor/Refactor.java">
+      <file leaf-file-name="RefactorTestSuite.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/RefactorTestSuite/RefactorTestSuite.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="194">
-              <caret line="191" selection-start-line="191" selection-end-line="191" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="method#checkForDuplicatedClasses#0;class#Refactor#0" />
-                <element signature="method#checkForDuplicatedStatements#0;class#Refactor#0" />
-                <element signature="method#setImportsInRepresentations#0;class#Refactor#0" />
-                <element signature="method#getFileName#0;class#Refactor#0" />
-                <element signature="method#checkForInnerDuplicates#0;class#Refactor#0" />
-                <element signature="method#findSpaceAtDestination#0;class#Refactor#0" />
-                <element signature="method#writeClassesAndInterfaces#0;class#Refactor#0" />
-                <element signature="method#getClassesAndInterfacesInFile#0;class#Refactor#0" />
-              </folding>
+            <state relative-caret-position="68">
+              <caret line="8" selection-start-line="8" selection-end-line="13" selection-end-column="2" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Class6.txt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/RefactorTestSuite/PullUpTests/testFiles/package2/Class6.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret selection-end-line="14" selection-end-column="1" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="shouldPullUpToOuterClass.txt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/RefactorTestSuite/PullUpTests/validation/shouldPullUpToOuterClass.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="14" column="1" selection-start-line="14" selection-start-column="1" selection-end-line="14" selection-end-column="1" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Class9.txt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/RefactorTestSuite/PullUpTests/testFiles/package2/Class9.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret selection-end-line="11" selection-end-column="1" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Class9.txt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/RefactorTestSuite/PullUpTests/originalFiles/package2/Class9.txt">
+      <file leaf-file-name="chooseFile.fxml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/gui/chooseFile.fxml">
+          <provider editor-type-id="JavaFX-Scene-Builder" />
           <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
-      <file leaf-file-name="shouldPullUpFromClassToInterface.txt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/RefactorTestSuite/PullUpTests/validation/shouldPullUpFromClassToInterface.txt">
+      <file leaf-file-name="AllTests.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/AllTests.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="11" column="1" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
+            <state relative-caret-position="221">
+              <caret line="13" column="1" lean-forward="true" selection-start-line="13" selection-start-column="1" selection-end-line="13" selection-end-column="1" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Representation.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/model/refactor/Representation.java">
+      <file leaf-file-name="Interface1.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/projectFiles/Interface1.txt">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file leaf-file-name="Class1.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/projectFiles/Class1.txt">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file leaf-file-name="InnerClass.txt" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/projectFiles/pack/InnerClass.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="25" column="19" selection-start-line="25" selection-start-column="19" selection-end-line="25" selection-end-column="19" />
+            <state relative-caret-position="221">
+              <caret line="25" column="17" lean-forward="true" selection-start-line="25" selection-start-column="17" selection-end-line="25" selection-end-column="17" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Scanner.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/model/scanner/Scanner.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="368">
+              <caret line="245" column="62" selection-start-line="245" selection-start-column="62" selection-end-line="245" selection-end-column="62" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="e#9424#9425#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -201,57 +226,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/model/refactor/InterfaceRepresentation.java" />
-        <option value="$PROJECT_DIR$/src/main/java/model/refactor/MethodRepresentation.java" />
-        <option value="$PROJECT_DIR$/src/main/java/model/refactor/FieldDeclaration.java" />
-        <option value="$PROJECT_DIR$/src/main/java/model/refactor/Statement.java" />
-        <option value="$PROJECT_DIR$/src/main/java/model/refactor/AbstractMethodDeclaration.java" />
-        <option value="$PROJECT_DIR$/src/main/java/model/refactor/MethodDeclaration.java" />
-        <option value="$PROJECT_DIR$/src/main/java/model/refactor/MethodDefinition.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/projectFiles/pack/InnerClass.txt" />
-        <option value="$PROJECT_DIR$/src/main/resources/projectFiles/Class1.txt" />
-        <option value="$PROJECT_DIR$/src/main/resources/projectFiles/pack/Class4.txt" />
-        <option value="$PROJECT_DIR$/src/test/java/RefactorTestSuite/RefactorTests.java" />
-        <option value="$PROJECT_DIR$/src/test/java/RefactorTestSuite/PullUpTests.java" />
-        <option value="$PROJECT_DIR$/src/test/java/RefactorTestSuite/RefactorTestSuite.java" />
-        <option value="$PROJECT_DIR$/src/test/java/RefactorTestSuite/CommonResources/BaseMethods.java" />
-        <option value="$PROJECT_DIR$/src/test/java/RefactorTestSuite/PullUpTests/testFiles/package1/Class4.txt" />
-        <option value="$PROJECT_DIR$/src/main/java/model/refactor/Representation.java" />
-        <option value="$PROJECT_DIR$/src/main/java/model/modelClass/Model.java" />
-        <option value="$PROJECT_DIR$/src/main/java/model/refactor/Refactor.java" />
-        <option value="$PROJECT_DIR$/src/test/java/RefactorTestSuite/PullUpTests/validation/shouldPullUpToClassInTheSameFile.txt" />
-        <option value="$PROJECT_DIR$/src/test/java/RefactorTestSuite/PullUpTests/testFiles/package1/Class1.txt" />
-        <option value="$PROJECT_DIR$/src/test/java/RefactorTestSuite/PullUpTests/validation/shouldPullUpToClassInOtherFileSamePackageSource.txt" />
-        <option value="$PROJECT_DIR$/src/test/java/RefactorTestSuite/PullUpTests/validation/shouldPullUpToClassInOtherFileSamePackageDest.txt" />
-        <option value="$PROJECT_DIR$/src/test/java/RefactorTestSuite/PullUpTests/testFiles/package1/Class2.txt" />
-        <option value="$PROJECT_DIR$/src/test/java/RefactorTestSuite/PullUpTests/testFiles/package1/Class3.txt" />
-        <option value="$PROJECT_DIR$/src/test/java/RefactorTestSuite/PullUpTests/validation/shouldPullUpToClassInOtherPackageSource.txt" />
-        <option value="$PROJECT_DIR$/src/test/java/RefactorTestSuite/PullUpTests/validation/shouldPullUpToClassInOtherPackageDest.txt" />
-        <option value="$PROJECT_DIR$/src/main/java/model/parser/Parser.java" />
-        <option value="$PROJECT_DIR$/src/test/java/ParserTestSuite/StatementsTests/validation/shouldParseInterfaceStatementsValidation.txt" />
-        <option value="$PROJECT_DIR$/src/main/java/Main.java" />
-        <option value="$PROJECT_DIR$/src/main/java/gui/ChooseFileController.java" />
-        <option value="$PROJECT_DIR$/src/test/java/RefactorTestSuite/PullUpTests/testFiles/interfacePackage/Interface1.txt" />
-        <option value="$PROJECT_DIR$/src/test/java/RefactorTestSuite/PullUpTests/testFiles/interfacePackage1/Interface1.txt" />
-        <option value="$PROJECT_DIR$/src/test/java/RefactorTestSuite/PullUpTests/validation/shouldPullUpToInterfaceInTheSameFile.txt" />
-        <option value="$PROJECT_DIR$/src/test/java/RefactorTestSuite/PullUpTests/testFiles/interfacePackage2/Interface2.txt" />
-        <option value="$PROJECT_DIR$/src/test/java/RefactorTestSuite/PullUpTests/testFiles/interfacePackage1/Interface3.txt" />
-        <option value="$PROJECT_DIR$/src/test/java/RefactorTestSuite/PullUpTests/testFiles/interfacePackage1/Interface2.txt" />
-        <option value="$PROJECT_DIR$/src/test/java/RefactorTestSuite/PullUpTests/validation/shouldPullUpToInterfaceInOtherFileSamePackageSource.txt" />
-        <option value="$PROJECT_DIR$/src/test/java/RefactorTestSuite/PullUpTests/validation/shouldPullUpToInterfaceInOtherFileSamePackageDest.txt" />
-        <option value="$PROJECT_DIR$/src/test/java/RefactorTestSuite/PullUpTests/originalFiles/interfacePackage1/Interface3.txt" />
-        <option value="$PROJECT_DIR$/src/test/java/RefactorTestSuite/PullUpTests/testFiles/interfacePackage1/Interface4.txt" />
-        <option value="$PROJECT_DIR$/src/test/java/RefactorTestSuite/PullUpTests/testFiles/interfacePackage2/Interface5.txt" />
-        <option value="$PROJECT_DIR$/src/test/java/RefactorTestSuite/PullUpTests/originalFiles/interfacePackage2/Interface5.txt" />
-        <option value="$PROJECT_DIR$/src/test/java/RefactorTestSuite/PullUpTests/validation/shouldPullUpToInterfaceInOtherPackageSource.txt" />
-        <option value="$PROJECT_DIR$/src/test/java/RefactorTestSuite/PullUpTests/validation/shouldPullUpToInterfaceInOtherPackageDest.txt" />
-        <option value="$PROJECT_DIR$/src/test/java/RefactorTestSuite/PullUpTests/testFiles/package2/Class6.txt" />
-        <option value="$PROJECT_DIR$/src/test/java/RefactorTestSuite/PullUpTests/testFiles/package2/Class5.txt" />
-        <option value="$PROJECT_DIR$/src/test/java/RefactorTestSuite/PullUpTests/validation/shouldPullUpToOuterClass.txt" />
-        <option value="$PROJECT_DIR$/src/test/java/RefactorTestSuite/PullUpTests/testFiles/package2/Class9.txt" />
-        <option value="$PROJECT_DIR$/src/test/java/RefactorTestSuite/PullUpTests/PullUpTests.java" />
+        <option value="$PROJECT_DIR$/src/test/java/RefactorTestSuite/PushDownTests/validation/shouldPushDownToClassInOtherFileSamePackageDest.txt" />
+        <option value="$PROJECT_DIR$/src/test/java/RefactorTestSuite/PushDownTests/validation/shouldPushDownToClassInOtherFileSamePackageSource.txt" />
+        <option value="$PROJECT_DIR$/src/test/java/RefactorTestSuite/PushDownTests/testFiles/package1/Class4.txt" />
+        <option value="$PROJECT_DIR$/src/test/java/RefactorTestSuite/PushDownTests/testFiles/package2/Class5.txt" />
+        <option value="$PROJECT_DIR$/src/test/java/RefactorTestSuite/PushDownTests/originalFiles/package2/Class5.txt" />
+        <option value="$PROJECT_DIR$/src/test/java/RefactorTestSuite/PushDownTests/originalFiles/package1/Class4.txt" />
+        <option value="$PROJECT_DIR$/src/test/java/RefactorTestSuite/PushDownTests/validation/shouldPullUpToClassInOtherPackageDest.txt" />
+        <option value="$PROJECT_DIR$/src/test/java/RefactorTestSuite/PushDownTests/validation/shouldPullUpToClassInOtherPackageSource.txt" />
+        <option value="$PROJECT_DIR$/src/test/java/RefactorTestSuite/PushDownTests/testFiles/interfacePackage1/Interface1.txt" />
+        <option value="$PROJECT_DIR$/src/test/java/RefactorTestSuite/PushDownTests/validation/shouldPushDownToInterfaceInTheSameFile.txt" />
+        <option value="$PROJECT_DIR$/src/test/java/RefactorTestSuite/PushDownTests/testFiles/interfacePackage1/Interface2.txt" />
+        <option value="$PROJECT_DIR$/src/test/java/RefactorTestSuite/PushDownTests/testFiles/interfacePackage1/Interface3.txt" />
+        <option value="$PROJECT_DIR$/src/test/java/RefactorTestSuite/PushDownTests/originalFiles/interfacePackage1/Interface2.txt" />
+        <option value="$PROJECT_DIR$/src/test/java/RefactorTestSuite/PushDownTests/originalFiles/interfacePackage1/Interface3.txt" />
+        <option value="$PROJECT_DIR$/src/test/java/RefactorTestSuite/PushDownTests/validation/shouldPushDownToInterfaceInOtherFileSamePackageDest.txt" />
+        <option value="$PROJECT_DIR$/src/test/java/RefactorTestSuite/PushDownTests/validation/shouldPushDownToInterfaceInOtherFileSamePackageSource.txt" />
+        <option value="$PROJECT_DIR$/src/test/java/RefactorTestSuite/PushDownTests/testFiles/interfacePackage1/Interface4.txt" />
+        <option value="$PROJECT_DIR$/src/test/java/RefactorTestSuite/PushDownTests/testFiles/interfacePackage2/Interface5.txt" />
+        <option value="$PROJECT_DIR$/src/test/java/RefactorTestSuite/PushDownTests/originalFiles/interfacePackage2/Interface5.txt" />
+        <option value="$PROJECT_DIR$/src/test/java/RefactorTestSuite/PushDownTests/originalFiles/interfacePackage1/Interface4.txt" />
+        <option value="$PROJECT_DIR$/src/test/java/RefactorTestSuite/PushDownTests/validation/shouldPushDownToInterfaceInOtherPackageDest.txt" />
+        <option value="$PROJECT_DIR$/src/test/java/RefactorTestSuite/PushDownTests/validation/shouldPushDownToInterfaceInOtherPackageSource.txt" />
+        <option value="$PROJECT_DIR$/src/test/java/RefactorTestSuite/PushDownTests/testFiles/package2/Class6.txt" />
+        <option value="$PROJECT_DIR$/src/test/java/RefactorTestSuite/PushDownTests/originalFiles/package2/Class6.txt" />
         <option value="$PROJECT_DIR$/src/main/java/model/refactor/ClassRepresentation.java" />
-        <option value="$PROJECT_DIR$/src/test/java/RefactorTestSuite/PullUpTests/validation/shouldPullUpFromClassToInterface.txt" />
+        <option value="$PROJECT_DIR$/src/test/java/RefactorTestSuite/PushDownTests/validation/shouldPushDownToInnerClass.txt" />
+        <option value="$PROJECT_DIR$/src/test/java/RefactorTestSuite/PushDownTests/testFiles/package2/Class9.txt" />
+        <option value="$PROJECT_DIR$/src/test/java/RefactorTestSuite/PushDownTests/originalFiles/package2/Class9.txt" />
+        <option value="$PROJECT_DIR$/src/main/java/model/refactor/InterfaceRepresentation.java" />
+        <option value="$PROJECT_DIR$/src/test/java/RefactorTestSuite/PushDownTests/validation/shouldPushDownFromClassToInterface.txt" />
+        <option value="$PROJECT_DIR$/src/test/java/RefactorTestSuite/DelegateTests/testFiles/Class1.txt" />
+        <option value="$PROJECT_DIR$/src/main/java/model/util/PackagesUtils.java" />
+        <option value="$PROJECT_DIR$/src/test/java/RefactorTestSuite/DelegateTests/validation/shouldDelegateWithoutAnyStatement.txt" />
+        <option value="$PROJECT_DIR$/src/test/java/RefactorTestSuite/DelegateTests/testFiles/package1/Class1.txt" />
+        <option value="$PROJECT_DIR$/src/test/java/RefactorTestSuite/PullUpTests/PullUpTests.java" />
+        <option value="$PROJECT_DIR$/src/test/java/RefactorTestSuite/PushDownTests/PushDownTests.java" />
+        <option value="$PROJECT_DIR$/src/test/java/RefactorTestSuite/DelegateTests/testFiles/package1/Class2.txt" />
+        <option value="$PROJECT_DIR$/src/test/java/RefactorTestSuite/DelegateTests/originalFiles/package1/Class2.txt" />
+        <option value="$PROJECT_DIR$/src/test/java/RefactorTestSuite/DelegateTests/validation/shouldDelegateStatements.txt" />
+        <option value="$PROJECT_DIR$/src/test/java/RefactorTestSuite/DelegateTests/originalFiles/package1/Class3.txt" />
+        <option value="$PROJECT_DIR$/src/main/java/model/refactor/Refactor.java" />
+        <option value="$PROJECT_DIR$/src/test/java/RefactorTestSuite/DelegateTests/testFiles/package1/Class3.txt" />
+        <option value="$PROJECT_DIR$/src/test/java/RefactorTestSuite/DelegateTests/validation/shouldDelegateOverriddenMethods.txt" />
+        <option value="$PROJECT_DIR$/src/test/java/RefactorTestSuite/DelegateTests/testFiles/package1/Class4.txt" />
+        <option value="$PROJECT_DIR$/src/test/java/RefactorTestSuite/DelegateTests/DelegateTests.java" />
+        <option value="$PROJECT_DIR$/src/test/java/AllTests.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/projectFiles/OtherInterface.txt" />
+        <option value="$PROJECT_DIR$/src/main/java/model/scanner/Scanner.java" />
+        <option value="$PROJECT_DIR$/src/main/java/gui/ChooseFileController.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/projectFiles/pack/Class4.txt" />
+        <option value="$PROJECT_DIR$/src/main/resources/projectFiles/pack/InnerClass.txt" />
       </list>
     </option>
   </component>
@@ -358,6 +383,15 @@
               <item name="TKOMRefactoring" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="model" type="462c0819:PsiDirectoryNode" />
+              <item name="scanner" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TKOMRefactoring" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TKOMRefactoring" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -406,140 +440,6 @@
               <item name="test" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="TKOMRefactoring" type="b2602c69:ProjectViewProjectNode" />
-              <item name="TKOMRefactoring" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="RefactorTestSuite" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TKOMRefactoring" type="b2602c69:ProjectViewProjectNode" />
-              <item name="TKOMRefactoring" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="RefactorTestSuite" type="462c0819:PsiDirectoryNode" />
-              <item name="CommonResources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TKOMRefactoring" type="b2602c69:ProjectViewProjectNode" />
-              <item name="TKOMRefactoring" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="RefactorTestSuite" type="462c0819:PsiDirectoryNode" />
-              <item name="DelegateTests" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TKOMRefactoring" type="b2602c69:ProjectViewProjectNode" />
-              <item name="TKOMRefactoring" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="RefactorTestSuite" type="462c0819:PsiDirectoryNode" />
-              <item name="PullUpTests" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TKOMRefactoring" type="b2602c69:ProjectViewProjectNode" />
-              <item name="TKOMRefactoring" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="RefactorTestSuite" type="462c0819:PsiDirectoryNode" />
-              <item name="PullUpTests" type="462c0819:PsiDirectoryNode" />
-              <item name="originalFiles" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TKOMRefactoring" type="b2602c69:ProjectViewProjectNode" />
-              <item name="TKOMRefactoring" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="RefactorTestSuite" type="462c0819:PsiDirectoryNode" />
-              <item name="PullUpTests" type="462c0819:PsiDirectoryNode" />
-              <item name="originalFiles" type="462c0819:PsiDirectoryNode" />
-              <item name="interfacePackage1" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TKOMRefactoring" type="b2602c69:ProjectViewProjectNode" />
-              <item name="TKOMRefactoring" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="RefactorTestSuite" type="462c0819:PsiDirectoryNode" />
-              <item name="PullUpTests" type="462c0819:PsiDirectoryNode" />
-              <item name="originalFiles" type="462c0819:PsiDirectoryNode" />
-              <item name="interfacePackage2" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TKOMRefactoring" type="b2602c69:ProjectViewProjectNode" />
-              <item name="TKOMRefactoring" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="RefactorTestSuite" type="462c0819:PsiDirectoryNode" />
-              <item name="PullUpTests" type="462c0819:PsiDirectoryNode" />
-              <item name="originalFiles" type="462c0819:PsiDirectoryNode" />
-              <item name="package1" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TKOMRefactoring" type="b2602c69:ProjectViewProjectNode" />
-              <item name="TKOMRefactoring" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="RefactorTestSuite" type="462c0819:PsiDirectoryNode" />
-              <item name="PullUpTests" type="462c0819:PsiDirectoryNode" />
-              <item name="originalFiles" type="462c0819:PsiDirectoryNode" />
-              <item name="package2" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TKOMRefactoring" type="b2602c69:ProjectViewProjectNode" />
-              <item name="TKOMRefactoring" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="RefactorTestSuite" type="462c0819:PsiDirectoryNode" />
-              <item name="PullUpTests" type="462c0819:PsiDirectoryNode" />
-              <item name="testFiles" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TKOMRefactoring" type="b2602c69:ProjectViewProjectNode" />
-              <item name="TKOMRefactoring" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="RefactorTestSuite" type="462c0819:PsiDirectoryNode" />
-              <item name="PullUpTests" type="462c0819:PsiDirectoryNode" />
-              <item name="testFiles" type="462c0819:PsiDirectoryNode" />
-              <item name="package2" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TKOMRefactoring" type="b2602c69:ProjectViewProjectNode" />
-              <item name="TKOMRefactoring" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="RefactorTestSuite" type="462c0819:PsiDirectoryNode" />
-              <item name="PullUpTests" type="462c0819:PsiDirectoryNode" />
-              <item name="validation" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TKOMRefactoring" type="b2602c69:ProjectViewProjectNode" />
-              <item name="TKOMRefactoring" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="RefactorTestSuite" type="462c0819:PsiDirectoryNode" />
-              <item name="PushDownTests" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TKOMRefactoring" type="b2602c69:ProjectViewProjectNode" />
-              <item name="TKOMRefactoring" type="462c0819:PsiDirectoryNode" />
-              <item name="target" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -568,12 +468,14 @@
       <recent name="Parser" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\rubik\IdeaProjects\TKOMRefactoring\src\test\java\RefactorTestSuite\DelegateTests\originalFiles\package1" />
+      <recent name="C:\Users\rubik\IdeaProjects\TKOMRefactoring\src\test\java\RefactorTestSuite\DelegateTests\originalFiles" />
+      <recent name="C:\Users\rubik\IdeaProjects\TKOMRefactoring\src\test\java\RefactorTestSuite\PushDownTests\originalFiles" />
+      <recent name="C:\Users\rubik\IdeaProjects\TKOMRefactoring\src\test\java\RefactorTestSuite\PushDownTests\testFiles" />
       <recent name="C:\Users\rubik\IdeaProjects\TKOMRefactoring\src\test\java\RefactorTestSuite\PullUpTests\originalFiles\package2" />
-      <recent name="C:\Users\rubik\IdeaProjects\TKOMRefactoring\src\test\java\RefactorTestSuite\PullUpTests\testFiles" />
-      <recent name="C:\Users\rubik\IdeaProjects\TKOMRefactoring\src\test\java\RefactorTestSuite\PullUpTests\originalFiles" />
-      <recent name="C:\Users\rubik\IdeaProjects\TKOMRefactoring\src\main\java\gui" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\rubik\IdeaProjects\TKOMRefactoring\src\test\java\RefactorTestSuite\DelegateTests\testFiles\package1" />
       <recent name="C:\Users\rubik\IdeaProjects\TKOMRefactoring\src\test\java\RefactorTestSuite\PullUpTests\testFiles\interfacePackage1" />
       <recent name="C:\Users\rubik\IdeaProjects\TKOMRefactoring\src\main\resources\fxml" />
       <recent name="C:\Users\rubik\IdeaProjects\TKOMRefactoring\src\test\java\ParserTestSuite\MethodStatementsTests\testFiles" />
@@ -592,7 +494,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.PullUpTests">
+  <component name="RunManager" selected="Application.Unnamed">
     <configuration name="Unnamed" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="TKOMRefactoring" />
@@ -601,18 +503,12 @@
     <configuration default="true" type="Application" factoryName="Application">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
     </configuration>
-    <configuration name="OneLexemTestCase" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="AllTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="TKOMRefactoring" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="OneLexem.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="OneLexem" />
-      <option name="MAIN_CLASS_NAME" value="OneLexem.OneLexemTestCase" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="AllTests" />
       <option name="METHOD_NAME" />
       <option name="TEST_OBJECT" value="class" />
       <option name="VM_PARAMETERS" value="-ea" />
@@ -624,23 +520,23 @@
       </option>
       <patterns />
     </configuration>
-    <configuration name="ParserTests" type="JUnit" factoryName="JUnit" temporary="true">
+    <configuration name="DelegateTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="TKOMRefactoring" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="ParserTestSuite.ClassesAndInterfacesTests.*" />
+          <option name="PATTERN" value="RefactorTestSuite.DelegateTests.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="ParserTestSuite" />
-      <option name="MAIN_CLASS_NAME" value="" />
-      <option name="METHOD_NAME" value="" />
-      <option name="TEST_OBJECT" value="package" />
+      <option name="PACKAGE_NAME" value="RefactorTestSuite.DelegateTests" />
+      <option name="MAIN_CLASS_NAME" value="RefactorTestSuite.DelegateTests.DelegateTests" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
       <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" value="" />
-      <option name="WORKING_DIRECTORY" value="file://%MODULE_WORKING_DIR%" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
       <option name="PASS_PARENT_ENVS" value="true" />
       <option name="TEST_SEARCH_SCOPE">
         <value defaultName="singleModule" />
@@ -659,6 +555,52 @@
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="RefactorTestSuite.PullUpTests" />
       <option name="MAIN_CLASS_NAME" value="RefactorTestSuite.PullUpTests.PullUpTests" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <patterns />
+    </configuration>
+    <configuration name="PushDownTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="TKOMRefactoring" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="RefactorTestSuite.PushDownTests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="RefactorTestSuite.PushDownTests" />
+      <option name="MAIN_CLASS_NAME" value="RefactorTestSuite.PushDownTests.PushDownTests" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <patterns />
+    </configuration>
+    <configuration name="RefactorTestSuite" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="TKOMRefactoring" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="RefactorTestSuite.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="RefactorTestSuite" />
+      <option name="MAIN_CLASS_NAME" value="RefactorTestSuite.RefactorTestSuite" />
       <option name="METHOD_NAME" />
       <option name="TEST_OBJECT" value="class" />
       <option name="VM_PARAMETERS" value="-ea" />
@@ -710,15 +652,19 @@
     </configuration>
     <list>
       <item itemvalue="Application.Unnamed" />
-      <item itemvalue="JUnit.OneLexemTestCase" />
-      <item itemvalue="JUnit.ParserTests" />
       <item itemvalue="JUnit.PullUpTests" />
+      <item itemvalue="JUnit.PushDownTests" />
+      <item itemvalue="JUnit.DelegateTests" />
+      <item itemvalue="JUnit.RefactorTestSuite" />
+      <item itemvalue="JUnit.AllTests" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.AllTests" />
+        <item itemvalue="JUnit.RefactorTestSuite" />
+        <item itemvalue="JUnit.DelegateTests" />
+        <item itemvalue="JUnit.PushDownTests" />
         <item itemvalue="JUnit.PullUpTests" />
-        <item itemvalue="JUnit.ParserTests" />
-        <item itemvalue="JUnit.OneLexemTestCase" />
       </list>
     </recent_temporary>
   </component>
@@ -745,44 +691,44 @@
       <workItem from="1557812685197" duration="28094000" />
       <workItem from="1558025375795" duration="62599000" />
       <workItem from="1558254574677" duration="37577000" />
-      <workItem from="1558629922243" duration="40613000" />
+      <workItem from="1558629922243" duration="48590000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="PullUpTests - 2019.05.24 at 23h 38m 09s.xml">
-      <configuration name="PullUpTests" configurationId="JUnit" />
+    <history-entry file="DelegateTests - 2019.05.25 at 11h 41m 29s.xml">
+      <configuration name="DelegateTests" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="PullUpTests - 2019.05.24 at 23h 38m 16s.xml">
-      <configuration name="PullUpTests" configurationId="JUnit" />
+    <history-entry file="DelegateTests - 2019.05.25 at 11h 44m 18s.xml">
+      <configuration name="DelegateTests" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="PullUpTests - 2019.05.24 at 23h 39m 10s.xml">
-      <configuration name="PullUpTests" configurationId="JUnit" />
+    <history-entry file="DelegateTests - 2019.05.25 at 11h 58m 05s.xml">
+      <configuration name="DelegateTests" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="PullUpTests - 2019.05.24 at 23h 40m 05s.xml">
-      <configuration name="PullUpTests" configurationId="JUnit" />
+    <history-entry file="DelegateTests - 2019.05.25 at 11h 58m 40s.xml">
+      <configuration name="DelegateTests" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="PullUpTests - 2019.05.24 at 23h 43m 56s.xml">
-      <configuration name="PullUpTests" configurationId="JUnit" />
+    <history-entry file="DelegateTests - 2019.05.25 at 11h 59m 50s.xml">
+      <configuration name="DelegateTests" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="PullUpTests - 2019.05.24 at 23h 44m 22s.xml">
-      <configuration name="PullUpTests" configurationId="JUnit" />
+    <history-entry file="DelegateTests - 2019.05.25 at 12h 00m 08s.xml">
+      <configuration name="DelegateTests" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="PullUpTests - 2019.05.24 at 23h 45m 01s.xml">
-      <configuration name="PullUpTests" configurationId="JUnit" />
+    <history-entry file="DelegateTests - 2019.05.25 at 12h 03m 41s.xml">
+      <configuration name="DelegateTests" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="PullUpTests - 2019.05.24 at 23h 45m 51s.xml">
-      <configuration name="PullUpTests" configurationId="JUnit" />
+    <history-entry file="RefactorTestSuite - 2019.05.25 at 12h 04m 02s.xml">
+      <configuration name="RefactorTestSuite" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="PullUpTests - 2019.05.24 at 23h 46m 25s.xml">
-      <configuration name="PullUpTests" configurationId="JUnit" />
+    <history-entry file="AllTests - 2019.05.25 at 12h 05m 10s.xml">
+      <configuration name="AllTests" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="PullUpTests - 2019.05.24 at 23h 47m 18s.xml">
-      <configuration name="PullUpTests" configurationId="JUnit" />
+    <history-entry file="AllTests - 2019.05.25 at 12h 26m 39s.xml">
+      <configuration name="AllTests" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="399950000" />
+    <option name="totallyTimeSpent" value="407927000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="878" extended-state="6" />
@@ -797,10 +743,10 @@
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="right" id="Maven Projects" order="4" />
       <window_info anchor="bottom" id="Database Changes" order="11" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.41585535" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.31154382" />
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="right" id="Coverage" order="9" side_tool="true" weight="0.3295302" />
-      <window_info anchor="bottom" id="Terminal" order="9" visible="true" weight="0.28650904" />
+      <window_info anchor="bottom" id="Terminal" order="9" weight="0.23226704" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="3" />
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2738255" />
@@ -810,7 +756,7 @@
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="4" />
       <window_info anchor="right" id="Theme Preview" order="7" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.3657858" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.511822" />
       <window_info id="Favorites" order="5" side_tool="true" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
@@ -915,13 +861,13 @@
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/model/refactor/Refactor.java</url>
-          <line>431</line>
+          <line>444</line>
           <properties />
           <option name="timeStamp" value="186" />
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/model/refactor/Refactor.java</url>
-          <line>508</line>
+          <line>521</line>
           <properties />
           <option name="timeStamp" value="189" />
         </line-breakpoint>
@@ -933,7 +879,7 @@
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/gui/ChooseFileController.java</url>
-          <line>187</line>
+          <line>201</line>
           <properties />
           <option name="timeStamp" value="191" />
         </line-breakpoint>
@@ -945,31 +891,31 @@
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/model/util/PackagesUtils.java</url>
-          <line>116</line>
+          <line>113</line>
           <properties />
           <option name="timeStamp" value="195" />
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/model/util/PackagesUtils.java</url>
-          <line>102</line>
+          <line>99</line>
           <properties />
           <option name="timeStamp" value="196" />
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/src/test/java/RefactorTestSuite/PullUpTests/PullUpTests.java</url>
-          <line>27</line>
+          <line>28</line>
           <properties />
           <option name="timeStamp" value="197" />
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/src/test/java/RefactorTestSuite/PullUpTests/PullUpTests.java</url>
-          <line>46</line>
+          <line>44</line>
           <properties />
           <option name="timeStamp" value="202" />
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/src/test/java/RefactorTestSuite/PullUpTests/PullUpTests.java</url>
-          <line>70</line>
+          <line>65</line>
           <properties />
           <option name="timeStamp" value="203" />
         </line-breakpoint>
@@ -991,17 +937,17 @@
           <properties />
           <option name="timeStamp" value="207" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/RefactorTestSuite/PullUpTests/PullUpTests.java</url>
-          <line>162</line>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/model/refactor/Refactor.java</url>
+          <line>138</line>
           <properties />
-          <option name="timeStamp" value="212" />
+          <option name="timeStamp" value="229" />
         </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="214" />
+      <option name="time" value="234" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="JUnit">
@@ -1010,328 +956,272 @@
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/test/java/RefactorTestSuite/CommonResources/BaseMethods.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="31" selection-start-line="13" selection-start-column="31" selection-end-line="13" selection-end-column="31" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/ParserTestSuite/ParserTests.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/RefactorTestSuite/PushDownTests/originalFiles/interfacePackage1/Interface1.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
-          <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
+          <caret line="12" lean-forward="true" selection-end-line="14" selection-end-column="1" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/ParserTestSuite/CommonResources/SingleTestConductor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="57" selection-start-line="8" selection-end-line="8" selection-end-column="57" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/ParserTestSuite/PackagesTests/PackagesTests.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="25" column="46" selection-start-line="25" selection-start-column="46" selection-end-line="25" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/RefactorTestSuite/PullUpTests/originalFiles/package1/Class1.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="19" lean-forward="true" selection-end-line="18" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/RefactorTestSuite/PullUpTests/validation/shouldPullUpToClassInOtherFileSamePackageSource.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="1" selection-start-line="5" selection-start-column="1" selection-end-line="5" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/RefactorTestSuite/PullUpTests/validation/shouldPullUpToClassInOtherFileSamePackageDest.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="1" selection-start-line="16" selection-start-column="1" selection-end-line="16" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/RefactorTestSuite/PullUpTests/originalFiles/package1/Class2.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-line="18" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/RefactorTestSuite/PullUpTests/originalFiles/package1/Class3.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-line="3" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/RefactorTestSuite/PullUpTests/validation/shouldPullUpToClassInOtherPackageSource.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="1" selection-start-line="4" selection-start-column="1" selection-end-line="4" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/RefactorTestSuite/PullUpTests/validation/shouldPullUpToClassInOtherPackageDest.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="1" selection-start-line="12" selection-start-column="1" selection-end-line="12" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/RefactorTestSuite/PullUpTests/testFiles/package1/Class2.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="1" selection-start-line="18" selection-start-column="1" selection-end-line="18" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/RefactorTestSuite/PullUpTests/testFiles/package1/Class3.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="1" selection-start-line="3" selection-start-column="1" selection-end-line="3" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/model/parser/AbstractSyntaxTree.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="159">
-          <caret line="73" selection-start-line="73" selection-end-line="73" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/ParserTestSuite/StatementsTests/testFiles/shouldParseInterfaceStatements.txt">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/outputs/ASTOutput.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="7" lean-forward="true" selection-end-line="11" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/ParserTestSuite/StatementsTests/validation/shouldParseInterfaceStatementsValidation.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="348">
-          <caret line="105" column="7" selection-start-line="105" selection-start-column="7" selection-end-line="105" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="19" column="45" selection-start-line="19" selection-start-column="45" selection-end-line="19" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/gui/ChooseFileController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="140" column="22" lean-forward="true" selection-start-line="140" selection-start-column="22" selection-end-line="140" selection-end-column="22" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/RefactorTestSuite/PullUpTests/validation/shouldPullUpToClassInTheSameFile.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="1" selection-start-line="18" selection-start-column="1" selection-end-line="18" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/model/parser/Parser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="143">
-          <caret line="670" selection-start-line="670" selection-end-line="670" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#386#387#0" expanded="true" />
-            <element signature="e#424#425#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/RefactorTestSuite/PullUpTests/testFiles/interfacePackage1/Interface1.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="14" selection-start-line="11" selection-start-column="14" selection-end-line="11" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/RefactorTestSuite/PullUpTests/validation/shouldPullUpToInterfaceInTheSameFile.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="14" selection-start-line="5" selection-start-column="14" selection-end-line="5" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/RefactorTestSuite/PullUpTests/validation/shouldPullUpToInterfaceInOtherFileSamePackageSource.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="1" selection-start-line="2" selection-start-column="1" selection-end-line="2" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/RefactorTestSuite/PullUpTests/validation/shouldPullUpToInterfaceInOtherFileSamePackageDest.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="5" lean-forward="true" selection-start-line="6" selection-start-column="5" selection-end-line="6" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/RefactorTestSuite/PullUpTests/testFiles/interfacePackage1/Interface2.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-line="7" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/RefactorTestSuite/PullUpTests/testFiles/interfacePackage1/Interface3.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/RefactorTestSuite/PullUpTests/originalFiles/interfacePackage1/Interface3.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="1" lean-forward="true" selection-start-line="3" selection-start-column="1" selection-end-line="3" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/RefactorTestSuite/PullUpTests/originalFiles/interfacePackage1/Interface1.txt">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/RefactorTestSuite/PullUpTests/originalFiles/interfacePackage2/Interface5.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="1" selection-start-line="3" selection-start-column="1" selection-end-line="3" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/RefactorTestSuite/PullUpTests/originalFiles/interfacePackage1/Interface4.txt">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/RefactorTestSuite/PullUpTests/validation/shouldPullUpToInterfaceInOtherPackageSource.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="1" selection-start-line="5" selection-start-column="1" selection-end-line="5" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/RefactorTestSuite/PullUpTests/validation/shouldPullUpToInterfaceInOtherPackageDest.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="1" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/RefactorTestSuite/PullUpTests/testFiles/interfacePackage1/Interface4.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-line="9" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/RefactorTestSuite/PullUpTests/testFiles/interfacePackage2/Interface5.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="1" lean-forward="true" selection-start-line="3" selection-start-column="1" selection-end-line="3" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/model/util/PackagesUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="160" selection-start-line="160" selection-end-line="160" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/RefactorTestSuite/PullUpTests/originalFiles/package1/Class4.txt">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/RefactorTestSuite/PullUpTests/testFiles/package1/Class4.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-line="13" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/RefactorTestSuite/PullUpTests/originalFiles/package2/Class5.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-line="3" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/RefactorTestSuite/PullUpTests/testFiles/package1/Class1.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="5" lean-forward="true" selection-start-line="12" selection-start-column="5" selection-end-line="12" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/RefactorTestSuite/PullUpTests/testFiles/package2/Class5.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-line="3" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/RefactorTestSuite/PullUpTests/testFiles/package2/Class6.txt">
+    <entry file="file://$PROJECT_DIR$/src/test/java/RefactorTestSuite/PushDownTests/testFiles/interfacePackage1/Interface1.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <caret selection-end-line="14" selection-end-column="1" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/RefactorTestSuite/PullUpTests/validation/shouldPullUpToOuterClass.txt">
+    <entry file="file://$PROJECT_DIR$/src/test/java/RefactorTestSuite/PushDownTests/originalFiles/interfacePackage1/Interface2.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="1" selection-start-line="14" selection-start-column="1" selection-end-line="14" selection-end-column="1" />
+        <state relative-caret-position="51">
+          <caret line="3" column="1" selection-start-line="3" selection-start-column="1" selection-end-line="3" selection-end-column="1" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/RefactorTestSuite/PullUpTests/originalFiles/package2/Class9.txt">
-      <provider selected="true" editor-type-id="text-editor" />
+    <entry file="file://$PROJECT_DIR$/src/test/java/RefactorTestSuite/PushDownTests/originalFiles/interfacePackage1/Interface3.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="1" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/RefactorTestSuite/PushDownTests/testFiles/interfacePackage1/Interface2.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="1" lean-forward="true" selection-end-line="3" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/RefactorTestSuite/PushDownTests/validation/shouldPushDownToInterfaceInOtherFileSamePackageDest.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="1" selection-start-line="8" selection-start-column="1" selection-end-line="8" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/RefactorTestSuite/PushDownTests/testFiles/interfacePackage1/Interface3.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="7" column="1" lean-forward="true" selection-end-line="7" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/RefactorTestSuite/PushDownTests/validation/shouldPushDownToInterfaceInOtherFileSamePackageSource.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="1" selection-start-line="2" selection-start-column="1" selection-end-line="2" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/RefactorTestSuite/PushDownTests/originalFiles/interfacePackage2/Interface5.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="1" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/RefactorTestSuite/PushDownTests/originalFiles/interfacePackage1/Interface4.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="1" selection-start-line="5" selection-start-column="1" selection-end-line="5" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/RefactorTestSuite/PushDownTests/validation/shouldPushDownToInterfaceInOtherPackageDest.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="1" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/RefactorTestSuite/PushDownTests/testFiles/interfacePackage2/Interface5.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="7" column="1" lean-forward="true" selection-end-line="7" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/RefactorTestSuite/PushDownTests/validation/shouldPushDownToInterfaceInOtherPackageSource.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="1" selection-start-line="3" selection-start-column="1" selection-end-line="3" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/RefactorTestSuite/PushDownTests/testFiles/interfacePackage1/Interface4.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="1" lean-forward="true" selection-end-line="5" selection-end-column="1" />
+        </state>
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/model/refactor/Representation.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="25" column="19" selection-start-line="25" selection-start-column="19" selection-end-line="25" selection-end-column="19" />
+        <state relative-caret-position="262">
+          <caret line="35" column="19" selection-start-line="35" selection-start-column="19" selection-end-line="35" selection-end-column="19" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/RefactorTestSuite/PushDownTests/validation/shouldPushDownToInterfaceInTheSameFile.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="1" selection-start-line="14" selection-start-column="1" selection-end-line="14" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/RefactorTestSuite/PushDownTests/testFiles/package2/Class6.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-line="14" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/RefactorTestSuite/PushDownTests/validation/shouldPushDownToInnerClass.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="1" selection-start-line="14" selection-start-column="1" selection-end-line="14" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/RefactorTestSuite/PushDownTests/originalFiles/package2/Class6.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="1" selection-start-line="14" selection-start-column="1" selection-end-line="14" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/RefactorTestSuite/PushDownTests/originalFiles/package2/Class9.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="1" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/model/refactor/InterfaceRepresentation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="268">
+          <caret line="173" column="24" selection-start-line="173" selection-start-column="24" selection-end-line="173" selection-end-column="24" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#4316#4317#0" expanded="true" />
+            <element signature="e#4370#4371#0" expanded="true" />
+            <element signature="e#4424#4425#0" expanded="true" />
+            <element signature="e#4461#4462#0" expanded="true" />
+            <element signature="e#6679#6680#0" expanded="true" />
+            <element signature="e#6724#6725#0" expanded="true" />
+            <element signature="e#6787#6788#0" expanded="true" />
+            <element signature="e#6855#6856#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/RefactorTestSuite/PushDownTests/testFiles/package2/Class9.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" lean-forward="true" selection-end-line="11" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/RefactorTestSuite/PushDownTests/validation/shouldPushDownFromInterfaceToClass.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="1" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/model/refactor/ClassRepresentation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="159">
+          <caret line="105" selection-start-line="105" selection-end-line="105" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#3054#3055#0" expanded="true" />
+            <element signature="e#3101#3102#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/model/util/PackagesUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="159">
+          <caret line="94" selection-start-line="94" selection-end-line="94" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/RefactorTestSuite/DelegateTests/originalFiles/package1/Class1.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/RefactorTestSuite/DelegateTests/validation/shouldDelegateWithoutAnyStatement.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="12" lean-forward="true" selection-start-column="12" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/RefactorTestSuite/PullUpTests/PullUpTests.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="22" column="50" selection-start-line="22" selection-start-column="50" selection-end-line="22" selection-end-column="50" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/RefactorTestSuite/PushDownTests/PushDownTests.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="277">
+          <caret line="22" column="53" selection-start-line="22" selection-start-column="53" selection-end-line="22" selection-end-column="53" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/RefactorTestSuite/DelegateTests/testFiles/package1/Class1.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="12" lean-forward="true" selection-end-line="8" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/RefactorTestSuite/DelegateTests/originalFiles/package1/Class2.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="1" selection-start-line="16" selection-start-column="1" selection-end-line="16" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/RefactorTestSuite/DelegateTests/testFiles/package1/Class2.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="37">
+          <caret line="5" column="15" lean-forward="true" selection-end-line="16" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/RefactorTestSuite/DelegateTests/validation/shouldDelegateStatements.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="27" column="1" selection-start-line="27" selection-start-column="1" selection-end-line="27" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/RefactorTestSuite/DelegateTests/originalFiles/package1/Class3.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="10" selection-start-line="7" selection-start-column="10" selection-end-line="7" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/model/modelClass/Model.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="194">
-          <caret line="77" selection-start-line="77" selection-end-line="77" />
+        <state relative-caret-position="108">
+          <caret line="296" column="31" lean-forward="true" selection-start-line="296" selection-start-column="31" selection-end-line="296" selection-end-column="31" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#getRepresentationsInFile#0;class#Model#0" />
@@ -1344,8 +1234,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/model/refactor/Refactor.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="194">
-          <caret line="191" selection-start-line="191" selection-end-line="191" />
+        <state relative-caret-position="258">
+          <caret line="426" column="54" selection-start-line="426" selection-start-column="54" selection-end-line="426" selection-end-column="54" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#checkForDuplicatedClasses#0;class#Refactor#0" />
@@ -1360,39 +1250,105 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/model/refactor/ClassRepresentation.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/RefactorTestSuite/DelegateTests/validation/shouldDelegateOverriddenMethods.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="157" selection-start-line="157" selection-end-line="157" />
+        <state relative-caret-position="221">
+          <caret line="13" column="4" lean-forward="true" selection-start-line="13" selection-start-column="4" selection-end-line="13" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/RefactorTestSuite/DelegateTests/validation/shouldRecognizeThatOneOfCheckedStatementIsOverridden.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/RefactorTestSuite/DelegateTests/testFiles/package1/Class4.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" column="1" selection-start-line="18" selection-start-column="1" selection-end-line="18" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/RefactorTestSuite/DelegateTests/testFiles/package1/Class3.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="5" lean-forward="true" selection-start-line="5" selection-start-column="5" selection-end-line="5" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/RefactorTestSuite/DelegateTests/DelegateTests.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="107">
+          <caret line="64" column="26" lean-forward="true" selection-start-line="64" selection-start-column="26" selection-end-line="64" selection-end-column="26" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#3054#3055#0" expanded="true" />
-            <element signature="e#3101#3102#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/RefactorTestSuite/PullUpTests/testFiles/package2/Class9.txt">
+    <entry file="file://$PROJECT_DIR$/src/test/java/RefactorTestSuite/RefactorTestSuite.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-line="11" selection-end-column="1" />
+        <state relative-caret-position="68">
+          <caret line="8" selection-start-line="8" selection-end-line="13" selection-end-column="2" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/RefactorTestSuite/PullUpTests/validation/shouldPullUpFromClassToInterface.txt">
+    <entry file="file://$PROJECT_DIR$/src/test/java/AllTests.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="1" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/RefactorTestSuite/PullUpTests/PullUpTests.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="233">
-          <caret line="162" selection-start-line="162" selection-end-line="162" />
+        <state relative-caret-position="221">
+          <caret line="13" column="1" lean-forward="true" selection-start-line="13" selection-start-column="1" selection-end-line="13" selection-end-column="1" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/projectFiles/OtherInterface.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="249">
+          <caret line="25" column="4" selection-start-line="25" selection-start-column="4" selection-end-line="25" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/projectFiles/Interface1.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/projectFiles/Class1.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/gui/chooseFile.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/model/scanner/Scanner.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="368">
+          <caret line="245" column="62" selection-start-line="245" selection-start-column="62" selection-end-line="245" selection-end-column="62" />
+          <folding>
+            <element signature="e#9424#9425#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/gui/ChooseFileController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="242">
+          <caret line="219" column="26" selection-start-line="219" selection-start-column="26" selection-end-line="219" selection-end-column="26" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/projectFiles/pack/Class4.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="1" selection-start-line="3" selection-start-column="1" selection-end-line="3" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/projectFiles/pack/InnerClass.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="25" column="17" lean-forward="true" selection-start-line="25" selection-start-column="17" selection-end-line="25" selection-end-column="17" />
         </state>
       </provider>
     </entry>

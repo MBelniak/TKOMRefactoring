@@ -1,0 +1,19 @@
+class Class3 extends BaseClass
+{
+    public int a()
+    {
+        return 2;
+    }
+
+    public abstract int b();
+
+
+}
+
+class BaseClass
+{
+    protected int a()
+    {
+        return 1;
+    }
+}

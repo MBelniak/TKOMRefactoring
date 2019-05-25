@@ -1,0 +1,16 @@
+ public class Class2 extends Class3
+{
+
+int b()
+    {
+        return 2;
+    }
+public class F
+    {
+
+    }
+public void a()
+    {
+        return this.b;
+    }
+}

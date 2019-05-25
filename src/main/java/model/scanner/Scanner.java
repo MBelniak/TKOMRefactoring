@@ -242,4 +242,8 @@ public class Scanner {
         currentChar = source.nextChar();
         return lexemFactory.getLexem(Lexem.LexemType.ILLEGAL_CHAR, c);
     }
+
+    public static Map<String, Lexem.LexemType> getKeywords() {
+        return keywords;
+    }
 }

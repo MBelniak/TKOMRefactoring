@@ -3,6 +3,7 @@ package RefactorTestSuite.PullUpTests;
 import model.modelClass.Model;
 import model.refactor.Refactor;
 import org.apache.commons.io.FileUtils;
+import org.junit.After;
 import org.junit.Test;
 
 import java.io.File;
@@ -19,7 +20,7 @@ public class PullUpTests {
     private static Model model;
 
     @Test
-    public void shouldPullUpToClassInTheSameFile() throws IOException {
+    public void shouldPullUpToClassInTheSameFile() {
         model = new Model(TEST_FILES);
         List<Integer> statementsToMove = new ArrayList<>();
         statementsToMove.add(0);
@@ -31,13 +32,10 @@ public class PullUpTests {
         File validationFile = new File(VALIDATION_FILES + "shouldPullUpToClassInTheSameFile.txt");
         File validatedFile = new File(TEST_FILES + "package1\\Class1.txt");
         assertThat(validationFile).hasSameContentAs(validatedFile);
-
-        //cleanup
-        FileUtils.copyDirectory(new File(ORIGINAL_FILES), new File(TEST_FILES));
     }
 
     @Test
-    public void shouldPullUpToClassInOtherFileSamePackage() throws IOException {
+    public void shouldPullUpToClassInOtherFileSamePackage() {
         model= new Model(TEST_FILES);
         List<Integer> statementsToMove = new ArrayList<>();
         statementsToMove.add(0);
@@ -54,12 +52,9 @@ public class PullUpTests {
         File validationFile2 = new File(VALIDATION_FILES + "shouldPullUpToClassInOtherFileSamePackageDest.txt");
         File validatedFile2 = new File(TEST_FILES + "package1\\Class3.txt");
         assertThat(validationFile2).hasSameContentAs(validatedFile2);
-
-        //cleanup
-        FileUtils.copyDirectory(new File(ORIGINAL_FILES), new File(TEST_FILES));
     }
     @Test
-    public void shouldPullUpToClassInOtherPackage() throws IOException {
+    public void shouldPullUpToClassInOtherPackage() {
         model = new Model(TEST_FILES);
         List<Integer> statementsToMove = new ArrayList<>();
         statementsToMove.add(0);
@@ -75,12 +70,9 @@ public class PullUpTests {
         File validationFile2 = new File(VALIDATION_FILES + "shouldPullUpToClassInOtherPackageDest.txt");
         File validatedFile2 = new File(TEST_FILES + "package2\\Class5.txt");
         assertThat(validationFile2).hasSameContentAs(validatedFile2);
-
-        //cleanup
-        FileUtils.copyDirectory(new File(ORIGINAL_FILES), new File(TEST_FILES));
     }
     @Test
-    public void shouldPullUpToInterfaceInTheSameFile() throws IOException {
+    public void shouldPullUpToInterfaceInTheSameFile() {
         model = new Model(TEST_FILES);
         List<Integer> statementsToMove = new ArrayList<>();
         statementsToMove.add(0);
@@ -92,12 +84,9 @@ public class PullUpTests {
         File validationFile = new File(VALIDATION_FILES + "shouldPullUpToInterfaceInTheSameFile.txt");
         File validatedFile = new File(TEST_FILES + "interfacePackage1\\Interface1.txt");
         assertThat(validationFile).hasSameContentAs(validatedFile);
-
-        //cleanup
-        FileUtils.copyDirectory(new File(ORIGINAL_FILES), new File(TEST_FILES));
     }
     @Test
-    public void shouldPullUpToInterfaceInOtherFileSamePackage() throws IOException {
+    public void shouldPullUpToInterfaceInOtherFileSamePackage() {
         model= new Model(TEST_FILES);
         List<Integer> statementsToMove = new ArrayList<>();
         statementsToMove.add(0);
@@ -112,12 +101,9 @@ public class PullUpTests {
         File validationFile2 = new File(VALIDATION_FILES + "shouldPullUpToInterfaceInOtherFileSamePackageDest.txt");
         File validatedFile2 = new File(TEST_FILES + "interfacePackage1\\Interface3.txt");
         assertThat(validationFile2).hasSameContentAs(validatedFile2);
-
-        //cleanup
-        FileUtils.copyDirectory(new File(ORIGINAL_FILES), new File(TEST_FILES));
     }
     @Test
-    public void shouldPullUpToInterfaceInOtherPackage() throws IOException {
+    public void shouldPullUpToInterfaceInOtherPackage() {
         model= new Model(TEST_FILES);
         List<Integer> statementsToMove = new ArrayList<>();
         statementsToMove.add(1);
@@ -131,13 +117,10 @@ public class PullUpTests {
         File validationFile2 = new File(VALIDATION_FILES + "shouldPullUpToInterfaceInOtherPackageDest.txt");
         File validatedFile2 = new File(TEST_FILES + "interfacePackage2\\Interface5.txt");
         assertThat(validationFile2).hasSameContentAs(validatedFile2);
-
-        //cleanup
-        FileUtils.copyDirectory(new File(ORIGINAL_FILES), new File(TEST_FILES));
     }
 
     @Test
-    public void shouldPullUpToOuterClass() throws IOException {
+    public void shouldPullUpToOuterClass() {
         model = new Model(TEST_FILES);
         List<Integer> statementsToMove = new ArrayList<>();
         statementsToMove.add(0);
@@ -147,13 +130,10 @@ public class PullUpTests {
         File validationFile = new File(VALIDATION_FILES + "shouldPullUpToOuterClass.txt");
         File validatedFile = new File(TEST_FILES + "package2\\Class6.txt");
         assertThat(validationFile).hasSameContentAs(validatedFile);
-
-        //cleanup
-        FileUtils.copyDirectory(new File(ORIGINAL_FILES), new File(TEST_FILES));
     }
 
     @Test
-    public void shouldPullUpFromClassToInterface() throws IOException {
+    public void shouldPullUpFromClassToInterface() {
         model = new Model(TEST_FILES);
         List<Integer> statementsToMove = new ArrayList<>();
         statementsToMove.add(0);
@@ -163,8 +143,10 @@ public class PullUpTests {
         File validationFile = new File(VALIDATION_FILES + "shouldPullUpFromClassToInterface.txt");
         File validatedFile = new File(TEST_FILES + "package2\\Class9.txt");
         assertThat(validationFile).hasSameContentAs(validatedFile);
+    }
 
-        //cleanup
+    @After
+    public void cleanup() throws IOException {
         FileUtils.copyDirectory(new File(ORIGINAL_FILES), new File(TEST_FILES));
     }
 

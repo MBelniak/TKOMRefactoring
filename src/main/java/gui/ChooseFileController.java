@@ -5,13 +5,13 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
-import javafx.scene.control.Button;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import model.filesManagement.FileSource;
 import model.modelClass.Model;
 import model.refactor.Representation;
 import model.refactor.Statement;
+import model.scanner.Scanner;
 import org.controlsfx.control.CheckComboBox;
 
 import java.io.IOException;
@@ -168,6 +168,20 @@ public class ChooseFileController {
             }
             case Model.DELEGATE:
             {
+                if(!validate(newClassName))
+                {
+                    Alert alert = new Alert(Alert.AlertType.ERROR, "Incorrect new class name.", ButtonType.CLOSE);
+                    alert.setHeaderText("Input error.");
+                    alert.showAndWait();
+                    return;
+                }
+                if(!validate(newFieldName))
+                {
+                    Alert alert = new Alert(Alert.AlertType.ERROR, "Incorrect new field name.", ButtonType.CLOSE);
+                    alert.setHeaderText("Input error.");
+                    alert.showAndWait();
+                    return;
+                }
                 if(!warnings.isEmpty())
                 {
                     String warning = prepareWarning(warnings);
@@ -200,6 +214,14 @@ public class ChooseFileController {
         updateSourceFileTextArea();
         updateDestFileTextArea();
         updateStatements();
+    }
+
+    private boolean validate(String newName) {
+        if(newName == null)
+            return false;
+        if(!newName.matches("^[a-zA-Z][a-zA-Z0-9_]*$"))
+            return false;
+        return Scanner.getKeywords().get(newName) == null;
     }
 
     private void updateChosenStatements()

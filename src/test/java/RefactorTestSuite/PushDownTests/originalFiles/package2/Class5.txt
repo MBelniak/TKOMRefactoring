@@ -1,0 +1,12 @@
+public class Class5
+{
+   int a;
+    int b()
+    {
+        return 2;
+    }
+    public class C
+    {
+
+    }
+}

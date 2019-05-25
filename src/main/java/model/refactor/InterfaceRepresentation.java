@@ -168,7 +168,14 @@ public class InterfaceRepresentation implements Representation{
     @Override
     public Representation getSubByName(String destClass) {
         for (Representation subclassOrInterfaceRepresentation : subInterfacesOrClassesRepresentations) {
-            if(subclassOrInterfaceRepresentation.getName().equals(destClass))
+            StringBuilder nameOfSubInterface = new StringBuilder();
+            if(subclassOrInterfaceRepresentation instanceof ClassRepresentation) {
+                subclassOrInterfaceRepresentation.getOuterClassesOrInterfaces()
+                        .forEach(outer -> nameOfSubInterface.append(outer).append("."));
+            }
+            nameOfSubInterface.append(subclassOrInterfaceRepresentation.getName());
+
+            if(nameOfSubInterface.toString().equals(destClass))
                 return subclassOrInterfaceRepresentation;
         }
         return null;

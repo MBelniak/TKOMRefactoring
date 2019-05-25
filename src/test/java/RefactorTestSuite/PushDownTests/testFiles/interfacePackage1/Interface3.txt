@@ -1,0 +1,8 @@
+public interface Interface3
+{
+    int a = 2;
+    default int method()
+    {
+        return 3;
+    }
+}

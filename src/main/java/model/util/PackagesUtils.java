@@ -92,11 +92,8 @@ public class PackagesUtils {
             if ((potentialRep = findBaseInOuterClasses(representations, ref, base, outerClassesOrInterfaces))!=null)
                 return (T)potentialRep;
         }
-        else
-        {
-            return findOuterClassOrInterfaceWithName(representations, base, ref);
-        }
-        return null;
+
+        return findOuterClassOrInterfaceWithName(representations, base, ref);
     }
 
     public static  <T extends Representation> T checkVisibilityInTheSamePackage(Map<String,List<Representation>> representationsInFiles, T ref, String base, String filePath) {

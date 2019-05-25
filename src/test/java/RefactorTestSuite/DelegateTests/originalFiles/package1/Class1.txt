@@ -1,0 +1,9 @@
+class Class1 extends BaseClass
+{
+
+}
+
+class BaseClass
+{
+
+}

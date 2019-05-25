@@ -1,0 +1,14 @@
+class Class1 
+{ private NewClass newClass;
+ private class NewClass extends BaseClass{
+
+}
+
+
+
+}
+
+class BaseClass
+{
+
+}

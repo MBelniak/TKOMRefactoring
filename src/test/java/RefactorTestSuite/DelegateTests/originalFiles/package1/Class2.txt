@@ -1,0 +1,17 @@
+class Class2 extends BaseClass
+{
+
+}
+
+class BaseClass
+{
+    private int a()
+    {
+        return 2;
+    }
+    protected void b()
+    {
+        int b = 4;
+        return;
+    }
+}

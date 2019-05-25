@@ -1,0 +1,5 @@
+import package2.Class5;
+
+public class Class4 extends Class5
+{
+}

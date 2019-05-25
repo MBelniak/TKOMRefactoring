@@ -1,0 +1,27 @@
+class Class3 
+{ private NewClass newClass;
+protected int a(){
+		return this.newClass.a();
+	}
+ private class NewClass extends BaseClass{
+public int a()
+    {
+        return 2;
+    }
+}
+
+
+    
+
+    public abstract int b();
+
+
+}
+
+class BaseClass
+{
+    protected int a()
+    {
+        return 1;
+    }
+}

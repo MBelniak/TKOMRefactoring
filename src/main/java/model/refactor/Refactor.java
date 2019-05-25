@@ -400,9 +400,12 @@ public class Refactor {
             return;
         List<String> chosenClassPath = new ArrayList<>(Arrays.asList(sourceClass.split("\\.")));
         Representation sourceRepresentation = findClassOrInterfaceInFile(sourceFile,chosenClassPath );
+        if(sourceRepresentation.getBases().isEmpty())
+            return;
+
         Representation baseRepresentation = getBaseOrSubClassOrInterfaceFor(sourceClass, destClass, sourceFile, DELEGATE);
 
-        List<Statement> statementsBase = getStatementsForDelegationFromClass(baseRepresentation);
+        List<Statement> statementsBase = getStatementsForDelegationFromClass(baseRepresentation);   //get methods
         List<Statement> statementsSource = getStatementsForDelegationFromClass(sourceRepresentation);
         List<Statement> statementsToDelegate = new ArrayList<>();
 
@@ -412,6 +415,16 @@ public class Refactor {
                 statementsBase.stream().filter(stmntBase -> (stmntBase.getStatementSignature()+stmntBase.getReturnType())
                                         .equals(stmnt.getStatementSignature() + stmnt.getReturnType()))
                         .collect(Collectors.toList()).size()>0).collect(Collectors.toList());
+
+        List<Statement> overriddenAtBase = statementsBase.stream().filter(stmnt ->
+                statementsSource.stream().filter(stmntSource -> (stmntSource.getStatementSignature()+stmntSource.getReturnType())
+                        .equals(stmnt.getStatementSignature() + stmnt.getReturnType()))
+                        .collect(Collectors.toList()).size()>0).collect(Collectors.toList());
+
+        statementsToDelegate.addAll(overriddenAtBase.stream().filter(stmntBase ->  statementsToDelegate.stream()
+                .filter(stmntDeleg -> (stmntDeleg.getStatementSignature()+stmntDeleg.getReturnType())
+                .equals(stmntBase.getStatementSignature() + stmntBase.getReturnType()))
+                .collect(Collectors.toList()).size()==0).collect(Collectors.toList()));
 
         File source = new File(PROJECT_DIRECTORY + sourceFile);
         try {
@@ -540,6 +553,8 @@ public class Refactor {
 
     public List<Statement> getStatementsForDelegationFromClass(Representation destRepresentation)
     {
+        if(destRepresentation.getStatements().isEmpty())
+            return new ArrayList<>();
         return destRepresentation.getStatements().stream().filter(stmnt -> stmnt.getStatementType().equals(Statement.StatementType.AbstractMethodDeclaration)
                 || stmnt.getStatementType().equals(Statement.StatementType.MethodDefinition)
                 || stmnt.getStatementType().equals(Statement.StatementType.MethodDeclaration))
