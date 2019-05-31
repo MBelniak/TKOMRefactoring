@@ -17,6 +17,10 @@ class Base{
 
 public abstract class Class1 extends InnerClass
 {
+int method2()
+    {
+        return 2;
+    }
 abstract void l();
 private int b()
     {

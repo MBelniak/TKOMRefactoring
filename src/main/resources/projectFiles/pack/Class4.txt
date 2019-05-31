@@ -1,16 +1,20 @@
 import OtherInterface;
 
-public class Class4 extends InnerClass implements OtherInterface
-{
-    int method2()
-    {
-        return 2;
-    }
+public class Class4  implements OtherInterface
+{ private NewClass newClass;
+ int p(){
+		return this.newClass.p();
+	}
+ private class NewClass extends InnerClass{
+
+}
+
+
 
     protected abstract A abs();
 
     public int bb(int a, int b, B c, C f)
     {
-
+        return 2;
     }
 }

@@ -1,0 +1,17 @@
+class Class3
+{
+
+int b()
+    {
+        return 2;
+    }
+int a;
+public class F
+    {
+
+    }
+public void a()
+    {
+        return this.b;
+    }
+}

@@ -1,0 +1,13 @@
+public class Class5
+{
+
+public class C
+    {
+
+    }
+int b()
+    {
+        return 2;
+    }
+int a;
+}

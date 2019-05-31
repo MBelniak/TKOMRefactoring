@@ -91,11 +91,14 @@ public class Model {
     public List<String> checkForWarnings(String fileName, String className, List<Integer> statements, String destClassName,
                                          String refType, String newFieldName, String newClassName)
     {
-        List<String> warningList = new ArrayList<>(getDuplicationWarnings(fileName, className, statements, destClassName, refType));
-        if(refType.equals(PUSH_DOWN) || refType.equals(PULL_UP))
+        List<String> warningList;
+        if(refType.equals(PUSH_DOWN) || refType.equals(PULL_UP)) {
+            warningList = new ArrayList<>(getDuplicationWarnings(fileName, className, statements, destClassName, refType));
             warningList.addAll(getOtherWarnings(fileName, className, statements, destClassName, refType));
-        else
-            warningList.addAll(getOtherWarnings(fileName, className, newFieldName, newClassName));
+        }
+        else {
+            warningList = new ArrayList<>(getOtherWarnings(fileName, className, newFieldName, newClassName));
+        }
         if(!warningList.isEmpty())
             warningList.add("These errors may cause the program to shut down.");
         return warningList;
@@ -154,6 +157,9 @@ public class Model {
     {
         Representation representation = refactor.findClassOrInterfaceInFile(fileName, Arrays.asList(className.split("\\.")));
         List<String> warnings = new ArrayList<>();
+        if(newClassName.equals(representation.getName()))
+            warnings.add("New class cannot have the same name as its parent class.");
+
         List<Statement> conflictableStatementsInRepresentation = representation.getStatements().stream().filter(stmnt ->
                            stmnt.getStatementType().equals(Statement.StatementType.FieldDeclaration)
                         || stmnt.getStatementType().equals(Statement.StatementType.FieldDefinition)
@@ -180,9 +186,6 @@ public class Model {
     }
     private List<String> getDuplicationWarnings(String fileName, String className, List<Integer> statements, String destClassName, String refType) {
         List<String> warningList = new ArrayList<>();
-
-        if(refType.equals(DELEGATE))
-            return warningList;
 
         List<String> classPath = new ArrayList<>(Arrays.asList(className.split("\\.")));
         Representation sourceRepresentation = refactor.findClassOrInterfaceInFile(fileName, classPath);

@@ -1,11 +1,19 @@
 interface Interface1
 {
+
+    class b
+    {
+
+    }
+}
+
+interface Interface3 extends Interface1
+{
     private void b()
     {
 
     }
-
-    class b
+class b
     {
 
     }

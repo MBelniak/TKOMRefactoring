@@ -293,6 +293,8 @@ public class ChooseFileController {
     }
 
     private void updateStatements() {
+
+        statementsComboBox.getCheckModel().clearChecks();
         if(chosenRefactor == null) {
             statementsItems.clear();
             return;
